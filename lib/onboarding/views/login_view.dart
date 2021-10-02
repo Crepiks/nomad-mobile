@@ -55,7 +55,7 @@ class _LoginViewState extends State<LoginView> {
                         vertical: 22, horizontal: 30),
                     decoration: BoxDecoration(
                         color: Colors.white,
-                        border: Border.all(color: const Color(0xFFececec)),
+                        border: Border.all(color: borderColor),
                         borderRadius:
                             const BorderRadius.all(Radius.circular(16))),
                   ),
@@ -79,7 +79,7 @@ class _LoginViewState extends State<LoginView> {
                         vertical: 22, horizontal: 30),
                     decoration: BoxDecoration(
                         color: Colors.white,
-                        border: Border.all(color: const Color(0xFFececec)),
+                        border: Border.all(color: borderColor),
                         borderRadius:
                             const BorderRadius.all(Radius.circular(16))),
                   ),

@@ -2,7 +2,7 @@ import "package:flutter/cupertino.dart";
 import 'package:flutter/material.dart';
 import 'package:nomad/common/colors.dart';
 import 'package:nomad/layouts/components/bottom_navigation.dart';
-import 'package:nomad/home/home_view.dart';
+import 'package:nomad/home/views/home_view.dart';
 import 'package:nomad/lessons/lessons_view.dart';
 import 'package:nomad/profile/profile_view.dart';
 import 'package:nomad/stats/stats_view.dart';
@@ -32,10 +32,9 @@ class _MainLayoutState extends State<MainLayout> {
         child: Stack(
           alignment: Alignment.bottomCenter,
           children: [
-            Container(
+            SizedBox(
                 height: double.infinity,
                 width: double.infinity,
-                color: Colors.white,
                 child: screens[activeScreenIndex]),
             Container(
               padding: const EdgeInsets.only(right: 20, bottom: 36, left: 20),

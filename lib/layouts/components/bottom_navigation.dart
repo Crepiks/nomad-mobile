@@ -26,7 +26,7 @@ class BottomNavigation extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: const BorderRadius.all(Radius.circular(30)),
-          border: Border.all(color: const Color(0xFFececec)),
+          border: Border.all(color: borderColor),
         ),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
