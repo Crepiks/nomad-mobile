@@ -1,5 +1,6 @@
 import "package:flutter/cupertino.dart";
 import 'package:flutter/material.dart';
+import 'package:nomad/common/colors.dart';
 import 'package:nomad/layouts/components/bottom_navigation.dart';
 import 'package:nomad/home/home_view.dart';
 import 'package:nomad/lessons/lessons_view.dart';
@@ -25,6 +26,7 @@ class _MainLayoutState extends State<MainLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       body: SizedBox(
         height: double.infinity,
         child: Stack(
