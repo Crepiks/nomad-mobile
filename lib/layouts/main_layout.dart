@@ -1,6 +1,6 @@
 import "package:flutter/cupertino.dart";
 import 'package:flutter/material.dart';
-import 'package:nomad/components/common/bottom_navigation.dart';
+import 'package:nomad/layouts/components/bottom_navigation.dart';
 import 'package:nomad/home/home_view.dart';
 import 'package:nomad/lessons/lessons_view.dart';
 import 'package:nomad/profile/profile_view.dart';
@@ -39,6 +39,7 @@ class _MainLayoutState extends State<MainLayout> {
               padding: const EdgeInsets.only(right: 20, bottom: 36, left: 20),
               alignment: Alignment.bottomCenter,
               child: BottomNavigation(
+                activeIndex: activeScreenIndex,
                 onItemClick: setScreen,
               ),
             ),
