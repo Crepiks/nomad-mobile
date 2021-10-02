@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:nomad/layouts/main_layout.dart';
+import 'package:nomad/onboarding/views/welcome_view.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const App());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +15,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const MainLayout());
+        home: const WelcomeView());
   }
 }
