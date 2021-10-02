@@ -24,15 +24,10 @@ class BottomNavigation extends StatelessWidget {
     return Container(
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 18),
         decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: const BorderRadius.all(Radius.circular(30)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.1),
-                spreadRadius: 2,
-                blurRadius: 2,
-              )
-            ]),
+          color: Colors.white,
+          borderRadius: const BorderRadius.all(Radius.circular(30)),
+          border: Border.all(color: const Color(0xFFececec)),
+        ),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           IconButton(

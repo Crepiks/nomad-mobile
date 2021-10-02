@@ -2,6 +2,7 @@ import "package:flutter/cupertino.dart";
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nomad/common/colors.dart';
+import 'package:nomad/onboarding/views/login_view.dart';
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({Key? key}) : super(key: key);
@@ -41,28 +42,22 @@ class WelcomeView extends StatelessWidget {
               SizedBox(
                   width: double.infinity,
                   child: CupertinoButton(
-                      padding: const EdgeInsets.symmetric(vertical: 18),
+                      padding: const EdgeInsets.symmetric(vertical: 24),
                       color: Colors.white,
                       borderRadius: const BorderRadius.all(Radius.circular(16)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Text(
-                            "Начать учиться",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500),
-                          ),
-                          SizedBox(width: 10),
-                          FaIcon(
-                            FontAwesomeIcons.arrowRight,
+                      child: const Text(
+                        "Начать учиться",
+                        style: TextStyle(
                             color: Colors.black,
-                            size: 20,
-                          )
-                        ],
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500),
                       ),
-                      onPressed: () {}))
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (context) => const LoginView()));
+                      }))
             ],
           ),
         )));
