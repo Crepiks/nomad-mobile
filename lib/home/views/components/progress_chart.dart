@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:nomad/common/colors.dart';
+import 'package:nomad/stats/stats_view.dart';
 
 class ProgressChart extends StatefulWidget {
   const ProgressChart({Key? key}) : super(key: key);
@@ -33,15 +35,27 @@ class ProgressChartState extends State<ProgressChart> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.max,
                 children: <Widget>[
-                  const Text(
-                    'Активность',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w600),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Активность',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 24,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      CupertinoButton(
+                          padding: const EdgeInsets.all(0),
+                          child: const Text(
+                            "Подробнее",
+                            style: TextStyle(fontSize: 14, color: primaryColor),
+                          ),
+                          onPressed: () {})
+                    ],
                   ),
                   const SizedBox(
-                    height: 24,
+                    height: 30,
                   ),
                   Expanded(
                     child: Padding(
