@@ -4,7 +4,7 @@ import 'package:nomad/common/colors.dart';
 import 'package:nomad/layouts/components/bottom_navigation.dart';
 import 'package:nomad/home/views/home_view.dart';
 import 'package:nomad/lessons/lessons_view.dart';
-import 'package:nomad/profile/profile_view.dart';
+import 'package:nomad/profile/views/profile_view.dart';
 import 'package:nomad/stats/stats_view.dart';
 
 class MainLayout extends StatefulWidget {
