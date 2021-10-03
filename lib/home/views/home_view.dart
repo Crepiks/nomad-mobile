@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nomad/home/views/components/header.dart';
 import 'package:nomad/home/views/components/progress_chart.dart';
 
 class HomeView extends StatelessWidget {
@@ -7,9 +8,15 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 80, right: 20, left: 20),
-      child: Column(
-        children: const [ProgressChart()],
+      padding: const EdgeInsets.only(right: 20, left: 20),
+      child: ListView(
+        children: const [
+          Header(),
+          SizedBox(
+            height: 10,
+          ),
+          ProgressChart()
+        ],
       ),
     );
   }
