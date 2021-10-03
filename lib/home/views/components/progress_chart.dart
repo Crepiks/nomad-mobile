@@ -29,7 +29,8 @@ class ProgressChartState extends State<ProgressChart> {
         child: Stack(
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.only(
+                  top: 12, right: 20, bottom: 20, left: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.start,
