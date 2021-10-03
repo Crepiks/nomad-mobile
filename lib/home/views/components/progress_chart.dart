@@ -34,10 +34,10 @@ class ProgressChartState extends State<ProgressChart> {
                 mainAxisSize: MainAxisSize.max,
                 children: <Widget>[
                   const Text(
-                    'Прогресс',
+                    'Активность',
                     style: TextStyle(
                         color: Colors.black,
-                        fontSize: 26,
+                        fontSize: 24,
                         fontWeight: FontWeight.w600),
                   ),
                   const SizedBox(
