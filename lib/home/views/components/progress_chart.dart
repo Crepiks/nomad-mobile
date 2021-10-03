@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:nomad/common/colors.dart';
-import 'package:nomad/stats/stats_view.dart';
 
 class ProgressChart extends StatefulWidget {
   const ProgressChart({Key? key}) : super(key: key);
