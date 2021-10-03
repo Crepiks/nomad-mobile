@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:nomad/stats/views/components/tabs.dart';
+import 'package:nomad/stats/views/leaderboard_view.dart';
+import 'package:nomad/stats/views/personal_stats_view.dart';
 
 class StatsView extends StatefulWidget {
   const StatsView({Key? key}) : super(key: key);
@@ -11,6 +13,7 @@ class StatsView extends StatefulWidget {
 
 class _StatsViewState extends State<StatsView> {
   int activeIndex = 0;
+  final screens = const [PersonalStatsView(), LeaderBoardView()];
 
   onTabClick(index) {
     if (activeIndex == index) return;
@@ -36,7 +39,12 @@ class _StatsViewState extends State<StatsView> {
           child: Tabs(
             activeIndex: activeIndex,
             onTabClick: onTabClick,
-          ))
+          )),
+      const SizedBox(height: 20),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: screens[activeIndex],
+      )
     ]);
   }
 }
