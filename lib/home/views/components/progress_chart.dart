@@ -23,7 +23,7 @@ class ProgressChartState extends State<ProgressChart> {
       child: Container(
         decoration: BoxDecoration(
             color: Colors.white,
-            border: Border.all(color: borderColor),
+            border: Border.all(color: AppColors.borderColor),
             borderRadius: const BorderRadius.all(Radius.circular(20))),
         child: Stack(
           children: <Widget>[
@@ -49,7 +49,7 @@ class ProgressChartState extends State<ProgressChart> {
                           padding: const EdgeInsets.all(0),
                           child: const Text(
                             "Подробнее",
-                            style: TextStyle(fontSize: 14, color: primaryColor),
+                            style: TextStyle(fontSize: 14, color: AppColors.primaryColor),
                           ),
                           onPressed: () {})
                     ],
@@ -78,7 +78,7 @@ class ProgressChartState extends State<ProgressChart> {
   BarChartGroupData makeGroupData(
     int x,
     double y, {
-    Color barColor = primaryColor,
+    Color barColor = AppColors.primaryColor,
     double width = 24,
   }) {
     return BarChartGroupData(

@@ -13,7 +13,7 @@ class ProfileActions extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),
       decoration: BoxDecoration(
           color: Colors.white,
-          border: Border.all(color: borderColor),
+          border: Border.all(color: AppColors.borderColor),
           borderRadius: const BorderRadius.all(Radius.circular(20))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,7 +33,7 @@ class ProfileActions extends StatelessWidget {
             icon: FaIcon(
               FontAwesomeIcons.userEdit,
               size: 20,
-              color: primaryColor,
+              color: AppColors.primaryColor,
             ),
           ),
           ProfileActionLink(
@@ -41,7 +41,7 @@ class ProfileActions extends StatelessWidget {
             icon: FaIcon(
               FontAwesomeIcons.creditCard,
               size: 20,
-              color: primaryColor,
+              color: AppColors.primaryColor,
             ),
           ),
           ProfileActionLink(
@@ -49,7 +49,7 @@ class ProfileActions extends StatelessWidget {
             icon: FaIcon(
               FontAwesomeIcons.lock,
               size: 20,
-              color: primaryColor,
+              color: AppColors.primaryColor,
             ),
           ),
           SizedBox(
@@ -67,7 +67,7 @@ class ProfileActions extends StatelessWidget {
             icon: FaIcon(
               FontAwesomeIcons.bell,
               size: 20,
-              color: primaryColor,
+              color: AppColors.primaryColor,
             ),
           ),
           SizedBox(
@@ -85,7 +85,7 @@ class ProfileActions extends StatelessWidget {
             icon: FaIcon(
               FontAwesomeIcons.bug,
               size: 20,
-              color: primaryColor,
+              color: AppColors.primaryColor,
             ),
           ),
           ProfileActionLink(
@@ -93,7 +93,7 @@ class ProfileActions extends StatelessWidget {
             icon: FaIcon(
               FontAwesomeIcons.trashAlt,
               size: 20,
-              color: primaryColor,
+              color: AppColors.primaryColor,
             ),
           ),
           ProfileActionLink(
@@ -101,7 +101,7 @@ class ProfileActions extends StatelessWidget {
             icon: FaIcon(
               FontAwesomeIcons.signOutAlt,
               size: 20,
-              color: primaryColor,
+              color: AppColors.primaryColor,
             ),
           ),
         ],

@@ -1,8 +1,8 @@
 import "package:flutter/cupertino.dart";
 import 'package:flutter/material.dart';
-import 'package:nomad/common/colors.dart';
 import 'package:nomad/layouts/components/bottom_navigation.dart';
 import 'package:nomad/home/views/home_view.dart';
+import 'package:nomad/layouts/safe_area_layout.dart';
 import 'package:nomad/lessons/lessons_view.dart';
 import 'package:nomad/profile/views/profile_view.dart';
 import 'package:nomad/stats/views/stats_view.dart';
@@ -25,9 +25,8 @@ class _MainLayoutState extends State<MainLayout> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: backgroundColor,
-      body: SizedBox(
+    return SafeAreaLayout(
+      child: SizedBox(
         height: double.infinity,
         child: Stack(
           alignment: Alignment.bottomCenter,
@@ -37,7 +36,7 @@ class _MainLayoutState extends State<MainLayout> {
                 width: double.infinity,
                 child: screens[activeScreenIndex]),
             Container(
-              padding: const EdgeInsets.only(right: 20, bottom: 36, left: 20),
+              padding: const EdgeInsets.only(right: 20, bottom: 40, left: 20),
               alignment: Alignment.bottomCenter,
               child: BottomNavigation(
                 activeIndex: activeScreenIndex,

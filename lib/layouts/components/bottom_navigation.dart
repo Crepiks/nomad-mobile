@@ -26,7 +26,7 @@ class BottomNavigation extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: const BorderRadius.all(Radius.circular(30)),
-          border: Border.all(color: borderColor),
+          border: Border.all(color: AppColors.borderColor),
         ),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -37,7 +37,7 @@ class BottomNavigation extends StatelessWidget {
             },
             icon: FaIcon(FontAwesomeIcons.home,
                 size: iconSize,
-                color: activeIndex == 0 ? primaryColor : defaultIconColor),
+                color: activeIndex == 0 ? AppColors.primaryColor : defaultIconColor),
           ),
           IconButton(
             onPressed: () {
@@ -47,7 +47,7 @@ class BottomNavigation extends StatelessWidget {
             icon: FaIcon(
               FontAwesomeIcons.chartPie,
               size: iconSize,
-              color: activeIndex == 1 ? primaryColor : defaultIconColor,
+              color: activeIndex == 1 ? AppColors.primaryColor : defaultIconColor,
             ),
           ),
           IconButton(
@@ -58,7 +58,7 @@ class BottomNavigation extends StatelessWidget {
             icon: FaIcon(
               FontAwesomeIcons.book,
               size: iconSize,
-              color: activeIndex == 2 ? primaryColor : defaultIconColor,
+              color: activeIndex == 2 ? AppColors.primaryColor : defaultIconColor,
             ),
           ),
           IconButton(
@@ -69,7 +69,7 @@ class BottomNavigation extends StatelessWidget {
             icon: FaIcon(
               FontAwesomeIcons.solidUser,
               size: iconSize,
-              color: activeIndex == 3 ? primaryColor : defaultIconColor,
+              color: activeIndex == 3 ? AppColors.primaryColor : defaultIconColor,
             ),
           )
         ]));

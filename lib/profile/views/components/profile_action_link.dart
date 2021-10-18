@@ -12,7 +12,7 @@ class ProfileActionLink extends StatelessWidget {
       this.icon = const FaIcon(
         FontAwesomeIcons.userEdit,
         size: 20,
-        color: primaryColor,
+        color: AppColors.primaryColor,
       )})
       : super(key: key);
 

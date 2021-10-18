@@ -14,7 +14,7 @@ class RepeatCard extends StatelessWidget {
       width: 360,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       decoration: const BoxDecoration(
-          color: primaryColor,
+          color: AppColors.primaryColor,
           image: DecorationImage(
               scale: 3,
               alignment: Alignment(2, -1.5),

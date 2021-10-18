@@ -1,6 +1,5 @@
 import "package:flutter/cupertino.dart";
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nomad/common/colors.dart';
 import 'package:nomad/layouts/main_layout.dart';
 
@@ -20,7 +19,7 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: backgroundColor,
+        backgroundColor: AppColors.backgroundColor,
         body: SafeArea(
             child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -55,7 +54,7 @@ class _LoginViewState extends State<LoginView> {
                         vertical: 22, horizontal: 30),
                     decoration: BoxDecoration(
                         color: Colors.white,
-                        border: Border.all(color: borderColor),
+                        border: Border.all(color: AppColors.borderColor),
                         borderRadius:
                             const BorderRadius.all(Radius.circular(16))),
                   ),
@@ -79,7 +78,7 @@ class _LoginViewState extends State<LoginView> {
                         vertical: 22, horizontal: 30),
                     decoration: BoxDecoration(
                         color: Colors.white,
-                        border: Border.all(color: borderColor),
+                        border: Border.all(color: AppColors.borderColor),
                         borderRadius:
                             const BorderRadius.all(Radius.circular(16))),
                   ),
@@ -89,7 +88,7 @@ class _LoginViewState extends State<LoginView> {
                   width: double.infinity,
                   child: CupertinoButton(
                       padding: const EdgeInsets.symmetric(vertical: 24),
-                      color: primaryColor,
+                      color: AppColors.primaryColor,
                       borderRadius: const BorderRadius.all(Radius.circular(16)),
                       child: const Text(
                         "Войти",

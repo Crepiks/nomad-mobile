@@ -2,7 +2,7 @@ import "package:flutter/material.dart";
 import 'package:nomad/common/colors.dart';
 
 class Tabs extends StatelessWidget {
-  int activeIndex;
+  final int activeIndex;
   final dynamic onTabClick;
 
   Tabs({Key? key, required this.activeIndex, required this.onTabClick})
@@ -28,7 +28,7 @@ class Tabs extends StatelessWidget {
                     const EdgeInsets.symmetric(vertical: 18, horizontal: 20),
                 decoration: activeIndex == 0
                     ? const BoxDecoration(
-                        color: primaryColor,
+                        color: AppColors.primaryColor,
                         borderRadius: BorderRadius.all(Radius.circular(20)))
                     : null,
                 child: const Center(
@@ -51,7 +51,7 @@ class Tabs extends StatelessWidget {
                         vertical: 18, horizontal: 20),
                     decoration: activeIndex == 1
                         ? const BoxDecoration(
-                            color: primaryColor,
+                            color: AppColors.primaryColor,
                             borderRadius: BorderRadius.all(Radius.circular(20)))
                         : null,
                     child: const Center(
