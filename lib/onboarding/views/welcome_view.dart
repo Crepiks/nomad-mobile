@@ -57,7 +57,7 @@ class WelcomeView extends StatelessWidget {
                               Navigator.pushReplacement(
                                   context,
                                   CupertinoPageRoute(
-                                      builder: (context) => const LoginView()))
+                                      builder: (context) => LoginView()))
                             }),
                     SizedBox(
                       height: 12,
@@ -71,10 +71,10 @@ class WelcomeView extends StatelessWidget {
                             fontWeight: FontWeight.w500),
                       ),
                       onClick: () => {
-                        Navigator.pushReplacement(
+                        Navigator.push(
                             context,
                             CupertinoPageRoute(
-                                builder: (context) => const LoginView()))
+                                builder: (context) => LoginView()))
                       },
                     )
                   ],

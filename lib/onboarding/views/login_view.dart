@@ -1,110 +1,110 @@
-import "package:flutter/cupertino.dart";
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import "package:flutter/material.dart";
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/components/action_button.dart';
+import 'package:nomad/common/components/input.dart';
 import 'package:nomad/layouts/main_layout.dart';
+import 'package:nomad/layouts/safe_area_layout.dart';
 
 class LoginView extends StatefulWidget {
-  const LoginView({Key? key}) : super(key: key);
+  LoginView({Key? key}) : super(key: key);
 
   @override
   _LoginViewState createState() => _LoginViewState();
 }
 
 class _LoginViewState extends State<LoginView> {
-  final TextEditingController _phoneNumberTextFieldController =
-      TextEditingController();
-  final TextEditingController _passwordTextFieldController =
-      TextEditingController();
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: AppColors.backgroundColor,
-        body: SafeArea(
-            child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
+    return SafeAreaLayout(
+        backgroundColor: AppColors.whiteColor,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          child: Stack(
             children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 20),
-                child: Text(
-                  "Войти",
-                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.w600),
-                ),
-              ),
               Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    "Телефон",
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black.withOpacity(0.6)),
+                  SizedBox(height: 25),
+                  GestureDetector(
+                    onTap: () => {Navigator.pop(context)},
+                    child: Container(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          FaIcon(
+                            FontAwesomeIcons.arrowLeft,
+                            size: 16,
+                            color: AppColors.primaryColor,
+                          ),
+                          SizedBox(width: 10),
+                          Text(
+                            "Назад",
+                            style: TextStyle(
+                                color: AppColors.primaryColor, fontSize: 18),
+                          )
+                        ],
+                      ),
+                    ),
                   ),
-                  const SizedBox(
-                    height: 10,
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.08),
+                  SizedBox(
+                    width: 300,
+                    child: Text(
+                      "С возвращением! Войдите в аккаунт",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: AppColors.blackColor,
+                          fontSize: 28,
+                          fontWeight: FontWeight.w500,
+                          height: 1.3),
+                    ),
                   ),
-                  CupertinoTextField(
-                    controller: _phoneNumberTextFieldController,
-                    placeholder: "+7 000 000 00 00",
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 22, horizontal: 30),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(color: AppColors.borderColor),
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(16))),
+                  SizedBox(
+                    height: 40,
                   ),
-                  const SizedBox(
-                    height: 24,
+                  Input(
+                      title: "Номер телефона",
+                      hintText: "+7 (000) 000 00-00",
+                      phoneInput: true,
+                      updateValue: (text) {}),
+                  SizedBox(
+                    height: 20,
                   ),
-                  Text(
-                    "Пароль",
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black.withOpacity(0.6)),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  CupertinoTextField(
-                    controller: _passwordTextFieldController,
-                    placeholder: '∗∗∗∗∗∗∗∗∗',
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 22, horizontal: 30),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(color: AppColors.borderColor),
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(16))),
-                  ),
+                  Input(
+                      title: "Пароль",
+                      hintText: "Введите пароль",
+                      passwordInput: true,
+                      updateValue: (text) {})
                 ],
               ),
-              SizedBox(
-                  width: double.infinity,
-                  child: CupertinoButton(
-                      padding: const EdgeInsets.symmetric(vertical: 24),
-                      color: AppColors.primaryColor,
-                      borderRadius: const BorderRadius.all(Radius.circular(16)),
-                      child: const Text(
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: 30),
+                  child: ActionButton(
+                      child: Text(
                         "Войти",
                         style: TextStyle(
-                            color: Colors.white,
+                            color: AppColors.blackColor,
                             fontSize: 18,
                             fontWeight: FontWeight.w500),
                       ),
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                            context,
-                            CupertinoPageRoute(
-                                builder: (context) => const MainLayout()));
-                      }))
+                      onClick: () => {
+                            Navigator.pushReplacement(
+                                context,
+                                CupertinoPageRoute(
+                                    builder: (context) => MainLayout()))
+                          }),
+                ),
+              )
             ],
           ),
-        )));
+        ));
   }
 }
