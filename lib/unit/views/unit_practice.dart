@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:nomad/layouts/unit_practice_layout.dart';
 import 'package:nomad/unit/views/components/input_answer.dart';
+import 'package:nomad/unit/views/components/match_answer.dart';
 import 'package:nomad/unit/views/components/one_choice_answer.dart';
 import 'package:nomad/unit/views/components/practice_title.dart';
 
@@ -31,7 +32,7 @@ class _UnitPracticeState extends State<UnitPractice> {
         child: Column(
       children: [
         PracticeTitle(
-          index: 1,
+          index: widget.questionIndex,
           title: widget.questionTitle,
           subtitle: widget.questionSubtitle,
         ),
@@ -40,7 +41,11 @@ class _UnitPracticeState extends State<UnitPractice> {
             ? InputAnswer(
                 questions: widget.quesions,
               )
-            : OneChoiceAnswer(questions: widget.quesions)
+            : widget.questionType == "choice"
+                ? OneChoiceAnswer(questions: widget.quesions)
+                : widget.questionType == "match"
+                    ? MatchAnswer(questions: widget.quesions)
+                    : Container()
       ],
     ));
   }

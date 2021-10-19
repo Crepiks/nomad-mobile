@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nomad/data/models/input_question.model.dart';
+import 'package:nomad/data/models/match_question.model.dart';
 import 'package:nomad/home/views/components/header.dart';
 import 'package:nomad/home/views/components/progress_chart.dart';
 import 'package:nomad/home/views/components/repeat_card.dart';
@@ -56,7 +57,7 @@ class HomeView extends StatelessWidget {
                                 questionSubtitle:
                                     "жуан: мен бала+мын, сен аға+сың,.......... жіңішке:сіз әке+сіз, сен жігітсің,............",
                                 questionType: "input",
-                                quesions: [
+                                questions: [
                                   InputQuestion("Мен мұғалім", ""),
                                   InputQuestion("Сен оқушы", ""),
                                   InputQuestion("Сіз ана", ""),
@@ -73,10 +74,29 @@ class HomeView extends StatelessWidget {
                 ),
               ),
               SizedBox(width: 10),
-              RepeatCard(
-                title: "Местоимения",
-                description:
-                    "самостоятельная часть речи, которая указывает на предметы, признаки, количество, но не называет их",
+              GestureDetector(
+                onTap: () => Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                        builder: (context) => UnitLayout(
+                            questionTitle: "Сұрақтың дұрыс жауабын табыңыз",
+                            questionType: "match",
+                            questions: [
+                              MatchQuestion(NumberQuestion(1, "Камера қайда?"),
+                                  LetterAnswer("Б", "Менің әпкем")),
+                              MatchQuestion(NumberQuestion(2, "Айдана Тараздан ба?"),
+                                  LetterAnswer("A", "Иә, Таразда")),
+                              MatchQuestion(NumberQuestion(3, "Алматы қайда?"),
+                                  LetterAnswer("Ә", "Онтустыкте")),
+                              MatchQuestion(NumberQuestion(4, "Айбра Алматыда ма?"),
+                                  LetterAnswer("В", "Иә, Алматыда"))
+                            ],
+                            questionIndex: 3))),
+                child: RepeatCard(
+                  title: "Местоимения",
+                  description:
+                      "самостоятельная часть речи, которая указывает на предметы, признаки, количество, но не называет их",
+                ),
               ),
               SizedBox(width: 20),
             ],

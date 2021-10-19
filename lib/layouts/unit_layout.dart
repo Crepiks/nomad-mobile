@@ -11,7 +11,7 @@ class UnitLayout extends StatefulWidget {
       required this.questionTitle,
       this.questionSubtitle = "",
       required this.questionType,
-      required this.quesions,
+      required this.questions,
       required this.questionIndex})
       : super(key: key);
 
@@ -19,7 +19,7 @@ class UnitLayout extends StatefulWidget {
   final String questionTitle;
   final String questionSubtitle;
   final String questionType;
-  final List quesions;
+  final List questions;
 
   @override
   _UnitLayoutState createState() => _UnitLayoutState();
@@ -40,7 +40,7 @@ class _UnitLayoutState extends State<UnitLayout> {
         questionTitle: widget.questionTitle,
         questionSubtitle: widget.questionSubtitle,
         questionType: widget.questionType,
-        quesions: widget.quesions,
+        quesions: widget.questions,
       )
     ];
   }

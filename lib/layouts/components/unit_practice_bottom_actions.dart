@@ -62,7 +62,7 @@ class UnitBottomActions extends StatelessWidget {
                                     questionTitle:
                                         "Сөздерге –мын/-мін/-бын/-бін/-пын/-пін/-сың/-сің/-сыз/-сіз жалғауларын дұрыс жалғаңыз",
                                     questionType: "choice",
-                                    quesions: [
+                                    questions: [
                                       OneChoiceQuestion(
                                           "Мен мұғалім", false, 0),
                                       OneChoiceQuestion("Сен оқушы", false, 1),
