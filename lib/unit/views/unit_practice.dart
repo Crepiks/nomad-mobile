@@ -30,7 +30,6 @@ class _UnitPracticeState extends State<UnitPractice> {
     return UnitPracticeLayout(
         child: Column(
       children: [
-        SizedBox(height: 36),
         PracticeTitle(
           index: 1,
           title: widget.questionTitle,

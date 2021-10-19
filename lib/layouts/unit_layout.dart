@@ -3,6 +3,7 @@ import 'package:nomad/common/colors.dart';
 import 'package:nomad/layouts/components/unit_header.dart';
 import 'package:nomad/layouts/safe_area_layout.dart';
 import 'package:nomad/unit/views/unit_practice.dart';
+import 'package:nomad/unit/views/unit_theory.dart';
 
 class UnitLayout extends StatefulWidget {
   UnitLayout(
@@ -33,7 +34,7 @@ class _UnitLayoutState extends State<UnitLayout> {
     super.initState();
 
     screens = [
-      Container(),
+      UnitTheory(),
       UnitPractice(
         questionIndex: 1,
         questionTitle: widget.questionTitle,
@@ -58,6 +59,7 @@ class _UnitLayoutState extends State<UnitLayout> {
               UnitHeader(
                 changeActiveIndex: (newIndex) => changeActiveIndex(newIndex),
               ),
+              SizedBox(height: 30),
               Expanded(child: screens[this.activeIndex])
             ],
           ),
@@ -68,6 +70,8 @@ class _UnitLayoutState extends State<UnitLayout> {
   }
 
   void changeActiveIndex(newIndex) {
-    activeIndex = newIndex;
+    setState(() {
+      activeIndex = newIndex;
+    });
   }
 }
