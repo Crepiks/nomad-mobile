@@ -10,9 +10,11 @@ class UnitLayout extends StatefulWidget {
       required this.questionTitle,
       this.questionSubtitle = "",
       required this.questionType,
-      required this.quesions})
+      required this.quesions,
+      required this.questionIndex})
       : super(key: key);
 
+  final int questionIndex;
   final String questionTitle;
   final String questionSubtitle;
   final String questionType;
@@ -33,6 +35,7 @@ class _UnitLayoutState extends State<UnitLayout> {
     screens = [
       Container(),
       UnitPractice(
+        questionIndex: 1,
         questionTitle: widget.questionTitle,
         questionSubtitle: widget.questionSubtitle,
         questionType: widget.questionType,

@@ -50,6 +50,7 @@ class HomeView extends StatelessWidget {
                       context,
                       CupertinoPageRoute(
                           builder: (context) => UnitLayout(
+                                questionIndex: 1,
                                 questionTitle:
                                     "Бір жолға жуан, бір жолға жіңішке жалғауды жалғап бөліп жазыңыз.",
                                 questionSubtitle:

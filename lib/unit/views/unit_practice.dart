@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:nomad/layouts/unit_practice_layout.dart';
 import 'package:nomad/unit/views/components/input_answer.dart';
+import 'package:nomad/unit/views/components/one_choice_answer.dart';
 import 'package:nomad/unit/views/components/practice_title.dart';
 
 class UnitPractice extends StatefulWidget {
@@ -9,9 +10,11 @@ class UnitPractice extends StatefulWidget {
       required this.questionTitle,
       required this.questionSubtitle,
       required this.questionType,
-      required this.quesions})
+      required this.quesions,
+      required this.questionIndex})
       : super(key: key);
 
+  final int questionIndex;
   final String questionTitle;
   final String questionSubtitle;
   final String questionType;
@@ -38,7 +41,7 @@ class _UnitPracticeState extends State<UnitPractice> {
             ? InputAnswer(
                 questions: widget.quesions,
               )
-            : Container()
+            : OneChoiceAnswer(questions: widget.quesions)
       ],
     ));
   }
