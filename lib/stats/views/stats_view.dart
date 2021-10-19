@@ -37,8 +37,8 @@ class _StatsViewState extends State<StatsView> {
       Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Tabs(
-            activeIndex: activeIndex,
-            onTabClick: onTabClick,
+            changeActiveIndex: (newActiveIndex) =>
+                setState(() => {activeIndex = newActiveIndex}),
           )),
       const SizedBox(height: 20),
       Padding(
