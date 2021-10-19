@@ -5,13 +5,14 @@ import 'package:nomad/common/colors.dart';
 class Input extends StatefulWidget {
   Input(
       {Key? key,
-      required this.title,
+      this.title = "",
       required this.updateValue,
       this.startFieldValue = "",
       this.phoneInput = false,
       this.hintText = "",
       this.passwordInput = false,
-      this.numberKeyboard = false})
+      this.numberKeyboard = false,
+      this.hasTitle = false})
       : super(key: key);
 
   final String title;
@@ -21,6 +22,7 @@ class Input extends StatefulWidget {
   final bool phoneInput;
   final bool passwordInput;
   final bool numberKeyboard;
+  final bool hasTitle;
 
   @override
   _InputState createState() => _InputState();
@@ -51,14 +53,19 @@ class _InputState extends State<Input> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: EdgeInsets.only(left: 5),
-          child: Text(widget.title,
-              style: TextStyle(color: AppColors.blackColor80, fontSize: 16)),
-        ),
-        SizedBox(
-          height: 8,
-        ),
+        widget.hasTitle
+            ? Padding(
+                padding: EdgeInsets.only(left: 5),
+                child: Text(widget.title,
+                    style:
+                        TextStyle(color: AppColors.blackColor80, fontSize: 16)),
+              )
+            : Container(),
+        widget.hasTitle
+            ? SizedBox(
+                height: 8,
+              )
+            : Container(),
         SizedBox(
           width: double.infinity,
           height: 60,

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:nomad/data/models/input_question.model.dart';
 import 'package:nomad/home/views/components/header.dart';
 import 'package:nomad/home/views/components/progress_chart.dart';
 import 'package:nomad/home/views/components/repeat_card.dart';
@@ -45,8 +46,24 @@ class HomeView extends StatelessWidget {
               SizedBox(width: 20),
               GestureDetector(
                 onTap: () => {
-                  Navigator.push(context,
-                      CupertinoPageRoute(builder: (context) => UnitLayout()))
+                  Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                          builder: (context) => UnitLayout(
+                                questionTitle:
+                                    "Бір жолға жуан, бір жолға жіңішке жалғауды жалғап бөліп жазыңыз.",
+                                questionSubtitle:
+                                    "жуан: мен бала+мын, сен аға+сың,.......... жіңішке:сіз әке+сіз, сен жігітсің,............",
+                                questionType: "input",
+                                quesions: [
+                                  InputQuestion("Мен мұғалім", ""),
+                                  InputQuestion("Сен оқушы", ""),
+                                  InputQuestion("Сіз ана", ""),
+                                  InputQuestion("Сен спортшы", ""),
+                                  InputQuestion("Сіз әнші", ""),
+                                  InputQuestion("Мен қыз", ""),
+                                ],
+                              )))
                 },
                 child: RepeatCard(
                   title: "Местоимения",

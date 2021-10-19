@@ -14,8 +14,17 @@ class SafeAreaLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: child),
+      body: ScrollConfiguration(
+          behavior: MyBehavior(), child: SafeArea(child: child)),
       backgroundColor: backgroundColor,
     );
+  }
+}
+
+class MyBehavior extends ScrollBehavior {
+  @override
+  Widget buildViewportChrome(
+      BuildContext context, Widget child, AxisDirection axisDirection) {
+    return child;
   }
 }
