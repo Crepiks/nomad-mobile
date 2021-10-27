@@ -18,7 +18,7 @@ class RepeatCard extends StatelessWidget {
           image: DecorationImage(
               scale: 3,
               alignment: Alignment(2, -1.5),
-              image: AssetImage('assets/images/paper-look-up.png')),
+              image: AssetImage('assets/images/chapter-card-image.png')),
           borderRadius: BorderRadius.all(Radius.circular(20))),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
