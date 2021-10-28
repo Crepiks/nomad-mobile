@@ -2,7 +2,11 @@ import "package:flutter/material.dart";
 import 'package:nomad/common/colors.dart';
 
 class ChapterCard extends StatelessWidget {
-  const ChapterCard({Key? key}) : super(key: key);
+  const ChapterCard({Key? key, required this.title, required this.description})
+      : super(key: key);
+
+  final String title;
+  final String description;
 
   @override
   Widget build(BuildContext context) {
@@ -10,8 +14,7 @@ class ChapterCard extends StatelessWidget {
 
     return Container(
       padding: EdgeInsets.all(24),
-      width: size.width - 40,
-      margin: EdgeInsets.symmetric(horizontal: 5),
+      margin: EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
           color: AppColors.primaryColor,
           borderRadius: BorderRadius.circular(16),
@@ -29,7 +32,7 @@ class ChapterCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Местоимения",
+                  title,
                   style: TextStyle(
                       color: AppColors.whiteColor,
                       fontSize: 23,
@@ -37,7 +40,7 @@ class ChapterCard extends StatelessWidget {
                 ),
                 SizedBox(height: 8),
                 Text(
-                  "Самостоятельная часть речи, которая указывает на прдеметы, признаки т.д.",
+                  description,
                   style: TextStyle(
                       color: AppColors.whiteColor, fontSize: 15, height: 1.3),
                 )

@@ -3,7 +3,7 @@ import "package:flutter/material.dart";
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nomad/common/colors.dart';
 import 'package:nomad/common/components/action_button.dart';
-import 'package:nomad/data/models/one_choice_question.model.dart';
+import 'package:nomad/data/models/questions/one_choice_question.model.dart';
 import 'package:nomad/layouts/unit_layout.dart';
 
 class UnitBottomActions extends StatelessWidget {

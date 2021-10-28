@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:nomad/data/models/input_question.model.dart';
-import 'package:nomad/data/models/match_question.model.dart';
+import 'package:nomad/data/models/questions/input_question.model.dart';
+import 'package:nomad/data/models/questions/match_question.model.dart';
 import 'package:nomad/home/views/components/header.dart';
 import 'package:nomad/home/views/components/progress_chart.dart';
 import 'package:nomad/home/views/components/repeat_card.dart';

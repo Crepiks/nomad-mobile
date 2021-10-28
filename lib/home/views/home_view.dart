@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:nomad/common/colors.dart';
+import 'package:nomad/data/models/chapter.dart';
 import 'package:nomad/home/views/components/chapters/chapter_card.dart';
 import 'package:nomad/home/views/components/header.dart';
 
@@ -8,6 +9,8 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Chapter> chapters = Chapter.findAll();
+
     return Container(
       padding: EdgeInsets.only(top: 20),
       child: Column(
@@ -32,16 +35,18 @@ class HomeView extends StatelessWidget {
               ),
               SizedBox(height: 16),
               SizedBox(
-                height: 200,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    ChapterCard(),
-                    ChapterCard(),
-                    ChapterCard(),
-                  ],
-                ),
-              )
+                  height: 200,
+                  child: PageView.builder(
+                      scrollDirection: Axis.horizontal,
+                      physics: BouncingScrollPhysics(),
+                      itemCount: chapters.length,
+                      onPageChanged: (index) {},
+                      itemBuilder: (BuildContext context, int index) {
+                        return ChapterCard(
+                          title: chapters[index].title,
+                          description: chapters[index].description,
+                        );
+                      }))
             ],
           )
         ],
