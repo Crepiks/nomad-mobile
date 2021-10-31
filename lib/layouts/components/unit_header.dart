@@ -2,12 +2,14 @@ import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nomad/common/colors.dart';
-import 'package:nomad/stats/views/components/tabs.dart';
+import 'package:nomad/layouts/components/unit_tabs.dart';
 
 class UnitHeader extends StatelessWidget {
-  const UnitHeader({Key? key, required this.changeActiveIndex})
+  const UnitHeader(
+      {Key? key, required this.changeActiveIndex, required this.activeIndex})
       : super(key: key);
 
+  final int activeIndex;
   final Function changeActiveIndex;
 
   @override
@@ -21,6 +23,7 @@ class UnitHeader extends StatelessWidget {
         SizedBox(width: 10),
         Expanded(
             child: Tabs(
+          activeIndex: activeIndex,
           changeActiveIndex: (newActiveIndex) =>
               changeActiveIndex(newActiveIndex),
         )),

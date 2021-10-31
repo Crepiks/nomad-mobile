@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:nomad/stats/views/components/tabs.dart';
 import 'package:nomad/stats/views/leaderboard_view.dart';
 import 'package:nomad/stats/views/personal_stats_view.dart';
 
@@ -35,11 +34,8 @@ class _StatsViewState extends State<StatsView> {
         height: 10,
       ),
       Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Tabs(
-            changeActiveIndex: (newActiveIndex) =>
-                setState(() => {activeIndex = newActiveIndex}),
-          )),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+      ),
       const SizedBox(height: 20),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),

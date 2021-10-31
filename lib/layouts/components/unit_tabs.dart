@@ -2,8 +2,10 @@ import "package:flutter/material.dart";
 import 'package:nomad/common/colors.dart';
 
 class Tabs extends StatefulWidget {
-  Tabs({Key? key, required this.changeActiveIndex}) : super(key: key);
+  Tabs({Key? key, required this.changeActiveIndex, required this.activeIndex})
+      : super(key: key);
 
+  final int activeIndex;
   final Function changeActiveIndex;
 
   @override
@@ -11,8 +13,6 @@ class Tabs extends StatefulWidget {
 }
 
 class _TabsState extends State<Tabs> {
-  int activeIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,23 +25,15 @@ class _TabsState extends State<Tabs> {
         children: [
           Tab(
               onClick: () {
-                setState(() {
-                  activeIndex = 0;
-                });
-
                 widget.changeActiveIndex(0);
               },
-              active: activeIndex == 0,
+              active: widget.activeIndex == 0,
               text: "Теория"),
           Tab(
               onClick: () {
-                setState(() {
-                  activeIndex = 1;
-                });
-
                 widget.changeActiveIndex(1);
               },
-              active: activeIndex == 1,
+              active: widget.activeIndex == 1,
               text: "Задания")
         ],
       ),

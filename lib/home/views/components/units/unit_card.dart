@@ -4,9 +4,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nomad/common/colors.dart';
 
 class UnitCard extends StatelessWidget {
-  const UnitCard({Key? key, required this.title}) : super(key: key);
+  const UnitCard({Key? key, required this.title, required this.onClick})
+      : super(key: key);
 
   final String title;
+  final Function onClick;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +43,9 @@ class UnitCard extends StatelessWidget {
           ],
         ),
       ),
-      onPressed: () {},
+      onPressed: () {
+        onClick();
+      },
     );
   }
 }
