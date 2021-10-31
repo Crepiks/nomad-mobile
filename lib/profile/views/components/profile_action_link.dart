@@ -4,16 +4,20 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nomad/common/colors.dart';
 
 class ProfileActionLink extends StatelessWidget {
+  const ProfileActionLink(
+      {Key? key, required this.text, required this.icon, required this.onClick})
+      : super(key: key);
+
   final String text;
   final Widget icon;
-
-  const ProfileActionLink({Key? key, required this.text, required this.icon})
-      : super(key: key);
+  final Function onClick;
 
   @override
   Widget build(BuildContext context) {
     return CupertinoButton(
-      onPressed: () {},
+      onPressed: () {
+        onClick();
+      },
       padding: const EdgeInsets.all(0),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16),
