@@ -36,7 +36,6 @@ class _MainLayoutState extends State<MainLayout> {
                 width: double.infinity,
                 child: screens[activeScreenIndex]),
             Container(
-              padding: const EdgeInsets.only(right: 20, bottom: 40, left: 20),
               alignment: Alignment.bottomCenter,
               child: BottomNavigation(
                 activeIndex: activeScreenIndex,

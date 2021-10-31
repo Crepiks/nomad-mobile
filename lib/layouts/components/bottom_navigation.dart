@@ -22,11 +22,10 @@ class BottomNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 18),
+        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: const BorderRadius.all(Radius.circular(30)),
-          border: Border.all(color: AppColors.borderColor),
+          border: Border(top: BorderSide(color: AppColors.borderColor, width: 2),),
         ),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -37,7 +36,9 @@ class BottomNavigation extends StatelessWidget {
             },
             icon: FaIcon(FontAwesomeIcons.home,
                 size: iconSize,
-                color: activeIndex == 0 ? AppColors.primaryColor : defaultIconColor),
+                color: activeIndex == 0
+                    ? AppColors.primaryColor
+                    : defaultIconColor),
           ),
           IconButton(
             onPressed: () {
@@ -47,7 +48,8 @@ class BottomNavigation extends StatelessWidget {
             icon: FaIcon(
               FontAwesomeIcons.chartPie,
               size: iconSize,
-              color: activeIndex == 1 ? AppColors.primaryColor : defaultIconColor,
+              color:
+                  activeIndex == 1 ? AppColors.primaryColor : defaultIconColor,
             ),
           ),
           IconButton(
@@ -58,7 +60,8 @@ class BottomNavigation extends StatelessWidget {
             icon: FaIcon(
               FontAwesomeIcons.book,
               size: iconSize,
-              color: activeIndex == 2 ? AppColors.primaryColor : defaultIconColor,
+              color:
+                  activeIndex == 2 ? AppColors.primaryColor : defaultIconColor,
             ),
           ),
           IconButton(
@@ -69,7 +72,8 @@ class BottomNavigation extends StatelessWidget {
             icon: FaIcon(
               FontAwesomeIcons.solidUser,
               size: iconSize,
-              color: activeIndex == 3 ? AppColors.primaryColor : defaultIconColor,
+              color:
+                  activeIndex == 3 ? AppColors.primaryColor : defaultIconColor,
             ),
           )
         ]));
