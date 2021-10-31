@@ -14,98 +14,64 @@ class ProfileActions extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white,
           border: Border.all(color: AppColors.borderColor),
-          borderRadius: const BorderRadius.all(Radius.circular(20))),
+          borderRadius: const BorderRadius.all(Radius.circular(22))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: const [
-          SizedBox(
-            height: 6,
-          ),
-          Text(
-            "Действия",
-            style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
-          ),
-          SizedBox(
-            height: 14,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 6, 0, 14),
+            child: ActionsTitle(text: "Действия"),
           ),
           ProfileActionLink(
-            text: "Редактировать",
-            icon: FaIcon(
-              FontAwesomeIcons.userEdit,
-              size: 20,
-              color: AppColors.primaryColor,
-            ),
-          ),
+              text: "Редактировать",
+              icon: FaIconTemplate(faIcon: FontAwesomeIcons.userEdit)),
           ProfileActionLink(
-            text: "Купить премиум",
-            icon: FaIcon(
-              FontAwesomeIcons.creditCard,
-              size: 20,
-              color: AppColors.primaryColor,
-            ),
-          ),
-          ProfileActionLink(
-            text: "Сменить пароль",
-            icon: FaIcon(
-              FontAwesomeIcons.lock,
-              size: 20,
-              color: AppColors.primaryColor,
-            ),
-          ),
+              text: "Сменить пароль",
+              icon: FaIconTemplate(faIcon: FontAwesomeIcons.lock)),
           SizedBox(
             height: 20,
           ),
-          Text(
-            "Уведомления",
-            style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
-          ),
-          SizedBox(
-            height: 14,
+          Padding(
+            padding: const EdgeInsets.only(bottom: 14),
+            child: ActionsTitle(text: "Прочие"),
           ),
           ProfileActionLink(
-            text: "Уведомления",
-            icon: FaIcon(
-              FontAwesomeIcons.bell,
-              size: 20,
-              color: AppColors.primaryColor,
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Text(
-            "Прочие",
-            style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
-          ),
-          SizedBox(
-            height: 14,
-          ),
+              text: "Удалить аккаунт",
+              icon: FaIconTemplate(faIcon: FontAwesomeIcons.trashAlt)),
           ProfileActionLink(
-            text: "Пожаловаться",
-            icon: FaIcon(
-              FontAwesomeIcons.bug,
-              size: 20,
-              color: AppColors.primaryColor,
-            ),
-          ),
-          ProfileActionLink(
-            text: "Удалить аккаунт",
-            icon: FaIcon(
-              FontAwesomeIcons.trashAlt,
-              size: 20,
-              color: AppColors.primaryColor,
-            ),
-          ),
-          ProfileActionLink(
-            text: "Выйти",
-            icon: FaIcon(
-              FontAwesomeIcons.signOutAlt,
-              size: 20,
-              color: AppColors.primaryColor,
-            ),
-          ),
+              text: "Выйти",
+              icon: FaIconTemplate(faIcon: FontAwesomeIcons.signOutAlt)),
         ],
       ),
+    );
+  }
+}
+
+class ActionsTitle extends StatelessWidget {
+  const ActionsTitle({Key? key, required this.text}) : super(key: key);
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+    );
+  }
+}
+
+class FaIconTemplate extends StatelessWidget {
+  const FaIconTemplate({Key? key, required this.faIcon}) : super(key: key);
+
+  final IconData faIcon;
+
+  @override
+  Widget build(BuildContext context) {
+    return FaIcon(
+      faIcon,
+      size: 20,
+      color: AppColors.primaryColor,
     );
   }
 }

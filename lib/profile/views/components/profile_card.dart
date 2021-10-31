@@ -8,35 +8,37 @@ class ProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 26),
       decoration: BoxDecoration(
           color: Colors.white,
           border: Border.all(color: AppColors.borderColor),
-          borderRadius: const BorderRadius.all(Radius.circular(20))),
+          borderRadius: const BorderRadius.all(Radius.circular(22))),
       child: Row(
         children: [
           Container(
-              width: 80,
-              height: 80,
+              width: 60,
+              height: 60,
               decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
                       image: AssetImage('assets/images/avatar.png')))),
-          const SizedBox(width: 14),
+          const SizedBox(width: 16),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
                 "Саяжан Онласын",
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.blackColor),
               ),
               const SizedBox(
-                height: 2,
+                height: 3,
               ),
               Text(
                 "Стандартный план",
-                style: TextStyle(
-                    fontSize: 14, color: Colors.black.withOpacity(0.7)),
+                style: TextStyle(fontSize: 16, color: AppColors.blackColor80),
               )
             ],
           )
