@@ -12,7 +12,8 @@ class Input extends StatefulWidget {
       this.hintText = "",
       this.passwordInput = false,
       this.numberKeyboard = false,
-      this.hasTitle = false})
+      this.hasTitle = false,
+      this.practiceInput = false})
       : super(key: key);
 
   final String title;
@@ -23,6 +24,7 @@ class Input extends StatefulWidget {
   final bool passwordInput;
   final bool numberKeyboard;
   final bool hasTitle;
+  final bool practiceInput;
 
   @override
   _InputState createState() => _InputState();
@@ -68,7 +70,7 @@ class _InputState extends State<Input> {
             : Container(),
         SizedBox(
           width: double.infinity,
-          height: 60,
+          height: !widget.practiceInput ? 60 : 40,
           child: TextField(
             onChanged: (text) => widget.updateValue(text),
             controller: _controller,
@@ -81,10 +83,11 @@ class _InputState extends State<Input> {
                 fillColor: AppColors.backgroundColor,
                 hintText: widget.hintText,
                 contentPadding:
-                    EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: AppColors.borderColor),
-                    borderRadius: BorderRadius.circular(20)),
+                    borderRadius:
+                        BorderRadius.circular(!widget.practiceInput ? 20 : 14)),
                 focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: AppColors.blackColor60),
                     borderRadius: BorderRadius.circular(20))),

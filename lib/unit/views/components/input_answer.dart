@@ -11,30 +11,31 @@ class InputAnswer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 26),
+      height: double.infinity,
+      padding: EdgeInsets.symmetric(horizontal: 26),
       decoration: BoxDecoration(
           color: AppColors.whiteColor, borderRadius: BorderRadius.circular(20)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Впишите ответы:",
-              style: TextStyle(
-                  color: AppColors.greyColor,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500)),
-          SizedBox(height: 20),
-          SizedBox(
-            height: 300,
-            child: ListView(
-                children: questions
-                    .map((question) => Column(
-                          children: [
-                            ShortInputAnswer(text: question.text),
-                            SizedBox(height: 20)
-                          ],
-                        ))
-                    .toList()),
-          )
+          Expanded(
+            child: ListView(physics: BouncingScrollPhysics(), children: [
+              SizedBox(height: 20),
+              Text("Впишите ответы:",
+                  style: TextStyle(
+                      color: AppColors.greyColor,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500)),
+              SizedBox(height: 20),
+              ...questions
+                  .map((question) => Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: ShortInputAnswer(text: question.text),
+                      ))
+                  .toList(),
+              SizedBox(height: 20),
+            ]),
+          ),
         ],
       ),
     );
@@ -50,8 +51,8 @@ class ShortInputAnswer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 60,
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(text,
               style: TextStyle(
@@ -59,7 +60,8 @@ class ShortInputAnswer extends StatelessWidget {
           SizedBox(width: 10),
           SizedBox(
             width: 120,
-            child: Input(hasTitle: false, updateValue: () => {}),
+            child: Input(
+                hasTitle: false, practiceInput: true, updateValue: () => {}),
           )
         ],
       ),

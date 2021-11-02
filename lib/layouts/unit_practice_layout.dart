@@ -9,19 +9,17 @@ class UnitPracticeLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: SizedBox(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            child,
-            Padding(
-              padding: EdgeInsets.only(top: 60),
-              child: UnitBottomActions(),
-            )
-          ],
-        ),
+    return SizedBox(
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(child: child),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 30, 0, 20),
+            child: UnitBottomActions(),
+          ),
+        ],
       ),
     );
   }

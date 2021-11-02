@@ -40,23 +40,26 @@ class UnitPractice extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: double.infinity,
       child: Column(
         children: [
+          SizedBox(
+            height: 100,
+          ),
           PracticeTitle(
               index: index + 1,
               title: practice.title,
               subtitle: practice.description ?? ""),
           SizedBox(height: 20),
-          practice.questions[0] is InputQuestion
-              ? InputAnswer(questions: practice.questions)
-              : practice.questions[0] is OneChoiceQuestion
-                  ? OneChoiceAnswer(questions: practice.questions)
-                  : practice.questions[0] is MatchQuestion
-                      ? MatchAnswer(questions: practice.questions)
-                      : practice.questions[0] is TrueFalseQuestion
-                          ? TrueFalseAnswer(questions: practice.questions)
-                          : Container()
+          Expanded(
+              child: practice.questions[0] is InputQuestion
+                  ? InputAnswer(questions: practice.questions)
+                  : practice.questions[0] is OneChoiceQuestion
+                      ? OneChoiceAnswer(questions: practice.questions)
+                      : practice.questions[0] is MatchQuestion
+                          ? MatchAnswer(questions: practice.questions)
+                          : practice.questions[0] is TrueFalseQuestion
+                              ? TrueFalseAnswer(questions: practice.questions)
+                              : Container())
         ],
       ),
     );
