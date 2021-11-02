@@ -14,25 +14,28 @@ class UnitHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        HeaderButton(
-          icon: FontAwesomeIcons.arrowLeft,
-          onClick: () => {Navigator.pop(context)},
-        ),
-        SizedBox(width: 10),
-        Expanded(
-            child: Tabs(
-          activeIndex: activeIndex,
-          changeActiveIndex: (newActiveIndex) =>
-              changeActiveIndex(newActiveIndex),
-        )),
-        SizedBox(width: 10),
-        HeaderButton(
-          icon: FontAwesomeIcons.syncAlt,
-          onClick: () => {},
-        ),
-      ],
+    return SizedBox(
+      height: 60,
+      child: Row(
+        children: [
+          HeaderButton(
+            icon: FontAwesomeIcons.arrowLeft,
+            onClick: () => {Navigator.pop(context)},
+          ),
+          SizedBox(width: 10),
+          Expanded(
+              child: Tabs(
+            activeIndex: activeIndex,
+            changeActiveIndex: (newActiveIndex) =>
+                changeActiveIndex(newActiveIndex),
+          )),
+          SizedBox(width: 10),
+          HeaderButton(
+            icon: FontAwesomeIcons.syncAlt,
+            onClick: () => {},
+          ),
+        ],
+      ),
     );
   }
 }

@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:nomad/common/colors.dart';
-import 'package:nomad/data/models/chapter.dart';
+import 'package:nomad/data/models/chapter/chapter.dart';
 
 import 'chapter_card.dart';
 

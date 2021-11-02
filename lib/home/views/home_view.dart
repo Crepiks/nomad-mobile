@@ -1,8 +1,10 @@
 import "package:flutter/material.dart";
-import 'package:nomad/data/models/chapter.dart';
-import 'package:nomad/home/views/components/chapters/chapters_list.dart';
+import 'package:nomad/data/mock/mock_chapters.dart';
+import 'package:nomad/data/models/chapter/chapter.dart';
 import 'package:nomad/home/views/components/header.dart';
-import 'package:nomad/home/views/components/units/units_list.dart';
+
+import 'components/chapters/chapters_list.dart';
+import 'components/units/units_list.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -16,7 +18,7 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    List<Chapter> chapters = Chapter.findAll();
+    List<Chapter> chapters = MockChapters.findAll();
 
     return Container(
       height: double.infinity,

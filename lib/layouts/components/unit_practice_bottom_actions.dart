@@ -3,8 +3,6 @@ import "package:flutter/material.dart";
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nomad/common/colors.dart';
 import 'package:nomad/common/components/action_button.dart';
-import 'package:nomad/data/models/questions/one_choice_question.model.dart';
-import 'package:nomad/layouts/unit_layout.dart';
 
 class UnitBottomActions extends StatelessWidget {
   const UnitBottomActions({Key? key}) : super(key: key);
@@ -54,24 +52,15 @@ class UnitBottomActions extends StatelessWidget {
                 ],
               ),
               onClick: () => {
-                    Navigator.pushReplacement(
-                        context,
-                        CupertinoPageRoute(
-                            builder: (context) => UnitLayout(
-                                    questionIndex: 2,
-                                    questionTitle:
-                                        "Сөздерге –мын/-мін/-бын/-бін/-пын/-пін/-сың/-сің/-сыз/-сіз жалғауларын дұрыс жалғаңыз",
-                                    questionType: "choice",
-                                    questions: [
-                                      OneChoiceQuestion(
-                                          "Мен мұғалім", false, 0),
-                                      OneChoiceQuestion("Сен оқушы", false, 1),
-                                      OneChoiceQuestion("Сіз ана", true, 2),
-                                      OneChoiceQuestion(
-                                          "Сен спортшы", false, 3),
-                                      OneChoiceQuestion("Сіз әнші", false, 4),
-                                      OneChoiceQuestion("Мен қыз", false, 5)
-                                    ])))
+                    // Navigator.pushReplacement(
+                    //     context,
+                    //     CupertinoPageRoute(
+                    //         builder: (context) => UnitLayout(
+                    //             questionIndex: 2,
+                    //             questionTitle:
+                    //                 "Сөздерге –мын/-мін/-бын/-бін/-пын/-пін/-сың/-сің/-сыз/-сіз жалғауларын дұрыс жалғаңыз",
+                    //             questionType: "choice",
+                    //             questions: [])))
                   }),
         )
       ],

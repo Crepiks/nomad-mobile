@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   dartz:
+  dotted_border: ^2.0.0+1
 
   mask_text_input_formatter: ^2.0.0
   cupertino_icons: ^1.0.2
@@ -26,3 +27,4 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/practice-images/

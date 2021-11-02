@@ -41,8 +41,12 @@ class ChapterCard extends StatelessWidget {
                 SizedBox(height: 8),
                 Text(
                   description,
+                  maxLines: 3,
                   style: TextStyle(
-                      color: AppColors.whiteColor, fontSize: 15, height: 1.3),
+                      overflow: TextOverflow.ellipsis,
+                      color: AppColors.whiteColor,
+                      fontSize: 15,
+                      height: 1.3),
                 )
               ],
             ),
