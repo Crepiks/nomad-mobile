@@ -4,50 +4,93 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nomad/common/colors.dart';
 import 'package:nomad/common/components/action_button.dart';
 import 'package:nomad/data/models/unit/unit_theory.dart';
+import 'package:nomad/unit/views/components/theory_title.dart';
 
-class UnitTheory extends StatelessWidget {
+class UnitTheory extends StatefulWidget {
   const UnitTheory(
-      {Key? key, required this.theory, required this.onClickToPractice})
+      {Key? key,
+      required this.theory,
+      required this.onClickToPractice,
+      required this.index})
       : super(key: key);
 
   final UnitTheoryModal theory;
+  final int index;
   final Function onClickToPractice;
+
+  @override
+  _UnitTheoryState createState() => _UnitTheoryState();
+}
+
+class _UnitTheoryState extends State<UnitTheory> {
+  ScrollController _controller = ScrollController();
+  bool closeTheoryTitle = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.addListener(() {
+      setState(() {
+        closeTheoryTitle = _controller.offset > 30;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: ListView(
+      child: Column(
         children: [
-          SizedBox(height: 100),
-          ...theory.items.map((item) => TheoryItemParser(item: item)).toList(),
-          SizedBox(height: 30),
-          ActionButton(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    "К практике",
-                    style: TextStyle(
-                        color: AppColors.blackColor,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  FaIcon(
-                    FontAwesomeIcons.arrowRight,
-                    size: 16,
-                    color: AppColors.blackColor,
-                  )
-                ],
-              ),
-              onClick: () {
-                onClickToPractice();
-              }),
-          SizedBox(height: 30),
+          AnimatedContainer(
+              duration: const Duration(milliseconds: 400),
+              alignment: Alignment.topCenter,
+              height: closeTheoryTitle ? 0 : 100),
+          AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              alignment: Alignment.topCenter,
+              child: TheoryTitle(
+                  index: widget.index + 1, title: widget.theory.title),
+              height: closeTheoryTitle ? 0 : 60),
+          Expanded(
+            child: ListView(
+              controller: _controller,
+              physics: BouncingScrollPhysics(),
+              children: [
+                SizedBox(height: 60),
+                ...widget.theory.items
+                    .map((item) => TheoryItemParser(item: item))
+                    .toList(),
+                SizedBox(height: 30),
+                ActionButton(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "К практике",
+                          style: TextStyle(
+                              color: AppColors.blackColor,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        FaIcon(
+                          FontAwesomeIcons.arrowRight,
+                          size: 16,
+                          color: AppColors.blackColor,
+                        )
+                      ],
+                    ),
+                    onClick: () {
+                      widget.onClickToPractice();
+                    }),
+                SizedBox(height: 30),
+              ],
+            ),
+          ),
         ],
       ),
     );

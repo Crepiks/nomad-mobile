@@ -7,9 +7,11 @@ import 'package:nomad/unit/views/unit_practices.dart';
 import 'package:nomad/unit/views/unit_theory.dart';
 
 class UnitLayout extends StatefulWidget {
-  UnitLayout({Key? key, required this.unit}) : super(key: key);
+  UnitLayout({Key? key, required this.unit, required this.index})
+      : super(key: key);
 
   final Unit unit;
+  final int index;
 
   @override
   _UnitLayoutState createState() => _UnitLayoutState();
@@ -26,9 +28,8 @@ class _UnitLayoutState extends State<UnitLayout> {
     screens = [
       UnitTheory(
         theory: widget.unit.theory,
-        onClickToPractice: () {
-          
-        },
+        index: widget.index,
+        onClickToPractice: () {},
       ),
       UnitPractices(
         practices: widget.unit.practices,

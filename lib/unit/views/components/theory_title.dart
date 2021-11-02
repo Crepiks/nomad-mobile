@@ -12,17 +12,22 @@ class TheoryTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 20),
+      height: 60,
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      alignment: Alignment.center,
       decoration: BoxDecoration(
           color: AppColors.whiteColor, borderRadius: BorderRadius.circular(20)),
-      child: Text(
-        "Урок $index. $title",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-            height: 1.3,
-            color: AppColors.blackColor,
-            fontSize: 24,
-            fontWeight: FontWeight.w500),
+      child: FittedBox(
+        child: Text(
+          "Урок $index. $title",
+          textAlign: TextAlign.center,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+              height: 1.3,
+              color: AppColors.blackColor,
+              fontSize: 16,
+              fontWeight: FontWeight.w500),
+        ),
       ),
     );
   }

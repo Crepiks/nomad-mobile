@@ -37,6 +37,7 @@ class UnitsList extends StatelessWidget {
                           CupertinoPageRoute(
                               builder: (context) => UnitLayout(
                                     unit: units[index],
+                                    index: index,
                                   ))));
                 },
                 separatorBuilder: (BuildContext context, int index) {
