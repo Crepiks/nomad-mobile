@@ -6,11 +6,15 @@ import 'package:nomad/layouts/components/unit_tabs.dart';
 
 class UnitHeader extends StatelessWidget {
   const UnitHeader(
-      {Key? key, required this.changeActiveIndex, required this.activeIndex})
+      {Key? key,
+      required this.changeActiveIndex,
+      required this.activeIndex,
+      required this.onClickExtraFunctions})
       : super(key: key);
 
   final int activeIndex;
   final Function changeActiveIndex;
+  final Function onClickExtraFunctions;
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +34,19 @@ class UnitHeader extends StatelessWidget {
                 changeActiveIndex(newActiveIndex),
           )),
           SizedBox(width: 10),
-          HeaderButton(
-            icon: FontAwesomeIcons.syncAlt,
-            onClick: () => {},
+          SizedBox(
+            height: 60,
+            width: 60,
+            child: CupertinoButton(
+                color: AppColors.whiteColor,
+                padding: EdgeInsets.all(0),
+                borderRadius: BorderRadius.circular(20),
+                child: Text("···",
+                    style: TextStyle(
+                        color: AppColors.blackColor80,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold)),
+                onPressed: () => {onClickExtraFunctions()}),
           ),
         ],
       ),

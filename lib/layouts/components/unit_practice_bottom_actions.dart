@@ -15,15 +15,18 @@ class UnitBottomActions extends StatelessWidget {
           width: 60,
           height: 60,
           child: CupertinoButton(
-              color: AppColors.whiteColor,
-              padding: EdgeInsets.all(0),
-              borderRadius: BorderRadius.circular(20),
-              child: Text("···",
-                  style: TextStyle(
-                      color: AppColors.blackColor,
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold)),
-              onPressed: () => {}),
+            padding: EdgeInsets.all(0),
+            color: AppColors.whiteColor,
+            borderRadius: BorderRadius.circular(20),
+            child: FaIcon(
+              FontAwesomeIcons.syncAlt,
+              color: AppColors.blackColor80,
+              size: 16,
+            ),
+            onPressed: () {
+              buildRestartBottomSheet(context);
+            },
+          ),
         ),
         SizedBox(
           width: 10,
@@ -51,19 +54,58 @@ class UnitBottomActions extends StatelessWidget {
                   )
                 ],
               ),
-              onClick: () => {
-                    // Navigator.pushReplacement(
-                    //     context,
-                    //     CupertinoPageRoute(
-                    //         builder: (context) => UnitLayout(
-                    //             questionIndex: 2,
-                    //             questionTitle:
-                    //                 "Сөздерге –мын/-мін/-бын/-бін/-пын/-пін/-сың/-сің/-сыз/-сіз жалғауларын дұрыс жалғаңыз",
-                    //             questionType: "choice",
-                    //             questions: [])))
-                  }),
+              onClick: () => {}),
         )
       ],
     );
+  }
+
+  buildRestartBottomSheet(context) {
+    return showModalBottomSheet(
+        context: context,
+        backgroundColor: AppColors.whiteColor,
+        isScrollControlled: true,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(26))),
+        builder: (BuildContext context) => Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 25),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Сбросить ответы?",
+                    style: TextStyle(
+                        color: AppColors.blackColor,
+                        fontSize: 26,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "Все ответы именно этого задания очистятся, чтобы вы могли начать заново",
+                    style: TextStyle(
+                        color: AppColors.blackColor80,
+                        fontSize: 18,
+                        height: 1.3),
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  ActionButton(
+                      child: Text(
+                        "Сбросить",
+                        style: TextStyle(
+                            color: AppColors.blackColor,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      onClick: () {
+                        Navigator.of(context).pop();
+                      })
+                ],
+              ),
+            ));
   }
 }
