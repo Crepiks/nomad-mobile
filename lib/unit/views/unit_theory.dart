@@ -14,7 +14,7 @@ class UnitTheory extends StatefulWidget {
       required this.index})
       : super(key: key);
 
-  final UnitTheoryModal theory;
+  final UnitTheoryModel theory;
   final int index;
   final Function onClickToPractice;
 

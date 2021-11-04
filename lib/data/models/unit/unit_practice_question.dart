@@ -2,10 +2,17 @@ class PracticeQuestion {}
 
 class InputQuestion extends PracticeQuestion {
   final String text;
+  final String? afterText;
+  final String? postfix;
   final String answer;
   final bool wide;
 
-  InputQuestion({required this.text, required this.answer, this.wide = false});
+  InputQuestion(
+      {required this.text,
+      required this.answer,
+      this.wide = false,
+      this.afterText,
+      this.postfix});
 }
 
 class OneChoiceQuestion extends PracticeQuestion {

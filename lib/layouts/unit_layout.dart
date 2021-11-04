@@ -32,7 +32,9 @@ class _UnitLayoutState extends State<UnitLayout> {
       UnitTheory(
         theory: widget.unit.theory,
         index: widget.index,
-        onClickToPractice: () {},
+        onClickToPractice: () {
+          changeActivePage(1);
+        },
       ),
       UnitPractices(
         practices: widget.unit.practices,

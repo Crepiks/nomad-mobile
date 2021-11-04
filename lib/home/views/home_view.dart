@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:nomad/data/mock/mock_chapters.dart';
+import 'package:nomad/data/mock/mock.dart';
 import 'package:nomad/data/models/chapter/chapter.dart';
 import 'package:nomad/home/views/components/header.dart';
 

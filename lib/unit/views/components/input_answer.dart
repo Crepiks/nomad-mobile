@@ -30,7 +30,9 @@ class InputAnswer extends StatelessWidget {
               ...questions
                   .map((question) => Padding(
                         padding: const EdgeInsets.symmetric(vertical: 10),
-                        child: ShortInputAnswer(text: question.text),
+                        child: question.wide
+                            ? WideInputAnswer(text: question.text)
+                            : ShortInputAnswer(text: question.text),
                       ))
                   .toList(),
               SizedBox(height: 20),
@@ -60,6 +62,33 @@ class ShortInputAnswer extends StatelessWidget {
           SizedBox(width: 10),
           SizedBox(
             width: 120,
+            child: Input(
+                hasTitle: false, practiceInput: true, updateValue: () => {}),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class WideInputAnswer extends StatelessWidget {
+  const WideInputAnswer({Key? key, required this.text}) : super(key: key);
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text("$text:",
+              style: TextStyle(
+                  color: AppColors.blackColor, fontSize: 20, height: 1.2)),
+          SizedBox(height: 10),
+          SizedBox(
+            width: double.infinity,
             child: Input(
                 hasTitle: false, practiceInput: true, updateValue: () => {}),
           )

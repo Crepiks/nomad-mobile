@@ -11,7 +11,7 @@ import 'package:nomad/unit/views/components/true_false_answer.dart';
 class UnitPractices extends StatefulWidget {
   UnitPractices({Key? key, required this.practices}) : super(key: key);
 
-  final List<UnitPracticeModal> practices;
+  final List<UnitPracticeModel> practices;
 
   @override
   _UnitPracticesState createState() => _UnitPracticesState();
@@ -23,6 +23,13 @@ class _UnitPracticesState extends State<UnitPractices> {
   @override
   Widget build(BuildContext context) {
     return UnitPracticeLayout(
+        onClickNextLesson: () {
+          setState(() {
+            if (activePracticeIndex + 1 != widget.practices.length) {
+              activePracticeIndex++;
+            }
+          });
+        },
         child: UnitPractice(
             practice: widget.practices[activePracticeIndex],
             index: activePracticeIndex));
@@ -33,7 +40,7 @@ class UnitPractice extends StatelessWidget {
   const UnitPractice({Key? key, required this.practice, required this.index})
       : super(key: key);
 
-  final UnitPracticeModal practice;
+  final UnitPracticeModel practice;
   final int index;
 
   @override

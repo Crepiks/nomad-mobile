@@ -20,7 +20,8 @@ class ActionButton extends StatelessWidget {
         width: double.infinity,
         height: 60,
         child: CupertinoButton(
-          child: child,
+          padding: EdgeInsets.all(0),
+          child: Center(child: child),
           color:
               reverseColor ? AppColors.backgroundColor : AppColors.primaryColor,
           borderRadius: BorderRadius.circular(20),

@@ -1,8 +1,8 @@
-class UnitTheoryModal {
+class UnitTheoryModel {
   final String title;
   final List<TheoryItem> items;
 
-  UnitTheoryModal({required this.title, required this.items});
+  UnitTheoryModel({required this.title, required this.items});
 }
 
 class TheoryItem {}
@@ -42,8 +42,9 @@ class TheoryTableCell {
 class TheoryList extends TheoryItem {
   final String? title;
   final List<TheoryListItem> items;
+  final bool numeric;
 
-  TheoryList({this.title, required this.items});
+  TheoryList({this.title, required this.items, this.numeric = false});
 }
 
 class TheoryListItem {

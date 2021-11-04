@@ -5,7 +5,10 @@ import 'package:nomad/common/colors.dart';
 import 'package:nomad/common/components/action_button.dart';
 
 class UnitBottomActions extends StatelessWidget {
-  const UnitBottomActions({Key? key}) : super(key: key);
+  const UnitBottomActions({Key? key, required this.onClickCheck})
+      : super(key: key);
+
+  final Function onClickCheck;
 
   @override
   Widget build(BuildContext context) {
@@ -48,13 +51,13 @@ class UnitBottomActions extends StatelessWidget {
                     width: 10,
                   ),
                   FaIcon(
-                    FontAwesomeIcons.arrowRight,
+                    FontAwesomeIcons.check,
                     size: 16,
                     color: AppColors.blackColor,
                   )
                 ],
               ),
-              onClick: () => {}),
+              onClick: () => {onClickCheck()}),
         )
       ],
     );
