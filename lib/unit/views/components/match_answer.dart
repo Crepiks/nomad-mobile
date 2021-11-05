@@ -17,72 +17,79 @@ class _MatchAnswerState extends State<MatchAnswer> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          width: double.infinity,
-          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 26),
-          decoration: BoxDecoration(
-              color: AppColors.whiteColor,
-              borderRadius: BorderRadius.circular(20)),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("Сопоставьте ответы:",
-                  style: TextStyle(
-                      color: AppColors.greyColor,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500)),
-              SizedBox(height: 20),
-              SizedBox(
-                height: 150,
-                child: ListView(
-                    children: widget.questions
-                        .map((question) => Column(
-                              children: [
-                                InputNumberQuestion(
-                                  text: question.question.text,
-                                  index: question.question.index,
-                                  focusedInputIndex: focusedInputIndex,
-                                ),
-                                SizedBox(height: 20)
-                              ],
-                            ))
-                        .toList()),
-              )
-            ],
+        Expanded(
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 26),
+            decoration: BoxDecoration(
+                color: AppColors.whiteColor,
+                borderRadius: BorderRadius.circular(20)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                    child: ListView(
+                  physics: BouncingScrollPhysics(),
+                  children: [
+                    SizedBox(height: 20),
+                    Text("Сопоставьте ответы:",
+                        style: TextStyle(
+                            color: AppColors.greyColor,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500)),
+                    SizedBox(height: 20),
+                    for (int index = 0;
+                        index < widget.questions.length;
+                        index++)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: NumberQuestion(
+                            text: widget.questions[index].question,
+                            index: index),
+                      ),
+                    SizedBox(height: 20),
+                  ],
+                ))
+              ],
+            ),
           ),
         ),
-        SizedBox(height: 10),
-        Container(
-          width: double.infinity,
-          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 26),
-          decoration: BoxDecoration(
-              color: AppColors.whiteColor,
-              borderRadius: BorderRadius.circular(20)),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("Варианты ответов:",
-                  style: TextStyle(
-                      color: AppColors.greyColor,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500)),
-              SizedBox(height: 20),
-              SizedBox(
-                height: 150,
-                child: ListView(
-                    children: widget.questions
-                        .map((question) => Column(
-                              children: [
-                                LetterAnswer(
-                                    text: question.answer.answer,
-                                    onClick: () => {},
-                                    letter: question.answer.letter),
-                                SizedBox(height: 20)
-                              ],
-                            ))
-                        .toList()),
-              )
-            ],
+        SizedBox(height: 15),
+        Expanded(
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 26),
+            decoration: BoxDecoration(
+                color: AppColors.whiteColor,
+                borderRadius: BorderRadius.circular(20)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                    child: ListView(
+                  physics: BouncingScrollPhysics(),
+                  children: [
+                    SizedBox(height: 20),
+                    Text("Варианты ответов:",
+                        style: TextStyle(
+                            color: AppColors.greyColor,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500)),
+                    SizedBox(height: 20),
+                    for (int index = 0;
+                        index < widget.questions.length;
+                        index++)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: LetterAnswer(
+                            text: widget.questions[index].answer, index: index),
+                      )
+                  ],
+                ))
+              ],
+            ),
           ),
         )
       ],
@@ -90,36 +97,35 @@ class _MatchAnswerState extends State<MatchAnswer> {
   }
 }
 
-class InputNumberQuestion extends StatelessWidget {
-  const InputNumberQuestion(
-      {Key? key,
-      required this.text,
-      required this.index,
-      this.focusedInputIndex})
+class NumberQuestion extends StatelessWidget {
+  const NumberQuestion({Key? key, required this.text, required this.index})
       : super(key: key);
 
   final String text;
   final int index;
-  final int? focusedInputIndex;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 60,
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(text,
-              style: TextStyle(
-                  color: AppColors.blackColor, fontSize: 20, height: 1.2)),
+          Flexible(
+            child: Text("${index + 1}. $text",
+                style: TextStyle(
+                    color: AppColors.blackColor, fontSize: 20, height: 1.2)),
+          ),
           SizedBox(width: 10),
-          SizedBox(
-            width: 45,
-            child: QuestionInput(
-                onClick: () => {},
-                focused: focusedInputIndex != null
-                    ? index == focusedInputIndex
-                    : false),
+          GestureDetector(
+            onTap: () {},
+            child: Container(
+              width: 80,
+              height: 45,
+              decoration: BoxDecoration(
+                  color: AppColors.backgroundColor,
+                  borderRadius: BorderRadius.circular(10)),
+            ),
           )
         ],
       ),
@@ -127,69 +133,58 @@ class InputNumberQuestion extends StatelessWidget {
   }
 }
 
-class QuestionInput extends StatelessWidget {
-  const QuestionInput(
-      {Key? key,
-      required this.onClick,
-      required this.focused,
-      this.letterAnswer})
-      : super(key: key);
-
-  final Function onClick;
-  final bool focused;
-  final String? letterAnswer;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => {onClick()},
-      child: Container(
-        width: 40,
-        height: 40,
-        decoration: BoxDecoration(
-            color: focused || letterAnswer != null
-                ? AppColors.primaryColor60
-                : AppColors.backgroundColor,
-            borderRadius: BorderRadius.circular(15)),
-        child: Text(
-          letterAnswer ?? "",
-          style: TextStyle(
-              color: AppColors.blackColor,
-              fontSize: 18,
-              fontWeight: FontWeight.w500),
-        ),
-      ),
-    );
-  }
-}
-
 class LetterAnswer extends StatelessWidget {
-  const LetterAnswer(
-      {Key? key,
-      required this.text,
-      required this.onClick,
-      required this.letter})
+  const LetterAnswer({Key? key, required this.text, required this.index})
       : super(key: key);
 
-  final String letter;
   final String text;
-  final Function onClick;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => {onClick()},
-      child: Container(
-        width: double.infinity,
-        padding: EdgeInsets.symmetric(horizontal: 22, vertical: 16),
-        decoration: BoxDecoration(
-            color: AppColors.backgroundColor,
-            borderRadius: BorderRadius.circular(20)),
-        child: Text(
-          "${letter}   ${text}",
-          style:
-              TextStyle(color: AppColors.blackColor, fontSize: 16, height: 1.2),
-        ),
+    final List<String> kazakhAlphabet = [
+      "А",
+      "Ә",
+      "Б",
+      "В",
+      "Г",
+      "Ғ",
+      "Д",
+      "Е",
+      "Ё",
+      "Ж",
+      "З",
+      "И",
+      "Й",
+      "К",
+      "Қ",
+      "Л",
+      "М",
+      "Н"
+    ];
+
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+      decoration: BoxDecoration(
+          color: AppColors.backgroundColor,
+          borderRadius: BorderRadius.circular(16)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            "${kazakhAlphabet[index]} $text",
+            style: TextStyle(fontSize: 16, color: AppColors.blackColor),
+          ),
+          Container(
+            width: 30,
+            height: 30,
+            decoration: BoxDecoration(
+                color: AppColors.whiteColor,
+                borderRadius: BorderRadius.circular(6)),
+          )
+        ],
       ),
     );
   }

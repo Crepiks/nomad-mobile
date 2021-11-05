@@ -154,6 +154,13 @@ class TheoryTextView extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: Text(
         item.text,
+        textAlign: item.alignment == "left"
+            ? TextAlign.left
+            : item.alignment == "right"
+                ? TextAlign.right
+                : item.alignment == "center"
+                    ? TextAlign.center
+                    : TextAlign.center,
         style:
             TextStyle(color: AppColors.blackColor, fontSize: 20, height: 1.4),
       ),
@@ -168,7 +175,6 @@ class TheoryImageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(item.imagePath);
     return Container(
       alignment: Alignment.center,
       width: MediaQuery.of(context).size.width * 0.7,

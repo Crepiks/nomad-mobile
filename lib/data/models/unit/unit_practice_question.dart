@@ -15,6 +15,23 @@ class InputQuestion extends PracticeQuestion {
       this.postfix});
 }
 
+class InputImageQuestion extends PracticeQuestion {
+  final String text;
+  final String imagePath;
+  final String? afterText;
+  final String? postfix;
+  final String answer;
+  final bool wide;
+
+  InputImageQuestion(
+      {required this.text,
+      required this.imagePath,
+      required this.answer,
+      this.wide = false,
+      this.afterText,
+      this.postfix});
+}
+
 class OneChoiceQuestion extends PracticeQuestion {
   final String text;
   final bool correct;

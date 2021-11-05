@@ -27,23 +27,22 @@ class UnitsList extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Expanded(
-              child: ListView.separated(
-                itemCount: units.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return UnitCard(
-                      title: units[index].theory.title,
-                      onClick: () => Navigator.push(
-                          context,
-                          CupertinoPageRoute(
-                              builder: (context) => UnitLayout(
-                                    unit: units[index],
-                                    index: index,
-                                  ))));
-                },
-                separatorBuilder: (BuildContext context, int index) {
-                  return SizedBox(height: 10);
-                },
-              ),
+              child: ListView(physics: BouncingScrollPhysics(), children: [
+                for (int index = 0; index < units.length; index++)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 5),
+                    child: UnitCard(
+                        title: units[index].theory.title,
+                        onClick: () => Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (context) => UnitLayout(
+                                      units: units,
+                                      index: index,
+                                    )))),
+                  ),
+                SizedBox(height: 20)
+              ]),
             ),
           ],
         ),

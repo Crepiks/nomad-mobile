@@ -56,9 +56,11 @@ class ShortInputAnswer extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(text,
-              style: TextStyle(
-                  color: AppColors.blackColor, fontSize: 20, height: 1.2)),
+          Flexible(
+            child: Text(text,
+                style: TextStyle(
+                    color: AppColors.blackColor, fontSize: 20, height: 1.2)),
+          ),
           SizedBox(width: 10),
           SizedBox(
             width: 120,

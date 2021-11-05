@@ -9,9 +9,9 @@ class TheoryItem {}
 
 class TheoryText extends TheoryItem {
   final String text;
-  final bool leftAlignment;
+  final String alignment;
 
-  TheoryText({required this.text, this.leftAlignment = true});
+  TheoryText({required this.text, this.alignment = "left"});
 }
 
 class TheoryImage extends TheoryItem {
@@ -22,9 +22,10 @@ class TheoryImage extends TheoryItem {
 
 class TheoryTable extends TheoryItem {
   final String? title;
+  final bool hasBorder;
   final List<TheoryTableRow> rows;
 
-  TheoryTable({this.title, required this.rows});
+  TheoryTable({this.title, this.hasBorder = true, required this.rows});
 }
 
 class TheoryTableRow {

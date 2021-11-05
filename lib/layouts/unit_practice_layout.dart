@@ -7,11 +7,15 @@ import 'package:nomad/layouts/components/unit_practice_bottom_actions.dart';
 
 class UnitPracticeLayout extends StatelessWidget {
   const UnitPracticeLayout(
-      {Key? key, required this.child, required this.onClickNextLesson})
+      {Key? key,
+      required this.child,
+      required this.onClickNextLesson,
+      required this.isLastPractice})
       : super(key: key);
 
   final Widget child;
   final Function onClickNextLesson;
+  final bool isLastPractice;
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +66,16 @@ class UnitPracticeLayout extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  isLastPractice
+                      ? Text("Урок завершен",
+                          style: TextStyle(
+                              color: AppColors.blackColor,
+                              fontSize: 28,
+                              fontWeight: FontWeight.w600))
+                      : Container(),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Text(
                     result.title,
                     style: TextStyle(
@@ -82,69 +96,131 @@ class UnitPracticeLayout extends StatelessWidget {
                   SizedBox(
                     height: 50,
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: ActionButton(
-                            reverseColor: true,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "Повторить",
-                                  style: TextStyle(
+                  isLastPractice
+                      ? Column(
+                          children: [
+                            ActionButton(
+                                reverseColor: true,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "Повторить",
+                                      style: TextStyle(
+                                          color: AppColors.blackColor80,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    FaIcon(
+                                      FontAwesomeIcons.syncAlt,
+                                      size: 14,
                                       color: AppColors.blackColor80,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w500),
+                                    )
+                                  ],
                                 ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                FaIcon(
-                                  FontAwesomeIcons.syncAlt,
-                                  size: 14,
-                                  color: AppColors.blackColor80,
-                                )
-                              ],
+                                onClick: () {
+                                  Navigator.of(context).pop();
+                                }),
+                            SizedBox(
+                              height: 15,
                             ),
-                            onClick: () {
-                              Navigator.of(context).pop();
-                            }),
-                      ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      Expanded(
-                        child: ActionButton(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "Далее",
-                                  style: TextStyle(
+                            ActionButton(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "Следующий урок",
+                                      style: TextStyle(
+                                          color: AppColors.blackColor,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    FaIcon(
+                                      FontAwesomeIcons.arrowRight,
+                                      size: 14,
                                       color: AppColors.blackColor,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w500),
+                                    )
+                                  ],
                                 ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                FaIcon(
-                                  FontAwesomeIcons.arrowRight,
-                                  size: 14,
-                                  color: AppColors.blackColor,
-                                )
-                              ],
+                                onClick: () {
+                                  onClickNextLesson();
+                                  Navigator.of(context).pop();
+                                }),
+                          ],
+                        )
+                      : Row(
+                          children: [
+                            Expanded(
+                              child: ActionButton(
+                                  reverseColor: true,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "Повторить",
+                                        style: TextStyle(
+                                            color: AppColors.blackColor80,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      FaIcon(
+                                        FontAwesomeIcons.syncAlt,
+                                        size: 14,
+                                        color: AppColors.blackColor80,
+                                      )
+                                    ],
+                                  ),
+                                  onClick: () {
+                                    Navigator.of(context).pop();
+                                  }),
                             ),
-                            onClick: () {
-                              onClickNextLesson();
-                              Navigator.of(context).pop();
-                            }),
-                      ),
-                    ],
-                  )
+                            SizedBox(
+                              width: 15,
+                            ),
+                            Expanded(
+                              child: ActionButton(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "Далее",
+                                        style: TextStyle(
+                                            color: AppColors.blackColor,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      FaIcon(
+                                        FontAwesomeIcons.arrowRight,
+                                        size: 14,
+                                        color: AppColors.blackColor,
+                                      )
+                                    ],
+                                  ),
+                                  onClick: () {
+                                    onClickNextLesson();
+                                    Navigator.of(context).pop();
+                                  }),
+                            ),
+                          ],
+                        )
                 ],
               ),
             ));

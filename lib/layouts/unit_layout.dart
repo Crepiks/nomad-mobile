@@ -10,10 +10,10 @@ import 'package:nomad/unit/views/unit_practices.dart';
 import 'package:nomad/unit/views/unit_theory.dart';
 
 class UnitLayout extends StatefulWidget {
-  UnitLayout({Key? key, required this.unit, required this.index})
+  UnitLayout({Key? key, required this.units, required this.index})
       : super(key: key);
 
-  final Unit unit;
+  final List<Unit> units;
   final int index;
 
   @override
@@ -22,22 +22,32 @@ class UnitLayout extends StatefulWidget {
 
 class _UnitLayoutState extends State<UnitLayout> {
   List<dynamic> screens = [];
-  int activeIndex = 0;
+  int activePageIndex = 0;
+  int activeUnitIndex = 0;
 
   @override
   void initState() {
     super.initState();
 
+    activeUnitIndex = widget.index;
+
+    updateScreens();
+  }
+
+  void updateScreens() {
     screens = [
       UnitTheory(
-        theory: widget.unit.theory,
-        index: widget.index,
+        theory: widget.units[activeUnitIndex].theory,
+        index: activeUnitIndex,
         onClickToPractice: () {
           changeActivePage(1);
         },
       ),
       UnitPractices(
-        practices: widget.unit.practices,
+        practices: widget.units[activeUnitIndex].practices,
+        onClickNextLesson: () {
+          routeNextUnit();
+        },
       )
     ];
   }
@@ -68,17 +78,18 @@ class _UnitLayoutState extends State<UnitLayout> {
                           .toList()
                     ],
                     onPageChanged: (newIndex) {
-                      changeActiveIndex(newIndex);
+                      changeActivePageIndex(newIndex);
                     },
                   )),
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                 child: UnitHeader(
-                    changeActiveIndex: (newIndex) => changeActivePage(newIndex),
-                    activeIndex: activeIndex,
+                    changeActivePageIndex: (newIndex) =>
+                        changeActivePage(newIndex),
+                    activePageIndex: activePageIndex,
                     onClickExtraFunctions: () {
-                      buildExtraFunctionsSheet(
-                          context, widget.unit, widget.index + 1);
+                      buildExtraFunctionsSheet(context,
+                          widget.units[activeUnitIndex], activeUnitIndex + 1);
                     }),
               ),
             ],
@@ -87,15 +98,15 @@ class _UnitLayoutState extends State<UnitLayout> {
     );
   }
 
-  void changeActiveIndex(newIndex) {
+  void changeActivePageIndex(newIndex) {
     setState(() {
-      activeIndex = newIndex;
+      activePageIndex = newIndex;
     });
   }
 
   void changeActivePage(newPageIndex) {
     setState(() {
-      activeIndex = newPageIndex;
+      activePageIndex = newPageIndex;
     });
 
     _controller.animateToPage(newPageIndex,
@@ -198,5 +209,21 @@ class _UnitLayoutState extends State<UnitLayout> {
                 ],
               ),
             ));
+  }
+
+  void routeNextUnit() {
+    setState(() {
+      if (activeUnitIndex + 1 != widget.units.length) {
+        setState(() {
+          activeUnitIndex++;
+        });
+
+        changeActivePage(0);
+
+        updateScreens();
+      } else {
+        Navigator.pop(context);
+      }
+    });
   }
 }

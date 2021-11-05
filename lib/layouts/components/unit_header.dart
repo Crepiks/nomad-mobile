@@ -7,13 +7,13 @@ import 'package:nomad/layouts/components/unit_tabs.dart';
 class UnitHeader extends StatelessWidget {
   const UnitHeader(
       {Key? key,
-      required this.changeActiveIndex,
-      required this.activeIndex,
+      required this.changeActivePageIndex,
+      required this.activePageIndex,
       required this.onClickExtraFunctions})
       : super(key: key);
 
-  final int activeIndex;
-  final Function changeActiveIndex;
+  final int activePageIndex;
+  final Function changeActivePageIndex;
   final Function onClickExtraFunctions;
 
   @override
@@ -29,9 +29,9 @@ class UnitHeader extends StatelessWidget {
           SizedBox(width: 10),
           Expanded(
               child: Tabs(
-            activeIndex: activeIndex,
+            activeIndex: activePageIndex,
             changeActiveIndex: (newActiveIndex) =>
-                changeActiveIndex(newActiveIndex),
+                changeActivePageIndex(newActiveIndex),
           )),
           SizedBox(width: 10),
           SizedBox(

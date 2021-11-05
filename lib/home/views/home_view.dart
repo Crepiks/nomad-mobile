@@ -36,7 +36,10 @@ class _HomeViewState extends State<HomeView> {
             onChangeChapter: (index) => {setActiveChapterIndex(index)},
           ),
           SizedBox(height: 30),
-          UnitsList(units: chapters[activeChapterIndex].units)
+          UnitsList(units: chapters[activeChapterIndex].units),
+          SizedBox(
+            height: 90,
+          )
         ],
       ),
     );
@@ -45,7 +48,6 @@ class _HomeViewState extends State<HomeView> {
   setActiveChapterIndex(index) {
     setState(() {
       activeChapterIndex = index;
-      print(activeChapterIndex);
     });
   }
 }

@@ -9,9 +9,12 @@ import 'package:nomad/unit/views/components/practice_title.dart';
 import 'package:nomad/unit/views/components/true_false_answer.dart';
 
 class UnitPractices extends StatefulWidget {
-  UnitPractices({Key? key, required this.practices}) : super(key: key);
+  UnitPractices(
+      {Key? key, required this.practices, required this.onClickNextLesson})
+      : super(key: key);
 
   final List<UnitPracticeModel> practices;
+  final Function onClickNextLesson;
 
   @override
   _UnitPracticesState createState() => _UnitPracticesState();
@@ -23,9 +26,13 @@ class _UnitPracticesState extends State<UnitPractices> {
   @override
   Widget build(BuildContext context) {
     return UnitPracticeLayout(
+        isLastPractice: activePracticeIndex + 1 == widget.practices.length,
         onClickNextLesson: () {
           setState(() {
-            if (activePracticeIndex + 1 != widget.practices.length) {
+            if (activePracticeIndex + 1 == widget.practices.length) {
+              widget.onClickNextLesson();
+              activePracticeIndex = 0;
+            } else {
               activePracticeIndex++;
             }
           });
@@ -48,6 +55,7 @@ class UnitPractice extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
             height: 100,

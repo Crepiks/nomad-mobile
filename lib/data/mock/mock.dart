@@ -232,13 +232,13 @@ class MockChapters {
                 TheorySpace(),
                 TheoryImage(imagePath: "assets/practice-images/2.png"),
                 TheoryText(text: "Атың кім?"),
-                TheoryText(text: "Айбек", leftAlignment: false),
+                TheoryText(text: "Айбек", alignment: "right"),
                 TheoryText(text: "Үйленгенсің бе?"),
-                TheoryText(text: "Жоқ, мен бойдақпын", leftAlignment: false),
+                TheoryText(text: "Жоқ, мен бойдақпын", alignment: "right"),
                 TheoryText(text: "Жасың қаншада?"),
-                TheoryText(text: "25", leftAlignment: false),
+                TheoryText(text: "25", alignment: "right"),
                 TheoryText(text: "Сен студентсің бе?"),
-                TheoryText(text: "Иә, студентпін", leftAlignment: false),
+                TheoryText(text: "Иә, студентпін", alignment: "right"),
                 TheorySpace(),
                 TheoryList(items: [
                   TheoryListItem(
@@ -354,6 +354,730 @@ class MockChapters {
                       answer: "",
                       wide: true,
                       postfix: "?"),
+                ]),
+            UnitPracticeModel(
+                id: 7,
+                title:
+                    "Сұрақты толықтырыңыз. Қалай/ қайда/ қанша/ не/ кім/ қандай/ сөздерін пайдаланыңыз.",
+                questions: [
+                  InputQuestion(
+                      text: "Сенің ата-анаң",
+                      answer: "қалай",
+                      postfix: "?",
+                      afterText: "Шүкір, жақсы"),
+                  InputQuestion(
+                      text: "Сөмкем",
+                      answer: "қайда",
+                      postfix: "?",
+                      afterText: "Үстелде"),
+                  InputQuestion(
+                      text: "Сіздің",
+                      answer: "қанша",
+                      postfix: "балаңыз бар?",
+                      afterText: "Бес"),
+                  InputQuestion(
+                      text: "Мына алма",
+                      answer: "қанша",
+                      postfix: "тұрады?",
+                      afterText: "Бір келісі 450 тг"),
+                  InputQuestion(
+                      text: "Сенің сүйікті спортың",
+                      answer: "қандай",
+                      postfix: "?",
+                      afterText: "Шаңғы тебу"),
+                  InputQuestion(
+                      text: "Бұл фотограф кісі",
+                      answer: "кім",
+                      postfix: "?",
+                      afterText: "Менің әкем"),
+                  InputQuestion(
+                      text: "Сенің жаңа аяқ киіміңнің түсі",
+                      answer: "қандай",
+                      postfix: "?",
+                      afterText: "Қара"),
+                ]),
+            UnitPracticeModel(
+                id: 8,
+                title: "Сұраулы сөйлем жасап жазыңыз.",
+                questions: [
+                  InputQuestion(
+                      text: "(аты?)",
+                      answer: " Сенің атың кім?",
+                      afterText: "Әсет",
+                      wide: true),
+                  InputQuestion(
+                      text: "(Ресей?)",
+                      answer: "",
+                      afterText: "Жоқ, ол Канададан",
+                      wide: true),
+                  InputQuestion(
+                      text: "(жасы?)", answer: "", afterText: "30", wide: true),
+                  InputQuestion(
+                      text: "(мұғалім?)",
+                      answer: "",
+                      afterText: "Жоқ, мен заңгермін",
+                      wide: true),
+                  InputQuestion(
+                      text: "(үйленген?)",
+                      answer: "",
+                      afterText: "Ия, үйленгенмін",
+                      wide: true),
+                  InputQuestion(
+                      text: "(әйелің заңгер?)",
+                      answer: "",
+                      afterText: "Жоқ, ол дизайнер",
+                      wide: true),
+                  InputQuestion(
+                      text: "(оның аты?)",
+                      answer: "",
+                      afterText: "Оның аты – Анар",
+                      wide: true),
+                  InputQuestion(
+                      text: "(жасы?)",
+                      answer: "",
+                      afterText: "Ол 27 жаста",
+                      wide: true),
+                ])
+          ]),
+      Unit(
+          id: 2,
+          theory: UnitTheoryModel(
+              title:
+                  "-МЫЗ/-МІЗ/ -СЫҢДАР/-СІҢДЕР/-СЫЗДАР/-СІЗДЕР/-ЛАР/-ЛЕР/-ДАР/-ДЕР/-ТАР/-ТЕР",
+              items: [
+                TheoryImage(imagePath: "assets/practice-images/3.png"),
+                TheorySpace(),
+                TheoryText(text: "Біз студентпіз"),
+                TheoryText(text: "Біз он тоғыздамыз"),
+                TheoryText(text: "Біз жатақханада тұрамыз"),
+                TheoryText(text: "Біз бүгін киноға барамыз"),
+                TheoryText(text: "Біз Қазақстандықпыз"),
+                TheoryText(text: "Біз университетте оқимыз"),
+                TheoryText(text: "Біз болашақ инженерміз"),
+                TheoryText(text: "Біз доспыз"),
+                TheorySpace(),
+                TheoryTable(title: "Болымды", rows: [
+                  TheoryTableRow(cells: [
+                    TheoryTableCell(item: TheoryText(text: "Біз")),
+                    TheoryTableCell(
+                        item: TheoryList(items: [
+                      TheoryListItem(
+                          text: "-мыз/-міз (дауыстылар, үнділерден кейін)"),
+                      TheoryListItem(text: "-быз/-біз (ұяңдардан кейін)"),
+                      TheoryListItem(text: "-пыз/-піз (қатаңдардан кейін)"),
+                    ]))
+                  ]),
+                  TheoryTableRow(cells: [
+                    TheoryTableCell(item: TheoryText(text: "Сендер")),
+                    TheoryTableCell(item: TheoryText(text: "-сыңдар/-сіңдер")),
+                  ]),
+                  TheoryTableRow(cells: [
+                    TheoryTableCell(item: TheoryText(text: "Сіздер")),
+                    TheoryTableCell(item: TheoryText(text: "-сыздар/-сіздер")),
+                  ]),
+                  TheoryTableRow(cells: [
+                    TheoryTableCell(item: TheoryText(text: "Олар")),
+                    TheoryTableCell(
+                        item: TheoryList(items: [
+                      TheoryListItem(text: "-лар/-лер/"),
+                      TheoryListItem(text: "-дар/-дер/"),
+                      TheoryListItem(text: "-тар/-тер/"),
+                    ]))
+                  ]),
+                ]),
+                TheorySpace(),
+                TheoryTable(title: "Болымсыз", rows: [
+                  TheoryTableRow(cells: [
+                    TheoryTableCell(item: TheoryText(text: "Біз")),
+                    TheoryTableCell(item: TheoryText(text: "+ емес")),
+                    TheoryTableCell(item: TheoryText(text: "-піз")),
+                  ]),
+                  TheoryTableRow(cells: [
+                    TheoryTableCell(item: TheoryText(text: "Сендер")),
+                    TheoryTableCell(item: TheoryText(text: "+ емес")),
+                    TheoryTableCell(item: TheoryText(text: "-сіңдер")),
+                  ]),
+                  TheoryTableRow(cells: [
+                    TheoryTableCell(item: TheoryText(text: "Сіздер")),
+                    TheoryTableCell(item: TheoryText(text: "+ емес")),
+                    TheoryTableCell(item: TheoryText(text: "-сіздер")),
+                  ]),
+                  TheoryTableRow(cells: [
+                    TheoryTableCell(item: TheoryText(text: "Олар")),
+                    TheoryTableCell(
+                        item: TheoryList(items: [
+                      TheoryListItem(text: "+ -лар/-лер/"),
+                      TheoryListItem(text: "+ -дар/-дер/"),
+                      TheoryListItem(text: "+ -тар/-тер/"),
+                    ])),
+                    TheoryTableCell(item: TheoryText(text: "+ емес")),
+                  ]),
+                ]),
+                TheorySpace(),
+                TheoryList(title: "Мысалдар", items: [
+                  TheoryListItem(text: "Біз ересекпіз. Біз кәмелет жастамыз."),
+                  TheoryListItem(text: "Сендер жігітсіңдер. Олар қыздар."),
+                  TheoryListItem(
+                      text: "Сіздер оқытушысыздар.  Біз студентпіз."),
+                  TheoryListItem(
+                      text:
+                          "Мен және Айбек қазақстандықпыз. Олар шетелдіктер."),
+                  TheoryListItem(
+                      text: "Асқар мен Әсем жас жұбайлар. Олар дәрігерлер."),
+                  TheoryListItem(
+                      text: "Біз Астанада тұрамыз. Олар Таразда тұрады."),
+                ]),
+                TheorySpace(),
+                TheoryImage(imagePath: "assets/practice-images/4.png"),
+                TheorySpace(),
+                TheoryList(items: [
+                  TheoryListItem(text: "Біз оқушы емеспіз. Біз студентпіз."),
+                  TheoryListItem(
+                      text: "Біз он сегізде емеспіз. Біз жиырмадамыз."),
+                  TheoryListItem(
+                      text: "Сендер әлсіз емессіңдер. Сендер күштісіңдер."),
+                  TheoryListItem(
+                      text:
+                          "Сендер стадионда жүгіресіңдер. Сендер спортшысыңдар."),
+                  TheoryListItem(
+                      text:
+                          "Сіздер Америкада тұрасыздар. Олар Канадада тұрады."),
+                ]),
+                TheorySpace(),
+                TheoryText(
+                    text:
+                        "-мыз/-міз/ -сыңдар/-сіңдер/-сыздар/-сіздер – зат есім(студент), сын есім(күшті), сан есім(жиырма), етістікке (жүгіреміз) жалғанады."),
+                TheoryText(
+                    text:
+                        "емес – тек есім сөздерге жалғанады. Етістікке жалғанбайды."),
+                TheorySpace(),
+                TheoryText(text: "Біз ойнайды емеспіз."),
+                TheoryText(text: "Біз ойнамаймыз."),
+              ]),
+          practices: [
+            UnitPracticeModel(
+                id: 9,
+                title: "Сәйкес жіктік жалғауды жалғаңыз.",
+                questions: [
+                  InputQuestion(text: "Біз ата-ана", answer: ""),
+                  InputQuestion(text: "Сендер қырықта", answer: ""),
+                  InputQuestion(text: "Сіздер құрылысшы", answer: ""),
+                  InputQuestion(text: "Олар студент", answer: ""),
+                  InputQuestion(text: "Біз көрікті", answer: ""),
+                  InputQuestion(text: "Сендер ұшқыш", answer: ""),
+                  InputQuestion(text: "Сіздер қалада", answer: ""),
+                  InputQuestion(text: "Олар инженер", answer: ""),
+                ]),
+            UnitPracticeModel(
+                id: 10,
+                title: "Дұрыс/Дұрыс емес деп жазыңыз.",
+                questions: [
+                  TrueFalseQuestion(text: "Біз ата-анамыз", correct: false),
+                  TrueFalseQuestion(text: "Сендер жақсысыздар", correct: false),
+                  TrueFalseQuestion(text: "Олар сыныптастар", correct: false),
+                  TrueFalseQuestion(text: "Сіздер әкесіңдер", correct: false),
+                  TrueFalseQuestion(text: "Біз жастарбыз", correct: false),
+                  TrueFalseQuestion(text: "Олар зейнеткер", correct: false),
+                  TrueFalseQuestion(text: "Сіздер атасыздар", correct: false),
+                  TrueFalseQuestion(text: "Сендер немерелер", correct: false),
+                ]),
+            UnitPracticeModel(
+                id: 11,
+                title:
+                    "Жіктік жалғаудың көпше түрінің болымды және болымсыз формасын жалғаңыз.",
+                questions: [
+                  InputQuestion(text: "Біз сәулетші", answer: ""),
+                  InputQuestion(text: "сәулетші емес", answer: ""),
+                  InputQuestion(text: "Сендер тұрғын", answer: ""),
+                  InputQuestion(text: "тұрғын емес", answer: ""),
+                  InputQuestion(text: "Сіздер зейнеткер", answer: ""),
+                  InputQuestion(text: "зейнеткер емес", answer: ""),
+                  InputQuestion(text: "Олар  балалар", answer: ""),
+                  InputQuestion(text: "балалар емес", answer: ""),
+                  InputQuestion(text: "Біз мектепте", answer: ""),
+                  InputQuestion(text: "мектепте емес", answer: ""),
+                  InputQuestion(text: "Сендер жаза", answer: ""),
+                  InputQuestion(text: "жазбай", answer: ""),
+                  InputQuestion(text: "Сіздер оқи", answer: ""),
+                  InputQuestion(text: "оқымай", answer: ""),
+                  InputQuestion(text: "Олар күле", answer: ""),
+                  InputQuestion(text: "күлмей", answer: ""),
+                ]),
+            UnitPracticeModel(id: 12, title: "Сәйкестендіріңіз.", questions: [
+              MatchQuestion(question: "Біз", answer: "отыз бестесіңдер"),
+              MatchQuestion(question: "Сендер", answer: "оқушылар емес"),
+              MatchQuestion(question: "Сіздер", answer: "дәрігер емеспіз"),
+              MatchQuestion(question: "Олар", answer: "дұрыс емессіздер"),
+              MatchQuestion(question: "Сендер", answer: "мұғалімбіз"),
+              MatchQuestion(question: "Біз", answer: "ғалым емессіңдер"),
+              MatchQuestion(question: "Олар", answer: "ауылда емес"),
+            ])
+          ]),
+      Unit(
+          id: 3,
+          theory: UnitTheoryModel(
+              title: "ІСТЕП ЖАТЫРМЫН/ІСТЕП ЖАТҚАН ЖОҚПЫН (НАҚ ОСЫ ШАҚ)",
+              items: [
+                TheoryText(text: "Мен тамақ ішіп жатырмын."),
+                TheoryImage(imagePath: "assets/practice-images/5.png"),
+                TheorySpace(),
+                TheoryText(text: "Жаңбыр жауып жатыр."),
+                TheoryImage(imagePath: "assets/practice-images/6.png"),
+                TheorySpace(),
+                TheoryText(text: "Біз жүгіріп жүрміз."),
+                TheoryImage(imagePath: "assets/practice-images/7.png"),
+                TheorySpace(),
+                TheoryText(text: "Ол кітап оқып отыр."),
+                TheoryText(text: "Ол кітап оқып отырған жоқ."),
+                TheorySpace(),
+                TheoryText(text: "Олар жүгіріп жүр."),
+                TheoryText(text: "Олар жүгіріп жүрген жоқ."),
+                TheorySpace(),
+                TheoryText(text: "Ол тамақ ішіп жатыр"),
+                TheoryText(text: "Ол тамақ ішіп жатқан жоқ."),
+                TheorySpace(),
+                TheoryText(text: "Нақ осы шақ:"),
+                TheorySpace(),
+                TheoryTable(
+                    title: "Етістік + -ып,-іп,-п + жатыр, отыр, тұр, жүр",
+                    rows: [
+                      TheoryTableRow(cells: [
+                        TheoryTableCell(
+                            item: TheoryList(items: [
+                          TheoryListItem(text: "Мен"),
+                          TheoryListItem(text: "Сен"),
+                          TheoryListItem(text: "Сіз"),
+                          TheoryListItem(text: "Ол"),
+                          TheoryListItem(text: "Біз"),
+                          TheoryListItem(text: "Сендер"),
+                          TheoryListItem(text: "Сіздер"),
+                          TheoryListItem(text: "Олар"),
+                        ])),
+                        TheoryTableCell(
+                            item: TheoryText(text: "Етістік + -ып, -іп, -п")),
+                        TheoryTableCell(
+                            item: TheoryText(text: "Жатыр, отыр, тұр, жүр")),
+                        TheoryTableCell(
+                            item: TheoryList(items: [
+                          TheoryListItem(text: "-мын/-мін"),
+                          TheoryListItem(text: "-сың/-сің"),
+                          TheoryListItem(text: "-сыз/-сіз"),
+                          TheoryListItem(text: "-/-"),
+                          TheoryListItem(text: "-мыз/-міз"),
+                          TheoryListItem(text: "-сыңдар/сіңдер"),
+                          TheoryListItem(text: "-сыздар/-сіздер"),
+                          TheoryListItem(text: "-/-"),
+                        ])),
+                      ])
+                    ]),
+                TheorySpace(),
+                TheoryList(items: [
+                  TheoryListItem(text: "Мен жұмыс істеп отырмын"),
+                  TheoryListItem(text: "Сен кітап оқып отырсың."),
+                  TheoryListItem(text: "Ол тамақ ішіп отыр."),
+                  TheoryListItem(text: "Біз жаңалық көріп отырмыз."),
+                  TheoryListItem(text: "Сіздер ұйықтап жатырсыздар."),
+                  TheoryListItem(text: "Олар кино көріп отыр."),
+                ]),
+                TheoryTable(rows: [
+                  TheoryTableRow(cells: [
+                    TheoryTableCell(
+                        item: TheoryList(items: [
+                      TheoryListItem(text: "Мен"),
+                      TheoryListItem(text: "Сен"),
+                      TheoryListItem(text: "Сіз"),
+                      TheoryListItem(text: "Ол"),
+                      TheoryListItem(text: "Біз"),
+                      TheoryListItem(text: "Сендер"),
+                      TheoryListItem(text: "Сіздер"),
+                      TheoryListItem(text: "Олар"),
+                    ])),
+                    TheoryTableCell(
+                        item: TheoryText(text: "Етістік + -ып, -іп, -п")),
+                    TheoryTableCell(
+                        item: TheoryText(
+                            text: "Жатқан, отырған, тұрған, жүрген")),
+                    TheoryTableCell(
+                        item: TheoryList(items: [
+                      TheoryListItem(text: "жоқпын"),
+                      TheoryListItem(text: "жоқсың"),
+                      TheoryListItem(text: "жоқсыз"),
+                      TheoryListItem(text: "жоқ"),
+                      TheoryListItem(text: "жоқпыз"),
+                      TheoryListItem(text: "жоқсыңдар"),
+                      TheoryListItem(text: "жоқсыздар"),
+                      TheoryListItem(text: "жоқ"),
+                    ]))
+                  ])
+                ]),
+                TheorySpace(),
+                TheoryList(items: [
+                  TheoryListItem(text: "Мен теледидар көріп жатқан жоқпын."),
+                  TheoryListItem(text: "Сіз Жұмыс істеп отырған жоқсыз."),
+                  TheoryListItem(text: "Ол тамақ ішіп отырған жоқ."),
+                  TheoryListItem(text: "Біз кешкі ас ішіп жатқан жоқпыз."),
+                  TheoryListItem(text: "Сендер мені тыңдап жатқан жоқсыңдар."),
+                  TheoryListItem(text: "Олар үй жұмысын жасап жатқан жоқ."),
+                ]),
+                TheorySpace(),
+                TheoryText(
+                    text:
+                        "Етістік + -ып,-іп,-п + жатыр, отыр, тұр, жүр = қазір болып жатқан іс-әрекет. Нақ осы шақта тек екі етістікке ғана -а және -е  жұрнақтары жалғанады: бар + -а, кел + -е"),
+                TheorySpace(),
+                TheoryText(text: "Мен бара жатырмын", alignment: "center"),
+                TheoryText(text: "Ол келе жатыр", alignment: "center"),
+                TheoryText(
+                    text: "Мен жұмыс істеп жатырмын.", alignment: "center"),
+                TheoryText(
+                    text: "Мен теледидар көріп жатқан жоқпын.",
+                    alignment: "center"),
+                TheorySpace(),
+                TheoryImage(imagePath: "assets/practice-images/8.png"),
+                TheoryTable(hasBorder: false, rows: [
+                  TheoryTableRow(cells: [
+                    TheoryTableCell(item: TheoryText(text: "Өткен шақ")),
+                    TheoryTableCell(item: TheoryText(text: "Қазір")),
+                    TheoryTableCell(item: TheoryText(text: "Келер шақ")),
+                  ])
+                ]),
+                TheoryList(items: [
+                  TheoryListItem(
+                      text:
+                          "Тыныштық сақтаңызшы. Мен жұмыс істеп жатырмын (=Мен қазір жұмыс істеп жатырмын)."),
+                  TheoryListItem(
+                      text:
+                          "Бұл – Сара. Ол қоңыр күрте киіп жатыр (=Ол қазір қоңыр күрте киіп жатыр)."),
+                  TheoryListItem(
+                      text:
+                          "Ауа-райы тамаша. Жаңбыр жауып тұрған жоқ (=Жаңбыр қазір жауып тұрған жоқ)."),
+                  TheoryListItem(
+                      text:
+                          "Балалар қайда? Олар паркте ойнап жатыр (=Олар қазір паркте ойнап жатыр)."),
+                  TheoryListItem(
+                      text:
+                          "Теледидарды сөндіре берсең болады. Мен оны көріп жатқан жоқпын (=Мен оны қазір  көріп жатқан жоқпын)."),
+                ])
+              ]),
+          practices: [
+            UnitPracticeModel(
+                id: 13,
+                title:
+                    "Мына етістіктерді пайдаланып, сөйлемдерді толықтырыңыз.",
+                description:
+                    "Салу, пісіру, бару, шомылу, тұру, қалу, жүзу, жұмыс істеу",
+                questions: [
+                  InputQuestion(text: "Тыныштық сақтаңызшы. Мен", answer: ""),
+                  InputQuestion(
+                      text: "«Айдар қайда?»  «Айдар асүйде. Ол",
+                      answer: "",
+                      postfix: "»"),
+                  InputQuestion(
+                      text: "«Мен жаяу",
+                      answer: "",
+                      postfix: "». «Кешірім өтінемін!»"),
+                  InputQuestion(text: "Қараңыз! Өзенде біреу", answer: ""),
+                  InputQuestion(
+                      text: "Біз демалыстамыз. Біз орталық қонақүйде",
+                      answer: ""),
+                  InputQuestion(
+                      text: "«Айдана қайда?»  «Айдана суға",
+                      answer: "",
+                      postfix: "»"),
+                  InputQuestion(
+                      text: "Олар қазір қала орталығынан жаңа қонақүй",
+                      answer: ""),
+                ]),
+            UnitPracticeModel(
+                id: 14,
+                title: "Суретке қараңыз. Айғаным туралы сөйлемдерді жазыңыз.",
+                description:
+                    "Етістік + -ып,-іп,-п жұрнақтары + жатыр/жатқан жоқ формаларын қолданыңыз.",
+                extraItem:
+                    TheoryImage(imagePath: "assets/practice-images/9.png"),
+                questions: [
+                  InputQuestion(text: "(түскі ас ішу)", answer: "", wide: true),
+                  InputQuestion(
+                      text: "(теледидар көру)", answer: "", wide: true),
+                  InputQuestion(text: "(еденде отыру)", answer: "", wide: true),
+                  InputQuestion(text: "(кітап оқу)", answer: "", wide: true),
+                  InputQuestion(
+                      text: "(пианинода ойнау)", answer: "", wide: true),
+                  InputQuestion(text: "(күлу)", answer: "", wide: true),
+                  InputQuestion(text: "(бас киім кию)", answer: "", wide: true),
+                  InputQuestion(text: "(хат жазу)", answer: "", wide: true),
+                ]),
+            UnitPracticeModel(
+                id: 15,
+                title: "Шашылған сөздерден сөйлемдер құрастырып жазыңыздар.",
+                description:
+                    "Сөйлемдердің мағынасы дәл қазір не болып жатқанын көрсетуі тиіс.",
+                questions: [
+                  InputQuestion(
+                      text: "(мен/шашымды/жуу)", answer: "", wide: true),
+                  InputQuestion(text: "(қар/жауу)", answer: "", wide: true),
+                  InputQuestion(
+                      text: "(мен/креслода/отыру)", answer: "", wide: true),
+                  InputQuestion(text: "(мен/жеу)", answer: "", wide: true),
+                  InputQuestion(text: "(жаңбыр/жауу)", answer: "", wide: true),
+                  InputQuestion(
+                      text: "(мен/қазақша/үйрену)", answer: "", wide: true),
+                  InputQuestion(
+                      text: "(мен/әуен/тыңдау)", answer: "", wide: true),
+                  InputQuestion(text: "(күн/шығу)", answer: "", wide: true),
+                  InputQuestion(
+                      text: "(мен/аяқ киім/кию)", answer: "", wide: true),
+                  InputQuestion(
+                      text: "(мен/газет/оқу)", answer: "", wide: true),
+                ])
+          ]),
+      Unit(
+          id: 4,
+          theory: UnitTheoryModel(
+              title: "ІСТЕП ЖАТЫРСЫҢ БА? (НАҚ ОСЫ ШАҚТЫҢ СҰРАУЛЫ ФОРМАСЫ)",
+              items: [
+                TheoryText(text: " Не істеп отырсың?"),
+                TheoryImage(imagePath: "assets/practice-images/10.png"),
+                TheorySpace(),
+                TheoryTable(rows: [
+                  TheoryTableRow(cells: [
+                    TheoryTableCell(
+                        item: TheoryList(items: [
+                      TheoryListItem(text: "Мен"),
+                      TheoryListItem(text: "Сен"),
+                      TheoryListItem(text: "Сіз"),
+                      TheoryListItem(text: "Ол"),
+                      TheoryListItem(text: "Біз"),
+                      TheoryListItem(text: "Сендер"),
+                      TheoryListItem(text: "Сіздер"),
+                      TheoryListItem(text: "Олар"),
+                    ])),
+                    TheoryTableCell(
+                        item: TheoryText(text: "Етістік + -ып, -іп, -п")),
+                    TheoryTableCell(
+                        item: TheoryText(text: "жатыр, отыр, тұр, жүр")),
+                    TheoryTableCell(
+                        item: TheoryList(items: [
+                      TheoryListItem(text: "-мын/-мін"),
+                      TheoryListItem(text: "-сың/-сің"),
+                      TheoryListItem(text: "-сыз/-сіз"),
+                      TheoryListItem(text: "-/-"),
+                      TheoryListItem(text: "-мыз/-міз"),
+                      TheoryListItem(text: "-сыңдар/сіңдер"),
+                      TheoryListItem(text: "-сыздар/-сіздер"),
+                      TheoryListItem(text: "-/-"),
+                    ])),
+                  ])
+                ]),
+                TheorySpace(),
+                TheoryTable(rows: [
+                  TheoryTableRow(cells: [
+                    TheoryTableCell(
+                        item: TheoryList(items: [
+                      TheoryListItem(text: "Мен"),
+                      TheoryListItem(text: "Сен"),
+                      TheoryListItem(text: "Сіз"),
+                      TheoryListItem(text: "Ол"),
+                      TheoryListItem(text: "Біз"),
+                      TheoryListItem(text: "Сендер"),
+                      TheoryListItem(text: "Сіздер"),
+                      TheoryListItem(text: "Олар"),
+                    ])),
+                    TheoryTableCell(
+                        item: TheoryText(text: "Етістік + -ып, -іп, -п")),
+                    TheoryTableCell(
+                        item: TheoryText(text: "жатыр, отыр, тұр, жүр")),
+                    TheoryTableCell(
+                        item: TheoryList(items: [
+                      TheoryListItem(text: "-мын/-мін"),
+                      TheoryListItem(text: "-сың/-сің"),
+                      TheoryListItem(text: "-сыз/-сіз"),
+                      TheoryListItem(text: "-/-"),
+                      TheoryListItem(text: "-мыз/-міз"),
+                      TheoryListItem(text: "-сыңдар/сіңдер"),
+                      TheoryListItem(text: "-сыздар/-сіздер"),
+                      TheoryListItem(text: "-/-"),
+                    ])),
+                    TheoryTableCell(
+                        item: TheoryList(items: [
+                      TheoryListItem(text: "ба/бе?"),
+                      TheoryListItem(text: "ба/бе?"),
+                      TheoryListItem(text: "ба/бе?"),
+                      TheoryListItem(text: "ма/ме?"),
+                      TheoryListItem(text: "ба/бе?"),
+                      TheoryListItem(text: "ма/ме?"),
+                      TheoryListItem(text: "ма/ме?"),
+                      TheoryListItem(text: "ма/ме?"),
+                    ])),
+                  ])
+                ]),
+                TheorySpace(),
+                TheoryList(items: [
+                  TheoryListItem(
+                      text: "Кітап оқып отырсың ба? Иә, кітап оқып отырмын"),
+                  TheoryListItem(
+                      text: "Жаңбыр жауып жатыр ма? Иә, қолшатыр алу керек."),
+                  TheoryListItem(
+                      text: "Сіз неге пальто киіп жатырсыз? Дала суық сияқты."),
+                  TheoryListItem(
+                      text: "Болат не істеп жатыр? Ол газет оқып жатыр."),
+                  TheoryListItem(
+                      text: "Қара! Бұл Әлия ғой! Ол қайда бара жатыр?"),
+                  TheoryListItem(
+                      text:
+                          "Сен кімді күтіп отырсың? Айдананы күтіп отырсың ба?"),
+                ]),
+                TheorySpace(),
+                TheoryText(
+                    text:
+                        "Отыр – іс-әрекеттің отырып орындалып жатқанын білдіреді."),
+                TheoryList(items: [
+                  TheoryListItem(text: "Ол кітап оқып отыр."),
+                  TheoryListItem(text: "Сен тамақ ішіп отрысың ба?"),
+                  TheoryListItem(text: "Сіз не істеп отырсыз?"),
+                ]),
+                TheorySpace(),
+                TheoryText(
+                    text:
+                        "Тұр – іс-әрекеттің  түрегеп  немесе тік тұрып орындалатынын  білдіреді. Сонымен Сонымен қатар жансыз заттардың бір қалыпты жұмыс істеп тұрғанын білдіреді. (Ол телефонмен сөйлесіп тұр (ол – жанды). Теледидар қосылып тұр. (теледидар – жансыз)."),
+                TheoryList(items: [
+                  TheoryListItem(text: "Асқар Мұратпен сөйлесіп тұр."),
+                  TheoryListItem(text: "Сен ыдыс жуып тұрсың ба?"),
+                  TheoryListItem(text: "Ол айнаға қарап тұр."),
+                ]),
+                TheorySpace(),
+                TheoryText(
+                    text:
+                        "Жүр – нақ осы шақтың формасында тұрғанымен, белгілі бір уақытқа дейін орындалатын дағдылы іс-әрекетті білдіреді."),
+                TheoryList(items: [
+                  TheoryListItem(
+                      text:
+                          "Мен қазақ тілін оқып жүрмін. Мен қаза тілін оқимын (қазіргі уақытта)"),
+                  TheoryListItem(text: "Әсел ауырып жүр."),
+                ]),
+                TheorySpace(),
+                TheoryText(
+                    text:
+                        "Жатыр – іс-әрекеттің дәл қазір болып жатқанын білдіреді. Жатыр қалып етістігі қалған үш қалып (отыр, жүр, отыр) етістіктерінің орнына жүре береді."),
+                TheoryList(items: [
+                  TheoryListItem(
+                      text: "Мен тамақ ішіп жатырмын. Мен тамақ ішіп отырмын."),
+                  TheoryListItem(text: "Ол ыдыс жуып жатыр. Ол ыдыс жуып тұр."),
+                  TheoryListItem(
+                      text: "Ол Астанада оқып жатыр. Ол Астанада оқып жүр."),
+                ]),
+                TheorySpace(),
+              ]),
+          practices: [
+            // UnitPracticeModel(
+            //     id: 16,
+            //     title:
+            //         "Суретке қараңыз және  берілген сөздерден сұраулы сөйлем жасап жазыңыз.",
+            //     questions: [
+            //       InputImageQuestion(
+            //           text: "(теледидар/сен/жатыр/қарау/ ба?)",
+            //           imagePath: "assets/practice-images/11.png",
+            //           answer: "",
+            //           wide: true,
+            //           afterText: "жоқ, қарап жатқан жоқпын."),
+            //       InputImageQuestion(
+            //           text: "(сіз/бар/ба/үйге/жатыр?)",
+            //           imagePath: "assets/practice-images/12.png",
+            //           answer: "",
+            //           wide: true,
+            //           afterText: "Иә, ертең көріскенше!"),
+            //       InputImageQuestion(
+            //           text: "(жауу/жаңбыр/тұр/ма?)",
+            //           imagePath: "assets/practice-images/13.png",
+            //           answer: "",
+            //           wide: true,
+            //           afterText: "Жоқ, жауып тұрған жоқ."),
+            //       InputImageQuestion(
+            //           text: "саған/ма/кино/ұнау/жатыр?)",
+            //           imagePath: "assets/practice-images/14.png",
+            //           answer: "",
+            //           wide: true,
+            //           afterText: "иә, өте күлкілі"),
+            //       InputImageQuestion(
+            //           text: "(істеу/сағат/жұмыс/тұр/ма?)",
+            //           imagePath: "assets/practice-images/15.png",
+            //           answer: "",
+            //           wide: true,
+            //           afterText: "жоқ, істеп тұрған жоқ"),
+            //       InputImageQuestion(
+            //           text: "(күту/автобус/сіз/тұр/ба?)",
+            //           imagePath: "assets/practice-images/16.png",
+            //           answer: "",
+            //           wide: true,
+            //           afterText: "жоқ, такси күтіп тұрмын"),
+            //     ]),
+            // UnitPracticeModel(
+            //     id: 17,
+            //     title:
+            //         "Суретке қараңыз және сөйлемді толықтырыңыз. Мына етістіктерді қолданыңыз:",
+            //     description: "жылау	жеу, бару, күлу, қарау, оқу",
+            //     questions: [
+            //       InputImageQuestion(
+            //           text: "Сен не",
+            //           imagePath: "assets/practice-images/17.png",
+            //           answer: "",
+            //           postfix: "жатырсың?"),
+            //       InputImageQuestion(
+            //           text: "Ол қайда",
+            //           imagePath: "assets/practice-images/18.png",
+            //           answer: "",
+            //           postfix: "жатыр?"),
+            //       InputImageQuestion(
+            //           text: "Сіз не",
+            //           imagePath: "assets/practice-images/19.png",
+            //           answer: "",
+            //           postfix: "жатырсыз?"),
+            //       InputImageQuestion(
+            //           text: "Сен неге",
+            //           imagePath: "assets/practice-images/20.png",
+            //           answer: "",
+            //           postfix: "жатырсың?"),
+            //       InputImageQuestion(
+            //           text: "Олар қайда",
+            //           imagePath: "assets/practice-images/21.png",
+            //           answer: "",
+            //           postfix: "тұр?"),
+            //       InputImageQuestion(
+            //           text: "Ол неге",
+            //           imagePath: "assets/practice-images/22.png",
+            //           answer: "",
+            //           postfix: "жатыр?"),
+            //     ]),
+            UnitPracticeModel(
+                id: 18,
+                title:
+                    "Мына сөздерден сұраулы сөйлем жасаңыз. Сөздерді орын тәртібімен дұрыс орналастырыңыз.",
+                questions: [
+                  InputQuestion(
+                      text: "(Арман/жатыр/істеп/жұмыс/ма/бүгін)",
+                      answer: "",
+                      wide: true),
+                  InputQuestion(
+                      text: "(істеп/балалар/не/жатыр)", answer: "", wide: true),
+                  InputQuestion(
+                      text: "(мені/тыңдап/сен/ба/отырсың)",
+                      answer: "",
+                      wide: true),
+                  InputQuestion(
+                      text: "(достарың/сенің/бара/қайда/жатыр)",
+                      answer: "",
+                      wide: true),
+                  InputQuestion(
+                      text: "(теледидар/ата-анаңыз/отыр/ма/көріп)",
+                      answer: "",
+                      wide: true),
+                  InputQuestion(
+                      text: "(Жанна/пісіріп/не/жатыр)", answer: "", wide: true),
+                  InputQuestion(
+                      text: "(маған/сен/отырсың/қарап/неге)",
+                      answer: "",
+                      wide: true),
+                  InputQuestion(
+                      text: "(ма/келе/автобус/жатыр)", answer: "", wide: true),
                 ])
           ])
     ];
@@ -370,7 +1094,12 @@ class MockChapters {
           title: "Суфиксы",
           description:
               "словообразовательный элемент, часть слова между корнем и окончанием.",
-          units: units)
+          units: [
+            Unit(
+                id: 5,
+                theory: UnitTheoryModel(title: "Example", items: []),
+                practices: [])
+          ])
     ];
 
     return chapters;
