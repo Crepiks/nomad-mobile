@@ -1,4 +1,3 @@
-import "package:flutter/cupertino.dart";
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -15,23 +14,28 @@ class BottomNavigation extends StatelessWidget {
   final dynamic onItemClick;
   final int activeIndex;
 
-  vibrate() {
-    HapticFeedback.mediumImpact();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+        padding:
+            const EdgeInsets.only(right: 40, left: 40, top: 20, bottom: 40),
         decoration: BoxDecoration(
           color: Colors.white,
-          border: Border(top: BorderSide(color: AppColors.borderColor, width: 2),),
+          borderRadius: const BorderRadius.only(
+              topRight: Radius.circular(26), topLeft: Radius.circular(26)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.15),
+              spreadRadius: 6,
+              blurRadius: 20,
+            ),
+          ],
         ),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           IconButton(
             onPressed: () {
-              vibrate();
+              _vibrate();
               onItemClick(0);
             },
             icon: FaIcon(FontAwesomeIcons.home,
@@ -42,7 +46,7 @@ class BottomNavigation extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              vibrate();
+              _vibrate();
               onItemClick(1);
             },
             icon: FaIcon(
@@ -54,7 +58,7 @@ class BottomNavigation extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              vibrate();
+              _vibrate();
               onItemClick(2);
             },
             icon: FaIcon(
@@ -66,7 +70,7 @@ class BottomNavigation extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              vibrate();
+              _vibrate();
               onItemClick(3);
             },
             icon: FaIcon(
@@ -77,5 +81,9 @@ class BottomNavigation extends StatelessWidget {
             ),
           )
         ]));
+  }
+
+  _vibrate() {
+    HapticFeedback.mediumImpact();
   }
 }
