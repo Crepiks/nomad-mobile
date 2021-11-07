@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:nomad/common/colors.dart';
 import 'package:nomad/common/components/action_button.dart';
-import 'package:nomad/auth/views/login_view.dart';
+import 'package:nomad/layouts/main_layout.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton({Key? key}) : super(key: key);
@@ -10,20 +10,15 @@ class LoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ActionButton(
         child: const Text(
-          "У меня есть аккаунт",
+          "Войти",
           style: TextStyle(
-              color: AppColors.greyColor,
+              color: AppColors.blackColor,
               fontSize: 18,
               fontWeight: FontWeight.w500),
         ),
-        reverseColor: true,
-        onClick: () {
-          _navigateToLoginScreen(context);
-        });
-  }
-
-  _navigateToLoginScreen(BuildContext context) {
-    Navigator.push(
-        context, CupertinoPageRoute(builder: (context) => const LoginView()));
+        onClick: () => {
+              Navigator.pushReplacement(context,
+                  CupertinoPageRoute(builder: (context) => const MainLayout()))
+            });
   }
 }

@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:nomad/common/colors.dart';
-import 'package:nomad/common/components/input.dart';
+import 'package:nomad/common/components/common_input.dart';
 
 class InputAnswer extends StatelessWidget {
   const InputAnswer({Key? key, required this.questions}) : super(key: key);
@@ -64,7 +64,7 @@ class ShortInputAnswer extends StatelessWidget {
           SizedBox(width: 10),
           SizedBox(
             width: 120,
-            child: Input(
+            child: CommonInput(
                 hasTitle: false, practiceInput: true, updateValue: () => {}),
           )
         ],
@@ -91,7 +91,7 @@ class WideInputAnswer extends StatelessWidget {
           SizedBox(height: 10),
           SizedBox(
             width: double.infinity,
-            child: Input(
+            child: CommonInput(
                 hasTitle: false, practiceInput: true, updateValue: () => {}),
           )
         ],

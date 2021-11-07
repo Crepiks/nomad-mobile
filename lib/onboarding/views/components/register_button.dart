@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:nomad/common/colors.dart';
 import 'package:nomad/common/components/action_button.dart';
-import '../login_view.dart';
+import 'package:nomad/auth/views/login_view.dart';
 
 class RegisterButton extends StatelessWidget {
   const RegisterButton({Key? key}) : super(key: key);
@@ -16,10 +16,14 @@ class RegisterButton extends StatelessWidget {
             fontSize: 18,
             fontWeight: FontWeight.w500),
       ),
-      onClick: () => {
-        Navigator.push(
-            context, CupertinoPageRoute(builder: (context) => LoginView()))
+      onClick: () {
+        _navigateToRegisterScreen(context);
       },
     );
+  }
+
+  _navigateToRegisterScreen(BuildContext context) {
+    Navigator.push(
+        context, CupertinoPageRoute(builder: (context) => const LoginView()));
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nomad/onboarding/views/welcome_view.dart';
+import 'package:nomad/onboarding/views/onboarding_view.dart';
 
 void main() {
   runApp(const App());
@@ -15,6 +15,6 @@ class App extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const WelcomeView());
+        home: const OnboardingView());
   }
 }

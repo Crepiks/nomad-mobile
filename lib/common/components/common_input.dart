@@ -2,8 +2,8 @@ import "package:flutter/material.dart";
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:nomad/common/colors.dart';
 
-class Input extends StatefulWidget {
-  Input(
+class CommonInput extends StatefulWidget {
+  const CommonInput(
       {Key? key,
       this.title = "",
       required this.updateValue,
@@ -30,8 +30,8 @@ class Input extends StatefulWidget {
   _InputState createState() => _InputState();
 }
 
-class _InputState extends State<Input> {
-  final maskFormatter = new MaskTextInputFormatter(
+class _InputState extends State<CommonInput> {
+  final maskFormatter = MaskTextInputFormatter(
     mask: '+# (###) ###-##-##',
   );
 
@@ -41,7 +41,7 @@ class _InputState extends State<Input> {
   void initState() {
     super.initState();
 
-    this._controller.text = widget.startFieldValue;
+    _controller.text = widget.startFieldValue;
   }
 
   @override

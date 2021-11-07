@@ -14,6 +14,7 @@ class SafeAreaLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: ScrollConfiguration(behavior: MyBehavior(), child: child),
       backgroundColor: backgroundColor,
     );

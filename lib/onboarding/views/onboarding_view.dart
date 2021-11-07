@@ -5,8 +5,8 @@ import 'package:nomad/layouts/safe_area_layout.dart';
 import 'package:nomad/onboarding/views/components/login_button.dart';
 import 'package:nomad/onboarding/views/components/register_button.dart';
 
-class WelcomeView extends StatelessWidget {
-  const WelcomeView({Key? key}) : super(key: key);
+class OnboardingView extends StatelessWidget {
+  const OnboardingView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
