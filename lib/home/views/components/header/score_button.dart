@@ -11,13 +11,13 @@ class ScoreButton extends StatelessWidget {
     return SizedBox(
       height: 50,
       child: CupertinoButton(
-          padding: EdgeInsets.symmetric(horizontal: 26, vertical: 0),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
           color: AppColors.whiteColor,
           borderRadius: BorderRadius.circular(12),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
+            children: const [
               Text(
                 "60",
                 style: TextStyle(

@@ -33,8 +33,8 @@ class _StatsViewState extends State<StatsView> {
       const SizedBox(
         height: 10,
       ),
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+      const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20),
       ),
       const SizedBox(height: 20),
       Padding(

@@ -1,53 +1,69 @@
-import "package:flutter/material.dart";
-import 'package:nomad/data/mock/mock.dart';
-import 'package:nomad/data/models/chapter/chapter.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:nomad/home/views/components/header.dart';
+import 'package:nomad/home/views/components/progress_chart.dart';
+import 'package:nomad/home/views/components/repeat_card.dart';
 
-import 'components/chapters/chapters_list.dart';
-import 'components/units/units_list.dart';
-
-class HomeView extends StatefulWidget {
+class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
 
   @override
-  _HomeViewState createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<HomeView> {
-  int activeChapterIndex = 0;
-
-  @override
   Widget build(BuildContext context) {
-    List<Chapter> chapters = MockChapters.findAll();
-
-    return Container(
-      height: double.infinity,
-      width: double.infinity,
-      padding: EdgeInsets.only(top: 20),
-      child: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Header(),
+    return ListView(
+      children: [
+        const Padding(
+          padding: EdgeInsets.only(right: 20, left: 20),
+          child: Header(),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        const Padding(
+          padding: EdgeInsets.only(right: 20, left: 20),
+          child: ProgressChart(),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        const Padding(
+          padding: EdgeInsets.only(right: 20, left: 20),
+          child: Text(
+            "Повторение",
+            style: TextStyle(
+                color: Colors.black, fontSize: 24, fontWeight: FontWeight.w600),
           ),
-          SizedBox(height: 34),
-          ChaptersList(
-            chapters: chapters,
-            onChangeChapter: (index) => {setActiveChapterIndex(index)},
+        ),
+        const SizedBox(
+          height: 14,
+        ),
+        SizedBox(
+          height: 180,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: [
+              const SizedBox(width: 20),
+              GestureDetector(
+                onTap: () => {},
+                child: const RepeatCard(
+                  title: "Местоимения",
+                  description:
+                      "самостоятельная часть речи, которая указывает на предметы, признаки, количество, но не называет их",
+                ),
+              ),
+              const SizedBox(width: 10),
+              GestureDetector(
+                onTap: () {},
+                child: const RepeatCard(
+                  title: "Местоимения",
+                  description:
+                      "самостоятельная часть речи, которая указывает на предметы, признаки, количество, но не называет их",
+                ),
+              ),
+              const SizedBox(width: 20),
+            ],
           ),
-          SizedBox(height: 30),
-          UnitsList(units: chapters[activeChapterIndex].units),
-          SizedBox(
-            height: 90,
-          )
-        ],
-      ),
+        )
+      ],
     );
-  }
-
-  setActiveChapterIndex(index) {
-    setState(() {
-      activeChapterIndex = index;
-    });
   }
 }
