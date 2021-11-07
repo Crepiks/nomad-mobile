@@ -20,7 +20,7 @@ class ProfileActionLink extends StatelessWidget {
       },
       padding: const EdgeInsets.all(0),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16),
+        padding: const EdgeInsets.symmetric(vertical: 12),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

@@ -1,15 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
+import 'package:nomad/common/colors.dart';
 
-import '../colors.dart';
-
-class Button extends StatelessWidget {
-  const Button(
-      {Key? key,
-      required this.text,
-      this.reverseColor = false,
-      required this.onClick})
-      : super(key: key);
+class CommonButton extends StatelessWidget {
+  const CommonButton({
+    Key? key,
+    required this.text,
+    required this.onClick,
+    this.reverseColor = false,
+  }) : super(key: key);
 
   final String text;
   final bool reverseColor;
@@ -21,13 +20,14 @@ class Button extends StatelessWidget {
       onPressed: () {
         onClick();
       },
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       color: reverseColor ? AppColors.whiteColor : AppColors.primaryColor,
       borderRadius: BorderRadius.circular(12),
       child: Text(
         text,
         style: TextStyle(
             color: reverseColor ? AppColors.blackColor : AppColors.whiteColor,
+            fontWeight: FontWeight.w500,
             fontSize: 14),
       ),
     );

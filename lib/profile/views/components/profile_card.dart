@@ -8,7 +8,7 @@ class ProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 26),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       decoration: BoxDecoration(
           color: Colors.white,
           border: Border.all(color: AppColors.borderColor),
@@ -25,15 +25,15 @@ class ProfileCard extends StatelessWidget {
           const SizedBox(width: 16),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
+            children: const [
+              Text(
                 "Саяжан Онласын",
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w600,
                     color: AppColors.blackColor),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 3,
               ),
               Text(

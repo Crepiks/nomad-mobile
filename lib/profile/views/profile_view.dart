@@ -10,13 +10,13 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.only(right: 20, left: 20, top: 20),
+        padding: const EdgeInsets.only(right: 20, left: 20, top: 10),
         child: ListView(
           children: const [
             ProfileCard(),
-            SizedBox(height: 10),
+            SizedBox(height: 14),
             PremiumCard(),
-            SizedBox(height: 10),
+            SizedBox(height: 14),
             ProfileActions()
           ],
         ));

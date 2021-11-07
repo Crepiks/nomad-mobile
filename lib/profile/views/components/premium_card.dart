@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:nomad/common/colors.dart';
-import 'package:nomad/common/components/button.dart';
+import 'package:nomad/common/components/common_button.dart';
 
 class PremiumCard extends StatelessWidget {
   const PremiumCard({Key? key}) : super(key: key);
@@ -12,7 +12,7 @@ class PremiumCard extends StatelessWidget {
       decoration: BoxDecoration(
           color: AppColors.primaryColor,
           borderRadius: BorderRadius.circular(22),
-          image: DecorationImage(
+          image: const DecorationImage(
               image: AssetImage("assets/images/premium-card-image.png"),
               scale: 4,
               alignment: Alignment(1.5, -0.5))),
@@ -22,7 +22,7 @@ class PremiumCard extends StatelessWidget {
         children: [
           SizedBox(
             width: (MediaQuery.of(context).size.width - 40 - 44) * 0.75,
-            child: Text(
+            child: const Text(
               "Оформите премиум план и получите доступ ко всем разделам",
               style: TextStyle(
                   color: AppColors.blackColor,
@@ -30,8 +30,8 @@ class PremiumCard extends StatelessWidget {
                   fontWeight: FontWeight.w500),
             ),
           ),
-          SizedBox(height: 18),
-          Button(
+          const SizedBox(height: 18),
+          CommonButton(
             text: "Оформить подписку",
             onClick: () {},
             reverseColor: true,
