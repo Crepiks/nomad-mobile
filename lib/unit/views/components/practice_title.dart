@@ -16,17 +16,17 @@ class PracticeTitle extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "${index}. ${title}",
-          style: TextStyle(
+          "$index. $title",
+          style: const TextStyle(
               color: AppColors.blackColor,
               fontSize: 18,
               fontWeight: FontWeight.w500,
               height: 1.3),
         ),
-        subtitle != "" ? SizedBox(height: 14) : Container(),
+        subtitle != "" ? const SizedBox(height: 14) : Container(),
         subtitle != ""
             ? Text(subtitle,
-                style: TextStyle(
+                style: const TextStyle(
                     color: AppColors.blackColor80, fontSize: 16, height: 1.2))
             : Container()
       ],

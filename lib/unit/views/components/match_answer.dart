@@ -2,7 +2,7 @@ import "package:flutter/material.dart";
 import 'package:nomad/common/colors.dart';
 
 class MatchAnswer extends StatefulWidget {
-  MatchAnswer({Key? key, required this.questions}) : super(key: key);
+  const MatchAnswer({Key? key, required this.questions}) : super(key: key);
 
   final List questions;
 
@@ -11,7 +11,7 @@ class MatchAnswer extends StatefulWidget {
 }
 
 class _MatchAnswerState extends State<MatchAnswer> {
-  int? focusedInputIndex = null;
+  int? focusedInputIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -30,15 +30,16 @@ class _MatchAnswerState extends State<MatchAnswer> {
               children: [
                 Expanded(
                     child: ListView(
-                  physics: BouncingScrollPhysics(),
+                  padding: const EdgeInsets.all(0),
+                  physics: const BouncingScrollPhysics(),
                   children: [
-                    SizedBox(height: 20),
-                    Text("Сопоставьте ответы:",
+                    const SizedBox(height: 20),
+                    const Text("Сопоставьте ответы:",
                         style: TextStyle(
                             color: AppColors.greyColor,
                             fontSize: 18,
                             fontWeight: FontWeight.w500)),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     for (int index = 0;
                         index < widget.questions.length;
                         index++)
@@ -48,14 +49,14 @@ class _MatchAnswerState extends State<MatchAnswer> {
                             text: widget.questions[index].question,
                             index: index),
                       ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                   ],
                 ))
               ],
             ),
           ),
         ),
-        SizedBox(height: 15),
+        const SizedBox(height: 15),
         Expanded(
           child: Container(
             width: double.infinity,
@@ -69,15 +70,16 @@ class _MatchAnswerState extends State<MatchAnswer> {
               children: [
                 Expanded(
                     child: ListView(
-                  physics: BouncingScrollPhysics(),
+                  padding: const EdgeInsets.all(0),
+                  physics: const BouncingScrollPhysics(),
                   children: [
-                    SizedBox(height: 20),
-                    Text("Варианты ответов:",
+                    const SizedBox(height: 20),
+                    const Text("Варианты ответов:",
                         style: TextStyle(
                             color: AppColors.greyColor,
                             fontSize: 18,
                             fontWeight: FontWeight.w500)),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     for (int index = 0;
                         index < widget.questions.length;
                         index++)
@@ -113,10 +115,10 @@ class NumberQuestion extends StatelessWidget {
         children: [
           Flexible(
             child: Text("${index + 1}. $text",
-                style: TextStyle(
+                style: const TextStyle(
                     color: AppColors.blackColor, fontSize: 20, height: 1.2)),
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           GestureDetector(
             onTap: () {},
             child: Container(
@@ -175,7 +177,7 @@ class LetterAnswer extends StatelessWidget {
         children: [
           Text(
             "${kazakhAlphabet[index]} $text",
-            style: TextStyle(fontSize: 16, color: AppColors.blackColor),
+            style: const TextStyle(fontSize: 16, color: AppColors.blackColor),
           ),
           Container(
             width: 30,

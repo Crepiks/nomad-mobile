@@ -54,6 +54,7 @@ class _UnitTheoryState extends State<UnitTheory> {
               height: closeTheoryTitle ? 0 : 60),
           Expanded(
             child: ListView(
+              padding: const EdgeInsets.only(bottom: 30),
               controller: _controller,
               physics: const BouncingScrollPhysics(),
               children: [

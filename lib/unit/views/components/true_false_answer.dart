@@ -19,22 +19,25 @@ class TrueFalseAnswer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
-            child: ListView(physics: BouncingScrollPhysics(), children: [
-              SizedBox(height: 20),
-              Text("Определите верно или не верно:",
-                  style: TextStyle(
-                      color: AppColors.greyColor,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500)),
-              SizedBox(height: 20),
-              ...questions
-                  .map((question) => Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        child: TrueFalseRow(text: question.text),
-                      ))
-                  .toList(),
-              SizedBox(height: 20),
-            ]),
+            child: ListView(
+                padding: const EdgeInsets.all(0),
+                physics: const BouncingScrollPhysics(),
+                children: [
+                  const SizedBox(height: 20),
+                  const Text("Определите верно или не верно:",
+                      style: TextStyle(
+                          color: AppColors.greyColor,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500)),
+                  const SizedBox(height: 20),
+                  ...questions
+                      .map((question) => Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10),
+                            child: TrueFalseRow(text: question.text),
+                          ))
+                      .toList(),
+                  const SizedBox(height: 20),
+                ]),
           ),
         ],
       ),

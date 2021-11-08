@@ -22,7 +22,7 @@ class TheoryTitle extends StatelessWidget {
           "Урок $index. $title",
           textAlign: TextAlign.center,
           overflow: TextOverflow.ellipsis,
-          style: TextStyle(
+          style: const TextStyle(
               height: 1.3,
               color: AppColors.blackColor,
               fontSize: 16,

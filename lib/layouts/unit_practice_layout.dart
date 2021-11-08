@@ -26,7 +26,7 @@ class UnitPracticeLayout extends StatelessWidget {
         children: [
           Expanded(child: child),
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 30, 0, 20),
+            padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
             child: UnitBottomActions(
               onClickCheck: () {
                 buildCheckBottomSheet(context, 4, 5);
@@ -62,7 +62,7 @@ class UnitPracticeLayout extends StatelessWidget {
             borderRadius: BorderRadius.vertical(top: Radius.circular(26))),
         builder: (BuildContext context) => Padding(
               padding: const EdgeInsets.only(
-                  right: 30, left: 30, top: 12, bottom: 25),
+                  right: 30, left: 30, top: 30, bottom: 30),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,20 +70,16 @@ class UnitPracticeLayout extends StatelessWidget {
                   isLastPractice
                       ? const Text("Урок завершен",
                           style: TextStyle(
-                              color: AppColors.blackColor,
-                              fontSize: 28,
+                              color: AppColors.primaryColor,
+                              fontSize: 26,
                               fontWeight: FontWeight.w600))
-                      : Container(),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    result.title,
-                    style: TextStyle(
-                        color: result.color,
-                        fontSize: 26,
-                        fontWeight: FontWeight.w600),
-                  ),
+                      : Text(
+                          result.title,
+                          style: TextStyle(
+                              color: result.color,
+                              fontSize: 26,
+                              fontWeight: FontWeight.w600),
+                        ),
                   const SizedBox(
                     height: 4,
                   ),

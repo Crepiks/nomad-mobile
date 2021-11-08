@@ -2,7 +2,7 @@ import "package:flutter/material.dart";
 import 'package:nomad/common/colors.dart';
 
 class OneChoiceAnswer extends StatefulWidget {
-  OneChoiceAnswer({Key? key, required this.questions}) : super(key: key);
+  const OneChoiceAnswer({Key? key, required this.questions}) : super(key: key);
 
   final List questions;
 
@@ -23,21 +23,22 @@ class _OneChoiceAnswerState extends State<OneChoiceAnswer> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 26),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 26),
       decoration: BoxDecoration(
           color: AppColors.whiteColor, borderRadius: BorderRadius.circular(20)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Выберите один ответ:",
+          const Text("Выберите один ответ:",
               style: TextStyle(
                   color: AppColors.greyColor,
                   fontSize: 18,
                   fontWeight: FontWeight.w500)),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           SizedBox(
             height: 300,
             child: ListView(
+                padding: const EdgeInsets.all(0),
                 children: widget.questions
                     .map((question) => Column(
                           children: [
@@ -46,7 +47,7 @@ class _OneChoiceAnswerState extends State<OneChoiceAnswer> {
                                 active: answeredIndex == question.index,
                                 onClick: () =>
                                     setAnsweredIndex(question.index)),
-                            SizedBox(height: 16)
+                            const SizedBox(height: 16)
                           ],
                         ))
                     .toList()),
@@ -75,15 +76,15 @@ class OneChoice extends StatelessWidget {
       onTap: () => {onClick()},
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(horizontal: 26, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 20),
         decoration: BoxDecoration(
             color:
                 active ? AppColors.primaryColor60 : AppColors.backgroundColor,
             borderRadius: BorderRadius.circular(20)),
         child: Text(
           text,
-          style:
-              TextStyle(color: AppColors.blackColor, fontSize: 16, height: 1.2),
+          style: const TextStyle(
+              color: AppColors.blackColor, fontSize: 16, height: 1.2),
         ),
       ),
     );
