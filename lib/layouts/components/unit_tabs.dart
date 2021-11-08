@@ -2,7 +2,8 @@ import "package:flutter/material.dart";
 import 'package:nomad/common/colors.dart';
 
 class Tabs extends StatefulWidget {
-  Tabs({Key? key, required this.changeActiveIndex, required this.activeIndex})
+  const Tabs(
+      {Key? key, required this.changeActiveIndex, required this.activeIndex})
       : super(key: key);
 
   final int activeIndex;
@@ -19,7 +20,7 @@ class _TabsState extends State<Tabs> {
       width: double.infinity,
       decoration: const BoxDecoration(
           color: AppColors.whiteColor,
-          borderRadius: BorderRadius.all(Radius.circular(20))),
+          borderRadius: BorderRadius.all(Radius.circular(14))),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -60,16 +61,16 @@ class Tab extends StatelessWidget {
         behavior: HitTestBehavior.opaque,
         onTap: () => onClick(),
         child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           decoration: active
               ? const BoxDecoration(
-                  color: AppColors.primaryColor60,
-                  borderRadius: BorderRadius.all(Radius.circular(20)))
+                  color: AppColors.primaryColor,
+                  borderRadius: BorderRadius.all(Radius.circular(14)))
               : null,
           child: Center(
             child: Text(
               text,
-              style: TextStyle(fontSize: 16, color: AppColors.blackColor),
+              style: const TextStyle(fontSize: 16, color: AppColors.blackColor),
             ),
           ),
         ),

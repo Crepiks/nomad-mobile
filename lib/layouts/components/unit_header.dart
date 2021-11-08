@@ -19,34 +19,28 @@ class UnitHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 60,
+      height: 50,
       child: Row(
         children: [
           HeaderButton(
             icon: FontAwesomeIcons.arrowLeft,
-            onClick: () => {Navigator.pop(context)},
+            onClick: () {
+              Navigator.pop(context);
+            },
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           Expanded(
               child: Tabs(
             activeIndex: activePageIndex,
             changeActiveIndex: (newActiveIndex) =>
                 changeActivePageIndex(newActiveIndex),
           )),
-          SizedBox(width: 10),
-          SizedBox(
-            height: 60,
-            width: 60,
-            child: CupertinoButton(
-                color: AppColors.whiteColor,
-                padding: EdgeInsets.all(0),
-                borderRadius: BorderRadius.circular(20),
-                child: Text("···",
-                    style: TextStyle(
-                        color: AppColors.blackColor80,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold)),
-                onPressed: () => {onClickExtraFunctions()}),
+          const SizedBox(width: 10),
+          HeaderButton(
+            icon: FontAwesomeIcons.ellipsisH,
+            onClick: () {
+              onClickExtraFunctions();
+            },
           ),
         ],
       ),
@@ -64,16 +58,16 @@ class HeaderButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 60,
-      height: 60,
+      width: 50,
+      height: 50,
       child: CupertinoButton(
-        padding: EdgeInsets.all(0),
+        padding: const EdgeInsets.all(0),
         color: AppColors.whiteColor,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(14),
         child: FaIcon(
           icon,
           color: AppColors.blackColor80,
-          size: 16,
+          size: 20,
         ),
         onPressed: () => onClick(),
       ),

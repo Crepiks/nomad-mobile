@@ -23,7 +23,7 @@ class UnitTheory extends StatefulWidget {
 }
 
 class _UnitTheoryState extends State<UnitTheory> {
-  ScrollController _controller = ScrollController();
+  final ScrollController _controller = ScrollController();
   bool closeTheoryTitle = false;
 
   @override
@@ -55,18 +55,18 @@ class _UnitTheoryState extends State<UnitTheory> {
           Expanded(
             child: ListView(
               controller: _controller,
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               children: [
-                SizedBox(height: 60),
+                const SizedBox(height: 60),
                 ...widget.theory.items
                     .map((item) => TheoryItemParser(item: item))
                     .toList(),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 ActionButton(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
+                      children: const [
                         Text(
                           "К практике",
                           style: TextStyle(
@@ -87,7 +87,6 @@ class _UnitTheoryState extends State<UnitTheory> {
                     onClick: () {
                       widget.onClickToPractice();
                     }),
-                SizedBox(height: 30),
               ],
             ),
           ),
@@ -115,7 +114,7 @@ class TheoryItemParser extends StatelessWidget {
                     : item is TheoryBorderBox
                         ? TheoryBorderBoxView(item: item as TheoryBorderBox)
                         : item is TheorySpace
-                            ? TheorySpaceView()
+                            ? const TheorySpaceView()
                             : Container();
   }
 }
@@ -138,7 +137,7 @@ class TableItemParser extends StatelessWidget {
                     : item is TheoryBorderBox
                         ? TheoryBorderBoxView(item: item as TheoryBorderBox)
                         : item is TheorySpace
-                            ? TheorySpaceView()
+                            ? const TheorySpaceView()
                             : Container();
   }
 }
@@ -161,8 +160,8 @@ class TheoryTextView extends StatelessWidget {
                 : item.alignment == "center"
                     ? TextAlign.center
                     : TextAlign.center,
-        style:
-            TextStyle(color: AppColors.blackColor, fontSize: 20, height: 1.4),
+        style: const TextStyle(
+            color: AppColors.blackColor, fontSize: 20, height: 1.4),
       ),
     );
   }
@@ -200,7 +199,8 @@ class TheoryTableView extends StatelessWidget {
           borderRadius: BorderRadius.circular(12)),
       child: Table(
           border: TableBorder.symmetric(
-              inside: BorderSide(width: 1, color: AppColors.blackColor60)),
+              inside:
+                  const BorderSide(width: 1, color: AppColors.blackColor60)),
           children: item.rows
               .map((row) => TableRow(
                   children: row.cells
@@ -228,13 +228,13 @@ class TheoryListView extends StatelessWidget {
         item.title != null
             ? Text(
                 item.title ?? "",
-                style: TextStyle(
+                style: const TextStyle(
                     color: AppColors.blackColor,
                     fontSize: 20,
                     fontWeight: FontWeight.w500),
               )
             : Container(),
-        item.title != null ? SizedBox(height: 16) : Container(),
+        item.title != null ? const SizedBox(height: 16) : Container(),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: item.items
@@ -243,18 +243,18 @@ class TheoryListView extends StatelessWidget {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           "·",
                           style: TextStyle(
                               color: AppColors.blackColor,
                               fontSize: 24,
                               fontWeight: FontWeight.bold),
                         ),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Flexible(
                           child: Text(
                             listItem.text,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: AppColors.blackColor,
                                 fontSize: 18,
                                 height: 1.3),
@@ -280,9 +280,9 @@ class TheoryBorderBoxView extends StatelessWidget {
     return DottedBorder(
       borderType: BorderType.RRect,
       color: AppColors.primaryColor,
-      dashPattern: [14, 6],
+      dashPattern: const [14, 6],
       strokeWidth: 3,
-      radius: Radius.circular(14),
+      radius: const Radius.circular(14),
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
         width: double.infinity,
@@ -304,6 +304,6 @@ class TheorySpaceView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(height: 50);
+    return const SizedBox(height: 50);
   }
 }

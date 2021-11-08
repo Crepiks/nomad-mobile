@@ -10,11 +10,11 @@ import 'package:nomad/unit/views/unit_practices.dart';
 import 'package:nomad/unit/views/unit_theory.dart';
 
 class UnitLayout extends StatefulWidget {
-  UnitLayout({Key? key, required this.units, required this.index})
-      : super(key: key);
-
   final List<Unit> units;
   final int index;
+
+  const UnitLayout({Key? key, required this.units, required this.index})
+      : super(key: key);
 
   @override
   _UnitLayoutState createState() => _UnitLayoutState();
@@ -52,7 +52,7 @@ class _UnitLayoutState extends State<UnitLayout> {
     ];
   }
 
-  PageController _controller = PageController(initialPage: 0);
+  final PageController _controller = PageController(initialPage: 0);
 
   @override
   Widget build(BuildContext context) {
@@ -63,9 +63,10 @@ class _UnitLayoutState extends State<UnitLayout> {
           child: Stack(
             alignment: Alignment.topCenter,
             children: [
-              SizedBox(
+              Container(
                   width: double.infinity,
                   height: double.infinity,
+                  padding: const EdgeInsets.only(top: 40),
                   child: PageView(
                     controller: _controller,
                     children: [
@@ -82,7 +83,7 @@ class _UnitLayoutState extends State<UnitLayout> {
                     },
                   )),
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                padding: const EdgeInsets.fromLTRB(20, 60, 20, 0),
                 child: UnitHeader(
                     changeActivePageIndex: (newIndex) =>
                         changeActivePage(newIndex),
@@ -118,7 +119,7 @@ class _UnitLayoutState extends State<UnitLayout> {
         context: context,
         backgroundColor: AppColors.whiteColor,
         isScrollControlled: true,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(26))),
         builder: (BuildContext context) => Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 25),
@@ -128,19 +129,19 @@ class _UnitLayoutState extends State<UnitLayout> {
                 children: [
                   Text(
                     "Урок $index. ${unit.theory.title}",
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: AppColors.blackColor,
                         fontSize: 22,
                         height: 1.3,
                         fontWeight: FontWeight.w600),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(
                     "Заданий в уроке: ${unit.practices.length}",
-                    style:
-                        TextStyle(color: AppColors.blackColor80, fontSize: 18),
+                    style: const TextStyle(
+                        color: AppColors.blackColor80, fontSize: 18),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   Row(
@@ -153,7 +154,7 @@ class _UnitLayoutState extends State<UnitLayout> {
                             padding: const EdgeInsets.all(0),
                             color: AppColors.primaryColor,
                             borderRadius: BorderRadius.circular(16),
-                            child: FaIcon(
+                            child: const FaIcon(
                               FontAwesomeIcons.arrowLeft,
                               color: AppColors.blackColor,
                               size: 16,
@@ -162,17 +163,17 @@ class _UnitLayoutState extends State<UnitLayout> {
                               Navigator.of(context).pop();
                             }),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
-                      Flexible(
+                      const Flexible(
                           child: Text(
                         "Перейти на другой урок",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: AppColors.blackColor, fontSize: 18),
                       )),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
                       SizedBox(
@@ -182,7 +183,7 @@ class _UnitLayoutState extends State<UnitLayout> {
                             padding: const EdgeInsets.all(0),
                             color: AppColors.primaryColor,
                             borderRadius: BorderRadius.circular(16),
-                            child: FaIcon(
+                            child: const FaIcon(
                               FontAwesomeIcons.arrowRight,
                               color: AppColors.blackColor,
                               size: 16,
@@ -193,10 +194,10 @@ class _UnitLayoutState extends State<UnitLayout> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   ActionButton(
                       reverseColor: true,
-                      child: Text(
+                      child: const Text(
                         "Закрыть",
                         style: TextStyle(
                             color: AppColors.blackColor,

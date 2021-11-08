@@ -58,22 +58,23 @@ class UnitPracticeLayout extends StatelessWidget {
         isDismissible: false,
         backgroundColor: AppColors.whiteColor,
         isScrollControlled: true,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(26))),
         builder: (BuildContext context) => Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 25),
+              padding: const EdgeInsets.only(
+                  right: 30, left: 30, top: 12, bottom: 25),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   isLastPractice
-                      ? Text("Урок завершен",
+                      ? const Text("Урок завершен",
                           style: TextStyle(
                               color: AppColors.blackColor,
                               fontSize: 28,
                               fontWeight: FontWeight.w600))
                       : Container(),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Text(
@@ -83,17 +84,17 @@ class UnitPracticeLayout extends StatelessWidget {
                         fontSize: 26,
                         fontWeight: FontWeight.w600),
                   ),
-                  SizedBox(
-                    height: 10,
+                  const SizedBox(
+                    height: 4,
                   ),
                   Text(
                     "$correctAnswers правильных ответов из $allAnswers",
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: AppColors.blackColor80,
                         fontSize: 18,
                         height: 1.3),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   isLastPractice
@@ -104,7 +105,7 @@ class UnitPracticeLayout extends StatelessWidget {
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
+                                  children: const [
                                     Text(
                                       "Повторить",
                                       style: TextStyle(
@@ -125,14 +126,14 @@ class UnitPracticeLayout extends StatelessWidget {
                                 onClick: () {
                                   Navigator.of(context).pop();
                                 }),
-                            SizedBox(
+                            const SizedBox(
                               height: 15,
                             ),
                             ActionButton(
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
+                                  children: const [
                                     Text(
                                       "Следующий урок",
                                       style: TextStyle(
@@ -165,7 +166,7 @@ class UnitPracticeLayout extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
-                                    children: [
+                                    children: const [
                                       Text(
                                         "Повторить",
                                         style: TextStyle(
@@ -187,7 +188,7 @@ class UnitPracticeLayout extends StatelessWidget {
                                     Navigator.of(context).pop();
                                   }),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 15,
                             ),
                             Expanded(
@@ -196,7 +197,7 @@ class UnitPracticeLayout extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
-                                    children: [
+                                    children: const [
                                       Text(
                                         "Далее",
                                         style: TextStyle(
