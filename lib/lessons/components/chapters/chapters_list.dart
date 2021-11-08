@@ -17,7 +17,7 @@ class ChaptersList extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(left: 20),
           child: Text(
             "Разделы учебника",
@@ -27,12 +27,12 @@ class ChaptersList extends StatelessWidget {
                 fontWeight: FontWeight.w500),
           ),
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         SizedBox(
             height: 200,
             child: PageView.builder(
                 scrollDirection: Axis.horizontal,
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 itemCount: chapters.length,
                 onPageChanged: (index) {
                   onChangeChapter(index);
