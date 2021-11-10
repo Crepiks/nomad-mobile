@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nomad/stats/views/components/progress_chart.dart';
+import 'package:nomad/analytics/components/progress_chart.dart';
 
 class PersonalStatsView extends StatefulWidget {
   const PersonalStatsView({Key? key}) : super(key: key);

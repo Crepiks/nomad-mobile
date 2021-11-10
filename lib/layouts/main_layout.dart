@@ -5,7 +5,7 @@ import 'package:nomad/home/views/home_view.dart';
 import 'package:nomad/layouts/safe_area_layout.dart';
 import 'package:nomad/lessons/views/lessons_view.dart';
 import 'package:nomad/profile/views/profile_view.dart';
-import 'package:nomad/stats/views/stats_view.dart';
+import 'package:nomad/analytics/views/analytics_view.dart';
 
 class MainLayout extends StatefulWidget {
   const MainLayout({Key? key}) : super(key: key);
@@ -14,7 +14,6 @@ class MainLayout extends StatefulWidget {
 }
 
 class _MainLayoutState extends State<MainLayout> {
-  final screens = const [HomeView(), StatsView(), LessonsView(), ProfileView()];
   int activeScreenIndex = 0;
 
   setScreen(index) {
@@ -25,6 +24,13 @@ class _MainLayoutState extends State<MainLayout> {
 
   @override
   Widget build(BuildContext context) {
+    final screens = [
+      HomeView(onActiveTabChange: setScreen),
+      AnalyticsView(),
+      LessonsView(),
+      ProfileView()
+    ];
+
     return SafeAreaLayout(
       child: SizedBox(
         height: double.infinity,

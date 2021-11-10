@@ -1,11 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:nomad/home/views/components/header.dart';
-import 'package:nomad/home/views/components/progress_chart.dart';
-import 'package:nomad/home/views/components/repeat_card.dart';
+import 'package:nomad/home/components/header.dart';
+import 'package:nomad/home/components/progress_chart.dart';
+import 'package:nomad/home/components/repeat_card.dart';
+
+typedef ActiveTabChange = void Function(int index);
 
 class HomeView extends StatelessWidget {
-  const HomeView({Key? key}) : super(key: key);
+  final ActiveTabChange onActiveTabChange;
+
+  const HomeView({Key? key, required this.onActiveTabChange}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +22,14 @@ class HomeView extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        const Padding(
-          padding: EdgeInsets.only(right: 20, left: 20),
-          child: ProgressChart(),
+        Padding(
+          padding: const EdgeInsets.only(right: 20, left: 20),
+          child: ProgressChart(
+            onShowMoreTap: () {
+              const analyticsTabIndex = 1;
+              onActiveTabChange(analyticsTabIndex);
+            },
+          ),
         ),
         const SizedBox(
           height: 20,

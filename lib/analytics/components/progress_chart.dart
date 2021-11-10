@@ -29,7 +29,7 @@ class ProgressChartState extends State<ProgressChart> {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(
-                  top: 12, right: 20, bottom: 20, left: 20),
+                  top: 16, right: 20, bottom: 20, left: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -43,7 +43,7 @@ class ProgressChartState extends State<ProgressChart> {
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 24,
-                            fontWeight: FontWeight.w600),
+                            fontWeight: FontWeight.w500),
                       ),
                     ],
                   ),

@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:nomad/common/colors.dart';
 
+typedef ShowMoreTap = void Function();
+
 class ProgressChart extends StatefulWidget {
-  const ProgressChart({Key? key}) : super(key: key);
+  final ShowMoreTap onShowMoreTap;
+  const ProgressChart({Key? key, required this.onShowMoreTap})
+      : super(key: key);
 
   @override
   State<StatefulWidget> createState() => ProgressChartState();
@@ -49,9 +53,12 @@ class ProgressChartState extends State<ProgressChart> {
                           padding: const EdgeInsets.all(0),
                           child: const Text(
                             "Подробнее",
-                            style: TextStyle(fontSize: 14, color: AppColors.primaryColor),
+                            style: TextStyle(
+                                fontSize: 14, color: AppColors.primaryColor),
                           ),
-                          onPressed: () {})
+                          onPressed: () {
+                            widget.onShowMoreTap();
+                          })
                     ],
                   ),
                   const SizedBox(
