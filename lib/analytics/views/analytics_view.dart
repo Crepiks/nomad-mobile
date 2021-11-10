@@ -13,7 +13,7 @@ class AnalyticsView extends StatefulWidget {
 
 class _StatsViewState extends State<AnalyticsView> {
   int activeIndex = 0;
-  final screens = const [PersonalStatsView(), LeaderBoardView()];
+  final screens = const [PersonalStatsView(), LeaderboardView()];
 
   onTabClick(index) {
     if (activeIndex == index) return;
