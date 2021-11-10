@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:nomad/home/views/components/header/score_button.dart';
-import 'package:nomad/home/views/components/header/user_info.dart';
+import 'package:nomad/home/components/score_button.dart';
+import 'package:nomad/home/components/user_info.dart';
 
-class Header extends StatelessWidget {
-  const Header({Key? key}) : super(key: key);
+class HomeHeader extends StatelessWidget {
+  const HomeHeader({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class Header extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [UserInfo(), ScoreButton()],
+        children: const [UserInfo(), ScoreButton()],
       ),
     );
   }

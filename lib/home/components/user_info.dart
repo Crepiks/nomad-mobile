@@ -11,14 +11,14 @@ class UserInfo extends StatelessWidget {
         Container(
             width: 50,
             height: 50,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
                     image: AssetImage('assets/images/avatar.png')))),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: const [
             Text(
               "Саяжан Онласын",
               style: TextStyle(

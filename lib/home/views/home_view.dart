@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:nomad/home/components/header.dart';
+import 'package:nomad/home/components/home_header.dart';
 import 'package:nomad/home/components/progress_chart.dart';
 import 'package:nomad/home/components/repeat_card.dart';
 
@@ -17,7 +17,7 @@ class HomeView extends StatelessWidget {
       children: [
         const Padding(
           padding: EdgeInsets.only(right: 20, left: 20),
-          child: Header(),
+          child: HomeHeader(),
         ),
         const SizedBox(
           height: 10,
