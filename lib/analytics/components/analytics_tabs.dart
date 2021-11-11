@@ -65,7 +65,10 @@ class AnalyticsTab extends StatelessWidget {
           child: Center(
             child: Text(
               text,
-              style: const TextStyle(fontSize: 16, color: AppColors.blackColor),
+              style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.blackColor),
             ),
           ),
         ),

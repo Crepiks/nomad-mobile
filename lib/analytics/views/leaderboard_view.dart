@@ -13,23 +13,46 @@ class _LeaderBoardViewState extends State<LeaderboardView> {
   Widget build(BuildContext context) {
     return Column(
       children: const [
-        LeaderboardCard(),
+        LeaderboardCard(
+            active: true,
+            name: "Саяжан Онласын",
+            location: "Нур-Султан, Казахстан",
+            rating: 40),
         SizedBox(
-          height: 14,
+          height: 10,
         ),
-        LeaderboardCard(),
+        LeaderboardCard(
+            name: "Саяжан Онласын",
+            location: "Нур-Султан, Казахстан",
+            rating: 70),
         SizedBox(
-          height: 14,
+          height: 10,
         ),
-        LeaderboardCard(),
+        LeaderboardCard(
+            name: "Саяжан Онласын",
+            location: "Нур-Султан, Казахстан",
+            rating: 40),
         SizedBox(
-          height: 14,
+          height: 10,
         ),
-        LeaderboardCard(),
+        LeaderboardCard(
+            name: "Саяжан Онласын",
+            location: "Нур-Султан, Казахстан",
+            rating: 30),
         SizedBox(
-          height: 14,
+          height: 10,
         ),
-        LeaderboardCard()
+        LeaderboardCard(
+            name: "Саяжан Онласын",
+            location: "Нур-Султан, Казахстан",
+            rating: 20),
+        SizedBox(
+          height: 10,
+        ),
+        LeaderboardCard(
+            name: "Саяжан Онласын",
+            location: "Нур-Султан, Казахстан",
+            rating: 6),
       ],
     );
   }

@@ -3,15 +3,26 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nomad/common/colors.dart';
 
 class LeaderboardCard extends StatelessWidget {
-  const LeaderboardCard({Key? key}) : super(key: key);
+  final bool active;
+  final String name;
+  final String location;
+  final int rating;
+
+  const LeaderboardCard(
+      {Key? key,
+      this.active = false,
+      required this.name,
+      required this.location,
+      required this.rating})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
-      decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(16))),
+      decoration: BoxDecoration(
+          color: active ? AppColors.primaryColor : Colors.white,
+          borderRadius: const BorderRadius.all(Radius.circular(16))),
       child: Row(
         children: [
           Container(
@@ -26,38 +37,42 @@ class LeaderboardCard extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
-                  "Саяжан Онласын",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                  name,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 2,
                 ),
                 Text(
-                  "Нур-Султан, Казахстан",
-                  style: TextStyle(fontSize: 12),
+                  location,
+                  style: const TextStyle(
+                    fontSize: 12,
+                  ),
                 )
               ],
             ),
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
-              FaIcon(
+            children: [
+              const FaIcon(
                 FontAwesomeIcons.trophy,
-                size: 16,
-                color: AppColors.primaryColor,
+                size: 14,
               ),
-              SizedBox(width: 6),
+              const SizedBox(width: 8),
               Text(
-                "60",
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.primaryColor),
+                rating.toString(),
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
-              SizedBox(width: 6),
+              const SizedBox(width: 6),
             ],
           ),
         ],
