@@ -23,16 +23,17 @@ class PremiumCard extends StatelessWidget {
           SizedBox(
             width: (MediaQuery.of(context).size.width - 40 - 44) * 0.75,
             child: const Text(
-              "Оформите премиум план и получите доступ ко всем разделам",
+              "Купите Nomad Premium и получите доступ ко всем разделам",
               style: TextStyle(
-                  color: AppColors.blackColor,
-                  fontSize: 19,
-                  fontWeight: FontWeight.w500),
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+                color: AppColors.blackColor,
+              ),
             ),
           ),
-          const SizedBox(height: 18),
+          const SizedBox(height: 20),
           CommonButton(
-            text: "Оформить подписку",
+            text: "Купить Nomad Premium",
             onClick: () {},
             reverseColor: true,
           )
