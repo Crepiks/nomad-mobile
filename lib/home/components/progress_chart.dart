@@ -47,7 +47,7 @@ class ProgressChartState extends State<ProgressChart> {
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 24,
-                            fontWeight: FontWeight.w600),
+                            fontWeight: FontWeight.w500),
                       ),
                       CupertinoButton(
                           padding: const EdgeInsets.all(0),

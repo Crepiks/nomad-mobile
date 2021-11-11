@@ -59,7 +59,7 @@ class HomeView extends StatelessWidget {
                       "самостоятельная часть речи, которая указывает на предметы, признаки, количество, но не называет их",
                 ),
               ),
-              const SizedBox(width: 10),
+              const SizedBox(width: 14),
               GestureDetector(
                 onTap: () {},
                 child: const RepeatCard(

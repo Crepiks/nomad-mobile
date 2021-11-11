@@ -30,13 +30,18 @@ class RepeatCard extends StatelessWidget {
               Text(
                 title,
                 style: const TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white),
+                  fontSize: 26,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const SizedBox(
+                height: 4,
               ),
               Text(
                 description,
-                style: const TextStyle(color: Colors.white),
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(height: 1.2),
               ),
             ],
           ),
