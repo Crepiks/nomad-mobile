@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nomad/common/colors.dart';
 import 'package:nomad/common/components/action_button.dart';
-import 'package:nomad/profile/views/components/profile_action_link.dart';
+import 'package:nomad/profile/components/profile_action_link.dart';
 
 class ProfileActions extends StatelessWidget {
   const ProfileActions({Key? key}) : super(key: key);
@@ -19,23 +19,23 @@ class ProfileActions extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 6, 0, 14),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(0, 6, 0, 14),
             child: ActionsTitle(text: "Действия"),
           ),
           ProfileActionLink(
               onClick: () {},
               text: "Редактировать",
-              icon: FaIconTemplate(faIcon: FontAwesomeIcons.userEdit)),
+              icon: const FaIconTemplate(faIcon: FontAwesomeIcons.userEdit)),
           ProfileActionLink(
               onClick: () {},
               text: "Сменить пароль",
-              icon: FaIconTemplate(faIcon: FontAwesomeIcons.lock)),
-          SizedBox(
+              icon: const FaIconTemplate(faIcon: FontAwesomeIcons.lock)),
+          const SizedBox(
             height: 20,
           ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 14),
+          const Padding(
+            padding: EdgeInsets.only(bottom: 14),
             child: ActionsTitle(text: "Прочие"),
           ),
           ProfileActionLink(
@@ -43,13 +43,13 @@ class ProfileActions extends StatelessWidget {
                 buildDeleteAccountSheet(context);
               },
               text: "Удалить аккаунт",
-              icon: FaIconTemplate(faIcon: FontAwesomeIcons.trashAlt)),
+              icon: const FaIconTemplate(faIcon: FontAwesomeIcons.trashAlt)),
           ProfileActionLink(
               onClick: () {
                 buildLogoutBottomSheet(context);
               },
               text: "Выйти",
-              icon: FaIconTemplate(faIcon: FontAwesomeIcons.signOutAlt)),
+              icon: const FaIconTemplate(faIcon: FontAwesomeIcons.signOutAlt)),
         ],
       ),
     );
@@ -60,7 +60,7 @@ class ProfileActions extends StatelessWidget {
         context: context,
         backgroundColor: AppColors.whiteColor,
         isScrollControlled: true,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(26))),
         builder: (BuildContext context) => Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 25),
@@ -68,28 +68,28 @@ class ProfileActions extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     "Уверены?",
                     style: TextStyle(
                         color: AppColors.blackColor,
                         fontSize: 26,
                         fontWeight: FontWeight.w600),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Text(
+                  const Text(
                     "Если вы удалите аккаунт, то все ваши данные сотрутся и их нельзя будет восстановить. Уверены, что хотите удалить аккаунт?",
                     style: TextStyle(
                         color: AppColors.blackColor80,
                         fontSize: 18,
                         height: 1.3),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   ActionButton(
-                      child: Text(
+                      child: const Text(
                         "Удалить аккаунт",
                         style: TextStyle(
                             color: AppColors.blackColor,
@@ -109,7 +109,7 @@ class ProfileActions extends StatelessWidget {
         context: context,
         backgroundColor: AppColors.whiteColor,
         isScrollControlled: true,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(26))),
         builder: (BuildContext context) => Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 25),
@@ -117,28 +117,28 @@ class ProfileActions extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     "Выход",
                     style: TextStyle(
                         color: AppColors.blackColor,
                         fontSize: 26,
                         fontWeight: FontWeight.w600),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Text(
+                  const Text(
                     "Уверены, что хотите выйти из аккаунта? Чтобы пользоваться приложением вам придется войти снова",
                     style: TextStyle(
                         color: AppColors.blackColor80,
                         fontSize: 18,
                         height: 1.3),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   ActionButton(
-                      child: Text(
+                      child: const Text(
                         "Выйти с аккаунта",
                         style: TextStyle(
                             color: AppColors.blackColor,
@@ -163,7 +163,7 @@ class ActionsTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+      style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
     );
   }
 }

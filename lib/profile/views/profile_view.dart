@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:nomad/profile/views/components/premium_card.dart';
-import 'package:nomad/profile/views/components/profile_actions.dart';
-import 'package:nomad/profile/views/components/profile_card.dart';
+import 'package:nomad/profile/components/premium_card.dart';
+import 'package:nomad/profile/components/profile_actions.dart';
+import 'package:nomad/profile/components/profile_card.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({Key? key}) : super(key: key);

@@ -29,16 +29,16 @@ class ProfileCard extends StatelessWidget {
               Text(
                 "Саяжан Онласын",
                 style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 22,
                     fontWeight: FontWeight.w600,
                     color: AppColors.blackColor),
               ),
               SizedBox(
-                height: 3,
+                height: 2,
               ),
               Text(
                 "Стандартный план",
-                style: TextStyle(fontSize: 16, color: AppColors.blackColor80),
+                style: TextStyle(fontSize: 14, color: AppColors.blackColor80),
               )
             ],
           )
