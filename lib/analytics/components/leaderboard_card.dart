@@ -60,17 +60,19 @@ class LeaderboardCard extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const FaIcon(
-                FontAwesomeIcons.trophy,
-                size: 14,
-              ),
-              const SizedBox(width: 8),
               Text(
                 rating.toString(),
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
+                  color: active ? Colors.black : AppColors.primaryColor,
                 ),
+              ),
+              const SizedBox(width: 8),
+              FaIcon(
+                FontAwesomeIcons.fire,
+                size: 18,
+                color: active ? Colors.black : AppColors.primaryColor,
               ),
               const SizedBox(width: 6),
             ],

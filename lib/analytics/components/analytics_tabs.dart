@@ -24,13 +24,13 @@ class AnalyticsTabs extends StatelessWidget {
                 onActiveIndexChange(0);
               },
               active: activeIndex == 0,
-              text: "Статистика"),
+              text: "Рейтинг"),
           AnalyticsTab(
               onClick: () {
                 onActiveIndexChange(1);
               },
               active: activeIndex == 1,
-              text: "Рейтинг")
+              text: "Статистика")
         ],
       ),
     );
