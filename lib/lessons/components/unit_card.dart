@@ -4,31 +4,41 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nomad/common/colors.dart';
 
 class UnitCard extends StatelessWidget {
-  const UnitCard({Key? key, required this.title, required this.onClick})
-      : super(key: key);
-
   final String title;
   final Function onClick;
 
+  const UnitCard({Key? key, required this.title, required this.onClick})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return CupertinoButton(
       padding: const EdgeInsets.all(0),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         width: double.infinity,
-        height: 70,
+        // height: 70,
         decoration: BoxDecoration(
             color: AppColors.whiteColor,
             borderRadius: BorderRadius.circular(16)),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
-              width: (size.width * 0.8) - 40 - 48,
+            Container(
+              height: 50,
+              width: 50,
+              decoration: BoxDecoration(
+                  color: AppColors.primaryColor.withOpacity(0.2),
+                  borderRadius: const BorderRadius.all(Radius.circular(10))),
+              child: const Center(
+                child: FaIcon(
+                  FontAwesomeIcons.book,
+                  color: AppColors.primaryColor,
+                ),
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
               child: Text(
                 title,
                 overflow: TextOverflow.ellipsis,
@@ -36,11 +46,13 @@ class UnitCard extends StatelessWidget {
                     color: AppColors.blackColor80, fontSize: 17),
               ),
             ),
+            const SizedBox(width: 10),
             const FaIcon(
               FontAwesomeIcons.chevronRight,
               size: 14,
               color: AppColors.blackColor60,
-            )
+            ),
+            const SizedBox(width: 4),
           ],
         ),
       ),

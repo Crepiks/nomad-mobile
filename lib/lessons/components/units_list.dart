@@ -25,7 +25,7 @@ class UnitsList extends StatelessWidget {
         const SizedBox(height: 14),
         Expanded(
             child: ListView.builder(
-                padding: const EdgeInsets.all(0),
+                padding: const EdgeInsets.only(bottom: 40),
                 physics: const BouncingScrollPhysics(),
                 itemCount: units.length,
                 itemBuilder: (context, index) {

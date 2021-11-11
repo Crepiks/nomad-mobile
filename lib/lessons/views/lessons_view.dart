@@ -21,7 +21,7 @@ class _HomeViewState extends State<LessonsView> {
     return Container(
       height: double.infinity,
       width: double.infinity,
-      padding: const EdgeInsets.only(top: 60, bottom: 90),
+      padding: const EdgeInsets.only(top: 60, bottom: 80),
       child: Column(
         children: [
           ChaptersList(
