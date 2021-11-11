@@ -13,12 +13,12 @@ class ChapterCard extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Container(
-      padding: EdgeInsets.all(24),
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.all(24),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
           color: AppColors.primaryColor,
           borderRadius: BorderRadius.circular(16),
-          image: DecorationImage(
+          image: const DecorationImage(
               image: AssetImage("assets/images/chapter-card-image.png"),
               scale: 3,
               alignment: Alignment(1.8, -1.2))),
@@ -33,25 +33,22 @@ class ChapterCard extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyle(
-                      color: AppColors.whiteColor,
-                      fontSize: 23,
-                      fontWeight: FontWeight.w600),
+                  style: const TextStyle(
+                      fontSize: 26, fontWeight: FontWeight.w600),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 4),
                 Text(
                   description,
                   maxLines: 3,
-                  style: TextStyle(
+                  style: const TextStyle(
                       overflow: TextOverflow.ellipsis,
-                      color: AppColors.whiteColor,
-                      fontSize: 15,
-                      height: 1.3),
+                      fontSize: 16,
+                      height: 1.2),
                 )
               ],
             ),
           ),
-          ProgressBar(unitsNumber: 100, completedUnitsNumber: 60)
+          const ProgressBar(unitsNumber: 100, completedUnitsNumber: 60)
         ],
       ),
     );
@@ -79,7 +76,8 @@ class ProgressBar extends StatelessWidget {
       width: double.infinity,
       height: 16,
       decoration: BoxDecoration(
-          color: Color(0xFFEFA80E), borderRadius: BorderRadius.circular(20)),
+          color: const Color(0xFFEFA80E),
+          borderRadius: BorderRadius.circular(20)),
       child: Align(
         alignment: Alignment.centerLeft,
         child: Container(

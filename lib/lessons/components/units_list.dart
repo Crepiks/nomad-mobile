@@ -3,7 +3,7 @@ import "package:flutter/material.dart";
 import 'package:nomad/common/colors.dart';
 import 'package:nomad/data/models/unit/unit.dart';
 import 'package:nomad/layouts/unit_layout.dart';
-import 'package:nomad/lessons/components/units/unit_card.dart';
+import 'package:nomad/lessons/components/unit_card.dart';
 
 class UnitsList extends StatelessWidget {
   final List<Unit> units;
@@ -20,9 +20,9 @@ class UnitsList extends StatelessWidget {
           style: TextStyle(
               color: AppColors.blackColor,
               fontSize: 24,
-              fontWeight: FontWeight.w500),
+              fontWeight: FontWeight.w600),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 14),
         Expanded(
             child: ListView.builder(
                 padding: const EdgeInsets.all(0),

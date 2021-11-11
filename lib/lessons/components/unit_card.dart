@@ -15,9 +15,9 @@ class UnitCard extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return CupertinoButton(
-      padding: EdgeInsets.all(0),
+      padding: const EdgeInsets.all(0),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 24),
         width: double.infinity,
         height: 70,
         decoration: BoxDecoration(
@@ -32,10 +32,11 @@ class UnitCard extends StatelessWidget {
               child: Text(
                 title,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(color: AppColors.blackColor80, fontSize: 17),
+                style: const TextStyle(
+                    color: AppColors.blackColor80, fontSize: 17),
               ),
             ),
-            FaIcon(
+            const FaIcon(
               FontAwesomeIcons.chevronRight,
               size: 14,
               color: AppColors.blackColor60,

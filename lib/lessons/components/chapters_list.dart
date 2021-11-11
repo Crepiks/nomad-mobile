@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:nomad/common/colors.dart';
 import 'package:nomad/data/models/chapter/chapter.dart';
-
 import 'chapter_card.dart';
 
 class ChaptersList extends StatelessWidget {
@@ -24,10 +23,10 @@ class ChaptersList extends StatelessWidget {
             style: TextStyle(
                 color: AppColors.blackColor,
                 fontSize: 24,
-                fontWeight: FontWeight.w500),
+                fontWeight: FontWeight.w600),
           ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 14),
         SizedBox(
             height: 200,
             child: PageView.builder(

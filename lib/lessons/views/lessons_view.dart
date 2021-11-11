@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
 import 'package:nomad/data/mock/mock.dart';
 import 'package:nomad/data/models/chapter/chapter.dart';
-import 'package:nomad/lessons/components/chapters/chapters_list.dart';
-import 'package:nomad/lessons/components/units/units_list.dart';
+import 'package:nomad/lessons/components/chapters_list.dart';
+import 'package:nomad/lessons/components/units_list.dart';
 
 class LessonsView extends StatefulWidget {
   const LessonsView({Key? key}) : super(key: key);
