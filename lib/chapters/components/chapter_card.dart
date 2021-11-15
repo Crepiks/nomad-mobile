@@ -1,54 +1,63 @@
 import "package:flutter/material.dart";
 import 'package:nomad/common/colors.dart';
 
-class ChapterCard extends StatelessWidget {
-  const ChapterCard({Key? key, required this.title, required this.description})
-      : super(key: key);
+typedef TapAction = void Function();
 
+class ChapterCard extends StatelessWidget {
   final String title;
   final String description;
+  final TapAction? onTap;
+
+  const ChapterCard(
+      {Key? key, required this.title, required this.description, this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    return Container(
-      padding: const EdgeInsets.all(24),
-      decoration: BoxDecoration(
-          color: AppColors.primaryColor,
-          borderRadius: BorderRadius.circular(16),
-          image: const DecorationImage(
-              image: AssetImage("assets/images/chapter-card-image.png"),
-              scale: 3,
-              alignment: Alignment(1.8, -1.2))),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            width: size.width * 0.55,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: const TextStyle(
-                      fontSize: 24, fontWeight: FontWeight.w600),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  description,
-                  maxLines: 3,
-                  style: const TextStyle(
-                      overflow: TextOverflow.ellipsis,
-                      fontSize: 14,
-                      height: 1.2),
-                )
-              ],
+    return GestureDetector(
+      onTap: () {
+        onTap!();
+      },
+      child: Container(
+        padding: const EdgeInsets.all(24),
+        decoration: BoxDecoration(
+            color: AppColors.primaryColor,
+            borderRadius: BorderRadius.circular(16),
+            image: const DecorationImage(
+                image: AssetImage("assets/images/chapter-card-image.png"),
+                scale: 3,
+                alignment: Alignment(1.8, -1.2))),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: size.width * 0.55,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: const TextStyle(
+                        fontSize: 24, fontWeight: FontWeight.w600),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    description,
+                    maxLines: 3,
+                    style: const TextStyle(
+                        overflow: TextOverflow.ellipsis,
+                        fontSize: 14,
+                        height: 1.2),
+                  )
+                ],
+              ),
             ),
-          ),
-          const ProgressBar(unitsNumber: 100, completedUnitsNumber: 60)
-        ],
+            const ProgressBar(unitsNumber: 100, completedUnitsNumber: 60)
+          ],
+        ),
       ),
     );
   }

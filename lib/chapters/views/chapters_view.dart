@@ -1,8 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:nomad/common/colors.dart';
 import 'package:nomad/data/mock/mock.dart';
 import 'package:nomad/data/models/chapter.dart';
 import 'package:nomad/chapters/components/chapter_card.dart';
+import 'package:nomad/unit/views/units_view.dart';
 
 class LessonsView extends StatefulWidget {
   const LessonsView({Key? key}) : super(key: key);
@@ -43,7 +45,17 @@ class _HomeViewState extends State<LessonsView> {
             height: 200,
             padding: const EdgeInsets.only(bottom: 16),
             child: ChapterCard(
-                title: chapter.title, description: chapter.description)))
+              title: chapter.title,
+              description: chapter.description,
+              onTap: () {
+                _navigateToUnitsView(context);
+              },
+            )))
         .toList();
+  }
+
+  _navigateToUnitsView(BuildContext context) {
+    Navigator.push(
+        context, CupertinoPageRoute(builder: (context) => const UnitsView()));
   }
 }
