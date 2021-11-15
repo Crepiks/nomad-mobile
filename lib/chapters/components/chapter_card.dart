@@ -18,7 +18,9 @@ class ChapterCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        onTap!();
+        if (onTap != null) {
+          onTap!();
+        }
       },
       child: Container(
         padding: const EdgeInsets.all(24),

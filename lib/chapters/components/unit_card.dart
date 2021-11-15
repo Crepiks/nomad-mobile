@@ -3,12 +3,13 @@ import "package:flutter/material.dart";
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nomad/common/colors.dart';
 
+typedef TapAction = void Function();
+
 class UnitCard extends StatelessWidget {
   final String title;
-  final Function onClick;
+  final TapAction? onTap;
 
-  const UnitCard({Key? key, required this.title, required this.onClick})
-      : super(key: key);
+  const UnitCard({Key? key, required this.title, this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +58,9 @@ class UnitCard extends StatelessWidget {
         ),
       ),
       onPressed: () {
-        onClick();
+        if (onTap != null) {
+          onTap!();
+        }
       },
     );
   }

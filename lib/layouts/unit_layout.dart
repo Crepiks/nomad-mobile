@@ -6,8 +6,8 @@ import 'package:nomad/common/components/action_button.dart';
 import 'package:nomad/data/models/unit.dart';
 import 'package:nomad/layouts/components/unit_header.dart';
 import 'package:nomad/layouts/safe_area_layout.dart';
-import 'package:nomad/unit/views/unit_practices.dart';
-import 'package:nomad/unit/views/unit_theory.dart';
+import 'package:nomad/units/views/unit_practices.dart';
+import 'package:nomad/units/views/unit_theory.dart';
 
 class UnitLayout extends StatefulWidget {
   final List<Unit> units;

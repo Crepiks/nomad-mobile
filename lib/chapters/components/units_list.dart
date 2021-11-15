@@ -35,7 +35,7 @@ class UnitsList extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 5),
                     child: UnitCard(
                         title: unit.theory.title,
-                        onClick: () => Navigator.push(
+                        onTap: () => Navigator.push(
                             context,
                             CupertinoPageRoute(
                                 builder: (context) => UnitLayout(

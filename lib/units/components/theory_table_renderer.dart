@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:nomad/common/colors.dart';
 import 'package:nomad/data/models/theory_table.dart';
-import 'package:nomad/unit/components/theory_item_renderer.dart';
+import 'package:nomad/units/components/theory_item_renderer.dart';
 
 class TheoryTableRenderer extends StatelessWidget {
   final TheoryTable item;

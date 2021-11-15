@@ -6,12 +6,12 @@ import 'package:nomad/data/models/theory_list.dart';
 import 'package:nomad/data/models/theory_space.dart';
 import 'package:nomad/data/models/theory_table.dart';
 import 'package:nomad/data/models/theory_text.dart';
-import 'package:nomad/unit/components/theory_border_box_renderer.dart';
-import 'package:nomad/unit/components/theory_image_renderer.dart';
-import 'package:nomad/unit/components/theory_list_renderer.dart';
-import 'package:nomad/unit/components/theory_space_renderer.dart';
-import 'package:nomad/unit/components/theory_table_renderer.dart';
-import 'package:nomad/unit/components/theory_text_renderer.dart';
+import 'package:nomad/units/components/theory_border_box_renderer.dart';
+import 'package:nomad/units/components/theory_image_renderer.dart';
+import 'package:nomad/units/components/theory_list_renderer.dart';
+import 'package:nomad/units/components/theory_space_renderer.dart';
+import 'package:nomad/units/components/theory_table_renderer.dart';
+import 'package:nomad/units/components/theory_text_renderer.dart';
 
 class TheoryItemRenderer extends StatelessWidget {
   final TheoryItem item;

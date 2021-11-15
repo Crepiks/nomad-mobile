@@ -4,7 +4,8 @@ import 'package:nomad/common/colors.dart';
 import 'package:nomad/data/mock/mock.dart';
 import 'package:nomad/data/models/chapter.dart';
 import 'package:nomad/chapters/components/chapter_card.dart';
-import 'package:nomad/unit/views/units_view.dart';
+import 'package:nomad/data/models/unit.dart';
+import 'package:nomad/units/views/units_view.dart';
 
 class LessonsView extends StatefulWidget {
   const LessonsView({Key? key}) : super(key: key);
@@ -48,14 +49,18 @@ class _HomeViewState extends State<LessonsView> {
               title: chapter.title,
               description: chapter.description,
               onTap: () {
-                _navigateToUnitsView(context);
+                _navigateToUnitsView(context, chapter.units);
               },
             )))
         .toList();
   }
 
-  _navigateToUnitsView(BuildContext context) {
+  _navigateToUnitsView(BuildContext context, List<Unit> units) {
     Navigator.push(
-        context, CupertinoPageRoute(builder: (context) => const UnitsView()));
+        context,
+        CupertinoPageRoute(
+            builder: (context) => UnitsView(
+                  units: units,
+                )));
   }
 }

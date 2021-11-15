@@ -3,8 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nomad/common/colors.dart';
 import 'package:nomad/common/components/action_button.dart';
 import 'package:nomad/data/models/theory.dart';
-import 'package:nomad/unit/components/theory_item_renderer.dart';
-import 'package:nomad/unit/components/theory_title.dart';
+import 'package:nomad/units/components/theory_item_renderer.dart';
+import 'package:nomad/units/components/theory_title.dart';
 
 class UnitTheory extends StatefulWidget {
   final Theory theory;
