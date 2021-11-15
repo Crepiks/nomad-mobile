@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:nomad/layouts/components/bottom_navigation.dart';
 import 'package:nomad/home/views/home_view.dart';
 import 'package:nomad/layouts/safe_area_layout.dart';
-import 'package:nomad/lessons/views/lessons_view.dart';
+import 'package:nomad/chapters/views/chapters_view.dart';
 import 'package:nomad/profile/views/profile_view.dart';
 import 'package:nomad/analytics/views/analytics_view.dart';
 

@@ -14,7 +14,6 @@ class ChapterCard extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.all(24),
-      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
           color: AppColors.primaryColor,
           borderRadius: BorderRadius.circular(16),
@@ -34,7 +33,7 @@ class ChapterCard extends StatelessWidget {
                 Text(
                   title,
                   style: const TextStyle(
-                      fontSize: 26, fontWeight: FontWeight.w600),
+                      fontSize: 24, fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(height: 4),
                 Text(
@@ -42,7 +41,7 @@ class ChapterCard extends StatelessWidget {
                   maxLines: 3,
                   style: const TextStyle(
                       overflow: TextOverflow.ellipsis,
-                      fontSize: 16,
+                      fontSize: 14,
                       height: 1.2),
                 )
               ],

@@ -5,11 +5,11 @@ import 'package:nomad/data/models/one_choice_question.dart';
 import 'package:nomad/data/models/practice.dart';
 import 'package:nomad/data/models/true_false_question.dart';
 import 'package:nomad/layouts/unit_practice_layout.dart';
-import 'package:nomad/unit/views/components/input_answer.dart';
-import 'package:nomad/unit/views/components/match_answer.dart';
-import 'package:nomad/unit/views/components/one_choice_answer.dart';
-import 'package:nomad/unit/views/components/practice_title.dart';
-import 'package:nomad/unit/views/components/true_false_answer.dart';
+import 'package:nomad/unit/components/input_answer.dart';
+import 'package:nomad/unit/components/match_answer.dart';
+import 'package:nomad/unit/components/one_choice_answer.dart';
+import 'package:nomad/unit/components/practice_title.dart';
+import 'package:nomad/unit/components/true_false_answer.dart';
 
 class UnitPractices extends StatefulWidget {
   final List<Practice> practices;

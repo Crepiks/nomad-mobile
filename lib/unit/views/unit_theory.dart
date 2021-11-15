@@ -1,29 +1,22 @@
-import 'package:dotted_border/dotted_border.dart';
 import "package:flutter/material.dart";
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nomad/common/colors.dart';
 import 'package:nomad/common/components/action_button.dart';
 import 'package:nomad/data/models/theory.dart';
-import 'package:nomad/data/models/theory_border_box.dart';
-import 'package:nomad/data/models/theory_image.dart';
-import 'package:nomad/data/models/theory_item.dart';
-import 'package:nomad/data/models/theory_list.dart';
-import 'package:nomad/data/models/theory_space.dart';
-import 'package:nomad/data/models/theory_table.dart';
-import 'package:nomad/data/models/theory_text.dart';
-import 'package:nomad/unit/views/components/theory_title.dart';
+import 'package:nomad/unit/components/theory_item_renderer.dart';
+import 'package:nomad/unit/components/theory_title.dart';
 
 class UnitTheory extends StatefulWidget {
-  const UnitTheory(
-      {Key? key,
-      required this.theory,
-      required this.onClickToPractice,
-      required this.index})
-      : super(key: key);
-
   final Theory theory;
   final int index;
   final Function onClickToPractice;
+
+  const UnitTheory({
+    Key? key,
+    required this.theory,
+    required this.index,
+    required this.onClickToPractice,
+  }) : super(key: key);
 
   @override
   _UnitTheoryState createState() => _UnitTheoryState();
@@ -67,7 +60,7 @@ class _UnitTheoryState extends State<UnitTheory> {
               children: [
                 const SizedBox(height: 60),
                 ...widget.theory.items
-                    .map((item) => TheoryItemParser(item: item))
+                    .map((item) => TheoryItemRenderer(item: item))
                     .toList(),
                 const SizedBox(height: 30),
                 ActionButton(
@@ -101,217 +94,5 @@ class _UnitTheoryState extends State<UnitTheory> {
         ],
       ),
     );
-  }
-}
-
-class TheoryItemParser extends StatelessWidget {
-  const TheoryItemParser({Key? key, required this.item}) : super(key: key);
-
-  final TheoryItem item;
-
-  @override
-  Widget build(BuildContext context) {
-    return item is TheoryText
-        ? TheoryTextView(item: item as TheoryText)
-        : item is TheoryImage
-            ? TheoryImageView(item: item as TheoryImage)
-            : item is TheoryTable
-                ? TheoryTableView(item: item as TheoryTable)
-                : item is TheoryList
-                    ? TheoryListView(item: item as TheoryList)
-                    : item is TheoryBorderBox
-                        ? TheoryBorderBoxView(item: item as TheoryBorderBox)
-                        : item is TheorySpace
-                            ? const TheorySpaceView()
-                            : Container();
-  }
-}
-
-class TableItemParser extends StatelessWidget {
-  const TableItemParser({Key? key, required this.item}) : super(key: key);
-
-  final TheoryItem item;
-
-  @override
-  Widget build(BuildContext context) {
-    return item is TheoryText
-        ? TheoryTextView(item: item as TheoryText)
-        : item is TheoryImage
-            ? TheoryImageView(item: item as TheoryImage)
-            : item is TheoryTable
-                ? TheoryTableView(item: item as TheoryTable)
-                : item is TheoryList
-                    ? TheoryListView(item: item as TheoryList)
-                    : item is TheoryBorderBox
-                        ? TheoryBorderBoxView(item: item as TheoryBorderBox)
-                        : item is TheorySpace
-                            ? const TheorySpaceView()
-                            : Container();
-  }
-}
-
-class TheoryTextView extends StatelessWidget {
-  const TheoryTextView({Key? key, required this.item}) : super(key: key);
-
-  final TheoryText item;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
-      child: Text(
-        item.text,
-        textAlign: item.alignment == "left"
-            ? TextAlign.left
-            : item.alignment == "right"
-                ? TextAlign.right
-                : item.alignment == "center"
-                    ? TextAlign.center
-                    : TextAlign.center,
-        style: const TextStyle(
-            color: AppColors.blackColor, fontSize: 20, height: 1.4),
-      ),
-    );
-  }
-}
-
-class TheoryImageView extends StatelessWidget {
-  const TheoryImageView({Key? key, required this.item}) : super(key: key);
-
-  final TheoryImage item;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      width: MediaQuery.of(context).size.width * 0.7,
-      height: MediaQuery.of(context).size.height * 0.3,
-      decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(item.imagePath), fit: BoxFit.contain)),
-    );
-  }
-}
-
-class TheoryTableView extends StatelessWidget {
-  const TheoryTableView({Key? key, required this.item}) : super(key: key);
-
-  final TheoryTable item;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          color: AppColors.whiteColor,
-          border: Border.all(width: 1, color: AppColors.blackColor60),
-          borderRadius: BorderRadius.circular(12)),
-      child: Table(
-          border: TableBorder.symmetric(
-              inside:
-                  const BorderSide(width: 1, color: AppColors.blackColor60)),
-          children: item.rows
-              .map((row) => TableRow(
-                  children: row.cells
-                      .map((cell) => Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 16, vertical: 10),
-                            child: TheoryItemParser(item: cell.item),
-                          ))
-                      .toList()))
-              .toList()),
-    );
-  }
-}
-
-class TheoryListView extends StatelessWidget {
-  const TheoryListView({Key? key, required this.item}) : super(key: key);
-
-  final TheoryList item;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        item.title != null
-            ? Text(
-                item.title ?? "",
-                style: const TextStyle(
-                    color: AppColors.blackColor,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500),
-              )
-            : Container(),
-        item.title != null ? const SizedBox(height: 16) : Container(),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: item.items
-              .map((listItem) => Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 5),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        const Text(
-                          "·",
-                          style: TextStyle(
-                              color: AppColors.blackColor,
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(width: 10),
-                        Flexible(
-                          child: Text(
-                            listItem.text,
-                            style: const TextStyle(
-                                color: AppColors.blackColor,
-                                fontSize: 18,
-                                height: 1.3),
-                          ),
-                        )
-                      ],
-                    ),
-                  ))
-              .toList(),
-        )
-      ],
-    );
-  }
-}
-
-class TheoryBorderBoxView extends StatelessWidget {
-  const TheoryBorderBoxView({Key? key, required this.item}) : super(key: key);
-
-  final TheoryBorderBox item;
-
-  @override
-  Widget build(BuildContext context) {
-    return DottedBorder(
-      borderType: BorderType.RRect,
-      color: AppColors.primaryColor,
-      dashPattern: const [14, 6],
-      strokeWidth: 3,
-      radius: const Radius.circular(14),
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: AppColors.whiteColor,
-          borderRadius: BorderRadius.circular(14),
-        ),
-        child: Column(
-          children:
-              item.items.map((item) => TheoryItemParser(item: item)).toList(),
-        ),
-      ),
-    );
-  }
-}
-
-class TheorySpaceView extends StatelessWidget {
-  const TheorySpaceView({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const SizedBox(height: 50);
   }
 }
