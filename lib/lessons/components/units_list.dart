@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:nomad/common/colors.dart';
-import 'package:nomad/data/models/unit/unit.dart';
+import 'package:nomad/data/models/unit.dart';
 import 'package:nomad/layouts/unit_layout.dart';
 import 'package:nomad/lessons/components/unit_card.dart';
 

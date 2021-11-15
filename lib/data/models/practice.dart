@@ -1,14 +1,14 @@
-import 'package:nomad/data/models/unit/unit_practice_question.dart';
-import 'package:nomad/data/models/unit/unit_theory.dart';
+import 'package:nomad/data/models/question.dart';
+import 'package:nomad/data/models/theory_item.dart';
 
-class UnitPracticeModel {
+class Practice {
   final int id;
   final String title;
   final String? description;
   final TheoryItem? extraItem;
-  final List<PracticeQuestion> questions;
+  final List<Question> questions;
 
-  UnitPracticeModel(
+  const Practice(
       {required this.id,
       required this.title,
       this.description,

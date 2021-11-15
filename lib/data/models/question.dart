@@ -1,6 +1,6 @@
-class PracticeQuestion {}
+class Question {}
 
-class InputQuestion extends PracticeQuestion {
+class InputQuestion extends Question {
   final String text;
   final String? afterText;
   final String? postfix;
@@ -15,7 +15,7 @@ class InputQuestion extends PracticeQuestion {
       this.postfix});
 }
 
-class InputImageQuestion extends PracticeQuestion {
+class InputImageQuestion extends Question {
   final String text;
   final String imagePath;
   final String? afterText;
@@ -32,21 +32,21 @@ class InputImageQuestion extends PracticeQuestion {
       this.postfix});
 }
 
-class OneChoiceQuestion extends PracticeQuestion {
+class OneChoiceQuestion extends Question {
   final String text;
   final bool correct;
 
   OneChoiceQuestion({required this.text, this.correct = false});
 }
 
-class TrueFalseQuestion extends PracticeQuestion {
+class TrueFalseQuestion extends Question {
   final String text;
   final bool correct;
 
   TrueFalseQuestion({required this.text, required this.correct});
 }
 
-class MatchQuestion extends PracticeQuestion {
+class MatchQuestion extends Question {
   final String question;
   final String answer;
 

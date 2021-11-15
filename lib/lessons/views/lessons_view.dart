@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:nomad/data/mock/mock.dart';
-import 'package:nomad/data/models/chapter/chapter.dart';
+import 'package:nomad/data/models/chapter.dart';
 import 'package:nomad/lessons/components/chapters_list.dart';
 import 'package:nomad/lessons/components/units_list.dart';
 

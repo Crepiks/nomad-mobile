@@ -1,4 +1,4 @@
-import 'package:nomad/data/models/unit/unit.dart';
+import 'package:nomad/data/models/unit.dart';
 
 class Chapter {
   final int id;
@@ -6,7 +6,7 @@ class Chapter {
   final String description;
   final List<Unit> units;
 
-  Chapter(
+  const Chapter(
       {required this.id,
       required this.title,
       required this.description,

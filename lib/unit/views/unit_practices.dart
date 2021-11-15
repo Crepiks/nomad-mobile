@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
-import 'package:nomad/data/models/unit/unit_practice.dart';
-import 'package:nomad/data/models/unit/unit_practice_question.dart';
+import 'package:nomad/data/models/practice.dart';
+import 'package:nomad/data/models/question.dart';
 import 'package:nomad/layouts/unit_practice_layout.dart';
 import 'package:nomad/unit/views/components/input_answer.dart';
 import 'package:nomad/unit/views/components/match_answer.dart';
@@ -9,7 +9,7 @@ import 'package:nomad/unit/views/components/practice_title.dart';
 import 'package:nomad/unit/views/components/true_false_answer.dart';
 
 class UnitPractices extends StatefulWidget {
-  final List<UnitPracticeModel> practices;
+  final List<Practice> practices;
   final Function onClickNextLesson;
 
   const UnitPractices(
@@ -47,7 +47,7 @@ class UnitPractice extends StatelessWidget {
   const UnitPractice({Key? key, required this.practice, required this.index})
       : super(key: key);
 
-  final UnitPracticeModel practice;
+  final Practice practice;
   final int index;
 
   @override

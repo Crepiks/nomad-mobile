@@ -3,7 +3,14 @@ import "package:flutter/material.dart";
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nomad/common/colors.dart';
 import 'package:nomad/common/components/action_button.dart';
-import 'package:nomad/data/models/unit/unit_theory.dart';
+import 'package:nomad/data/models/theory.dart';
+import 'package:nomad/data/models/theory_border_box.dart';
+import 'package:nomad/data/models/theory_image.dart';
+import 'package:nomad/data/models/theory_item.dart';
+import 'package:nomad/data/models/theory_list.dart';
+import 'package:nomad/data/models/theory_space.dart';
+import 'package:nomad/data/models/theory_table.dart';
+import 'package:nomad/data/models/theory_text.dart';
 import 'package:nomad/unit/views/components/theory_title.dart';
 
 class UnitTheory extends StatefulWidget {
@@ -14,7 +21,7 @@ class UnitTheory extends StatefulWidget {
       required this.index})
       : super(key: key);
 
-  final UnitTheoryModel theory;
+  final Theory theory;
   final int index;
   final Function onClickToPractice;
 

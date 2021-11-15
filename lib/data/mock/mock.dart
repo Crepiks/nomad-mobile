@@ -1,16 +1,24 @@
-import 'package:nomad/data/models/chapter/chapter.dart';
-import 'package:nomad/data/models/unit/unit.dart';
-import 'package:nomad/data/models/unit/unit_practice.dart';
-import 'package:nomad/data/models/unit/unit_practice_question.dart';
-import 'package:nomad/data/models/unit/unit_theory.dart';
+import 'package:nomad/data/models/chapter.dart';
+import 'package:nomad/data/models/theory_border_box.dart';
+import 'package:nomad/data/models/theory_image.dart';
+import 'package:nomad/data/models/theory_list.dart';
+import 'package:nomad/data/models/theory_list_item.dart';
+import 'package:nomad/data/models/theory_space.dart';
+import 'package:nomad/data/models/theory_table.dart';
+import 'package:nomad/data/models/theory_table_cell.dart';
+import 'package:nomad/data/models/theory_table_row.dart';
+import 'package:nomad/data/models/theory_text.dart';
+import 'package:nomad/data/models/unit.dart';
+import 'package:nomad/data/models/practice.dart';
+import 'package:nomad/data/models/question.dart';
+import 'package:nomad/data/models/theory.dart';
 
 class MockChapters {
   static List<Chapter> findAll() {
     final List<Unit> units = [
       Unit(
           id: 0,
-          theory:
-              UnitTheoryModel(title: "-МЫН/МІН/-СЫҢ/-СІҢ/-СЫЗ/-СІЗ", items: [
+          theory: Theory(title: "-МЫН/МІН/-СЫҢ/-СІҢ/-СЫЗ/-СІЗ", items: [
             TheoryImage(imagePath: "assets/practice-images/1.png"),
             TheorySpace(),
             TheoryText(text: "Менің атым – Әсел"),
@@ -25,7 +33,7 @@ class MockChapters {
             TheorySpace(),
             TheoryTable(title: "Болымды", rows: [
               TheoryTableRow(cells: [
-                TheoryTableCell(item: TheoryText(text: "Мен")),
+                TheoryTableCell(item: const TheoryText(text: "Мен")),
                 TheoryTableCell(
                     item: TheoryList(items: [
                   TheoryListItem(
@@ -88,7 +96,7 @@ class MockChapters {
             ])
           ]),
           practices: [
-            UnitPracticeModel(
+            Practice(
                 id: 0,
                 title:
                     "Бір жолға жуан, бір жолға жіңішке жалғауды жалғап бөліп жазыңыз.",
@@ -104,7 +112,7 @@ class MockChapters {
                   InputQuestion(text: "Сен аружан", answer: "сың"),
                   InputQuestion(text: "Сіз дәрігер", answer: "сіз"),
                 ]),
-            UnitPracticeModel(
+            Practice(
                 id: 1,
                 title:
                     "Сөздерге –мын/-мін/-бын/-бін/-пын/-пін/-сың/-сің/-сыз/-сіз жалғауларын дұрыс жалғаңыз.",
@@ -125,7 +133,7 @@ class MockChapters {
                   InputQuestion(text: "Мен мұғалім", answer: ""),
                   InputQuestion(text: "Сен аға", answer: ""),
                 ]),
-            UnitPracticeModel(
+            Practice(
                 id: 2,
                 title: "Болымсыз форманы дұрыс жасаңыз.",
                 description: "Мен ақылдымын емеспін – Х Мен ақылды емеспін – V",
@@ -137,7 +145,7 @@ class MockChapters {
                   InputQuestion(text: "Сен қалада", answer: ""),
                   InputQuestion(text: "Сіз Алматыда", answer: ""),
                 ]),
-            UnitPracticeModel(
+            Practice(
                 id: 3,
                 title:
                     "Әсел туралы жазылған суретке қарап (А)  өзіңіз туралы  дәл солай жазыңыз.",
@@ -150,147 +158,139 @@ class MockChapters {
                   InputQuestion(
                       text: "(неге қызығады?)", answer: "", wide: true),
                 ]),
-            UnitPracticeModel(
-                id: 4,
-                title: "Дұрыс/Дұрыс емес деп жазыңыз.",
-                questions: [
-                  TrueFalseQuestion(text: "Мен Айдарбын", correct: false),
-                  TrueFalseQuestion(text: "Сен Астанадасың", correct: true),
-                  TrueFalseQuestion(text: "Ол Даниярмын", correct: false),
-                  TrueFalseQuestion(text: "Сіз Алматыдасың", correct: true),
-                  TrueFalseQuestion(
-                      text: "Мен оқушымын емеспін", correct: false),
-                  TrueFalseQuestion(text: "Сен дәрігер емессің", correct: true),
-                  TrueFalseQuestion(
-                      text: "Сіз мұғалімсіз емес", correct: false),
-                  TrueFalseQuestion(text: "Ол спортшы емес", correct: true),
-                  TrueFalseQuestion(text: "Сен үйдесің", correct: true),
-                  TrueFalseQuestion(text: "Мен даладамын", correct: true),
-                ])
+            Practice(id: 4, title: "Дұрыс/Дұрыс емес деп жазыңыз.", questions: [
+              TrueFalseQuestion(text: "Мен Айдарбын", correct: false),
+              TrueFalseQuestion(text: "Сен Астанадасың", correct: true),
+              TrueFalseQuestion(text: "Ол Даниярмын", correct: false),
+              TrueFalseQuestion(text: "Сіз Алматыдасың", correct: true),
+              TrueFalseQuestion(text: "Мен оқушымын емеспін", correct: false),
+              TrueFalseQuestion(text: "Сен дәрігер емессің", correct: true),
+              TrueFalseQuestion(text: "Сіз мұғалімсіз емес", correct: false),
+              TrueFalseQuestion(text: "Ол спортшы емес", correct: true),
+              TrueFalseQuestion(text: "Сен үйдесің", correct: true),
+              TrueFalseQuestion(text: "Мен даладамын", correct: true),
+            ])
           ]),
       Unit(
           id: 1,
-          theory: UnitTheoryModel(
-              title: "-МЫН/МІН/-СЫҢ/-СІҢ/-СЫЗ/-СІЗ (СҰРАҚ) ",
-              items: [
-                TheoryTable(title: "Болымды", rows: [
-                  TheoryTableRow(cells: [
-                    TheoryTableCell(item: TheoryText(text: "Мен")),
-                    TheoryTableCell(
-                        item: TheoryList(items: [
-                      TheoryListItem(text: "-мын/-мін"),
-                      TheoryListItem(text: "-бын/-бін"),
-                      TheoryListItem(text: "-пын/-пін"),
-                    ]))
-                  ]),
-                  TheoryTableRow(cells: [
-                    TheoryTableCell(item: TheoryText(text: "Сен")),
-                    TheoryTableCell(item: TheoryText(text: "-сың/-сің"))
-                  ]),
-                  TheoryTableRow(cells: [
-                    TheoryTableCell(item: TheoryText(text: "Сіз")),
-                    TheoryTableCell(item: TheoryText(text: "-сыз/-сіз"))
-                  ]),
-                  TheoryTableRow(cells: [
-                    TheoryTableCell(item: TheoryText(text: "Ол")),
-                    TheoryTableCell(item: TheoryText(text: "-/-"))
-                  ]),
-                ]),
-                TheorySpace(),
-                TheoryTable(title: "Cұраулы", rows: [
-                  TheoryTableRow(cells: [
-                    TheoryTableCell(item: TheoryText(text: "Мен")),
-                    TheoryTableCell(
-                        item: TheoryList(items: [
-                      TheoryListItem(text: "-мын/-мін"),
-                      TheoryListItem(text: "-бын/-бін"),
-                      TheoryListItem(text: "-пын/-пін"),
-                    ])),
-                    TheoryTableCell(item: TheoryText(text: "ба/бе?")),
-                  ]),
-                  TheoryTableRow(cells: [
-                    TheoryTableCell(item: TheoryText(text: "Сен")),
-                    TheoryTableCell(item: TheoryText(text: "-сың/-сің")),
-                    TheoryTableCell(item: TheoryText(text: "ба/бе?")),
-                  ]),
-                  TheoryTableRow(cells: [
-                    TheoryTableCell(item: TheoryText(text: "Сіз")),
-                    TheoryTableCell(item: TheoryText(text: "-сыз/-сіз")),
-                    TheoryTableCell(item: TheoryText(text: "ба/бе?")),
-                  ]),
-                  TheoryTableRow(cells: [
-                    TheoryTableCell(item: TheoryText(text: "Ол")),
-                    TheoryTableCell(item: TheoryText(text: "-/-")),
-                    TheoryTableCell(
-                        item: TheoryList(items: [
-                      TheoryListItem(text: "ма/ме?"),
-                      TheoryListItem(text: "ба/бе?"),
-                      TheoryListItem(text: "па/пе?"),
-                    ])),
-                  ]),
-                ]),
-                TheorySpace(),
-                TheoryImage(imagePath: "assets/practice-images/2.png"),
-                TheoryText(text: "Атың кім?"),
-                TheoryText(text: "Айбек", alignment: "right"),
-                TheoryText(text: "Үйленгенсің бе?"),
-                TheoryText(text: "Жоқ, мен бойдақпын", alignment: "right"),
-                TheoryText(text: "Жасың қаншада?"),
-                TheoryText(text: "25", alignment: "right"),
-                TheoryText(text: "Сен студентсің бе?"),
-                TheoryText(text: "Иә, студентпін", alignment: "right"),
-                TheorySpace(),
-                TheoryList(items: [
-                  TheoryListItem(
-                      text:
-                          "Мен осы жерге отырамын ба? Иә, сен осы жерге отырасың."),
-                  TheoryListItem(
-                      text:
-                          "Сен мектепте мұғалімсің бе? Жоқ, мен мектепте тәрбиешімін."),
-                  TheoryListItem(
-                      text:
-                          "Сіз жиырма бестесіз бе? Жоқ, мен жиырма алтыдамын."),
-                  TheoryListItem(
-                      text: "Ол қазір үйде ме? Жоқ, ол қазір үйде емес."),
-                ]),
-                TheorySpace(),
-                TheoryText(
-                    text:
-                        "......қайда? / .....не? / ......кім? / .....қанша....? / ....қалай? / Неге....?"),
-                TheoryList(items: [
-                  TheoryListItem(text: "Сенің анаң қайда? Ол үйде ме?"),
-                  TheoryListItem(text: "Сен қайдасың? Мен жұмыстамын"),
-                  TheoryListItem(text: "Бұл не? Бұл – жаңа телефон"),
-                  TheoryListItem(text: "Сіздің атыңыз кім? Менің атым – Әлия"),
-                  TheoryListItem(text: "Сен қанша жастасың? Мен 30 жастамын"),
-                  TheoryListItem(text: "Мына көйлек әдемі екен. Қанша тұрады?"),
-                  TheoryListItem(
-                      text: "Сіздің ата-анаңыз қалай? Жағдайлары жақсы ма?"),
-                  TheoryListItem(
-                      text:
-                          "Бұл қонақ үй ондай керемет емес. Неге сонша қымбат тұрады?"),
-                ]),
-                TheorySpace(),
-                TheoryList(
-                    title: "Қазақ тілінде сұраулы сөйлем екі жолмен жасалады:",
-                    numeric: true,
-                    items: [
-                      TheoryListItem(
-                          text: "ма/ме/ба/бе/па/пе дейтін шылаулары арқылы"),
-                      TheoryListItem(
-                          text:
-                              "қайда? не? кім? қанша? қалай? неге? дейтін сұрау есімдіктері арқылы"),
-                    ]),
-                TheorySpace(),
-                TheoryText(
-                    text: "Бір сұраулы сөйлемде екі жағдай қатар келмейді."),
-                TheoryText(text: "Сен қайдасың ба? – дұрыс емес "),
-                TheoryText(text: "Сен үйдесің бе қайда? – дұрыс емес"),
-                TheoryText(text: "Сен қайдасың? – дұрыс"),
-                TheoryText(text: "Сен үйдесің бе? – дұрыс"),
+          theory:
+              Theory(title: "-МЫН/МІН/-СЫҢ/-СІҢ/-СЫЗ/-СІЗ (СҰРАҚ) ", items: [
+            TheoryTable(title: "Болымды", rows: [
+              TheoryTableRow(cells: [
+                TheoryTableCell(item: TheoryText(text: "Мен")),
+                TheoryTableCell(
+                    item: TheoryList(items: [
+                  TheoryListItem(text: "-мын/-мін"),
+                  TheoryListItem(text: "-бын/-бін"),
+                  TheoryListItem(text: "-пын/-пін"),
+                ]))
               ]),
+              TheoryTableRow(cells: [
+                TheoryTableCell(item: TheoryText(text: "Сен")),
+                TheoryTableCell(item: TheoryText(text: "-сың/-сің"))
+              ]),
+              TheoryTableRow(cells: [
+                TheoryTableCell(item: TheoryText(text: "Сіз")),
+                TheoryTableCell(item: TheoryText(text: "-сыз/-сіз"))
+              ]),
+              TheoryTableRow(cells: [
+                TheoryTableCell(item: TheoryText(text: "Ол")),
+                TheoryTableCell(item: TheoryText(text: "-/-"))
+              ]),
+            ]),
+            TheorySpace(),
+            TheoryTable(title: "Cұраулы", rows: [
+              TheoryTableRow(cells: [
+                TheoryTableCell(item: TheoryText(text: "Мен")),
+                TheoryTableCell(
+                    item: TheoryList(items: [
+                  TheoryListItem(text: "-мын/-мін"),
+                  TheoryListItem(text: "-бын/-бін"),
+                  TheoryListItem(text: "-пын/-пін"),
+                ])),
+                TheoryTableCell(item: TheoryText(text: "ба/бе?")),
+              ]),
+              TheoryTableRow(cells: [
+                TheoryTableCell(item: TheoryText(text: "Сен")),
+                TheoryTableCell(item: TheoryText(text: "-сың/-сің")),
+                TheoryTableCell(item: TheoryText(text: "ба/бе?")),
+              ]),
+              TheoryTableRow(cells: [
+                TheoryTableCell(item: TheoryText(text: "Сіз")),
+                TheoryTableCell(item: TheoryText(text: "-сыз/-сіз")),
+                TheoryTableCell(item: TheoryText(text: "ба/бе?")),
+              ]),
+              TheoryTableRow(cells: [
+                TheoryTableCell(item: TheoryText(text: "Ол")),
+                TheoryTableCell(item: TheoryText(text: "-/-")),
+                TheoryTableCell(
+                    item: TheoryList(items: [
+                  TheoryListItem(text: "ма/ме?"),
+                  TheoryListItem(text: "ба/бе?"),
+                  TheoryListItem(text: "па/пе?"),
+                ])),
+              ]),
+            ]),
+            TheorySpace(),
+            TheoryImage(imagePath: "assets/practice-images/2.png"),
+            TheoryText(text: "Атың кім?"),
+            TheoryText(text: "Айбек", alignment: "right"),
+            TheoryText(text: "Үйленгенсің бе?"),
+            TheoryText(text: "Жоқ, мен бойдақпын", alignment: "right"),
+            TheoryText(text: "Жасың қаншада?"),
+            TheoryText(text: "25", alignment: "right"),
+            TheoryText(text: "Сен студентсің бе?"),
+            TheoryText(text: "Иә, студентпін", alignment: "right"),
+            TheorySpace(),
+            TheoryList(items: [
+              TheoryListItem(
+                  text:
+                      "Мен осы жерге отырамын ба? Иә, сен осы жерге отырасың."),
+              TheoryListItem(
+                  text:
+                      "Сен мектепте мұғалімсің бе? Жоқ, мен мектепте тәрбиешімін."),
+              TheoryListItem(
+                  text: "Сіз жиырма бестесіз бе? Жоқ, мен жиырма алтыдамын."),
+              TheoryListItem(
+                  text: "Ол қазір үйде ме? Жоқ, ол қазір үйде емес."),
+            ]),
+            TheorySpace(),
+            TheoryText(
+                text:
+                    "......қайда? / .....не? / ......кім? / .....қанша....? / ....қалай? / Неге....?"),
+            TheoryList(items: [
+              TheoryListItem(text: "Сенің анаң қайда? Ол үйде ме?"),
+              TheoryListItem(text: "Сен қайдасың? Мен жұмыстамын"),
+              TheoryListItem(text: "Бұл не? Бұл – жаңа телефон"),
+              TheoryListItem(text: "Сіздің атыңыз кім? Менің атым – Әлия"),
+              TheoryListItem(text: "Сен қанша жастасың? Мен 30 жастамын"),
+              TheoryListItem(text: "Мына көйлек әдемі екен. Қанша тұрады?"),
+              TheoryListItem(
+                  text: "Сіздің ата-анаңыз қалай? Жағдайлары жақсы ма?"),
+              TheoryListItem(
+                  text:
+                      "Бұл қонақ үй ондай керемет емес. Неге сонша қымбат тұрады?"),
+            ]),
+            TheorySpace(),
+            TheoryList(
+                title: "Қазақ тілінде сұраулы сөйлем екі жолмен жасалады:",
+                numeric: true,
+                items: [
+                  TheoryListItem(
+                      text: "ма/ме/ба/бе/па/пе дейтін шылаулары арқылы"),
+                  TheoryListItem(
+                      text:
+                          "қайда? не? кім? қанша? қалай? неге? дейтін сұрау есімдіктері арқылы"),
+                ]),
+            TheorySpace(),
+            TheoryText(text: "Бір сұраулы сөйлемде екі жағдай қатар келмейді."),
+            TheoryText(text: "Сен қайдасың ба? – дұрыс емес "),
+            TheoryText(text: "Сен үйдесің бе қайда? – дұрыс емес"),
+            TheoryText(text: "Сен қайдасың? – дұрыс"),
+            TheoryText(text: "Сен үйдесің бе? – дұрыс"),
+          ]),
           practices: [
-            UnitPracticeModel(
+            Practice(
                 id: 5,
                 title: "Сұрақтың дұрыс жауабын табыңыз.",
                 questions: [
@@ -305,57 +305,54 @@ class MockChapters {
                   MatchQuestion(question: "Бұл әйел кім?", answer: ""),
                   MatchQuestion(question: "Анардың анасы қайда?", answer: ""),
                 ]),
-            UnitPracticeModel(
-                id: 6,
-                title: "Сөздерден сөйлем құраңыз.",
-                questions: [
-                  InputQuestion(
-                      text: "(ме / сенің анаң / үйде)",
-                      answer: "",
-                      wide: true,
-                      postfix: "?"),
-                  InputQuestion(
-                      text: "(жақсы / ата-анаң / сенің / ма?)",
-                      answer: "",
-                      wide: true,
-                      postfix: "?"),
-                  InputQuestion(
-                      text: "(жұмысыңыз / қызықты / ма / сіздің)",
-                      answer: "",
-                      wide: true,
-                      postfix: "?"),
-                  InputQuestion(
-                      text: "(па / ашық / бүгін / дүкен)",
-                      answer: "",
-                      wide: true,
-                      postfix: "?"),
-                  InputQuestion(
-                      text: "(тұрасың / қайда / сен)",
-                      answer: "",
-                      wide: true,
-                      postfix: "?"),
-                  InputQuestion(
-                      text: "(спортқа / сіз / қызығасыз / ба)",
-                      answer: "",
-                      wide: true,
-                      postfix: "?"),
-                  InputQuestion(
-                      text: "(жақын / мектеп / ба / бұл жерге)",
-                      answer: "",
-                      wide: true,
-                      postfix: "?"),
-                  InputQuestion(
-                      text: "(мектепте / оқушылар / ме)",
-                      answer: "",
-                      wide: true,
-                      postfix: "?"),
-                  InputQuestion(
-                      text: "(кешіктің / сен / неге)",
-                      answer: "",
-                      wide: true,
-                      postfix: "?"),
-                ]),
-            UnitPracticeModel(
+            Practice(id: 6, title: "Сөздерден сөйлем құраңыз.", questions: [
+              InputQuestion(
+                  text: "(ме / сенің анаң / үйде)",
+                  answer: "",
+                  wide: true,
+                  postfix: "?"),
+              InputQuestion(
+                  text: "(жақсы / ата-анаң / сенің / ма?)",
+                  answer: "",
+                  wide: true,
+                  postfix: "?"),
+              InputQuestion(
+                  text: "(жұмысыңыз / қызықты / ма / сіздің)",
+                  answer: "",
+                  wide: true,
+                  postfix: "?"),
+              InputQuestion(
+                  text: "(па / ашық / бүгін / дүкен)",
+                  answer: "",
+                  wide: true,
+                  postfix: "?"),
+              InputQuestion(
+                  text: "(тұрасың / қайда / сен)",
+                  answer: "",
+                  wide: true,
+                  postfix: "?"),
+              InputQuestion(
+                  text: "(спортқа / сіз / қызығасыз / ба)",
+                  answer: "",
+                  wide: true,
+                  postfix: "?"),
+              InputQuestion(
+                  text: "(жақын / мектеп / ба / бұл жерге)",
+                  answer: "",
+                  wide: true,
+                  postfix: "?"),
+              InputQuestion(
+                  text: "(мектепте / оқушылар / ме)",
+                  answer: "",
+                  wide: true,
+                  postfix: "?"),
+              InputQuestion(
+                  text: "(кешіктің / сен / неге)",
+                  answer: "",
+                  wide: true,
+                  postfix: "?"),
+            ]),
+            Practice(
                 id: 7,
                 title:
                     "Сұрақты толықтырыңыз. Қалай/ қайда/ қанша/ не/ кім/ қандай/ сөздерін пайдаланыңыз.",
@@ -396,52 +393,49 @@ class MockChapters {
                       postfix: "?",
                       afterText: "Қара"),
                 ]),
-            UnitPracticeModel(
-                id: 8,
-                title: "Сұраулы сөйлем жасап жазыңыз.",
-                questions: [
-                  InputQuestion(
-                      text: "(аты?)",
-                      answer: " Сенің атың кім?",
-                      afterText: "Әсет",
-                      wide: true),
-                  InputQuestion(
-                      text: "(Ресей?)",
-                      answer: "",
-                      afterText: "Жоқ, ол Канададан",
-                      wide: true),
-                  InputQuestion(
-                      text: "(жасы?)", answer: "", afterText: "30", wide: true),
-                  InputQuestion(
-                      text: "(мұғалім?)",
-                      answer: "",
-                      afterText: "Жоқ, мен заңгермін",
-                      wide: true),
-                  InputQuestion(
-                      text: "(үйленген?)",
-                      answer: "",
-                      afterText: "Ия, үйленгенмін",
-                      wide: true),
-                  InputQuestion(
-                      text: "(әйелің заңгер?)",
-                      answer: "",
-                      afterText: "Жоқ, ол дизайнер",
-                      wide: true),
-                  InputQuestion(
-                      text: "(оның аты?)",
-                      answer: "",
-                      afterText: "Оның аты – Анар",
-                      wide: true),
-                  InputQuestion(
-                      text: "(жасы?)",
-                      answer: "",
-                      afterText: "Ол 27 жаста",
-                      wide: true),
-                ])
+            Practice(id: 8, title: "Сұраулы сөйлем жасап жазыңыз.", questions: [
+              InputQuestion(
+                  text: "(аты?)",
+                  answer: " Сенің атың кім?",
+                  afterText: "Әсет",
+                  wide: true),
+              InputQuestion(
+                  text: "(Ресей?)",
+                  answer: "",
+                  afterText: "Жоқ, ол Канададан",
+                  wide: true),
+              InputQuestion(
+                  text: "(жасы?)", answer: "", afterText: "30", wide: true),
+              InputQuestion(
+                  text: "(мұғалім?)",
+                  answer: "",
+                  afterText: "Жоқ, мен заңгермін",
+                  wide: true),
+              InputQuestion(
+                  text: "(үйленген?)",
+                  answer: "",
+                  afterText: "Ия, үйленгенмін",
+                  wide: true),
+              InputQuestion(
+                  text: "(әйелің заңгер?)",
+                  answer: "",
+                  afterText: "Жоқ, ол дизайнер",
+                  wide: true),
+              InputQuestion(
+                  text: "(оның аты?)",
+                  answer: "",
+                  afterText: "Оның аты – Анар",
+                  wide: true),
+              InputQuestion(
+                  text: "(жасы?)",
+                  answer: "",
+                  afterText: "Ол 27 жаста",
+                  wide: true),
+            ])
           ]),
       Unit(
           id: 2,
-          theory: UnitTheoryModel(
+          theory: Theory(
               title:
                   "-МЫЗ/-МІЗ/ -СЫҢДАР/-СІҢДЕР/-СЫЗДАР/-СІЗДЕР/-ЛАР/-ЛЕР/-ДАР/-ДЕР/-ТАР/-ТЕР",
               items: [
@@ -555,7 +549,7 @@ class MockChapters {
                 TheoryText(text: "Біз ойнамаймыз."),
               ]),
           practices: [
-            UnitPracticeModel(
+            Practice(
                 id: 9,
                 title: "Сәйкес жіктік жалғауды жалғаңыз.",
                 questions: [
@@ -568,7 +562,7 @@ class MockChapters {
                   InputQuestion(text: "Сіздер қалада", answer: ""),
                   InputQuestion(text: "Олар инженер", answer: ""),
                 ]),
-            UnitPracticeModel(
+            Practice(
                 id: 10,
                 title: "Дұрыс/Дұрыс емес деп жазыңыз.",
                 questions: [
@@ -581,7 +575,7 @@ class MockChapters {
                   TrueFalseQuestion(text: "Сіздер атасыздар", correct: false),
                   TrueFalseQuestion(text: "Сендер немерелер", correct: false),
                 ]),
-            UnitPracticeModel(
+            Practice(
                 id: 11,
                 title:
                     "Жіктік жалғаудың көпше түрінің болымды және болымсыз формасын жалғаңыз.",
@@ -603,7 +597,7 @@ class MockChapters {
                   InputQuestion(text: "Олар күле", answer: ""),
                   InputQuestion(text: "күлмей", answer: ""),
                 ]),
-            UnitPracticeModel(id: 12, title: "Сәйкестендіріңіз.", questions: [
+            Practice(id: 12, title: "Сәйкестендіріңіз.", questions: [
               MatchQuestion(question: "Біз", answer: "отыз бестесіңдер"),
               MatchQuestion(question: "Сендер", answer: "оқушылар емес"),
               MatchQuestion(question: "Сіздер", answer: "дәрігер емеспіз"),
@@ -615,7 +609,7 @@ class MockChapters {
           ]),
       Unit(
           id: 3,
-          theory: UnitTheoryModel(
+          theory: Theory(
               title: "ІСТЕП ЖАТЫРМЫН/ІСТЕП ЖАТҚАН ЖОҚПЫН (НАҚ ОСЫ ШАҚ)",
               items: [
                 TheoryText(text: "Мен тамақ ішіп жатырмын."),
@@ -759,7 +753,7 @@ class MockChapters {
                 ])
               ]),
           practices: [
-            UnitPracticeModel(
+            Practice(
                 id: 13,
                 title:
                     "Мына етістіктерді пайдаланып, сөйлемдерді толықтырыңыз.",
@@ -787,7 +781,7 @@ class MockChapters {
                       text: "Олар қазір қала орталығынан жаңа қонақүй",
                       answer: ""),
                 ]),
-            UnitPracticeModel(
+            Practice(
                 id: 14,
                 title: "Суретке қараңыз. Айғаным туралы сөйлемдерді жазыңыз.",
                 description:
@@ -806,7 +800,7 @@ class MockChapters {
                   InputQuestion(text: "(бас киім кию)", answer: "", wide: true),
                   InputQuestion(text: "(хат жазу)", answer: "", wide: true),
                 ]),
-            UnitPracticeModel(
+            Practice(
                 id: 15,
                 title: "Шашылған сөздерден сөйлемдер құрастырып жазыңыздар.",
                 description:
@@ -832,7 +826,7 @@ class MockChapters {
           ]),
       Unit(
           id: 4,
-          theory: UnitTheoryModel(
+          theory: Theory(
               title: "ІСТЕП ЖАТЫРСЫҢ БА? (НАҚ ОСЫ ШАҚТЫҢ СҰРАУЛЫ ФОРМАСЫ)",
               items: [
                 TheoryText(text: " Не істеп отырсың?"),
@@ -1047,7 +1041,7 @@ class MockChapters {
             //           answer: "",
             //           postfix: "жатыр?"),
             //     ]),
-            UnitPracticeModel(
+            Practice(
                 id: 18,
                 title:
                     "Мына сөздерден сұраулы сөйлем жасаңыз. Сөздерді орын тәртібімен дұрыс орналастырыңыз.",
@@ -1097,7 +1091,7 @@ class MockChapters {
           units: [
             Unit(
                 id: 5,
-                theory: UnitTheoryModel(title: "Example", items: []),
+                theory: const Theory(title: "Example", items: []),
                 practices: [])
           ])
     ];
