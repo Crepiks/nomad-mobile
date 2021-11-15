@@ -1,6 +1,9 @@
 import "package:flutter/material.dart";
+import 'package:nomad/data/models/input_question.dart';
+import 'package:nomad/data/models/match_question.dart';
+import 'package:nomad/data/models/one_choice_question.dart';
 import 'package:nomad/data/models/practice.dart';
-import 'package:nomad/data/models/question.dart';
+import 'package:nomad/data/models/true_false_question.dart';
 import 'package:nomad/layouts/unit_practice_layout.dart';
 import 'package:nomad/unit/views/components/input_answer.dart';
 import 'package:nomad/unit/views/components/match_answer.dart';
