@@ -5,9 +5,9 @@ import 'package:nomad/data/models/unit.dart';
 import 'package:nomad/chapters/components/unit_card.dart';
 
 class UnitsView extends StatefulWidget {
-  List<Unit> units;
+  final List<Unit> units;
 
-  UnitsView({Key? key, this.units = const []}) : super(key: key);
+  const UnitsView({Key? key, this.units = const []}) : super(key: key);
 
   @override
   _UnitsViewState createState() => _UnitsViewState();

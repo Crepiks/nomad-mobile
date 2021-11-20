@@ -58,13 +58,13 @@ class TrueFalseRow extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text("$text:",
-              style: TextStyle(
+              style: const TextStyle(
                   color: AppColors.blackColor, fontSize: 20, height: 1.2)),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             children: [
               TrueFalseButton(trueFalse: true, onClick: () {}),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               TrueFalseButton(
                 trueFalse: false,
                 onClick: () {},
@@ -89,7 +89,8 @@ class TrueFalseButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoButton(
         child: Text(trueFalse ? "Дұрыс" : "Дұрыс емес",
-            style: TextStyle(color: AppColors.blackColor80, fontSize: 16)),
+            style:
+                const TextStyle(color: AppColors.blackColor80, fontSize: 16)),
         padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
         color: AppColors.backgroundColor,
         borderRadius: BorderRadius.circular(10),

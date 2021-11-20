@@ -26,9 +26,9 @@ class _MainLayoutState extends State<MainLayout> {
   Widget build(BuildContext context) {
     final screens = [
       HomeView(onActiveTabChange: setScreen),
-      AnalyticsView(),
-      LessonsView(),
-      ProfileView()
+      const AnalyticsView(),
+      const LessonsView(),
+      const ProfileView()
     ];
 
     return SafeAreaLayout(

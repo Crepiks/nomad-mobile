@@ -57,14 +57,14 @@ class _InputState extends State<CommonInput> {
       children: [
         widget.hasTitle
             ? Padding(
-                padding: EdgeInsets.only(left: 5),
+                padding: const EdgeInsets.only(left: 5),
                 child: Text(widget.title,
-                    style:
-                        TextStyle(color: AppColors.blackColor80, fontSize: 16)),
+                    style: const TextStyle(
+                        color: AppColors.blackColor80, fontSize: 16)),
               )
             : Container(),
         widget.hasTitle
-            ? SizedBox(
+            ? const SizedBox(
                 height: 8,
               )
             : Container(),
@@ -85,11 +85,11 @@ class _InputState extends State<CommonInput> {
                 contentPadding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                 enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.borderColor),
+                    borderSide: const BorderSide(color: AppColors.borderColor),
                     borderRadius:
                         BorderRadius.circular(!widget.practiceInput ? 20 : 14)),
                 focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.blackColor60),
+                    borderSide: const BorderSide(color: AppColors.blackColor60),
                     borderRadius: BorderRadius.circular(20))),
             inputFormatters: widget.phoneInput ? [maskFormatter] : [],
           ),

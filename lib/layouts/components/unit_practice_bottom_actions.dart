@@ -18,10 +18,10 @@ class UnitBottomActions extends StatelessWidget {
           width: 60,
           height: 60,
           child: CupertinoButton(
-            padding: EdgeInsets.all(0),
+            padding: const EdgeInsets.all(0),
             color: AppColors.whiteColor,
             borderRadius: BorderRadius.circular(20),
-            child: FaIcon(
+            child: const FaIcon(
               FontAwesomeIcons.syncAlt,
               color: AppColors.blackColor80,
               size: 16,
@@ -31,7 +31,7 @@ class UnitBottomActions extends StatelessWidget {
             },
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 10,
         ),
         Expanded(
@@ -39,7 +39,7 @@ class UnitBottomActions extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
+                children: const [
                   Text(
                     "Проверить",
                     style: TextStyle(
@@ -68,7 +68,7 @@ class UnitBottomActions extends StatelessWidget {
         context: context,
         backgroundColor: AppColors.whiteColor,
         isScrollControlled: true,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(26))),
         builder: (BuildContext context) => Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 25),
@@ -76,28 +76,28 @@ class UnitBottomActions extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     "Сбросить ответы?",
                     style: TextStyle(
                         color: AppColors.blackColor,
                         fontSize: 26,
                         fontWeight: FontWeight.w600),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Text(
+                  const Text(
                     "Все ответы именно этого задания очистятся, чтобы вы могли начать заново",
                     style: TextStyle(
                         color: AppColors.blackColor80,
                         fontSize: 18,
                         height: 1.3),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   ActionButton(
-                      child: Text(
+                      child: const Text(
                         "Сбросить",
                         style: TextStyle(
                             color: AppColors.blackColor,

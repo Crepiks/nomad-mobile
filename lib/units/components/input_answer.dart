@@ -61,10 +61,10 @@ class ShortInputAnswer extends StatelessWidget {
         children: [
           Flexible(
             child: Text(text,
-                style: TextStyle(
+                style: const TextStyle(
                     color: AppColors.blackColor, fontSize: 20, height: 1.2)),
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           SizedBox(
             width: 120,
             child: CommonInput(
