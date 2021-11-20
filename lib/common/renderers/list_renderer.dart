@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/data/models/theory_list.dart';
 
 class ListRenderer extends StatelessWidget {
@@ -16,7 +16,7 @@ class ListRenderer extends StatelessWidget {
             ? Text(
                 list.title ?? "",
                 style: const TextStyle(
-                    color: AppColors.blackColor,
+                    color: AppColors.black,
                     fontSize: 20,
                     fontWeight: FontWeight.w500),
               )
@@ -33,7 +33,7 @@ class ListRenderer extends StatelessWidget {
                         const Text(
                           "·",
                           style: TextStyle(
-                              color: AppColors.blackColor,
+                              color: AppColors.black,
                               fontSize: 24,
                               fontWeight: FontWeight.bold),
                         ),
@@ -42,7 +42,7 @@ class ListRenderer extends StatelessWidget {
                           child: Text(
                             listItem.text,
                             style: const TextStyle(
-                                color: AppColors.blackColor,
+                                color: AppColors.black,
                                 fontSize: 18,
                                 height: 1.3),
                           ),

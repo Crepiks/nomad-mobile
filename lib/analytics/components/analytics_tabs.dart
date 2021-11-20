@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 
 class AnalyticsTabs extends StatelessWidget {
   final int activeIndex;
@@ -14,7 +14,7 @@ class AnalyticsTabs extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: const BoxDecoration(
-          color: AppColors.whiteColor,
+          color: AppColors.white,
           borderRadius: BorderRadius.all(Radius.circular(14))),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -59,7 +59,7 @@ class AnalyticsTab extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           decoration: active
               ? const BoxDecoration(
-                  color: AppColors.primaryColor,
+                  color: AppColors.primary,
                   borderRadius: BorderRadius.all(Radius.circular(14)))
               : null,
           child: Center(
@@ -68,7 +68,7 @@ class AnalyticsTab extends StatelessWidget {
               style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
-                  color: AppColors.blackColor),
+                  color: AppColors.black),
             ),
           ),
         ),

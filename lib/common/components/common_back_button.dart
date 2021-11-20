@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../colors.dart';
+import '../constants/app_colors.dart';
 
 class CommonBackButton extends StatelessWidget {
   const CommonBackButton({Key? key}) : super(key: key);
@@ -20,12 +20,12 @@ class CommonBackButton extends StatelessWidget {
             FaIcon(
               FontAwesomeIcons.arrowLeft,
               size: 16,
-              color: AppColors.primaryColor,
+              color: AppColors.primary,
             ),
             SizedBox(width: 10),
             Text(
               "Назад",
-              style: TextStyle(color: AppColors.primaryColor, fontSize: 18),
+              style: TextStyle(color: AppColors.primary, fontSize: 18),
             )
           ],
         ),

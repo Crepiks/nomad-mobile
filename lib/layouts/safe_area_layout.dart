@@ -1,11 +1,11 @@
 import "package:flutter/material.dart";
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 
 class SafeAreaLayout extends StatelessWidget {
   const SafeAreaLayout(
       {Key? key,
       required this.child,
-      this.backgroundColor = AppColors.backgroundColor})
+      this.backgroundColor = AppColors.background})
       : super(key: key);
 
   final Widget child;

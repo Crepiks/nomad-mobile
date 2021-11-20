@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 
 class ProfileActionLink extends StatelessWidget {
   const ProfileActionLink(
@@ -33,15 +33,14 @@ class ProfileActionLink extends StatelessWidget {
                 const SizedBox(width: 12),
                 Text(
                   text,
-                  style:
-                      const TextStyle(fontSize: 18, color: AppColors.greyColor),
+                  style: const TextStyle(fontSize: 18, color: AppColors.grey),
                 )
               ],
             ),
             const FaIcon(
               FontAwesomeIcons.chevronRight,
               size: 16,
-              color: AppColors.greyColor,
+              color: AppColors.grey,
             )
           ],
         ),

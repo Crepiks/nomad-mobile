@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 
 class CommonInput extends StatefulWidget {
   const CommonInput(
@@ -59,8 +59,8 @@ class _InputState extends State<CommonInput> {
             ? Padding(
                 padding: const EdgeInsets.only(left: 5),
                 child: Text(widget.title,
-                    style: const TextStyle(
-                        color: AppColors.blackColor80, fontSize: 16)),
+                    style:
+                        const TextStyle(color: AppColors.black, fontSize: 16)),
               )
             : Container(),
         widget.hasTitle
@@ -80,16 +80,16 @@ class _InputState extends State<CommonInput> {
             obscureText: widget.passwordInput,
             decoration: InputDecoration(
                 filled: true,
-                fillColor: AppColors.backgroundColor,
+                fillColor: AppColors.background,
                 hintText: widget.hintText,
                 contentPadding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                 enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: AppColors.borderColor),
+                    borderSide: const BorderSide(color: AppColors.border),
                     borderRadius:
                         BorderRadius.circular(!widget.practiceInput ? 20 : 14)),
                 focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: AppColors.blackColor60),
+                    borderSide: const BorderSide(color: AppColors.grey),
                     borderRadius: BorderRadius.circular(20))),
             inputFormatters: widget.phoneInput ? [maskFormatter] : [],
           ),

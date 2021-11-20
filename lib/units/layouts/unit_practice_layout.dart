@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/common/components/action_button.dart';
 import 'package:nomad/units/components/unit_practice_bottom_actions.dart';
 
@@ -40,9 +40,9 @@ class UnitPracticeLayout extends StatelessWidget {
 
   buildCheckBottomSheet(context, correctAnswers, allAnswers) {
     List<Result> resultTypes = [
-      Result(title: "Отлично", color: AppColors.successColor),
-      Result(title: "Неплохо", color: AppColors.normalColor),
-      Result(title: "Попробуйте снова", color: AppColors.errorColor)
+      Result(title: "Отлично", color: AppColors.success),
+      Result(title: "Неплохо", color: AppColors.warning),
+      Result(title: "Попробуйте снова", color: AppColors.error)
     ];
 
     double correctAnswersPercentage = correctAnswers / allAnswers * 100;
@@ -56,7 +56,7 @@ class UnitPracticeLayout extends StatelessWidget {
         context: context,
         enableDrag: false,
         isDismissible: false,
-        backgroundColor: AppColors.whiteColor,
+        backgroundColor: AppColors.white,
         isScrollControlled: true,
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(26))),
@@ -70,7 +70,7 @@ class UnitPracticeLayout extends StatelessWidget {
                   isLastPractice
                       ? const Text("Урок завершен",
                           style: TextStyle(
-                              color: AppColors.primaryColor,
+                              color: AppColors.primary,
                               fontSize: 26,
                               fontWeight: FontWeight.w600))
                       : Text(
@@ -86,9 +86,7 @@ class UnitPracticeLayout extends StatelessWidget {
                   Text(
                     "$correctAnswers правильных ответов из $allAnswers",
                     style: const TextStyle(
-                        color: AppColors.blackColor80,
-                        fontSize: 18,
-                        height: 1.3),
+                        color: AppColors.black, fontSize: 18, height: 1.3),
                   ),
                   const SizedBox(
                     height: 50,
@@ -105,7 +103,7 @@ class UnitPracticeLayout extends StatelessWidget {
                                     Text(
                                       "Повторить",
                                       style: TextStyle(
-                                          color: AppColors.blackColor80,
+                                          color: AppColors.black,
                                           fontSize: 18,
                                           fontWeight: FontWeight.w500),
                                     ),
@@ -115,7 +113,7 @@ class UnitPracticeLayout extends StatelessWidget {
                                     FaIcon(
                                       FontAwesomeIcons.syncAlt,
                                       size: 14,
-                                      color: AppColors.blackColor80,
+                                      color: AppColors.black,
                                     )
                                   ],
                                 ),
@@ -133,7 +131,7 @@ class UnitPracticeLayout extends StatelessWidget {
                                     Text(
                                       "Следующий урок",
                                       style: TextStyle(
-                                          color: AppColors.blackColor,
+                                          color: AppColors.black,
                                           fontSize: 18,
                                           fontWeight: FontWeight.w500),
                                     ),
@@ -143,7 +141,7 @@ class UnitPracticeLayout extends StatelessWidget {
                                     FaIcon(
                                       FontAwesomeIcons.arrowRight,
                                       size: 14,
-                                      color: AppColors.blackColor,
+                                      color: AppColors.black,
                                     )
                                   ],
                                 ),
@@ -166,7 +164,7 @@ class UnitPracticeLayout extends StatelessWidget {
                                       Text(
                                         "Повторить",
                                         style: TextStyle(
-                                            color: AppColors.blackColor80,
+                                            color: AppColors.black,
                                             fontSize: 18,
                                             fontWeight: FontWeight.w500),
                                       ),
@@ -176,7 +174,7 @@ class UnitPracticeLayout extends StatelessWidget {
                                       FaIcon(
                                         FontAwesomeIcons.syncAlt,
                                         size: 14,
-                                        color: AppColors.blackColor80,
+                                        color: AppColors.black,
                                       )
                                     ],
                                   ),
@@ -197,18 +195,15 @@ class UnitPracticeLayout extends StatelessWidget {
                                       Text(
                                         "Далее",
                                         style: TextStyle(
-                                            color: AppColors.blackColor,
+                                            color: AppColors.black,
                                             fontSize: 18,
                                             fontWeight: FontWeight.w500),
                                       ),
                                       SizedBox(
                                         width: 10,
                                       ),
-                                      FaIcon(
-                                        FontAwesomeIcons.arrowRight,
-                                        size: 14,
-                                        color: AppColors.blackColor,
-                                      )
+                                      FaIcon(FontAwesomeIcons.arrowRight,
+                                          size: 14, color: AppColors.black)
                                     ],
                                   ),
                                   onClick: () {

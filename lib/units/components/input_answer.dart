@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/common/components/common_input.dart';
 
 class InputAnswer extends StatelessWidget {
@@ -14,7 +14,7 @@ class InputAnswer extends StatelessWidget {
       height: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 26),
       decoration: BoxDecoration(
-          color: AppColors.whiteColor, borderRadius: BorderRadius.circular(20)),
+          color: AppColors.white, borderRadius: BorderRadius.circular(20)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -26,7 +26,7 @@ class InputAnswer extends StatelessWidget {
                   const SizedBox(height: 20),
                   const Text("Впишите ответы:",
                       style: TextStyle(
-                          color: AppColors.greyColor,
+                          color: AppColors.grey,
                           fontSize: 18,
                           fontWeight: FontWeight.w500)),
                   const SizedBox(height: 20),
@@ -62,7 +62,7 @@ class ShortInputAnswer extends StatelessWidget {
           Flexible(
             child: Text(text,
                 style: const TextStyle(
-                    color: AppColors.blackColor, fontSize: 20, height: 1.2)),
+                    color: AppColors.black, fontSize: 20, height: 1.2)),
           ),
           const SizedBox(width: 10),
           SizedBox(
@@ -90,7 +90,7 @@ class WideInputAnswer extends StatelessWidget {
         children: [
           Text("$text:",
               style: const TextStyle(
-                  color: AppColors.blackColor, fontSize: 20, height: 1.2)),
+                  color: AppColors.black, fontSize: 20, height: 1.2)),
           const SizedBox(height: 10),
           SizedBox(
             width: double.infinity,

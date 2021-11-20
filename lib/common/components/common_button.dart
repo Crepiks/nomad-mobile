@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 
 class CommonButton extends StatelessWidget {
   const CommonButton({
@@ -21,12 +21,12 @@ class CommonButton extends StatelessWidget {
         onClick();
       },
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      color: reverseColor ? AppColors.whiteColor : AppColors.primaryColor,
+      color: reverseColor ? AppColors.white : AppColors.primary,
       borderRadius: BorderRadius.circular(12),
       child: Text(
         text,
         style: TextStyle(
-            color: reverseColor ? AppColors.blackColor : AppColors.whiteColor,
+            color: reverseColor ? AppColors.black : AppColors.white,
             fontWeight: FontWeight.w500,
             fontSize: 14),
       ),

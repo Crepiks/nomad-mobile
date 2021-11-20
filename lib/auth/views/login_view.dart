@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:nomad/auth/views/components/login_button.dart';
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/common/components/common_back_button.dart';
 import 'package:nomad/common/components/common_input.dart';
 import 'package:nomad/layouts/safe_area_layout.dart';
@@ -17,7 +17,7 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return SafeAreaLayout(
-        backgroundColor: AppColors.whiteColor,
+        backgroundColor: AppColors.white,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
@@ -35,7 +35,7 @@ class _LoginViewState extends State<LoginView> {
                       "С возвращением!\nМы скучали😊",
                       textAlign: TextAlign.start,
                       style: TextStyle(
-                          color: AppColors.blackColor,
+                          color: AppColors.black,
                           fontSize: 28,
                           fontWeight: FontWeight.w600,
                           height: 1.3),

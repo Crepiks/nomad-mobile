@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/data/models/theory_text.dart';
 
 class TextRenderer extends StatelessWidget {
@@ -20,8 +20,8 @@ class TextRenderer extends StatelessWidget {
                 : text.alignment == "center"
                     ? TextAlign.center
                     : TextAlign.center,
-        style: const TextStyle(
-            color: AppColors.blackColor, fontSize: 20, height: 1.4),
+        style:
+            const TextStyle(color: AppColors.black, fontSize: 20, height: 1.4),
       ),
     );
   }

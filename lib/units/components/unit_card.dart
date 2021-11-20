@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 
 typedef TapAction = void Function();
 
@@ -18,10 +18,8 @@ class UnitCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         width: double.infinity,
-        // height: 70,
         decoration: BoxDecoration(
-            color: AppColors.whiteColor,
-            borderRadius: BorderRadius.circular(16)),
+            color: AppColors.white, borderRadius: BorderRadius.circular(16)),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -29,12 +27,12 @@ class UnitCard extends StatelessWidget {
               height: 50,
               width: 50,
               decoration: BoxDecoration(
-                  color: AppColors.primaryColor.withOpacity(0.2),
+                  color: AppColors.primary.withOpacity(0.2),
                   borderRadius: const BorderRadius.all(Radius.circular(10))),
               child: const Center(
                 child: FaIcon(
                   FontAwesomeIcons.book,
-                  color: AppColors.primaryColor,
+                  color: AppColors.primary,
                 ),
               ),
             ),
@@ -43,15 +41,14 @@ class UnitCard extends StatelessWidget {
               child: Text(
                 title,
                 overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                    color: AppColors.blackColor80, fontSize: 17),
+                style: const TextStyle(color: AppColors.black, fontSize: 17),
               ),
             ),
             const SizedBox(width: 10),
             const FaIcon(
               FontAwesomeIcons.chevronRight,
               size: 14,
-              color: AppColors.blackColor60,
+              color: AppColors.black,
             ),
             const SizedBox(width: 4),
           ],

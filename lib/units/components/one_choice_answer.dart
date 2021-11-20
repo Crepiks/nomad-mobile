@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 
 class OneChoiceAnswer extends StatefulWidget {
   const OneChoiceAnswer({Key? key, required this.questions}) : super(key: key);
@@ -25,13 +25,13 @@ class _OneChoiceAnswerState extends State<OneChoiceAnswer> {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 26),
       decoration: BoxDecoration(
-          color: AppColors.whiteColor, borderRadius: BorderRadius.circular(20)),
+          color: AppColors.white, borderRadius: BorderRadius.circular(20)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text("Выберите один ответ:",
               style: TextStyle(
-                  color: AppColors.greyColor,
+                  color: AppColors.grey,
                   fontSize: 18,
                   fontWeight: FontWeight.w500)),
           const SizedBox(height: 20),
@@ -78,13 +78,12 @@ class OneChoice extends StatelessWidget {
         width: double.infinity,
         padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 20),
         decoration: BoxDecoration(
-            color:
-                active ? AppColors.primaryColor60 : AppColors.backgroundColor,
+            color: active ? AppColors.primary : AppColors.background,
             borderRadius: BorderRadius.circular(20)),
         child: Text(
           text,
           style: const TextStyle(
-              color: AppColors.blackColor, fontSize: 16, height: 1.2),
+              color: AppColors.black, fontSize: 16, height: 1.2),
         ),
       ),
     );

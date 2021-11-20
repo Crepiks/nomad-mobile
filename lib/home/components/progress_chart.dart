@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 
 typedef ShowMoreTap = void Function();
 
@@ -27,7 +27,7 @@ class ProgressChartState extends State<ProgressChart> {
       child: Container(
         decoration: BoxDecoration(
             color: Colors.white,
-            border: Border.all(color: AppColors.borderColor),
+            border: Border.all(color: AppColors.border),
             borderRadius: const BorderRadius.all(Radius.circular(20))),
         child: Stack(
           children: <Widget>[
@@ -54,7 +54,7 @@ class ProgressChartState extends State<ProgressChart> {
                           child: const Text(
                             "Подробнее",
                             style: TextStyle(
-                                fontSize: 14, color: AppColors.primaryColor),
+                                fontSize: 14, color: AppColors.primary),
                           ),
                           onPressed: () {
                             widget.onShowMoreTap();
@@ -85,7 +85,7 @@ class ProgressChartState extends State<ProgressChart> {
   BarChartGroupData makeGroupData(
     int x,
     double y, {
-    Color barColor = AppColors.primaryColor,
+    Color barColor = AppColors.primary,
     double width = 24,
   }) {
     return BarChartGroupData(

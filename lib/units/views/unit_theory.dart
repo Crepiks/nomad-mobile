@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/common/components/action_button.dart';
 import 'package:nomad/data/models/theory.dart';
 import 'package:nomad/units/components/theory_item_renderer.dart';
@@ -71,7 +71,7 @@ class _UnitTheoryState extends State<UnitTheory> {
                         Text(
                           "К практике",
                           style: TextStyle(
-                              color: AppColors.blackColor,
+                              color: AppColors.black,
                               fontSize: 18,
                               fontWeight: FontWeight.w500),
                         ),
@@ -81,7 +81,7 @@ class _UnitTheoryState extends State<UnitTheory> {
                         FaIcon(
                           FontAwesomeIcons.arrowRight,
                           size: 16,
-                          color: AppColors.blackColor,
+                          color: AppColors.black,
                         )
                       ],
                     ),

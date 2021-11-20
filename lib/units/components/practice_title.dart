@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 
 class PracticeTitle extends StatelessWidget {
   const PracticeTitle(
@@ -18,7 +18,7 @@ class PracticeTitle extends StatelessWidget {
         Text(
           "$index. $title",
           style: const TextStyle(
-              color: AppColors.blackColor,
+              color: AppColors.black,
               fontSize: 18,
               fontWeight: FontWeight.w500,
               height: 1.3),
@@ -27,7 +27,7 @@ class PracticeTitle extends StatelessWidget {
         subtitle != ""
             ? Text(subtitle,
                 style: const TextStyle(
-                    color: AppColors.blackColor80, fontSize: 16, height: 1.2))
+                    color: AppColors.black, fontSize: 16, height: 1.2))
             : Container()
       ],
     );

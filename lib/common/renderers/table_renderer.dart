@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/data/models/theory_table.dart';
 import 'package:nomad/units/components/theory_item_renderer.dart';
 
@@ -12,13 +12,12 @@ class TableRenderer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: AppColors.whiteColor,
-          border: Border.all(width: 1, color: AppColors.blackColor60),
+          color: AppColors.white,
+          border: Border.all(width: 1, color: AppColors.grey),
           borderRadius: BorderRadius.circular(12)),
       child: Table(
           border: TableBorder.symmetric(
-              inside:
-                  const BorderSide(width: 1, color: AppColors.blackColor60)),
+              inside: const BorderSide(width: 1, color: AppColors.grey)),
           children: table.rows
               .map((row) => TableRow(
                   children: row.cells

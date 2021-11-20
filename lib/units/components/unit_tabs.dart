@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 
 class Tabs extends StatefulWidget {
   const Tabs(
@@ -19,7 +19,7 @@ class _TabsState extends State<Tabs> {
     return Container(
       width: double.infinity,
       decoration: const BoxDecoration(
-          color: AppColors.whiteColor,
+          color: AppColors.white,
           borderRadius: BorderRadius.all(Radius.circular(14))),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -64,13 +64,13 @@ class Tab extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           decoration: active
               ? const BoxDecoration(
-                  color: AppColors.primaryColor,
+                  color: AppColors.primary,
                   borderRadius: BorderRadius.all(Radius.circular(14)))
               : null,
           child: Center(
             child: Text(
               text,
-              style: const TextStyle(fontSize: 16, color: AppColors.blackColor),
+              style: const TextStyle(fontSize: 16, color: AppColors.black),
             ),
           ),
         ),

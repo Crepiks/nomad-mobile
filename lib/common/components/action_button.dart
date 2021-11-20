@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
-import '../colors.dart';
+import '../constants/app_colors.dart';
 
 class ActionButton extends StatelessWidget {
   const ActionButton(
@@ -22,8 +22,7 @@ class ActionButton extends StatelessWidget {
         child: CupertinoButton(
           padding: const EdgeInsets.all(0),
           child: Center(child: child),
-          color:
-              reverseColor ? AppColors.backgroundColor : AppColors.primaryColor,
+          color: reverseColor ? AppColors.background : AppColors.primary,
           borderRadius: BorderRadius.circular(20),
           onPressed: () => onClick(),
         ));

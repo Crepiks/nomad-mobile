@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 
 class UserInfo extends StatelessWidget {
   const UserInfo({Key? key}) : super(key: key);
@@ -24,11 +24,11 @@ class UserInfo extends StatelessWidget {
               style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
-                  color: AppColors.blackColor),
+                  color: AppColors.black),
             ),
             Text(
               "Стандартный план",
-              style: TextStyle(fontSize: 14, color: AppColors.blackColor80),
+              style: TextStyle(fontSize: 14, color: AppColors.black),
             ),
           ],
         )
