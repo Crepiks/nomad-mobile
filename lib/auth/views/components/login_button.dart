@@ -17,8 +17,10 @@ class LoginButton extends StatelessWidget {
               fontWeight: FontWeight.w500),
         ),
         onClick: () => {
-              Navigator.pushReplacement(context,
-                  CupertinoPageRoute(builder: (context) => const MainLayout()))
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  CupertinoPageRoute(builder: (context) => const MainLayout()),
+                  (route) => false)
             });
   }
 }
