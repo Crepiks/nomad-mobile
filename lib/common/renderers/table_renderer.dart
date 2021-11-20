@@ -3,10 +3,10 @@ import 'package:nomad/common/colors.dart';
 import 'package:nomad/data/models/theory_table.dart';
 import 'package:nomad/units/components/theory_item_renderer.dart';
 
-class TheoryTableRenderer extends StatelessWidget {
-  final TheoryTable item;
+class TableRenderer extends StatelessWidget {
+  final TheoryTable table;
 
-  const TheoryTableRenderer({Key? key, required this.item}) : super(key: key);
+  const TableRenderer({Key? key, required this.table}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class TheoryTableRenderer extends StatelessWidget {
           border: TableBorder.symmetric(
               inside:
                   const BorderSide(width: 1, color: AppColors.blackColor60)),
-          children: item.rows
+          children: table.rows
               .map((row) => TableRow(
                   children: row.cells
                       .map((cell) => Container(

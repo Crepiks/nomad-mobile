@@ -1,10 +1,10 @@
 import "package:flutter/material.dart";
 import 'package:nomad/data/models/theory_image.dart';
 
-class TheoryImageRenderer extends StatelessWidget {
-  const TheoryImageRenderer({Key? key, required this.item}) : super(key: key);
+class ImageRenderer extends StatelessWidget {
+  final TheoryImage image;
 
-  final TheoryImage item;
+  const ImageRenderer({Key? key, required this.image}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class TheoryImageRenderer extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.3,
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage(item.imagePath), fit: BoxFit.contain)),
+              image: AssetImage(image.imagePath), fit: BoxFit.contain)),
     );
   }
 }

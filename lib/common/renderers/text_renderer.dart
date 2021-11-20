@@ -2,22 +2,22 @@ import "package:flutter/material.dart";
 import 'package:nomad/common/colors.dart';
 import 'package:nomad/data/models/theory_text.dart';
 
-class TheoryTextRenderer extends StatelessWidget {
-  final TheoryText item;
+class TextRenderer extends StatelessWidget {
+  final TheoryText text;
 
-  const TheoryTextRenderer({Key? key, required this.item}) : super(key: key);
+  const TextRenderer({Key? key, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: Text(
-        item.text,
-        textAlign: item.alignment == "left"
+        text.text,
+        textAlign: text.alignment == "left"
             ? TextAlign.left
-            : item.alignment == "right"
+            : text.alignment == "right"
                 ? TextAlign.right
-                : item.alignment == "center"
+                : text.alignment == "center"
                     ? TextAlign.center
                     : TextAlign.center,
         style: const TextStyle(

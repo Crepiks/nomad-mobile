@@ -2,29 +2,29 @@ import "package:flutter/material.dart";
 import 'package:nomad/common/colors.dart';
 import 'package:nomad/data/models/theory_list.dart';
 
-class TheoryListRenderer extends StatelessWidget {
-  final TheoryList item;
+class ListRenderer extends StatelessWidget {
+  final TheoryList list;
 
-  const TheoryListRenderer({Key? key, required this.item}) : super(key: key);
+  const ListRenderer({Key? key, required this.list}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        item.title != null
+        list.title != null
             ? Text(
-                item.title ?? "",
+                list.title ?? "",
                 style: const TextStyle(
                     color: AppColors.blackColor,
                     fontSize: 20,
                     fontWeight: FontWeight.w500),
               )
             : Container(),
-        item.title != null ? const SizedBox(height: 16) : Container(),
+        list.title != null ? const SizedBox(height: 16) : Container(),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: item.items
+          children: list.items
               .map((listItem) => Padding(
                     padding: const EdgeInsets.symmetric(vertical: 5),
                     child: Row(
