@@ -3,7 +3,7 @@ import "package:flutter/material.dart";
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nomad/common/colors.dart';
 import 'package:nomad/common/components/action_button.dart';
-import 'package:nomad/layouts/components/unit_practice_bottom_actions.dart';
+import 'package:nomad/units/components/unit_practice_bottom_actions.dart';
 
 class UnitPracticeLayout extends StatelessWidget {
   const UnitPracticeLayout(

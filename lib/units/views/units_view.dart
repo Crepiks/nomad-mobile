@@ -1,8 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nomad/common/colors.dart';
 import 'package:nomad/common/components/common_back_button.dart';
 import 'package:nomad/data/models/unit.dart';
-import 'package:nomad/chapters/components/unit_card.dart';
+import 'package:nomad/units/components/unit_card.dart';
+import 'package:nomad/units/layouts/unit_layout.dart';
 
 class UnitsView extends StatefulWidget {
   final List<Unit> units;
@@ -37,11 +39,24 @@ class _UnitsViewState extends State<UnitsView> {
   }
 
   List<Widget> _buildUnits(List<Unit> units) {
-    return units
-        .map((Unit unit) => Container(
-              padding: const EdgeInsets.only(bottom: 14),
-              child: UnitCard(title: unit.theory.title),
-            ))
-        .toList();
+    return units.asMap().entries.map((entry) {
+      final int index = entry.key;
+      final Unit unit = entry.value;
+
+      return Container(
+          padding: const EdgeInsets.only(bottom: 14),
+          child: UnitCard(
+              onTap: () {
+                _navigateToUnitScreen(context, units, index);
+              },
+              title: unit.theory.title));
+    }).toList();
+  }
+
+  _navigateToUnitScreen(BuildContext context, List<Unit> units, int index) {
+    Navigator.push(
+        context,
+        CupertinoPageRoute(
+            builder: (context) => UnitLayout(units: units, index: index)));
   }
 }
