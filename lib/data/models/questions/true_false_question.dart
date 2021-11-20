@@ -1,4 +1,4 @@
-import 'package:nomad/data/models/question.dart';
+import 'package:nomad/data/models/questions/question.dart';
 
 class TrueFalseQuestion extends Question {
   final String text;

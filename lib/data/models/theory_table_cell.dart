@@ -1,7 +1,7 @@
-import 'package:nomad/data/models/theory_item.dart';
+import 'package:nomad/data/models/content.dart';
 
 class TheoryTableCell {
-  final TheoryItem item;
+  final Content content;
 
-  const TheoryTableCell({required this.item});
+  const TheoryTableCell({required this.content});
 }

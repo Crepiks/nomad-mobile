@@ -1,6 +1,6 @@
-import 'package:nomad/data/models/theory_item.dart';
+import 'package:nomad/data/models/content.dart';
 
-class TheoryText extends TheoryItem {
+class TheoryText extends Content {
   final String text;
   final String alignment;
 

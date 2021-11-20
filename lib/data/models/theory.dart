@@ -1,8 +1,8 @@
-import 'package:nomad/data/models/theory_item.dart';
+import 'package:nomad/data/models/content.dart';
 
 class Theory {
   final String title;
-  final List<TheoryItem> items;
+  final List<Content> items;
 
   const Theory({required this.title, required this.items});
 }

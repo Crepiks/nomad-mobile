@@ -60,7 +60,7 @@ class _UnitTheoryState extends State<UnitTheory> {
               children: [
                 const SizedBox(height: 60),
                 ...widget.theory.items
-                    .map((item) => TheoryItemRenderer(item: item))
+                    .map((item) => TheoryItemRenderer(content: item))
                     .toList(),
                 const SizedBox(height: 30),
                 ActionButton(

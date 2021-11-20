@@ -1,6 +1,6 @@
-import 'package:nomad/data/models/theory_item.dart';
+import 'package:nomad/data/models/content.dart';
 
-class TheoryImage extends TheoryItem {
+class TheoryImage extends Content {
   final String imagePath;
 
   const TheoryImage({required this.imagePath});

@@ -1,7 +1,7 @@
-import 'package:nomad/data/models/theory_item.dart';
+import 'package:nomad/data/models/content.dart';
 import 'package:nomad/data/models/theory_table_row.dart';
 
-class TheoryTable extends TheoryItem {
+class TheoryTable extends Content {
   final List<TheoryTableRow> rows;
   final String? title;
   final bool hasBorder;

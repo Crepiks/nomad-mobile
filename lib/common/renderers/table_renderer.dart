@@ -24,7 +24,7 @@ class TableRenderer extends StatelessWidget {
                       .map((cell) => Container(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 16, vertical: 10),
-                            child: TheoryItemRenderer(item: cell.item),
+                            child: TheoryItemRenderer(content: cell.content),
                           ))
                       .toList()))
               .toList()),

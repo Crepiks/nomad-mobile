@@ -1,7 +1,7 @@
-import 'package:nomad/data/models/theory_item.dart';
+import 'package:nomad/data/models/content.dart';
 import 'package:nomad/data/models/theory_list_item.dart';
 
-class TheoryList extends TheoryItem {
+class TheoryList extends Content {
   final List<TheoryListItem> items;
   final String? title;
   final bool numeric;

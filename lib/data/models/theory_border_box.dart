@@ -1,7 +1,7 @@
-import 'package:nomad/data/models/theory_item.dart';
+import 'package:nomad/data/models/content.dart';
 
-class TheoryBorderBox extends TheoryItem {
-  final List<TheoryItem> items;
+class TheoryBorderBox extends Content {
+  final List<Content> items;
   final String? title;
 
   const TheoryBorderBox({

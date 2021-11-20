@@ -26,7 +26,7 @@ class ContentBoxRenderer extends StatelessWidget {
         ),
         child: Column(
           children: content.items
-              .map((item) => TheoryItemRenderer(item: item))
+              .map((item) => TheoryItemRenderer(content: item))
               .toList(),
         ),
       ),
