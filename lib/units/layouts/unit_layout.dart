@@ -5,7 +5,6 @@ import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/common/components/action_button.dart';
 import 'package:nomad/data/models/unit.dart';
 import 'package:nomad/units/components/unit_header.dart';
-import 'package:nomad/layouts/safe_area_layout.dart';
 import 'package:nomad/units/views/unit_practices.dart';
 import 'package:nomad/units/views/unit_theory.dart';
 
@@ -56,13 +55,25 @@ class _UnitLayoutState extends State<UnitLayout> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeAreaLayout(
-      child: SizedBox(
+    return Scaffold(
+      backgroundColor: AppColors.background,
+      body: SizedBox(
           width: double.infinity,
           height: double.infinity,
           child: Stack(
             alignment: Alignment.topCenter,
             children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 50, 20, 0),
+                child: UnitHeader(
+                    changeActivePageIndex: (newIndex) =>
+                        changeActivePage(newIndex),
+                    activePageIndex: activePageIndex,
+                    onClickExtraFunctions: () {
+                      buildExtraFunctionsSheet(context,
+                          widget.units[activeUnitIndex], activeUnitIndex + 1);
+                    }),
+              ),
               Container(
                   width: double.infinity,
                   height: double.infinity,
@@ -82,20 +93,8 @@ class _UnitLayoutState extends State<UnitLayout> {
                       changeActivePageIndex(newIndex);
                     },
                   )),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 60, 20, 0),
-                child: UnitHeader(
-                    changeActivePageIndex: (newIndex) =>
-                        changeActivePage(newIndex),
-                    activePageIndex: activePageIndex,
-                    onClickExtraFunctions: () {
-                      buildExtraFunctionsSheet(context,
-                          widget.units[activeUnitIndex], activeUnitIndex + 1);
-                    }),
-              ),
             ],
           )),
-      backgroundColor: AppColors.background,
     );
   }
 

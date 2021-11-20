@@ -30,7 +30,7 @@ class UnitHeader extends StatelessWidget {
           ),
           const SizedBox(width: 10),
           Expanded(
-              child: Tabs(
+              child: UnitTabs(
             activeIndex: activePageIndex,
             changeActiveIndex: (newActiveIndex) =>
                 changeActivePageIndex(newActiveIndex),

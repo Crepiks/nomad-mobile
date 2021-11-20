@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
 import 'package:nomad/common/constants/app_colors.dart';
 
-class Tabs extends StatefulWidget {
-  const Tabs(
+class UnitTabs extends StatefulWidget {
+  const UnitTabs(
       {Key? key, required this.changeActiveIndex, required this.activeIndex})
       : super(key: key);
 
@@ -10,10 +10,10 @@ class Tabs extends StatefulWidget {
   final Function changeActiveIndex;
 
   @override
-  _TabsState createState() => _TabsState();
+  _UnitTabsState createState() => _UnitTabsState();
 }
 
-class _TabsState extends State<Tabs> {
+class _UnitTabsState extends State<UnitTabs> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,13 +24,13 @@ class _TabsState extends State<Tabs> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Tab(
+          UnitTab(
               onClick: () {
                 widget.changeActiveIndex(0);
               },
               active: widget.activeIndex == 0,
               text: "Теория"),
-          Tab(
+          UnitTab(
               onClick: () {
                 widget.changeActiveIndex(1);
               },
@@ -42,8 +42,8 @@ class _TabsState extends State<Tabs> {
   }
 }
 
-class Tab extends StatelessWidget {
-  const Tab({
+class UnitTab extends StatelessWidget {
+  const UnitTab({
     Key? key,
     required this.onClick,
     required this.active,
@@ -70,7 +70,10 @@ class Tab extends StatelessWidget {
           child: Center(
             child: Text(
               text,
-              style: const TextStyle(fontSize: 16, color: AppColors.black),
+              style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.black),
             ),
           ),
         ),
