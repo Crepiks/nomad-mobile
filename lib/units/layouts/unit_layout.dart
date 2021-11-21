@@ -6,7 +6,7 @@ import 'package:nomad/common/components/action_button.dart';
 import 'package:nomad/data/models/unit.dart';
 import 'package:nomad/units/components/unit_header.dart';
 import 'package:nomad/units/views/unit_practices.dart';
-import 'package:nomad/units/views/unit_theory.dart';
+import 'package:nomad/units/components/theory_content.dart';
 
 class UnitLayout extends StatefulWidget {
   final List<Unit> units;
@@ -35,7 +35,7 @@ class _UnitLayoutState extends State<UnitLayout> {
 
   void updateScreens() {
     screens = [
-      UnitTheory(
+      TheoryContent(
         theory: widget.units[activeUnitIndex].theory,
         index: activeUnitIndex,
         onClickToPractice: () {

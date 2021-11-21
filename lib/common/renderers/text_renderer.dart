@@ -20,8 +20,7 @@ class TextRenderer extends StatelessWidget {
                 : text.alignment == "center"
                     ? TextAlign.center
                     : TextAlign.center,
-        style:
-            const TextStyle(color: AppColors.black, fontSize: 20, height: 1.4),
+        style: const TextStyle(color: AppColors.black, fontSize: 18, height: 1),
       ),
     );
   }
