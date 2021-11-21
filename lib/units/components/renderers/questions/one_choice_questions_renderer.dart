@@ -1,16 +1,19 @@
 import "package:flutter/material.dart";
 import 'package:nomad/common/constants/app_colors.dart';
 
-class OneChoiceAnswer extends StatefulWidget {
-  const OneChoiceAnswer({Key? key, required this.questions}) : super(key: key);
+class OneChoiceQuestionsRenderer extends StatefulWidget {
+  const OneChoiceQuestionsRenderer({Key? key, required this.questions})
+      : super(key: key);
 
   final List questions;
 
   @override
-  _OneChoiceAnswerState createState() => _OneChoiceAnswerState();
+  _OneChoiceQuestionsRendererState createState() =>
+      _OneChoiceQuestionsRendererState();
 }
 
-class _OneChoiceAnswerState extends State<OneChoiceAnswer> {
+class _OneChoiceQuestionsRendererState
+    extends State<OneChoiceQuestionsRenderer> {
   int answeredIndex = 0;
 
   void setAnsweredIndex(newIndex) {

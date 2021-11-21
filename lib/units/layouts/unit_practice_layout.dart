@@ -6,6 +6,10 @@ import 'package:nomad/common/components/action_button.dart';
 import 'package:nomad/units/components/unit_practice_bottom_actions.dart';
 
 class UnitPracticeLayout extends StatelessWidget {
+  final Widget child;
+  final Function onClickNextLesson;
+  final bool isLastPractice;
+
   const UnitPracticeLayout(
       {Key? key,
       required this.child,
@@ -13,28 +17,21 @@ class UnitPracticeLayout extends StatelessWidget {
       required this.isLastPractice})
       : super(key: key);
 
-  final Widget child;
-  final Function onClickNextLesson;
-  final bool isLastPractice;
-
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Expanded(child: child),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
-            child: UnitBottomActions(
-              onClickCheck: () {
-                buildCheckBottomSheet(context, 4, 5);
-              },
-            ),
+    return ListView(
+      padding: const EdgeInsets.all(0),
+      children: [
+        child,
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
+          child: UnitBottomActions(
+            onClickCheck: () {
+              buildCheckBottomSheet(context, 4, 5);
+            },
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 

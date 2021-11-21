@@ -4,7 +4,7 @@ import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/common/components/common_back_button.dart';
 import 'package:nomad/data/models/unit.dart';
 import 'package:nomad/units/components/unit_card.dart';
-import 'package:nomad/units/layouts/unit_layout.dart';
+import 'package:nomad/units/views/unit_view.dart';
 
 class UnitsView extends StatefulWidget {
   final List<Unit> units;
@@ -19,6 +19,7 @@ class _UnitsViewState extends State<UnitsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.background,
       body: SizedBox(
           height: double.infinity,
@@ -57,6 +58,6 @@ class _UnitsViewState extends State<UnitsView> {
     Navigator.push(
         context,
         CupertinoPageRoute(
-            builder: (context) => UnitLayout(units: units, index: index)));
+            builder: (context) => UnitView(units: units, index: index)));
   }
 }

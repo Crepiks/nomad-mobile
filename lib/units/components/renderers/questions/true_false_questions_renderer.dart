@@ -2,8 +2,9 @@ import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:nomad/common/constants/app_colors.dart';
 
-class TrueFalseAnswer extends StatelessWidget {
-  const TrueFalseAnswer({Key? key, required this.questions}) : super(key: key);
+class TrueFalseQuestionsRenderer extends StatelessWidget {
+  const TrueFalseQuestionsRenderer({Key? key, required this.questions})
+      : super(key: key);
 
   final List questions;
 

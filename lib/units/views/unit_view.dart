@@ -5,21 +5,21 @@ import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/common/components/action_button.dart';
 import 'package:nomad/data/models/unit.dart';
 import 'package:nomad/units/components/unit_header.dart';
-import 'package:nomad/units/views/unit_practices.dart';
+import 'package:nomad/units/views/unit_practices_view.dart';
 import 'package:nomad/units/components/theory_content.dart';
 
-class UnitLayout extends StatefulWidget {
+class UnitView extends StatefulWidget {
   final List<Unit> units;
   final int index;
 
-  const UnitLayout({Key? key, required this.units, required this.index})
+  const UnitView({Key? key, required this.units, required this.index})
       : super(key: key);
 
   @override
-  _UnitLayoutState createState() => _UnitLayoutState();
+  _UnitViewState createState() => _UnitViewState();
 }
 
-class _UnitLayoutState extends State<UnitLayout> {
+class _UnitViewState extends State<UnitView> {
   List<dynamic> screens = [];
   int activePageIndex = 0;
   int activeUnitIndex = 0;
@@ -42,7 +42,7 @@ class _UnitLayoutState extends State<UnitLayout> {
           changeActivePage(1);
         },
       ),
-      UnitPractices(
+      UnitPracticesView(
         practices: widget.units[activeUnitIndex].practices,
         onClickNextLesson: () {
           routeNextUnit();
@@ -56,6 +56,7 @@ class _UnitLayoutState extends State<UnitLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.background,
       body: SizedBox(
           width: double.infinity,

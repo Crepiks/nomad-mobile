@@ -1,16 +1,17 @@
 import "package:flutter/material.dart";
 import 'package:nomad/common/constants/app_colors.dart';
 
-class MatchAnswer extends StatefulWidget {
-  const MatchAnswer({Key? key, required this.questions}) : super(key: key);
+class MatchQuestionsRenderer extends StatefulWidget {
+  const MatchQuestionsRenderer({Key? key, required this.questions})
+      : super(key: key);
 
   final List questions;
 
   @override
-  _MatchAnswerState createState() => _MatchAnswerState();
+  _MatchQuestionsRendererState createState() => _MatchQuestionsRendererState();
 }
 
-class _MatchAnswerState extends State<MatchAnswer> {
+class _MatchQuestionsRendererState extends State<MatchQuestionsRenderer> {
   int? focusedInputIndex;
 
   @override

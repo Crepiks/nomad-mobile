@@ -9,6 +9,7 @@ import 'package:nomad/analytics/views/analytics_view.dart';
 
 class MainLayout extends StatefulWidget {
   const MainLayout({Key? key}) : super(key: key);
+
   @override
   _MainLayoutState createState() => _MainLayoutState();
 }
