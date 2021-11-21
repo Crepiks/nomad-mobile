@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/common/components/common_button.dart';
 
 class PremiumCard extends StatelessWidget {
@@ -10,7 +10,7 @@ class PremiumCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 20),
       decoration: BoxDecoration(
-          color: AppColors.primaryColor,
+          color: AppColors.primary,
           borderRadius: BorderRadius.circular(22),
           image: const DecorationImage(
               image: AssetImage("assets/images/premium-card-image.png"),
@@ -27,7 +27,7 @@ class PremiumCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
-                color: AppColors.blackColor,
+                color: AppColors.black,
               ),
             ),
           ),

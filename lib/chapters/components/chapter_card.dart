@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 
 typedef TapAction = void Function();
 
@@ -25,7 +25,7 @@ class ChapterCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(24),
         decoration: BoxDecoration(
-            color: AppColors.primaryColor,
+            color: AppColors.primary,
             borderRadius: BorderRadius.circular(16),
             image: const DecorationImage(
                 image: AssetImage("assets/images/chapter-card-image.png"),
@@ -93,8 +93,7 @@ class ProgressBar extends StatelessWidget {
         child: Container(
           width: progressBarWidth,
           decoration: BoxDecoration(
-              color: AppColors.whiteColor,
-              borderRadius: BorderRadius.circular(20)),
+              color: AppColors.white, borderRadius: BorderRadius.circular(20)),
         ),
       ),
     );

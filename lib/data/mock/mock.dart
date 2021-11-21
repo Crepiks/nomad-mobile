@@ -1,6 +1,6 @@
 import 'package:nomad/data/models/chapter.dart';
-import 'package:nomad/data/models/input_question.dart';
-import 'package:nomad/data/models/match_question.dart';
+import 'package:nomad/data/models/questions/input_question.dart';
+import 'package:nomad/data/models/questions/match_question.dart';
 import 'package:nomad/data/models/theory_border_box.dart';
 import 'package:nomad/data/models/theory_image.dart';
 import 'package:nomad/data/models/theory_list.dart';
@@ -10,7 +10,7 @@ import 'package:nomad/data/models/theory_table.dart';
 import 'package:nomad/data/models/theory_table_cell.dart';
 import 'package:nomad/data/models/theory_table_row.dart';
 import 'package:nomad/data/models/theory_text.dart';
-import 'package:nomad/data/models/true_false_question.dart';
+import 'package:nomad/data/models/questions/true_false_question.dart';
 import 'package:nomad/data/models/unit.dart';
 import 'package:nomad/data/models/practice.dart';
 import 'package:nomad/data/models/theory.dart';
@@ -35,9 +35,9 @@ class MockChapters {
             TheorySpace(),
             TheoryTable(title: "Болымды", rows: [
               TheoryTableRow(cells: [
-                TheoryTableCell(item: TheoryText(text: "Мен")),
+                TheoryTableCell(content: TheoryText(text: "Мен")),
                 TheoryTableCell(
-                    item: TheoryList(items: [
+                    content: TheoryList(items: [
                   TheoryListItem(
                       text: "-мын/-мін (дауыстылар, үнділерден кейін)"),
                   TheoryListItem(text: "-бын/-бін (ұяңдардан кейін)"),
@@ -46,26 +46,26 @@ class MockChapters {
               ]),
               TheoryTableRow(cells: [
                 TheoryTableCell(
-                  item: TheoryText(text: "Сен"),
+                  content: TheoryText(text: "Сен"),
                 ),
                 TheoryTableCell(
-                  item: TheoryText(text: "-сың/-сің"),
-                ),
-              ]),
-              TheoryTableRow(cells: [
-                TheoryTableCell(
-                  item: TheoryText(text: "Сіз"),
-                ),
-                TheoryTableCell(
-                  item: TheoryText(text: "-сыз/-сіз"),
+                  content: TheoryText(text: "-сың/-сің"),
                 ),
               ]),
               TheoryTableRow(cells: [
                 TheoryTableCell(
-                  item: TheoryText(text: "Ол"),
+                  content: TheoryText(text: "Сіз"),
                 ),
                 TheoryTableCell(
-                  item: TheoryText(text: "-/-"),
+                  content: TheoryText(text: "-сыз/-сіз"),
+                ),
+              ]),
+              TheoryTableRow(cells: [
+                TheoryTableCell(
+                  content: TheoryText(text: "Ол"),
+                ),
+                TheoryTableCell(
+                  content: TheoryText(text: "-/-"),
                 ),
               ])
             ]),
@@ -179,54 +179,54 @@ class MockChapters {
               Theory(title: "-МЫН/МІН/-СЫҢ/-СІҢ/-СЫЗ/-СІЗ (СҰРАҚ) ", items: [
             TheoryTable(title: "Болымды", rows: [
               TheoryTableRow(cells: [
-                TheoryTableCell(item: TheoryText(text: "Мен")),
+                TheoryTableCell(content: TheoryText(text: "Мен")),
                 TheoryTableCell(
-                    item: TheoryList(items: [
+                    content: TheoryList(items: [
                   TheoryListItem(text: "-мын/-мін"),
                   TheoryListItem(text: "-бын/-бін"),
                   TheoryListItem(text: "-пын/-пін"),
                 ]))
               ]),
               TheoryTableRow(cells: [
-                TheoryTableCell(item: TheoryText(text: "Сен")),
-                TheoryTableCell(item: TheoryText(text: "-сың/-сің"))
+                TheoryTableCell(content: TheoryText(text: "Сен")),
+                TheoryTableCell(content: TheoryText(text: "-сың/-сің"))
               ]),
               TheoryTableRow(cells: [
-                TheoryTableCell(item: TheoryText(text: "Сіз")),
-                TheoryTableCell(item: TheoryText(text: "-сыз/-сіз"))
+                TheoryTableCell(content: TheoryText(text: "Сіз")),
+                TheoryTableCell(content: TheoryText(text: "-сыз/-сіз"))
               ]),
               TheoryTableRow(cells: [
-                TheoryTableCell(item: TheoryText(text: "Ол")),
-                TheoryTableCell(item: TheoryText(text: "-/-"))
+                TheoryTableCell(content: TheoryText(text: "Ол")),
+                TheoryTableCell(content: TheoryText(text: "-/-"))
               ]),
             ]),
             TheorySpace(),
             TheoryTable(title: "Cұраулы", rows: [
               TheoryTableRow(cells: [
-                TheoryTableCell(item: TheoryText(text: "Мен")),
+                TheoryTableCell(content: TheoryText(text: "Мен")),
                 TheoryTableCell(
-                    item: TheoryList(items: [
+                    content: TheoryList(items: [
                   TheoryListItem(text: "-мын/-мін"),
                   TheoryListItem(text: "-бын/-бін"),
                   TheoryListItem(text: "-пын/-пін"),
                 ])),
-                TheoryTableCell(item: TheoryText(text: "ба/бе?")),
+                TheoryTableCell(content: TheoryText(text: "ба/бе?")),
               ]),
               TheoryTableRow(cells: [
-                TheoryTableCell(item: TheoryText(text: "Сен")),
-                TheoryTableCell(item: TheoryText(text: "-сың/-сің")),
-                TheoryTableCell(item: TheoryText(text: "ба/бе?")),
+                TheoryTableCell(content: TheoryText(text: "Сен")),
+                TheoryTableCell(content: TheoryText(text: "-сың/-сің")),
+                TheoryTableCell(content: TheoryText(text: "ба/бе?")),
               ]),
               TheoryTableRow(cells: [
-                TheoryTableCell(item: TheoryText(text: "Сіз")),
-                TheoryTableCell(item: TheoryText(text: "-сыз/-сіз")),
-                TheoryTableCell(item: TheoryText(text: "ба/бе?")),
+                TheoryTableCell(content: TheoryText(text: "Сіз")),
+                TheoryTableCell(content: TheoryText(text: "-сыз/-сіз")),
+                TheoryTableCell(content: TheoryText(text: "ба/бе?")),
               ]),
               TheoryTableRow(cells: [
-                TheoryTableCell(item: TheoryText(text: "Ол")),
-                TheoryTableCell(item: TheoryText(text: "-/-")),
+                TheoryTableCell(content: TheoryText(text: "Ол")),
+                TheoryTableCell(content: TheoryText(text: "-/-")),
                 TheoryTableCell(
-                    item: TheoryList(items: [
+                    content: TheoryList(items: [
                   TheoryListItem(text: "ма/ме?"),
                   TheoryListItem(text: "ба/бе?"),
                   TheoryListItem(text: "па/пе?"),
@@ -454,9 +454,9 @@ class MockChapters {
                 TheorySpace(),
                 TheoryTable(title: "Болымды", rows: [
                   TheoryTableRow(cells: [
-                    TheoryTableCell(item: TheoryText(text: "Біз")),
+                    TheoryTableCell(content: TheoryText(text: "Біз")),
                     TheoryTableCell(
-                        item: TheoryList(items: [
+                        content: TheoryList(items: [
                       TheoryListItem(
                           text: "-мыз/-міз (дауыстылар, үнділерден кейін)"),
                       TheoryListItem(text: "-быз/-біз (ұяңдардан кейін)"),
@@ -464,17 +464,19 @@ class MockChapters {
                     ]))
                   ]),
                   TheoryTableRow(cells: [
-                    TheoryTableCell(item: TheoryText(text: "Сендер")),
-                    TheoryTableCell(item: TheoryText(text: "-сыңдар/-сіңдер")),
-                  ]),
-                  TheoryTableRow(cells: [
-                    TheoryTableCell(item: TheoryText(text: "Сіздер")),
-                    TheoryTableCell(item: TheoryText(text: "-сыздар/-сіздер")),
-                  ]),
-                  TheoryTableRow(cells: [
-                    TheoryTableCell(item: TheoryText(text: "Олар")),
+                    TheoryTableCell(content: TheoryText(text: "Сендер")),
                     TheoryTableCell(
-                        item: TheoryList(items: [
+                        content: TheoryText(text: "-сыңдар/-сіңдер")),
+                  ]),
+                  TheoryTableRow(cells: [
+                    TheoryTableCell(content: TheoryText(text: "Сіздер")),
+                    TheoryTableCell(
+                        content: TheoryText(text: "-сыздар/-сіздер")),
+                  ]),
+                  TheoryTableRow(cells: [
+                    TheoryTableCell(content: TheoryText(text: "Олар")),
+                    TheoryTableCell(
+                        content: TheoryList(items: [
                       TheoryListItem(text: "-лар/-лер/"),
                       TheoryListItem(text: "-дар/-дер/"),
                       TheoryListItem(text: "-тар/-тер/"),
@@ -484,29 +486,29 @@ class MockChapters {
                 TheorySpace(),
                 TheoryTable(title: "Болымсыз", rows: [
                   TheoryTableRow(cells: [
-                    TheoryTableCell(item: TheoryText(text: "Біз")),
-                    TheoryTableCell(item: TheoryText(text: "+ емес")),
-                    TheoryTableCell(item: TheoryText(text: "-піз")),
+                    TheoryTableCell(content: TheoryText(text: "Біз")),
+                    TheoryTableCell(content: TheoryText(text: "+ емес")),
+                    TheoryTableCell(content: TheoryText(text: "-піз")),
                   ]),
                   TheoryTableRow(cells: [
-                    TheoryTableCell(item: TheoryText(text: "Сендер")),
-                    TheoryTableCell(item: TheoryText(text: "+ емес")),
-                    TheoryTableCell(item: TheoryText(text: "-сіңдер")),
+                    TheoryTableCell(content: TheoryText(text: "Сендер")),
+                    TheoryTableCell(content: TheoryText(text: "+ емес")),
+                    TheoryTableCell(content: TheoryText(text: "-сіңдер")),
                   ]),
                   TheoryTableRow(cells: [
-                    TheoryTableCell(item: TheoryText(text: "Сіздер")),
-                    TheoryTableCell(item: TheoryText(text: "+ емес")),
-                    TheoryTableCell(item: TheoryText(text: "-сіздер")),
+                    TheoryTableCell(content: TheoryText(text: "Сіздер")),
+                    TheoryTableCell(content: TheoryText(text: "+ емес")),
+                    TheoryTableCell(content: TheoryText(text: "-сіздер")),
                   ]),
                   TheoryTableRow(cells: [
-                    TheoryTableCell(item: TheoryText(text: "Олар")),
+                    TheoryTableCell(content: TheoryText(text: "Олар")),
                     TheoryTableCell(
-                        item: TheoryList(items: [
+                        content: TheoryList(items: [
                       TheoryListItem(text: "+ -лар/-лер/"),
                       TheoryListItem(text: "+ -дар/-дер/"),
                       TheoryListItem(text: "+ -тар/-тер/"),
                     ])),
-                    TheoryTableCell(item: TheoryText(text: "+ емес")),
+                    TheoryTableCell(content: TheoryText(text: "+ емес")),
                   ]),
                 ]),
                 TheorySpace(),
@@ -639,7 +641,7 @@ class MockChapters {
                     rows: [
                       TheoryTableRow(cells: [
                         TheoryTableCell(
-                            item: TheoryList(items: [
+                            content: TheoryList(items: [
                           TheoryListItem(text: "Мен"),
                           TheoryListItem(text: "Сен"),
                           TheoryListItem(text: "Сіз"),
@@ -650,11 +652,12 @@ class MockChapters {
                           TheoryListItem(text: "Олар"),
                         ])),
                         TheoryTableCell(
-                            item: TheoryText(text: "Етістік + -ып, -іп, -п")),
+                            content:
+                                TheoryText(text: "Етістік + -ып, -іп, -п")),
                         TheoryTableCell(
-                            item: TheoryText(text: "Жатыр, отыр, тұр, жүр")),
+                            content: TheoryText(text: "Жатыр, отыр, тұр, жүр")),
                         TheoryTableCell(
-                            item: TheoryList(items: [
+                            content: TheoryList(items: [
                           TheoryListItem(text: "-мын/-мін"),
                           TheoryListItem(text: "-сың/-сің"),
                           TheoryListItem(text: "-сыз/-сіз"),
@@ -678,7 +681,7 @@ class MockChapters {
                 TheoryTable(rows: [
                   TheoryTableRow(cells: [
                     TheoryTableCell(
-                        item: TheoryList(items: [
+                        content: TheoryList(items: [
                       TheoryListItem(text: "Мен"),
                       TheoryListItem(text: "Сен"),
                       TheoryListItem(text: "Сіз"),
@@ -689,12 +692,12 @@ class MockChapters {
                       TheoryListItem(text: "Олар"),
                     ])),
                     TheoryTableCell(
-                        item: TheoryText(text: "Етістік + -ып, -іп, -п")),
+                        content: TheoryText(text: "Етістік + -ып, -іп, -п")),
                     TheoryTableCell(
-                        item: TheoryText(
+                        content: TheoryText(
                             text: "Жатқан, отырған, тұрған, жүрген")),
                     TheoryTableCell(
-                        item: TheoryList(items: [
+                        content: TheoryList(items: [
                       TheoryListItem(text: "жоқпын"),
                       TheoryListItem(text: "жоқсың"),
                       TheoryListItem(text: "жоқсыз"),
@@ -731,9 +734,9 @@ class MockChapters {
                 TheoryImage(imagePath: "assets/practice-images/8.png"),
                 TheoryTable(hasBorder: false, rows: [
                   TheoryTableRow(cells: [
-                    TheoryTableCell(item: TheoryText(text: "Өткен шақ")),
-                    TheoryTableCell(item: TheoryText(text: "Қазір")),
-                    TheoryTableCell(item: TheoryText(text: "Келер шақ")),
+                    TheoryTableCell(content: TheoryText(text: "Өткен шақ")),
+                    TheoryTableCell(content: TheoryText(text: "Қазір")),
+                    TheoryTableCell(content: TheoryText(text: "Келер шақ")),
                   ])
                 ]),
                 TheoryList(items: [
@@ -837,7 +840,7 @@ class MockChapters {
                 TheoryTable(rows: [
                   TheoryTableRow(cells: [
                     TheoryTableCell(
-                        item: TheoryList(items: [
+                        content: TheoryList(items: [
                       TheoryListItem(text: "Мен"),
                       TheoryListItem(text: "Сен"),
                       TheoryListItem(text: "Сіз"),
@@ -848,11 +851,11 @@ class MockChapters {
                       TheoryListItem(text: "Олар"),
                     ])),
                     TheoryTableCell(
-                        item: TheoryText(text: "Етістік + -ып, -іп, -п")),
+                        content: TheoryText(text: "Етістік + -ып, -іп, -п")),
                     TheoryTableCell(
-                        item: TheoryText(text: "жатыр, отыр, тұр, жүр")),
+                        content: TheoryText(text: "жатыр, отыр, тұр, жүр")),
                     TheoryTableCell(
-                        item: TheoryList(items: [
+                        content: TheoryList(items: [
                       TheoryListItem(text: "-мын/-мін"),
                       TheoryListItem(text: "-сың/-сің"),
                       TheoryListItem(text: "-сыз/-сіз"),
@@ -868,7 +871,7 @@ class MockChapters {
                 TheoryTable(rows: [
                   TheoryTableRow(cells: [
                     TheoryTableCell(
-                        item: TheoryList(items: [
+                        content: TheoryList(items: [
                       TheoryListItem(text: "Мен"),
                       TheoryListItem(text: "Сен"),
                       TheoryListItem(text: "Сіз"),
@@ -879,11 +882,11 @@ class MockChapters {
                       TheoryListItem(text: "Олар"),
                     ])),
                     TheoryTableCell(
-                        item: TheoryText(text: "Етістік + -ып, -іп, -п")),
+                        content: TheoryText(text: "Етістік + -ып, -іп, -п")),
                     TheoryTableCell(
-                        item: TheoryText(text: "жатыр, отыр, тұр, жүр")),
+                        content: TheoryText(text: "жатыр, отыр, тұр, жүр")),
                     TheoryTableCell(
-                        item: TheoryList(items: [
+                        content: TheoryList(items: [
                       TheoryListItem(text: "-мын/-мін"),
                       TheoryListItem(text: "-сың/-сің"),
                       TheoryListItem(text: "-сыз/-сіз"),
@@ -894,7 +897,7 @@ class MockChapters {
                       TheoryListItem(text: "-/-"),
                     ])),
                     TheoryTableCell(
-                        item: TheoryList(items: [
+                        content: TheoryList(items: [
                       TheoryListItem(text: "ба/бе?"),
                       TheoryListItem(text: "ба/бе?"),
                       TheoryListItem(text: "ба/бе?"),

@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/common/components/action_button.dart';
 import 'package:nomad/layouts/main_layout.dart';
 
@@ -12,7 +12,7 @@ class LoginButton extends StatelessWidget {
         child: const Text(
           "Войти",
           style: TextStyle(
-              color: AppColors.blackColor,
+              color: AppColors.black,
               fontSize: 18,
               fontWeight: FontWeight.w500),
         ),

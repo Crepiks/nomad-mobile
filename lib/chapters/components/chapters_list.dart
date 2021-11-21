@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/data/models/chapter.dart';
 import 'chapter_card.dart';
 
@@ -21,7 +21,7 @@ class ChaptersList extends StatelessWidget {
           child: Text(
             "Разделы учебника",
             style: TextStyle(
-                color: AppColors.blackColor,
+                color: AppColors.black,
                 fontSize: 24,
                 fontWeight: FontWeight.w600),
           ),

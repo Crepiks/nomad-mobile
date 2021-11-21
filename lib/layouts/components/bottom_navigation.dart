@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 
 const double iconSize = 26;
 final defaultIconColor = Colors.black.withOpacity(0.5);
@@ -31,7 +31,7 @@ class BottomNavigation extends StatelessWidget {
               width: 60,
               decoration: BoxDecoration(
                   color: activeIndex == 0
-                      ? AppColors.primaryColor.withOpacity(0.1)
+                      ? AppColors.primary.withOpacity(0.1)
                       : null,
                   shape: BoxShape.circle),
               child: Center(
@@ -43,7 +43,7 @@ class BottomNavigation extends StatelessWidget {
                   icon: FaIcon(FontAwesomeIcons.home,
                       size: iconSize,
                       color: activeIndex == 0
-                          ? AppColors.primaryColor
+                          ? AppColors.primary
                           : defaultIconColor),
                 ),
               )),
@@ -52,7 +52,7 @@ class BottomNavigation extends StatelessWidget {
               width: 60,
               decoration: BoxDecoration(
                   color: activeIndex == 1
-                      ? AppColors.primaryColor.withOpacity(0.1)
+                      ? AppColors.primary.withOpacity(0.1)
                       : null,
                   shape: BoxShape.circle),
               child: Center(
@@ -64,9 +64,8 @@ class BottomNavigation extends StatelessWidget {
                   icon: FaIcon(
                     FontAwesomeIcons.chartPie,
                     size: iconSize,
-                    color: activeIndex == 1
-                        ? AppColors.primaryColor
-                        : defaultIconColor,
+                    color:
+                        activeIndex == 1 ? AppColors.primary : defaultIconColor,
                   ),
                 ),
               )),
@@ -75,7 +74,7 @@ class BottomNavigation extends StatelessWidget {
               width: 60,
               decoration: BoxDecoration(
                   color: activeIndex == 2
-                      ? AppColors.primaryColor.withOpacity(0.1)
+                      ? AppColors.primary.withOpacity(0.1)
                       : null,
                   shape: BoxShape.circle),
               child: Center(
@@ -87,9 +86,8 @@ class BottomNavigation extends StatelessWidget {
                   icon: FaIcon(
                     FontAwesomeIcons.book,
                     size: iconSize,
-                    color: activeIndex == 2
-                        ? AppColors.primaryColor
-                        : defaultIconColor,
+                    color:
+                        activeIndex == 2 ? AppColors.primary : defaultIconColor,
                   ),
                 ),
               )),
@@ -98,7 +96,7 @@ class BottomNavigation extends StatelessWidget {
               width: 60,
               decoration: BoxDecoration(
                   color: activeIndex == 3
-                      ? AppColors.primaryColor.withOpacity(0.1)
+                      ? AppColors.primary.withOpacity(0.1)
                       : null,
                   shape: BoxShape.circle),
               child: Center(
@@ -110,9 +108,8 @@ class BottomNavigation extends StatelessWidget {
                 icon: FaIcon(
                   FontAwesomeIcons.solidUser,
                   size: iconSize,
-                  color: activeIndex == 3
-                      ? AppColors.primaryColor
-                      : defaultIconColor,
+                  color:
+                      activeIndex == 3 ? AppColors.primary : defaultIconColor,
                 ),
               )))
         ]));

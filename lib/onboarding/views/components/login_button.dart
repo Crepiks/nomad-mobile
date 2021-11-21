@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/common/components/action_button.dart';
 import 'package:nomad/auth/views/login_view.dart';
 
@@ -12,9 +12,7 @@ class LoginButton extends StatelessWidget {
         child: const Text(
           "У меня есть аккаунт",
           style: TextStyle(
-              color: AppColors.greyColor,
-              fontSize: 18,
-              fontWeight: FontWeight.w500),
+              color: AppColors.grey, fontSize: 18, fontWeight: FontWeight.w500),
         ),
         reverseColor: true,
         onClick: () {

@@ -1,5 +1,5 @@
-import 'package:nomad/data/models/theory_item.dart';
+import 'package:nomad/data/models/content.dart';
 
-class TheorySpace extends TheoryItem {
+class TheorySpace extends Content {
   const TheorySpace();
 }

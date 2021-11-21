@@ -1,3 +1,0 @@
-class TheoryItem {
-  const TheoryItem();
-}

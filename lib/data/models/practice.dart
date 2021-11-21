@@ -1,11 +1,11 @@
-import 'package:nomad/data/models/question.dart';
-import 'package:nomad/data/models/theory_item.dart';
+import 'package:nomad/data/models/questions/question.dart';
+import 'package:nomad/data/models/content.dart';
 
 class Practice {
   final int id;
   final String title;
   final String? description;
-  final TheoryItem? extraItem;
+  final Content? extraItem;
   final List<Question> questions;
 
   const Practice(

@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 
 class MatchAnswer extends StatefulWidget {
   const MatchAnswer({Key? key, required this.questions}) : super(key: key);
@@ -23,7 +23,7 @@ class _MatchAnswerState extends State<MatchAnswer> {
             height: double.infinity,
             padding: const EdgeInsets.symmetric(horizontal: 26),
             decoration: BoxDecoration(
-                color: AppColors.whiteColor,
+                color: AppColors.white,
                 borderRadius: BorderRadius.circular(20)),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,7 +36,7 @@ class _MatchAnswerState extends State<MatchAnswer> {
                     const SizedBox(height: 20),
                     const Text("Сопоставьте ответы:",
                         style: TextStyle(
-                            color: AppColors.greyColor,
+                            color: AppColors.grey,
                             fontSize: 18,
                             fontWeight: FontWeight.w500)),
                     const SizedBox(height: 20),
@@ -63,7 +63,7 @@ class _MatchAnswerState extends State<MatchAnswer> {
             height: double.infinity,
             padding: const EdgeInsets.symmetric(horizontal: 26),
             decoration: BoxDecoration(
-                color: AppColors.whiteColor,
+                color: AppColors.white,
                 borderRadius: BorderRadius.circular(20)),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,7 +76,7 @@ class _MatchAnswerState extends State<MatchAnswer> {
                     const SizedBox(height: 20),
                     const Text("Варианты ответов:",
                         style: TextStyle(
-                            color: AppColors.greyColor,
+                            color: AppColors.grey,
                             fontSize: 18,
                             fontWeight: FontWeight.w500)),
                     const SizedBox(height: 20),
@@ -116,7 +116,7 @@ class NumberQuestion extends StatelessWidget {
           Flexible(
             child: Text("${index + 1}. $text",
                 style: const TextStyle(
-                    color: AppColors.blackColor, fontSize: 20, height: 1.2)),
+                    color: AppColors.black, fontSize: 20, height: 1.2)),
           ),
           const SizedBox(width: 10),
           GestureDetector(
@@ -125,7 +125,7 @@ class NumberQuestion extends StatelessWidget {
               width: 80,
               height: 45,
               decoration: BoxDecoration(
-                  color: AppColors.backgroundColor,
+                  color: AppColors.background,
                   borderRadius: BorderRadius.circular(10)),
             ),
           )
@@ -169,22 +169,20 @@ class LetterAnswer extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       decoration: BoxDecoration(
-          color: AppColors.backgroundColor,
-          borderRadius: BorderRadius.circular(16)),
+          color: AppColors.background, borderRadius: BorderRadius.circular(16)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             "${kazakhAlphabet[index]} $text",
-            style: const TextStyle(fontSize: 16, color: AppColors.blackColor),
+            style: const TextStyle(fontSize: 16, color: AppColors.black),
           ),
           Container(
             width: 30,
             height: 30,
             decoration: BoxDecoration(
-                color: AppColors.whiteColor,
-                borderRadius: BorderRadius.circular(6)),
+                color: AppColors.white, borderRadius: BorderRadius.circular(6)),
           )
         ],
       ),

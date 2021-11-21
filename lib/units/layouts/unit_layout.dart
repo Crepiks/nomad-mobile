@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/common/components/action_button.dart';
 import 'package:nomad/data/models/unit.dart';
-import 'package:nomad/layouts/components/unit_header.dart';
-import 'package:nomad/layouts/safe_area_layout.dart';
+import 'package:nomad/units/components/unit_header.dart';
 import 'package:nomad/units/views/unit_practices.dart';
-import 'package:nomad/units/views/unit_theory.dart';
+import 'package:nomad/units/components/theory_content.dart';
 
 class UnitLayout extends StatefulWidget {
   final List<Unit> units;
@@ -36,7 +35,7 @@ class _UnitLayoutState extends State<UnitLayout> {
 
   void updateScreens() {
     screens = [
-      UnitTheory(
+      TheoryContent(
         theory: widget.units[activeUnitIndex].theory,
         index: activeUnitIndex,
         onClickToPractice: () {
@@ -56,8 +55,9 @@ class _UnitLayoutState extends State<UnitLayout> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeAreaLayout(
-      child: SizedBox(
+    return Scaffold(
+      backgroundColor: AppColors.background,
+      body: SizedBox(
           width: double.infinity,
           height: double.infinity,
           child: Stack(
@@ -83,7 +83,7 @@ class _UnitLayoutState extends State<UnitLayout> {
                     },
                   )),
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 60, 20, 0),
+                padding: const EdgeInsets.fromLTRB(20, 50, 20, 0),
                 child: UnitHeader(
                     changeActivePageIndex: (newIndex) =>
                         changeActivePage(newIndex),
@@ -95,7 +95,6 @@ class _UnitLayoutState extends State<UnitLayout> {
               ),
             ],
           )),
-      backgroundColor: AppColors.backgroundColor,
     );
   }
 
@@ -117,7 +116,7 @@ class _UnitLayoutState extends State<UnitLayout> {
   buildExtraFunctionsSheet(BuildContext context, Unit unit, int index) {
     return showModalBottomSheet(
         context: context,
-        backgroundColor: AppColors.whiteColor,
+        backgroundColor: AppColors.white,
         isScrollControlled: true,
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(26))),
@@ -130,7 +129,7 @@ class _UnitLayoutState extends State<UnitLayout> {
                   Text(
                     "Урок $index. ${unit.theory.title}",
                     style: const TextStyle(
-                        color: AppColors.blackColor,
+                        color: AppColors.black,
                         fontSize: 22,
                         height: 1.3,
                         fontWeight: FontWeight.w600),
@@ -138,8 +137,8 @@ class _UnitLayoutState extends State<UnitLayout> {
                   const SizedBox(height: 10),
                   Text(
                     "Заданий в уроке: ${unit.practices.length}",
-                    style: const TextStyle(
-                        color: AppColors.blackColor80, fontSize: 18),
+                    style:
+                        const TextStyle(color: AppColors.black, fontSize: 18),
                   ),
                   const SizedBox(
                     height: 50,
@@ -152,11 +151,11 @@ class _UnitLayoutState extends State<UnitLayout> {
                         height: 60,
                         child: CupertinoButton(
                             padding: const EdgeInsets.all(0),
-                            color: AppColors.primaryColor,
+                            color: AppColors.primary,
                             borderRadius: BorderRadius.circular(16),
                             child: const FaIcon(
                               FontAwesomeIcons.arrowLeft,
-                              color: AppColors.blackColor,
+                              color: AppColors.black,
                               size: 16,
                             ),
                             onPressed: () {
@@ -170,8 +169,7 @@ class _UnitLayoutState extends State<UnitLayout> {
                           child: Text(
                         "Перейти на другой урок",
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: AppColors.blackColor, fontSize: 18),
+                        style: TextStyle(color: AppColors.black, fontSize: 18),
                       )),
                       const SizedBox(
                         width: 20,
@@ -181,11 +179,11 @@ class _UnitLayoutState extends State<UnitLayout> {
                         height: 60,
                         child: CupertinoButton(
                             padding: const EdgeInsets.all(0),
-                            color: AppColors.primaryColor,
+                            color: AppColors.primary,
                             borderRadius: BorderRadius.circular(16),
                             child: const FaIcon(
                               FontAwesomeIcons.arrowRight,
-                              color: AppColors.blackColor,
+                              color: AppColors.black,
                               size: 16,
                             ),
                             onPressed: () {
@@ -200,7 +198,7 @@ class _UnitLayoutState extends State<UnitLayout> {
                       child: const Text(
                         "Закрыть",
                         style: TextStyle(
-                            color: AppColors.blackColor,
+                            color: AppColors.black,
                             fontSize: 18,
                             fontWeight: FontWeight.w500),
                       ),

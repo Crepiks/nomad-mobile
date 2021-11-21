@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 
 class LeaderboardCard extends StatelessWidget {
   final bool active;
@@ -21,7 +21,7 @@ class LeaderboardCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
       decoration: BoxDecoration(
-          color: active ? AppColors.primaryColor : Colors.white,
+          color: active ? AppColors.primary : Colors.white,
           borderRadius: const BorderRadius.all(Radius.circular(16))),
       child: Row(
         children: [
@@ -65,14 +65,14 @@ class LeaderboardCard extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
-                  color: active ? Colors.black : AppColors.primaryColor,
+                  color: active ? Colors.black : AppColors.primary,
                 ),
               ),
               const SizedBox(width: 8),
               FaIcon(
                 FontAwesomeIcons.fire,
                 size: 18,
-                color: active ? Colors.black : AppColors.primaryColor,
+                color: active ? Colors.black : AppColors.primary,
               ),
               const SizedBox(width: 6),
             ],

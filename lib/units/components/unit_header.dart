@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:nomad/common/colors.dart';
-import 'package:nomad/layouts/components/unit_tabs.dart';
+import 'package:nomad/common/constants/app_colors.dart';
+import 'package:nomad/units/components/unit_tabs.dart';
 
 class UnitHeader extends StatelessWidget {
   const UnitHeader(
@@ -30,7 +30,7 @@ class UnitHeader extends StatelessWidget {
           ),
           const SizedBox(width: 10),
           Expanded(
-              child: Tabs(
+              child: UnitTabs(
             activeIndex: activePageIndex,
             changeActiveIndex: (newActiveIndex) =>
                 changeActivePageIndex(newActiveIndex),
@@ -62,11 +62,11 @@ class HeaderButton extends StatelessWidget {
       height: 50,
       child: CupertinoButton(
         padding: const EdgeInsets.all(0),
-        color: AppColors.whiteColor,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(14),
         child: FaIcon(
           icon,
-          color: AppColors.blackColor80,
+          color: AppColors.black,
           size: 20,
         ),
         onPressed: () => onClick(),

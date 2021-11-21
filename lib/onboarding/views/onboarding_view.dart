@@ -1,6 +1,6 @@
 import "package:flutter/cupertino.dart";
 import 'package:flutter/material.dart';
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/layouts/safe_area_layout.dart';
 import 'package:nomad/onboarding/views/components/login_button.dart';
 import 'package:nomad/onboarding/views/components/register_button.dart';
@@ -11,7 +11,7 @@ class OnboardingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeAreaLayout(
-        backgroundColor: AppColors.whiteColor,
+        backgroundColor: AppColors.white,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Stack(
@@ -26,7 +26,7 @@ class OnboardingView extends StatelessWidget {
                       const Text(
                         "Приложение для изучения казахского",
                         style: TextStyle(
-                            color: AppColors.blackColor,
+                            color: AppColors.black,
                             fontSize: 33,
                             fontWeight: FontWeight.bold),
                       ),

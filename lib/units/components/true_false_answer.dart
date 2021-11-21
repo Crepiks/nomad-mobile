@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 
 class TrueFalseAnswer extends StatelessWidget {
   const TrueFalseAnswer({Key? key, required this.questions}) : super(key: key);
@@ -14,7 +14,7 @@ class TrueFalseAnswer extends StatelessWidget {
       height: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 26),
       decoration: BoxDecoration(
-          color: AppColors.whiteColor, borderRadius: BorderRadius.circular(20)),
+          color: AppColors.white, borderRadius: BorderRadius.circular(20)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -26,7 +26,7 @@ class TrueFalseAnswer extends StatelessWidget {
                   const SizedBox(height: 20),
                   const Text("Определите верно или не верно:",
                       style: TextStyle(
-                          color: AppColors.greyColor,
+                          color: AppColors.grey,
                           fontSize: 18,
                           fontWeight: FontWeight.w500)),
                   const SizedBox(height: 20),
@@ -59,7 +59,7 @@ class TrueFalseRow extends StatelessWidget {
         children: [
           Text("$text:",
               style: const TextStyle(
-                  color: AppColors.blackColor, fontSize: 20, height: 1.2)),
+                  color: AppColors.black, fontSize: 20, height: 1.2)),
           const SizedBox(height: 10),
           Row(
             children: [
@@ -89,10 +89,9 @@ class TrueFalseButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoButton(
         child: Text(trueFalse ? "Дұрыс" : "Дұрыс емес",
-            style:
-                const TextStyle(color: AppColors.blackColor80, fontSize: 16)),
+            style: const TextStyle(color: AppColors.black, fontSize: 16)),
         padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
-        color: AppColors.backgroundColor,
+        color: AppColors.black,
         borderRadius: BorderRadius.circular(10),
         onPressed: () {
           onClick();

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:nomad/common/colors.dart';
+import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/common/components/action_button.dart';
 
 class UnitBottomActions extends StatelessWidget {
@@ -19,11 +19,11 @@ class UnitBottomActions extends StatelessWidget {
           height: 60,
           child: CupertinoButton(
             padding: const EdgeInsets.all(0),
-            color: AppColors.whiteColor,
+            color: AppColors.white,
             borderRadius: BorderRadius.circular(20),
             child: const FaIcon(
               FontAwesomeIcons.syncAlt,
-              color: AppColors.blackColor80,
+              color: AppColors.black,
               size: 16,
             ),
             onPressed: () {
@@ -43,7 +43,7 @@ class UnitBottomActions extends StatelessWidget {
                   Text(
                     "Проверить",
                     style: TextStyle(
-                        color: AppColors.blackColor,
+                        color: AppColors.black,
                         fontSize: 18,
                         fontWeight: FontWeight.w500),
                   ),
@@ -53,7 +53,7 @@ class UnitBottomActions extends StatelessWidget {
                   FaIcon(
                     FontAwesomeIcons.check,
                     size: 16,
-                    color: AppColors.blackColor,
+                    color: AppColors.black,
                   )
                 ],
               ),
@@ -66,7 +66,7 @@ class UnitBottomActions extends StatelessWidget {
   buildRestartBottomSheet(context) {
     return showModalBottomSheet(
         context: context,
-        backgroundColor: AppColors.whiteColor,
+        backgroundColor: AppColors.white,
         isScrollControlled: true,
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(26))),
@@ -79,7 +79,7 @@ class UnitBottomActions extends StatelessWidget {
                   const Text(
                     "Сбросить ответы?",
                     style: TextStyle(
-                        color: AppColors.blackColor,
+                        color: AppColors.black,
                         fontSize: 26,
                         fontWeight: FontWeight.w600),
                   ),
@@ -89,9 +89,7 @@ class UnitBottomActions extends StatelessWidget {
                   const Text(
                     "Все ответы именно этого задания очистятся, чтобы вы могли начать заново",
                     style: TextStyle(
-                        color: AppColors.blackColor80,
-                        fontSize: 18,
-                        height: 1.3),
+                        color: AppColors.black, fontSize: 18, height: 1.3),
                   ),
                   const SizedBox(
                     height: 50,
@@ -100,7 +98,7 @@ class UnitBottomActions extends StatelessWidget {
                       child: const Text(
                         "Сбросить",
                         style: TextStyle(
-                            color: AppColors.blackColor,
+                            color: AppColors.black,
                             fontSize: 18,
                             fontWeight: FontWeight.w500),
                       ),
