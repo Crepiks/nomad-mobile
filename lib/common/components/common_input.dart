@@ -85,7 +85,8 @@ class _InputState extends State<CommonInput> {
                 contentPadding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                 enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: AppColors.border),
+                    borderSide: BorderSide(
+                        width: 2, color: AppColors.black.withOpacity(0.2)),
                     borderRadius:
                         BorderRadius.circular(!widget.practiceInput ? 20 : 14)),
                 focusedBorder: OutlineInputBorder(

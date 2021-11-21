@@ -11,20 +11,18 @@ class InputQuestionsRenderer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 26),
-      decoration: BoxDecoration(
-          color: AppColors.white, borderRadius: BorderRadius.circular(20)),
-      child: Column(children: [
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         const SizedBox(height: 20),
-        const Text("Впишите ответы:",
+        const Text("Впишите ответы",
             style: TextStyle(
-                color: AppColors.grey,
-                fontSize: 18,
+                color: AppColors.primary,
+                fontSize: 22,
                 fontWeight: FontWeight.w500)),
-        const SizedBox(height: 20),
+        const SizedBox(height: 10),
         ...questions
             .map((question) => Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  padding: const EdgeInsets.symmetric(vertical: 6),
                   child: question.wide
                       ? WideInputQuestionRenderer(text: question.text)
                       : ShortInputQuestionRenderer(text: question.text),
