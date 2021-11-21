@@ -1,8 +1,17 @@
 import "package:flutter/material.dart";
+import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/data/models/practice.dart';
+import 'package:nomad/units/components/check_result.dart';
 import 'package:nomad/units/components/renderers/questions/questions_renderer.dart';
-import 'package:nomad/units/layouts/unit_practice_layout.dart';
+import 'package:nomad/units/components/unit_practice_bottom_actions.dart';
 import 'package:nomad/units/components/practice_task.dart';
+
+class Result {
+  final String title;
+  final Color color;
+
+  Result({required this.title, required this.color});
+}
 
 class UnitPracticesView extends StatefulWidget {
   final List<Practice> practices;
@@ -21,35 +30,27 @@ class _UnitPracticesViewState extends State<UnitPracticesView> {
 
   @override
   Widget build(BuildContext context) {
-    return UnitPracticeLayout(
-        isLastPractice: activePracticeIndex + 1 == widget.practices.length,
-        onClickNextLesson: () {
-          setState(() {
-            if (activePracticeIndex + 1 == widget.practices.length) {
-              widget.onClickNextLesson();
-              activePracticeIndex = 0;
-            } else {
-              activePracticeIndex++;
-            }
-          });
-        },
-        child: UnitPractice(
-            practice: widget.practices[activePracticeIndex],
-            index: activePracticeIndex));
+    final practice = widget.practices[activePracticeIndex];
+
+    return Stack(alignment: Alignment.bottomCenter, children: [
+      SizedBox(
+          height: double.infinity,
+          width: double.infinity,
+          child: _buildPracticeBody(activePracticeIndex, practice)),
+      Padding(
+        padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
+        child: UnitBottomActions(
+          onClickCheck: () {
+            _showCheckResultBottomSheet(context, 4, 5);
+          },
+        ),
+      ),
+    ]);
   }
-}
 
-class UnitPractice extends StatelessWidget {
-  const UnitPractice({Key? key, required this.practice, required this.index})
-      : super(key: key);
-
-  final Practice practice;
-  final int index;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+  Widget _buildPracticeBody(int index, Practice practice) {
+    return ListView(
+      padding: const EdgeInsets.only(bottom: 100),
       children: [
         const SizedBox(
           height: 80,
@@ -64,5 +65,46 @@ class UnitPractice extends StatelessWidget {
         )
       ],
     );
+  }
+
+  _showCheckResultBottomSheet(context, correctAnswers, allAnswers) {
+    List<Result> resultTypes = [
+      Result(title: "Отлично", color: AppColors.success),
+      Result(title: "Неплохо", color: AppColors.warning),
+      Result(title: "Попробуйте снова", color: AppColors.error)
+    ];
+
+    double correctAnswersPercentage = correctAnswers / allAnswers * 100;
+    Result result = correctAnswersPercentage > 80
+        ? resultTypes[0]
+        : correctAnswersPercentage > 50
+            ? resultTypes[1]
+            : resultTypes[2];
+
+    return showModalBottomSheet(
+        context: context,
+        enableDrag: false,
+        isDismissible: false,
+        isScrollControlled: true,
+        backgroundColor: AppColors.white,
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(26))),
+        builder: (BuildContext context) => CheckResult(
+            title: result.title,
+            color: result.color,
+            onNextLessonMove: () {
+              _onNextLessonMove();
+            }));
+  }
+
+  _onNextLessonMove() {
+    setState(() {
+      if (activePracticeIndex + 1 == widget.practices.length) {
+        widget.onClickNextLesson();
+        activePracticeIndex = 0;
+      } else {
+        activePracticeIndex++;
+      }
+    });
   }
 }
