@@ -4,7 +4,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nomad/common/constants/app_colors.dart';
 
 class ScoreButton extends StatelessWidget {
-  const ScoreButton({Key? key}) : super(key: key);
+  const ScoreButton({Key? key, required this.onClick}) : super(key: key);
+
+  final Function onClick;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,7 @@ class ScoreButton extends StatelessWidget {
               )
             ],
           ),
-          onPressed: () => {}),
+          onPressed: () => {onClick()}),
     );
   }
 }

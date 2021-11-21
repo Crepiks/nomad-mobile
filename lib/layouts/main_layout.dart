@@ -25,7 +25,7 @@ class _MainLayoutState extends State<MainLayout> {
   @override
   Widget build(BuildContext context) {
     final screens = [
-      HomeView(onActiveTabChange: setScreen),
+      HomeView(navigateToPage: setScreen),
       const AnalyticsView(),
       const LessonsView(),
       const ProfileView()
