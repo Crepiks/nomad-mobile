@@ -161,16 +161,19 @@ class MockChapters {
                       text: "(неге қызығады?)", answer: "", wide: true),
                 ]),
             Practice(id: 4, title: "Дұрыс/Дұрыс емес деп жазыңыз.", questions: [
-              TrueFalseQuestion(text: "Мен Айдарбын", correct: false),
-              TrueFalseQuestion(text: "Сен Астанадасың", correct: true),
-              TrueFalseQuestion(text: "Ол Даниярмын", correct: false),
-              TrueFalseQuestion(text: "Сіз Алматыдасың", correct: true),
-              TrueFalseQuestion(text: "Мен оқушымын емеспін", correct: false),
-              TrueFalseQuestion(text: "Сен дәрігер емессің", correct: true),
-              TrueFalseQuestion(text: "Сіз мұғалімсіз емес", correct: false),
-              TrueFalseQuestion(text: "Ол спортшы емес", correct: true),
-              TrueFalseQuestion(text: "Сен үйдесің", correct: true),
-              TrueFalseQuestion(text: "Мен даладамын", correct: true),
+              TrueFalseQuestion(id: 1, text: "Мен Айдарбын", correct: false),
+              TrueFalseQuestion(id: 2, text: "Сен Астанадасың", correct: true),
+              TrueFalseQuestion(id: 3, text: "Ол Даниярмын", correct: false),
+              TrueFalseQuestion(id: 4, text: "Сіз Алматыдасың", correct: true),
+              TrueFalseQuestion(
+                  id: 5, text: "Мен оқушымын емеспін", correct: false),
+              TrueFalseQuestion(
+                  id: 6, text: "Сен дәрігер емессің", correct: true),
+              TrueFalseQuestion(
+                  id: 7, text: "Сіз мұғалімсіз емес", correct: false),
+              TrueFalseQuestion(id: 8, text: "Ол спортшы емес", correct: true),
+              TrueFalseQuestion(id: 9, text: "Сен үйдесің", correct: true),
+              TrueFalseQuestion(id: 10, text: "Мен даладамын", correct: true),
             ])
           ]),
       Unit(
@@ -570,14 +573,22 @@ class MockChapters {
                 id: 10,
                 title: "Дұрыс/Дұрыс емес деп жазыңыз.",
                 questions: [
-                  TrueFalseQuestion(text: "Біз ата-анамыз", correct: false),
-                  TrueFalseQuestion(text: "Сендер жақсысыздар", correct: false),
-                  TrueFalseQuestion(text: "Олар сыныптастар", correct: false),
-                  TrueFalseQuestion(text: "Сіздер әкесіңдер", correct: false),
-                  TrueFalseQuestion(text: "Біз жастарбыз", correct: false),
-                  TrueFalseQuestion(text: "Олар зейнеткер", correct: false),
-                  TrueFalseQuestion(text: "Сіздер атасыздар", correct: false),
-                  TrueFalseQuestion(text: "Сендер немерелер", correct: false),
+                  TrueFalseQuestion(
+                      id: 11, text: "Біз ата-анамыз", correct: false),
+                  TrueFalseQuestion(
+                      id: 12, text: "Сендер жақсысыздар", correct: false),
+                  TrueFalseQuestion(
+                      id: 13, text: "Олар сыныптастар", correct: false),
+                  TrueFalseQuestion(
+                      id: 14, text: "Сіздер әкесіңдер", correct: false),
+                  TrueFalseQuestion(
+                      id: 15, text: "Біз жастарбыз", correct: false),
+                  TrueFalseQuestion(
+                      id: 16, text: "Олар зейнеткер", correct: false),
+                  TrueFalseQuestion(
+                      id: 17, text: "Сіздер атасыздар", correct: false),
+                  TrueFalseQuestion(
+                      id: 18, text: "Сендер немерелер", correct: false),
                 ]),
             Practice(
                 id: 11,

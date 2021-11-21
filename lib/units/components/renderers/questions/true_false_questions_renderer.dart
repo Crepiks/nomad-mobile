@@ -1,101 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
-import 'package:nomad/common/constants/app_colors.dart';
+import 'package:nomad/units/components/renderers/questions/true_false_question_renderer.dart';
 
 class TrueFalseQuestionsRenderer extends StatelessWidget {
+  final List questions;
+
   const TrueFalseQuestionsRenderer({Key? key, required this.questions})
       : super(key: key);
 
-  final List questions;
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal: 26),
-      decoration: BoxDecoration(
-          color: AppColors.white, borderRadius: BorderRadius.circular(20)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: ListView(
-                padding: const EdgeInsets.all(0),
-                physics: const BouncingScrollPhysics(),
-                children: [
-                  const SizedBox(height: 20),
-                  const Text("Определите верно или не верно:",
-                      style: TextStyle(
-                          color: AppColors.grey,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500)),
-                  const SizedBox(height: 20),
-                  ...questions
-                      .map((question) => Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 10),
-                            child: TrueFalseRow(text: question.text),
-                          ))
-                      .toList(),
-                  const SizedBox(height: 20),
-                ]),
-          ),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: questions
+          .map((question) => Padding(
+                padding: const EdgeInsets.symmetric(vertical: 14),
+                child: TrueFalseQuestionRenderer(
+                    id: question.id, text: question.text),
+              ))
+          .toList(),
     );
-  }
-}
-
-class TrueFalseRow extends StatelessWidget {
-  const TrueFalseRow({Key? key, required this.text}) : super(key: key);
-
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text("$text:",
-              style: const TextStyle(
-                  color: AppColors.black, fontSize: 20, height: 1.2)),
-          const SizedBox(height: 10),
-          Row(
-            children: [
-              TrueFalseButton(trueFalse: true, onClick: () {}),
-              const SizedBox(width: 10),
-              TrueFalseButton(
-                trueFalse: false,
-                onClick: () {},
-              )
-            ],
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class TrueFalseButton extends StatelessWidget {
-  const TrueFalseButton(
-      {Key? key, required this.trueFalse, required this.onClick})
-      : super(key: key);
-
-  final bool trueFalse;
-  final Function onClick;
-
-  @override
-  Widget build(BuildContext context) {
-    return CupertinoButton(
-        child: Text(trueFalse ? "Дұрыс" : "Дұрыс емес",
-            style: const TextStyle(color: AppColors.black, fontSize: 16)),
-        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
-        color: AppColors.black,
-        borderRadius: BorderRadius.circular(10),
-        onPressed: () {
-          onClick();
-        });
   }
 }
