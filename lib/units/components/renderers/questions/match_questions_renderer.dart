@@ -1,11 +1,13 @@
 import "package:flutter/material.dart";
 import 'package:nomad/common/constants/app_colors.dart';
+import 'package:nomad/data/models/questions/match_question.dart';
+import 'package:nomad/data/models/questions/question.dart';
 
 class MatchQuestionsRenderer extends StatefulWidget {
+  final List<Question> questions;
+
   const MatchQuestionsRenderer({Key? key, required this.questions})
       : super(key: key);
-
-  final List questions;
 
   @override
   _MatchQuestionsRendererState createState() => _MatchQuestionsRendererState();
@@ -18,172 +20,61 @@ class _MatchQuestionsRendererState extends State<MatchQuestionsRenderer> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Expanded(
-          child: Container(
-            width: double.infinity,
-            height: double.infinity,
-            padding: const EdgeInsets.symmetric(horizontal: 26),
-            decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: BorderRadius.circular(20)),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                    child: ListView(
-                  padding: const EdgeInsets.all(0),
-                  physics: const BouncingScrollPhysics(),
-                  children: [
-                    const SizedBox(height: 20),
-                    const Text("Сопоставьте ответы:",
-                        style: TextStyle(
-                            color: AppColors.grey,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500)),
-                    const SizedBox(height: 20),
-                    for (int index = 0;
-                        index < widget.questions.length;
-                        index++)
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        child: NumberQuestion(
-                            text: widget.questions[index].question,
-                            index: index),
-                      ),
-                    const SizedBox(height: 20),
-                  ],
-                ))
-              ],
-            ),
-          ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 20),
+            const Text("Сопоставьте ответы",
+                style: TextStyle(
+                    color: AppColors.primary,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500)),
+            const SizedBox(height: 8),
+            ..._buildQuestions(widget.questions),
+            const SizedBox(height: 20),
+          ],
         ),
         const SizedBox(height: 15),
-        Expanded(
-          child: Container(
-            width: double.infinity,
-            height: double.infinity,
-            padding: const EdgeInsets.symmetric(horizontal: 26),
-            decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: BorderRadius.circular(20)),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                    child: ListView(
-                  padding: const EdgeInsets.all(0),
-                  physics: const BouncingScrollPhysics(),
-                  children: [
-                    const SizedBox(height: 20),
-                    const Text("Варианты ответов:",
-                        style: TextStyle(
-                            color: AppColors.grey,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500)),
-                    const SizedBox(height: 20),
-                    for (int index = 0;
-                        index < widget.questions.length;
-                        index++)
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        child: LetterAnswer(
-                            text: widget.questions[index].answer, index: index),
-                      )
-                  ],
-                ))
-              ],
-            ),
-          ),
-        )
       ],
     );
   }
-}
 
-class NumberQuestion extends StatelessWidget {
-  const NumberQuestion({Key? key, required this.text, required this.index})
-      : super(key: key);
+  List<Widget> _buildQuestions(List<Question> questions) {
+    return questions.asMap().entries.map((element) {
+      final MatchQuestion question = element.value as MatchQuestion;
+      final String questionText = question.question;
+      final int index = element.key;
 
-  final String text;
-  final int index;
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        child: _buildMatchQuestion(text: questionText, index: index),
+      );
+    }).toList();
+  }
 
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildMatchQuestion({required int index, required String text}) {
     return SizedBox(
       width: double.infinity,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Flexible(
-            child: Text("${index + 1}. $text",
-                style: const TextStyle(
-                    color: AppColors.black, fontSize: 20, height: 1.2)),
-          ),
-          const SizedBox(width: 10),
+          Text("${index + 1}. $text",
+              style: const TextStyle(
+                  color: AppColors.black, fontSize: 18, height: 1.2)),
+          const SizedBox(height: 10),
           GestureDetector(
             onTap: () {},
             child: Container(
-              width: 80,
-              height: 45,
-              decoration: BoxDecoration(
-                  color: AppColors.background,
-                  borderRadius: BorderRadius.circular(10)),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class LetterAnswer extends StatelessWidget {
-  const LetterAnswer({Key? key, required this.text, required this.index})
-      : super(key: key);
-
-  final String text;
-  final int index;
-
-  @override
-  Widget build(BuildContext context) {
-    final List<String> kazakhAlphabet = [
-      "А",
-      "Ә",
-      "Б",
-      "В",
-      "Г",
-      "Ғ",
-      "Д",
-      "Е",
-      "Ё",
-      "Ж",
-      "З",
-      "И",
-      "Й",
-      "К",
-      "Қ",
-      "Л",
-      "М",
-      "Н"
-    ];
-
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-      decoration: BoxDecoration(
-          color: AppColors.background, borderRadius: BorderRadius.circular(16)),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            "${kazakhAlphabet[index]} $text",
-            style: const TextStyle(fontSize: 16, color: AppColors.black),
-          ),
-          Container(
-            width: 30,
-            height: 30,
-            decoration: BoxDecoration(
-                color: AppColors.white, borderRadius: BorderRadius.circular(6)),
+                width: double.infinity,
+                height: 56,
+                decoration: BoxDecoration(
+                    border: Border.all(width: 2, color: AppColors.primary),
+                    borderRadius: BorderRadius.circular(10)),
+                child: const Center(
+                  child: Text("Выберите вариант",
+                      style:
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+                )),
           )
         ],
       ),

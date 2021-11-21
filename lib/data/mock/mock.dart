@@ -299,16 +299,25 @@ class MockChapters {
                 id: 5,
                 title: "Сұрақтың дұрыс жауабын табыңыз.",
                 questions: [
-                  MatchQuestion(question: "Камера қайда?", answer: ""),
                   MatchQuestion(
-                      question: "Сенің көлігіңнің түсі көк пе?", answer: ""),
-                  MatchQuestion(question: "Айдана Тараздан ба?", answer: ""),
+                      question: "Камера қайда?", answer: "Сенің сөмкеңде"),
                   MatchQuestion(
-                      question: "Сіздің сөмкеңіздің түсі қандай?", answer: ""),
-                  MatchQuestion(question: "Сенің қарның ашты ма?", answer: ""),
-                  MatchQuestion(question: "Дананың қалы қалай?", answer: ""),
-                  MatchQuestion(question: "Бұл әйел кім?", answer: ""),
-                  MatchQuestion(question: "Анардың анасы қайда?", answer: ""),
+                      question: "Сенің көлігіңнің түсі көк пе?",
+                      answer: "Жоқ, қара"),
+                  MatchQuestion(
+                      question: "Айдана Тараздан ба?",
+                      answer: "Жоқ, Астанадан"),
+                  MatchQuestion(
+                      question: "Сіздің сөмкеңіздің түсі қандай?",
+                      answer: "Қызыл"),
+                  MatchQuestion(
+                      question: "Сенің қарның ашты ма?", answer: "Иә, ашты"),
+                  MatchQuestion(
+                      question: "Дананың қалы қалай?", answer: "Жаман емес"),
+                  MatchQuestion(
+                      question: "Бұл әйел кім?", answer: "Менің әпкем"),
+                  MatchQuestion(
+                      question: "Анардың анасы қайда?", answer: "Жұмыста"),
                 ]),
             Practice(id: 6, title: "Сөздерден сөйлем құраңыз.", questions: [
               InputQuestion(
