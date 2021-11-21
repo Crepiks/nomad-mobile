@@ -39,27 +39,13 @@ class ProgressChartState extends State<ProgressChart> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.max,
                 children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        'Активность',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w500),
-                      ),
-                      CupertinoButton(
-                          padding: const EdgeInsets.all(0),
-                          child: const Text(
-                            "Подробнее",
-                            style: TextStyle(
-                                fontSize: 14, color: AppColors.primary),
-                          ),
-                          onPressed: () {
-                            widget.onShowMoreTap();
-                          })
-                    ],
+                  const SizedBox(height: 5),
+                  const Text(
+                    'Активность',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w500),
                   ),
                   const SizedBox(
                     height: 30,
