@@ -63,17 +63,6 @@ class _UnitLayoutState extends State<UnitLayout> {
           child: Stack(
             alignment: Alignment.topCenter,
             children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 50, 20, 0),
-                child: UnitHeader(
-                    changeActivePageIndex: (newIndex) =>
-                        changeActivePage(newIndex),
-                    activePageIndex: activePageIndex,
-                    onClickExtraFunctions: () {
-                      buildExtraFunctionsSheet(context,
-                          widget.units[activeUnitIndex], activeUnitIndex + 1);
-                    }),
-              ),
               Container(
                   width: double.infinity,
                   height: double.infinity,
@@ -93,6 +82,17 @@ class _UnitLayoutState extends State<UnitLayout> {
                       changeActivePageIndex(newIndex);
                     },
                   )),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 50, 20, 0),
+                child: UnitHeader(
+                    changeActivePageIndex: (newIndex) =>
+                        changeActivePage(newIndex),
+                    activePageIndex: activePageIndex,
+                    onClickExtraFunctions: () {
+                      buildExtraFunctionsSheet(context,
+                          widget.units[activeUnitIndex], activeUnitIndex + 1);
+                    }),
+              ),
             ],
           )),
     );
