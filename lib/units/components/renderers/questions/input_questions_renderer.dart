@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/common/components/common_input.dart';
+import 'package:nomad/units/components/answer_input.dart';
 
 class InputQuestionsRenderer extends StatelessWidget {
   const InputQuestionsRenderer({Key? key, required this.questions})
@@ -22,7 +23,7 @@ class InputQuestionsRenderer extends StatelessWidget {
         const SizedBox(height: 10),
         ...questions
             .map((question) => Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 6),
+                  padding: const EdgeInsets.symmetric(vertical: 8),
                   child: question.wide
                       ? WideInputQuestionRenderer(text: question.text)
                       : ShortInputQuestionRenderer(text: question.text),
@@ -77,13 +78,9 @@ class WideInputQuestionRenderer extends StatelessWidget {
         children: [
           Text("$text:",
               style: const TextStyle(
-                  color: AppColors.black, fontSize: 20, height: 1.2)),
+                  color: AppColors.black, fontSize: 16, height: 1.2)),
           const SizedBox(height: 10),
-          SizedBox(
-            width: double.infinity,
-            child: CommonInput(
-                hasTitle: false, practiceInput: true, updateValue: () => {}),
-          )
+          SizedBox(width: double.infinity, child: AnswerInput())
         ],
       ),
     );
