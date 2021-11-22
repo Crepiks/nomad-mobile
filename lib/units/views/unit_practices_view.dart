@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:get/get.dart';
 import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/data/models/practice.dart';
 import 'package:nomad/units/components/check_result.dart';
@@ -69,23 +70,18 @@ class _UnitPracticesViewState extends State<UnitPracticesView> {
   }
 
   _showEmptyFieldsErrorSnackBar(BuildContext context) {
-    final snackBar = SnackBar(
-        width: MediaQuery.of(context).size.width,
-        behavior: SnackBarBehavior.floating,
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        content: Container(
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
-          decoration: const BoxDecoration(
-              color: AppColors.error,
-              borderRadius: BorderRadius.all(Radius.circular(12))),
-          child: const Text(
-            "Необходимо заполнить все поля",
-            style: TextStyle(fontSize: 16),
-          ),
-        ));
-
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    Get.snackbar("", "",
+        titleText: const Text("Ошибка валидации",
+            style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+                color: AppColors.white)),
+        messageText: const Text(
+          "Проверьте правильность заполнения всех полей",
+          style: TextStyle(color: AppColors.white),
+        ),
+        backgroundColor: AppColors.error,
+        animationDuration: const Duration(milliseconds: 200));
   }
 
   _showCheckResultBottomSheet(context, correctAnswers, allAnswers) {
