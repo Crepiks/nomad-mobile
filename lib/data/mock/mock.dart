@@ -161,19 +161,16 @@ class MockChapters {
                       text: "(неге қызығады?)", answer: "", wide: true),
                 ]),
             Practice(id: 4, title: "Дұрыс/Дұрыс емес деп жазыңыз.", questions: [
-              TrueFalseQuestion(id: 1, text: "Мен Айдарбын", correct: false),
-              TrueFalseQuestion(id: 2, text: "Сен Астанадасың", correct: true),
-              TrueFalseQuestion(id: 3, text: "Ол Даниярмын", correct: false),
-              TrueFalseQuestion(id: 4, text: "Сіз Алматыдасың", correct: true),
-              TrueFalseQuestion(
-                  id: 5, text: "Мен оқушымын емеспін", correct: false),
-              TrueFalseQuestion(
-                  id: 6, text: "Сен дәрігер емессің", correct: true),
-              TrueFalseQuestion(
-                  id: 7, text: "Сіз мұғалімсіз емес", correct: false),
-              TrueFalseQuestion(id: 8, text: "Ол спортшы емес", correct: true),
-              TrueFalseQuestion(id: 9, text: "Сен үйдесің", correct: true),
-              TrueFalseQuestion(id: 10, text: "Мен даладамын", correct: true),
+              TrueFalseQuestion(text: "Мен Айдарбын", answer: false),
+              TrueFalseQuestion(text: "Сен Астанадасың", answer: true),
+              TrueFalseQuestion(text: "Ол Даниярмын", answer: false),
+              TrueFalseQuestion(text: "Сіз Алматыдасың", answer: true),
+              TrueFalseQuestion(text: "Мен оқушымын емеспін", answer: false),
+              TrueFalseQuestion(text: "Сен дәрігер емессің", answer: true),
+              TrueFalseQuestion(text: "Сіз мұғалімсіз емес", answer: false),
+              TrueFalseQuestion(text: "Ол спортшы емес", answer: true),
+              TrueFalseQuestion(text: "Сен үйдесің", answer: true),
+              TrueFalseQuestion(text: "Мен даладамын", answer: true),
             ])
           ]),
       Unit(
@@ -300,24 +297,21 @@ class MockChapters {
                 title: "Сұрақтың дұрыс жауабын табыңыз.",
                 questions: [
                   MatchQuestion(
-                      question: "Камера қайда?", answer: "Сенің сөмкеңде"),
+                      text: "Камера қайда?", answer: "Сенің сөмкеңде"),
                   MatchQuestion(
-                      question: "Сенің көлігіңнің түсі көк пе?",
+                      text: "Сенің көлігіңнің түсі көк пе?",
                       answer: "Жоқ, қара"),
                   MatchQuestion(
-                      question: "Айдана Тараздан ба?",
-                      answer: "Жоқ, Астанадан"),
+                      text: "Айдана Тараздан ба?", answer: "Жоқ, Астанадан"),
                   MatchQuestion(
-                      question: "Сіздің сөмкеңіздің түсі қандай?",
-                      answer: "Қызыл"),
+                      text: "Сіздің сөмкеңіздің түсі қандай?", answer: "Қызыл"),
                   MatchQuestion(
-                      question: "Сенің қарның ашты ма?", answer: "Иә, ашты"),
+                      text: "Сенің қарның ашты ма?", answer: "Иә, ашты"),
                   MatchQuestion(
-                      question: "Дананың қалы қалай?", answer: "Жаман емес"),
+                      text: "Дананың қалы қалай?", answer: "Жаман емес"),
+                  MatchQuestion(text: "Бұл әйел кім?", answer: "Менің әпкем"),
                   MatchQuestion(
-                      question: "Бұл әйел кім?", answer: "Менің әпкем"),
-                  MatchQuestion(
-                      question: "Анардың анасы қайда?", answer: "Жұмыста"),
+                      text: "Анардың анасы қайда?", answer: "Жұмыста"),
                 ]),
             Practice(id: 6, title: "Сөздерден сөйлем құраңыз.", questions: [
               InputQuestion(
@@ -582,22 +576,14 @@ class MockChapters {
                 id: 10,
                 title: "Дұрыс/Дұрыс емес деп жазыңыз.",
                 questions: [
-                  TrueFalseQuestion(
-                      id: 11, text: "Біз ата-анамыз", correct: false),
-                  TrueFalseQuestion(
-                      id: 12, text: "Сендер жақсысыздар", correct: false),
-                  TrueFalseQuestion(
-                      id: 13, text: "Олар сыныптастар", correct: false),
-                  TrueFalseQuestion(
-                      id: 14, text: "Сіздер әкесіңдер", correct: false),
-                  TrueFalseQuestion(
-                      id: 15, text: "Біз жастарбыз", correct: false),
-                  TrueFalseQuestion(
-                      id: 16, text: "Олар зейнеткер", correct: false),
-                  TrueFalseQuestion(
-                      id: 17, text: "Сіздер атасыздар", correct: false),
-                  TrueFalseQuestion(
-                      id: 18, text: "Сендер немерелер", correct: false),
+                  TrueFalseQuestion(text: "Біз ата-анамыз", answer: false),
+                  TrueFalseQuestion(text: "Сендер жақсысыздар", answer: false),
+                  TrueFalseQuestion(text: "Олар сыныптастар", answer: false),
+                  TrueFalseQuestion(text: "Сіздер әкесіңдер", answer: false),
+                  TrueFalseQuestion(text: "Біз жастарбыз", answer: false),
+                  TrueFalseQuestion(text: "Олар зейнеткер", answer: false),
+                  TrueFalseQuestion(text: "Сіздер атасыздар", answer: false),
+                  TrueFalseQuestion(text: "Сендер немерелер", answer: false),
                 ]),
             Practice(
                 id: 11,
@@ -622,13 +608,13 @@ class MockChapters {
                   InputQuestion(text: "күлмей", answer: ""),
                 ]),
             Practice(id: 12, title: "Сәйкестендіріңіз.", questions: [
-              MatchQuestion(question: "Біз", answer: "отыз бестесіңдер"),
-              MatchQuestion(question: "Сендер", answer: "оқушылар емес"),
-              MatchQuestion(question: "Сіздер", answer: "дәрігер емеспіз"),
-              MatchQuestion(question: "Олар", answer: "дұрыс емессіздер"),
-              MatchQuestion(question: "Сендер", answer: "мұғалімбіз"),
-              MatchQuestion(question: "Біз", answer: "ғалым емессіңдер"),
-              MatchQuestion(question: "Олар", answer: "ауылда емес"),
+              MatchQuestion(text: "Біз", answer: "отыз бестесіңдер"),
+              MatchQuestion(text: "Сендер", answer: "оқушылар емес"),
+              MatchQuestion(text: "Сіздер", answer: "дәрігер емеспіз"),
+              MatchQuestion(text: "Олар", answer: "дұрыс емессіздер"),
+              MatchQuestion(text: "Сендер", answer: "мұғалімбіз"),
+              MatchQuestion(text: "Біз", answer: "ғалым емессіңдер"),
+              MatchQuestion(text: "Олар", answer: "ауылда емес"),
             ])
           ]),
       Unit(

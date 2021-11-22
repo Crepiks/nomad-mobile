@@ -4,10 +4,14 @@ import 'package:nomad/data/models/questions/match_question.dart';
 import 'package:nomad/data/models/questions/question.dart';
 import 'package:nomad/units/components/match_question_option.dart';
 
+typedef AnswersUpdateAction = Function(List<dynamic>);
+
 class MatchQuestionsRenderer extends StatefulWidget {
   final List<Question> questions;
+  final AnswersUpdateAction onAnswersUpdate;
 
-  const MatchQuestionsRenderer({Key? key, required this.questions})
+  const MatchQuestionsRenderer(
+      {Key? key, required this.questions, required this.onAnswersUpdate})
       : super(key: key);
 
   @override
@@ -22,6 +26,7 @@ class _MatchQuestionsRendererState extends State<MatchQuestionsRenderer> {
   void initState() {
     setState(() {
       answers = List.filled(widget.questions.length, null);
+      widget.onAnswersUpdate(answers);
     });
 
     super.initState();
@@ -52,21 +57,19 @@ class _MatchQuestionsRendererState extends State<MatchQuestionsRenderer> {
 
   List<String> _getAnswers(List<Question> questions) {
     return questions.map((Question question) {
-      final matchQuestion = question as MatchQuestion;
-      return matchQuestion.answer;
+      return question.answer as String;
     }).toList();
   }
 
   List<Widget> _buildQuestions(List<Question> questions) {
     return questions.asMap().entries.map((element) {
       final MatchQuestion question = element.value as MatchQuestion;
-      final String questionText = question.question;
       final int index = element.key;
 
       return Padding(
         padding: const EdgeInsets.symmetric(vertical: 10),
         child: _buildMatchQuestion(
-            text: questionText,
+            text: question.text,
             index: index,
             onTap: () {
               setState(() {
@@ -185,6 +188,7 @@ class _MatchQuestionsRendererState extends State<MatchQuestionsRenderer> {
       if (activeQuestionIndex != null) {
         answers[activeQuestionIndex!] = answer;
         answers = answers;
+        widget.onAnswersUpdate(answers);
       }
     });
   }

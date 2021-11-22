@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import 'package:get/get.dart';
 import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/data/models/practice.dart';
+import 'package:nomad/data/models/questions/question.dart';
 import 'package:nomad/units/components/check_result.dart';
 import 'package:nomad/units/components/renderers/questions/questions_renderer.dart';
 import 'package:nomad/units/components/unit_practice_bottom_actions.dart';
@@ -28,6 +29,13 @@ class UnitPracticesView extends StatefulWidget {
 
 class _UnitPracticesViewState extends State<UnitPracticesView> {
   int activePracticeIndex = 0;
+  List<dynamic> answers = [];
+
+  @override
+  void initState() {
+    _initializeAnswersList();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,12 +50,43 @@ class _UnitPracticesViewState extends State<UnitPracticesView> {
         padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
         child: UnitBottomActions(
           onCheckTap: () {
-            _showEmptyFieldsErrorSnackBar(context);
-            // _showCheckResultBottomSheet(context, 4, 5);
+            if (_hasNotAnsweredQuestions()) {
+              return _showEmptyFieldsErrorSnackBar();
+            }
+
+            final correctAnswersCount =
+                _getCorrectAnswersCount(practice.questions);
+            _showCheckResultBottomSheet(
+                context, correctAnswersCount, practice.questions.length);
           },
         ),
       ),
     ]);
+  }
+
+  _initializeAnswersList() {
+    setState(() {
+      answers = List.filled(
+          widget.practices[activePracticeIndex].questions.length, null);
+    });
+  }
+
+  bool _hasNotAnsweredQuestions() {
+    return answers.any((element) => element == null);
+  }
+
+  int _getCorrectAnswersCount(List<Question> questions) {
+    return questions.asMap().entries.fold(0, (int value, element) {
+      final Question question = element.value;
+      final index = element.key;
+      final answer = answers[index];
+
+      if (question.answer == answer) {
+        return value + 1;
+      }
+
+      return value;
+    });
   }
 
   Widget _buildPracticeBody(int index, Practice practice) {
@@ -64,12 +103,15 @@ class _UnitPracticesViewState extends State<UnitPracticesView> {
         const SizedBox(height: 20),
         QuestionsRenderer(
           questions: practice.questions,
+          onAnswersUpdate: (answers) {
+            this.answers = answers;
+          },
         )
       ],
     );
   }
 
-  _showEmptyFieldsErrorSnackBar(BuildContext context) {
+  _showEmptyFieldsErrorSnackBar() {
     Get.snackbar("", "",
         titleText: const Text("Ошибка валидации",
             style: TextStyle(

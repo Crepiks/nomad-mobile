@@ -9,10 +9,14 @@ import 'package:nomad/units/components/renderers/questions/match_questions_rende
 import 'package:nomad/units/components/renderers/questions/true_false_questions_renderer.dart';
 import 'package:nomad/units/components/renderers/questions/one_choice_questions_renderer.dart';
 
+typedef AnswersUpdateAction = Function(List<dynamic>);
+
 class QuestionsRenderer extends StatelessWidget {
   final List<Question> questions;
+  final AnswersUpdateAction onAnswersUpdate;
 
-  const QuestionsRenderer({Key? key, required this.questions})
+  const QuestionsRenderer(
+      {Key? key, required this.questions, required this.onAnswersUpdate})
       : super(key: key);
 
   @override
@@ -22,7 +26,10 @@ class QuestionsRenderer extends StatelessWidget {
         : questions[0] is OneChoiceQuestion
             ? OneChoiceQuestionsRenderer(questions: questions)
             : questions[0] is MatchQuestion
-                ? MatchQuestionsRenderer(questions: questions)
+                ? MatchQuestionsRenderer(
+                    questions: questions,
+                    onAnswersUpdate: onAnswersUpdate,
+                  )
                 : questions[0] is TrueFalseQuestion
                     ? TrueFalseQuestionsRenderer(questions: questions)
                     : Container();
