@@ -52,50 +52,52 @@ class _InputState extends State<CommonInput> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        widget.hasTitle
-            ? Padding(
-                padding: const EdgeInsets.only(left: 5),
-                child: Text(widget.title,
-                    style:
-                        const TextStyle(color: AppColors.black, fontSize: 16)),
-              )
-            : Container(),
-        widget.hasTitle
-            ? const SizedBox(
-                height: 8,
-              )
-            : Container(),
-        SizedBox(
-          width: double.infinity,
-          height: !widget.practiceInput ? 60 : 40,
-          child: TextField(
-            onChanged: (text) => widget.updateValue(text),
-            controller: _controller,
-            keyboardType: widget.numberKeyboard || widget.phoneInput
-                ? TextInputType.number
-                : TextInputType.text,
-            obscureText: widget.passwordInput,
-            decoration: InputDecoration(
-                filled: true,
-                fillColor: AppColors.background,
-                hintText: widget.hintText,
-                contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        width: 2, color: AppColors.black.withOpacity(0.2)),
-                    borderRadius:
-                        BorderRadius.circular(!widget.practiceInput ? 20 : 14)),
-                focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: AppColors.grey),
-                    borderRadius: BorderRadius.circular(20))),
-            inputFormatters: widget.phoneInput ? [maskFormatter] : [],
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          widget.hasTitle
+              ? Padding(
+                  padding: const EdgeInsets.only(left: 5),
+                  child: Text(widget.title,
+                      style: const TextStyle(
+                          color: AppColors.black, fontSize: 16)),
+                )
+              : Container(),
+          widget.hasTitle
+              ? const SizedBox(
+                  height: 8,
+                )
+              : Container(),
+          SizedBox(
+            width: double.infinity,
+            height: !widget.practiceInput ? 60 : 40,
+            child: TextField(
+              onChanged: (text) => widget.updateValue(text),
+              controller: _controller,
+              keyboardType: widget.numberKeyboard || widget.phoneInput
+                  ? TextInputType.number
+                  : TextInputType.text,
+              obscureText: widget.passwordInput,
+              decoration: InputDecoration(
+                  filled: true,
+                  fillColor: AppColors.background,
+                  hintText: widget.hintText,
+                  contentPadding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide:
+                          const BorderSide(width: 1, color: AppColors.border),
+                      borderRadius: BorderRadius.circular(
+                          !widget.practiceInput ? 10 : 14)),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: AppColors.border),
+                      borderRadius: BorderRadius.circular(10))),
+              inputFormatters: widget.phoneInput ? [maskFormatter] : [],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
