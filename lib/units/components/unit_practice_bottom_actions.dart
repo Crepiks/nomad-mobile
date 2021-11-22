@@ -4,11 +4,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/common/components/action_button.dart';
 
+typedef CheckAction = Function();
+
 class UnitBottomActions extends StatelessWidget {
-  const UnitBottomActions({Key? key, required this.onClickCheck})
+  const UnitBottomActions({Key? key, required this.onCheckTap})
       : super(key: key);
 
-  final Function onClickCheck;
+  final CheckAction onCheckTap;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +59,9 @@ class UnitBottomActions extends StatelessWidget {
                   )
                 ],
               ),
-              onClick: () => {onClickCheck()}),
+              onClick: () {
+                onCheckTap();
+              }),
         )
       ],
     );

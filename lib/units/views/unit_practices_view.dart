@@ -40,8 +40,9 @@ class _UnitPracticesViewState extends State<UnitPracticesView> {
       Padding(
         padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
         child: UnitBottomActions(
-          onClickCheck: () {
-            _showCheckResultBottomSheet(context, 4, 5);
+          onCheckTap: () {
+            _showEmptyFieldsErrorSnackBar(context);
+            // _showCheckResultBottomSheet(context, 4, 5);
           },
         ),
       ),
@@ -65,6 +66,26 @@ class _UnitPracticesViewState extends State<UnitPracticesView> {
         )
       ],
     );
+  }
+
+  _showEmptyFieldsErrorSnackBar(BuildContext context) {
+    final snackBar = SnackBar(
+        width: MediaQuery.of(context).size.width,
+        behavior: SnackBarBehavior.floating,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        content: Container(
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
+          decoration: const BoxDecoration(
+              color: AppColors.error,
+              borderRadius: BorderRadius.all(Radius.circular(12))),
+          child: const Text(
+            "Необходимо заполнить все поля",
+            style: TextStyle(fontSize: 16),
+          ),
+        ));
+
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   _showCheckResultBottomSheet(context, correctAnswers, allAnswers) {
