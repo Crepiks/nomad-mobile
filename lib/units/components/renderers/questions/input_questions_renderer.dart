@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
 import 'package:nomad/common/constants/app_colors.dart';
-import 'package:nomad/common/components/common_input.dart';
 import 'package:nomad/units/components/answer_input.dart';
 
 class InputQuestionsRenderer extends StatelessWidget {
@@ -23,11 +22,8 @@ class InputQuestionsRenderer extends StatelessWidget {
         const SizedBox(height: 10),
         ...questions
             .map((question) => Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  child: question.wide
-                      ? WideInputQuestionRenderer(text: question.text)
-                      : ShortInputQuestionRenderer(text: question.text),
-                ))
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: QuestionRenderer(text: question.text)))
             .toList(),
         const SizedBox(height: 20),
       ]),
@@ -35,39 +31,10 @@ class InputQuestionsRenderer extends StatelessWidget {
   }
 }
 
-class ShortInputQuestionRenderer extends StatelessWidget {
-  const ShortInputQuestionRenderer({Key? key, required this.text})
-      : super(key: key);
-
+class QuestionRenderer extends StatelessWidget {
   final String text;
 
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(text,
-              style: const TextStyle(
-                  color: AppColors.black, fontSize: 20, height: 1.2)),
-          const SizedBox(width: 10),
-          SizedBox(
-            width: 120,
-            child: CommonInput(
-                hasTitle: false, practiceInput: true, updateValue: () => {}),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class WideInputQuestionRenderer extends StatelessWidget {
-  const WideInputQuestionRenderer({Key? key, required this.text})
-      : super(key: key);
-
-  final String text;
+  const QuestionRenderer({Key? key, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +43,7 @@ class WideInputQuestionRenderer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("$text:",
+          Text(text,
               style: const TextStyle(
                   color: AppColors.black, fontSize: 16, height: 1.2)),
           const SizedBox(height: 10),
