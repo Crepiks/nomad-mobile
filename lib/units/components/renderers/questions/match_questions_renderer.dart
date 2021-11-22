@@ -15,7 +15,17 @@ class MatchQuestionsRenderer extends StatefulWidget {
 }
 
 class _MatchQuestionsRendererState extends State<MatchQuestionsRenderer> {
-  int? focusedInputIndex;
+  int? activeQuestionIndex;
+  List<String?> answers = [];
+
+  @override
+  void initState() {
+    setState(() {
+      answers = List.filled(widget.questions.length, null);
+    });
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +69,9 @@ class _MatchQuestionsRendererState extends State<MatchQuestionsRenderer> {
             text: questionText,
             index: index,
             onTap: () {
+              setState(() {
+                activeQuestionIndex = index;
+              });
               _showOptionsBottomSheet(context);
             }),
       );
@@ -77,24 +90,44 @@ class _MatchQuestionsRendererState extends State<MatchQuestionsRenderer> {
                   color: AppColors.black, fontSize: 18, height: 1.2)),
           const SizedBox(height: 10),
           GestureDetector(
-            onTap: () {
-              onTap();
-            },
-            child: Container(
-                width: double.infinity,
-                height: 56,
-                decoration: BoxDecoration(
-                    border: Border.all(width: 2, color: AppColors.primary),
-                    borderRadius: BorderRadius.circular(10)),
-                child: const Center(
-                  child: Text("Выберите вариант",
-                      style:
-                          TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
-                )),
-          )
+              onTap: () {
+                onTap();
+              },
+              child: answers[index] != null
+                  ? _buildSelectedField(answers[index]!)
+                  : _buildEmptySelectField())
         ],
       ),
     );
+  }
+
+  Widget _buildEmptySelectField() {
+    return Container(
+        width: double.infinity,
+        height: 56,
+        decoration: BoxDecoration(
+            border: Border.all(width: 2, color: AppColors.primary),
+            borderRadius: BorderRadius.circular(10)),
+        child: const Center(
+          child: Text("Выберите вариант", style: TextStyle(fontSize: 16)),
+        ));
+  }
+
+  Widget _buildSelectedField(String answer) {
+    return Container(
+        width: double.infinity,
+        height: 56,
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        alignment: Alignment.centerLeft,
+        decoration: BoxDecoration(
+            color: AppColors.primary,
+            border: Border.all(width: 2, color: AppColors.primary),
+            borderRadius: BorderRadius.circular(10)),
+        child: Center(
+          child: Text(answer,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(fontSize: 16, color: AppColors.white)),
+        ));
   }
 
   _showOptionsBottomSheet(BuildContext context) {
@@ -118,26 +151,48 @@ class _MatchQuestionsRendererState extends State<MatchQuestionsRenderer> {
                   const SizedBox(
                     height: 24,
                   ),
-                  ..._buildMatchQuestionOptions()
+                  ..._buildMatchQuestionOptions(onTap: _onOptionTap)
                 ],
               ));
         });
   }
 
-  List<Widget> _buildMatchQuestionOptions() {
+  List<Widget> _buildMatchQuestionOptions({required onTap}) {
     final answers = _getAnswers(widget.questions);
     return answers
-        .map(
-          (String answer) => Padding(
-            padding: const EdgeInsets.only(bottom: 14),
-            child: MatchQuestionOption(
-              text: answer,
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-          ),
-        )
+        .map((String answer) => Padding(
+              padding: const EdgeInsets.only(bottom: 14),
+              child: MatchQuestionOption(
+                text: answer,
+                onTap: () {
+                  onTap(answer);
+                  Navigator.pop(context);
+                },
+              ),
+            ))
         .toList();
+  }
+
+  _onOptionTap(String answer) {
+    _removeAnswer(answer);
+
+    setState(() {
+      if (activeQuestionIndex != null) {
+        answers[activeQuestionIndex!] = answer;
+        answers = answers;
+      }
+    });
+  }
+
+  _removeAnswer(String answer) {
+    setState(() {
+      answers = answers.map((element) {
+        if (element == answer) {
+          return null;
+        }
+
+        return element;
+      }).toList();
+    });
   }
 }
