@@ -11,49 +11,53 @@ class LeaderboardView extends StatefulWidget {
 class _LeaderBoardViewState extends State<LeaderboardView> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const [
-        LeaderboardCard(
-            active: true,
-            name: "Саяжан Онласын",
-            location: "Нур-Султан, Казахстан",
-            rating: 40),
-        SizedBox(
-          height: 10,
-        ),
-        LeaderboardCard(
-            name: "Саяжан Онласын",
-            location: "Нур-Султан, Казахстан",
-            rating: 70),
-        SizedBox(
-          height: 10,
-        ),
-        LeaderboardCard(
-            name: "Саяжан Онласын",
-            location: "Нур-Султан, Казахстан",
-            rating: 40),
-        SizedBox(
-          height: 10,
-        ),
-        LeaderboardCard(
-            name: "Саяжан Онласын",
-            location: "Нур-Султан, Казахстан",
-            rating: 30),
-        SizedBox(
-          height: 10,
-        ),
-        LeaderboardCard(
-            name: "Саяжан Онласын",
-            location: "Нур-Султан, Казахстан",
-            rating: 20),
-        SizedBox(
-          height: 10,
-        ),
-        LeaderboardCard(
-            name: "Саяжан Онласын",
-            location: "Нур-Султан, Казахстан",
-            rating: 6),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
+        children: const [
+          SizedBox(height: 60),
+          LeaderboardCard(
+              active: true,
+              name: "Саяжан Онласын",
+              location: "Нур-Султан, Казахстан",
+              rating: 40),
+          SizedBox(
+            height: 10,
+          ),
+          LeaderboardCard(
+              name: "Саяжан Онласын",
+              location: "Нур-Султан, Казахстан",
+              rating: 70),
+          SizedBox(
+            height: 10,
+          ),
+          LeaderboardCard(
+              name: "Саяжан Онласын",
+              location: "Нур-Султан, Казахстан",
+              rating: 40),
+          SizedBox(
+            height: 10,
+          ),
+          LeaderboardCard(
+              name: "Саяжан Онласын",
+              location: "Нур-Султан, Казахстан",
+              rating: 30),
+          SizedBox(
+            height: 10,
+          ),
+          LeaderboardCard(
+              name: "Саяжан Онласын",
+              location: "Нур-Султан, Казахстан",
+              rating: 20),
+          SizedBox(
+            height: 10,
+          ),
+          LeaderboardCard(
+              name: "Саяжан Онласын",
+              location: "Нур-Султан, Казахстан",
+              rating: 6),
+        ],
+      ),
     );
   }
 }
