@@ -21,7 +21,7 @@ class MatchQuestionOption extends StatelessWidget {
         }
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+        padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 24),
         decoration: const BoxDecoration(
             color: AppColors.background,
             borderRadius: BorderRadius.all(Radius.circular(12))),

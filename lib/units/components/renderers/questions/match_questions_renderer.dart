@@ -164,6 +164,7 @@ class _MatchQuestionsRendererState extends State<MatchQuestionsRenderer> {
               padding: const EdgeInsets.only(bottom: 14),
               child: MatchQuestionOption(
                 text: answer,
+                selected: _findAnwerByText(answer) != null,
                 onTap: () {
                   onTap(answer);
                   Navigator.pop(context);
@@ -171,6 +172,10 @@ class _MatchQuestionsRendererState extends State<MatchQuestionsRenderer> {
               ),
             ))
         .toList();
+  }
+
+  String? _findAnwerByText(String text) {
+    return answers.firstWhere((answer) => answer == text, orElse: () => null);
   }
 
   _onOptionTap(String answer) {
