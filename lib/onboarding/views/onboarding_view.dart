@@ -1,6 +1,6 @@
 import "package:flutter/cupertino.dart";
 import 'package:flutter/material.dart';
-import 'package:nomad/auth/views/login_view.dart';
+import 'package:nomad/auth/views/auth_view.dart';
 import 'package:nomad/common/components/action_button.dart';
 import 'package:nomad/common/components/common_slider.dart';
 import 'package:nomad/common/components/slider_navigation.dart';
@@ -85,7 +85,7 @@ class _OnboardingViewState extends State<OnboardingView> {
       ),
       onClick: () {
         Navigator.push(context,
-            CupertinoPageRoute(builder: (context) => const LoginView()));
+            CupertinoPageRoute(builder: (context) => const AuthView()));
       },
     );
   }
