@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:nomad/common/components/common_input.dart';
 import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/common/components/action_button.dart';
@@ -21,6 +22,9 @@ class ProfileActions extends StatefulWidget {
 class _ProfileActionsState extends State<ProfileActions> {
   String editedFirstName = "";
   String editedLastName = "";
+
+  String oldPassword = "";
+  String newPassword = "";
 
   @override
   void initState() {
@@ -52,7 +56,9 @@ class _ProfileActionsState extends State<ProfileActions> {
               text: "Редактировать",
               icon: const FaIconTemplate(faIcon: FontAwesomeIcons.userEdit)),
           ProfileActionLink(
-              onClick: () {},
+              onClick: () {
+                _buildChangePasswordSheet(context);
+              },
               text: "Сменить пароль",
               icon: const FaIconTemplate(faIcon: FontAwesomeIcons.lock)),
           const SizedBox(
@@ -77,6 +83,27 @@ class _ProfileActionsState extends State<ProfileActions> {
         ],
       ),
     );
+  }
+
+  _showSnackBar(
+      {required String title, required String message, required String mode}) {
+    Get.snackbar("", "",
+        margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+        titleText: Text(title,
+            style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+                color: AppColors.white)),
+        messageText: Text(
+          message,
+          style: const TextStyle(color: AppColors.white),
+        ),
+        backgroundColor: mode == "error"
+            ? AppColors.error
+            : mode == "success"
+                ? AppColors.success
+                : AppColors.background,
+        animationDuration: const Duration(milliseconds: 200));
   }
 
   _buildEditAccountSheet(BuildContext context) {
@@ -152,9 +179,13 @@ class _ProfileActionsState extends State<ProfileActions> {
                                 "userFirstName", editedFirstName.trim());
                             prefs.setString(
                                 "userLastName", editedLastName.trim());
-                                
+
                             widget.onUpdateUser();
                             Navigator.of(context).pop();
+                            _showSnackBar(
+                                title: "Профиль обновлён",
+                                message: "Мы обновили ваши данные",
+                                mode: "success");
                           }),
                     ],
                   )
@@ -179,6 +210,120 @@ class _ProfileActionsState extends State<ProfileActions> {
   _setLastName(value) {
     setState(() {
       editedLastName = value;
+    });
+  }
+
+  _buildChangePasswordSheet(BuildContext context) {
+    return showModalBottomSheet(
+        context: context,
+        backgroundColor: AppColors.white,
+        isScrollControlled: true,
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(26))),
+        builder: (BuildContext context) => Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 25),
+            child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "Изменение пароля",
+                    style: TextStyle(
+                        color: AppColors.black,
+                        fontSize: 22,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  CommonInput(
+                      title: "Старый пароль",
+                      hasTitle: true,
+                      passwordInput: true,
+                      updateValue: (text) {
+                        _setOldPassword(text);
+                      }),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CommonInput(
+                      title: "Новый пароль",
+                      hasTitle: true,
+                      passwordInput: true,
+                      updateValue: (text) {
+                        _setNewPassword(text);
+                      }),
+                  const SizedBox(
+                    height: 60,
+                  ),
+                  Column(
+                    children: [
+                      ActionButton(
+                          reverseColor: true,
+                          child: const Text(
+                            "Закрыть",
+                            style: TextStyle(
+                                color: AppColors.black,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          onClick: () {
+                            Navigator.of(context).pop();
+                          }),
+                      const SizedBox(height: 10),
+                      ActionButton(
+                          child: const Text(
+                            "Изменить",
+                            style: TextStyle(
+                                color: AppColors.black,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          onClick: () async {
+                            SharedPreferences prefs =
+                                await SharedPreferences.getInstance();
+
+                            if (oldPassword.trim() != "" &&
+                                newPassword.trim() != "") {
+                              if (oldPassword.trim() ==
+                                  prefs.getString("password")) {
+                                prefs.setString("password", newPassword.trim());
+
+                                Navigator.of(context).pop();
+                                _showSnackBar(
+                                    title: "Пароль изменён",
+                                    message:
+                                        "Используйте новый пароль для входа в аккаунт",
+                                    mode: "success");
+                              } else {
+                                _showSnackBar(
+                                    title: "Неверный старый пароль",
+                                    message:
+                                        "Убедитесь, что старый пароль верный",
+                                    mode: "error");
+                              }
+                            } else {
+                              _showSnackBar(
+                                  title: "Заполните поля",
+                                  message:
+                                      "Чтобы обновить пароль нужно заполнить оба поля",
+                                  mode: "error");
+                            }
+                          }),
+                    ],
+                  )
+                ])));
+  }
+
+  _setOldPassword(value) {
+    setState(() {
+      oldPassword = value;
+    });
+  }
+
+  _setNewPassword(value) {
+    setState(() {
+      newPassword = value;
     });
   }
 
