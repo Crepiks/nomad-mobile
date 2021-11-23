@@ -4,18 +4,21 @@ import 'package:nomad/common/components/action_button.dart';
 import 'package:nomad/common/constants/app_colors.dart';
 
 typedef NextLessonMoveAction = Function();
+typedef ReviewAction = Function();
 
 class CheckResult extends StatelessWidget {
   final String title;
   final Color color;
   final NextLessonMoveAction? onNextLessonMove;
+  final ReviewAction? onReview;
 
-  const CheckResult(
-      {Key? key,
-      required this.title,
-      required this.color,
-      this.onNextLessonMove})
-      : super(key: key);
+  const CheckResult({
+    Key? key,
+    required this.title,
+    required this.color,
+    this.onNextLessonMove,
+    this.onReview,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +33,13 @@ class CheckResult extends StatelessWidget {
             height: 40,
           ),
           Column(
-            children: [_buildNextLessonButton(context)],
+            children: [
+              _buildNextLessonButton(context),
+              const SizedBox(
+                height: 10,
+              ),
+              _buildReviewButton(context)
+            ],
           )
         ],
       ),
@@ -70,6 +79,38 @@ class CheckResult extends StatelessWidget {
         onClick: () {
           if (onNextLessonMove != null) {
             onNextLessonMove!();
+          }
+          Navigator.of(context).pop();
+        });
+  }
+
+  Widget _buildReviewButton(BuildContext context) {
+    return ActionButton(
+        reverseColor: true,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: const [
+            Text(
+              "Посмотреть результаты",
+              style: TextStyle(
+                  color: AppColors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            FaIcon(
+              FontAwesomeIcons.flagCheckered,
+              size: 14,
+              color: AppColors.black,
+            )
+          ],
+        ),
+        onClick: () {
+          if (onReview != null) {
+            onReview!();
           }
           Navigator.of(context).pop();
         });
