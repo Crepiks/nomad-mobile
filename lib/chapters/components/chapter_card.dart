@@ -48,7 +48,7 @@ class ChapterCard extends StatelessWidget {
                   const SizedBox(height: 4),
                   Text(
                     description,
-                    maxLines: 3,
+                    maxLines: 4,
                     style: const TextStyle(
                         overflow: TextOverflow.ellipsis,
                         fontSize: 14,
@@ -57,7 +57,6 @@ class ChapterCard extends StatelessWidget {
                 ],
               ),
             ),
-            const ProgressBar(unitsNumber: 100, completedUnitsNumber: 60)
           ],
         ),
       ),

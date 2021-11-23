@@ -9,15 +9,29 @@ import 'package:nomad/data/models/user_score.dart';
 import 'package:nomad/home/components/home_header.dart';
 import 'package:nomad/home/components/progress_chart.dart';
 import 'package:nomad/home/components/repeat_card.dart';
+import 'package:nomad/store/score.dart';
 
 typedef ActiveTabChange = void Function(int index);
-
-class HomeView extends StatelessWidget {
+  
+class HomeView extends StatefulWidget {
   const HomeView({Key? key, required this.navigateToPage, required this.user})
       : super(key: key);
-
+      
   final Function navigateToPage;
   final User user;
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  int score = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadScore();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +41,11 @@ class HomeView extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(right: 20, left: 20),
           child: HomeHeader(
-            user: user,
+            user: widget.user,
+            score: score,
             onScoreButtonClick: () {
               buildScoreSheet(context, (pageIndex) {
-                navigateToPage(pageIndex);
+                widget.navigateToPage(pageIndex);
               });
             },
           ),
@@ -87,6 +102,13 @@ class HomeView extends StatelessWidget {
         )
       ],
     );
+  }
+
+  _loadScore() async {
+    final score = await getScore();
+    setState(() {
+      this.score = score;
+    });
   }
 }
 

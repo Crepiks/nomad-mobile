@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:nomad/common/constants/app_colors.dart';
+import 'package:nomad/store/score.dart';
 
 typedef ShowMoreTap = void Function();
 
@@ -17,8 +18,14 @@ class ProgressChart extends StatefulWidget {
 class ProgressChartState extends State<ProgressChart> {
   final Color barBackgroundColor = Colors.white;
   final Duration animDuration = const Duration(milliseconds: 250);
-
+  int lastDayScore = 0;
   int touchedIndex = -1;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadScore();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,37 +98,37 @@ class ProgressChartState extends State<ProgressChart> {
           case 0:
             return makeGroupData(
               0,
-              5,
+              0,
             );
           case 1:
             return makeGroupData(
               1,
-              6.5,
+              0,
             );
           case 2:
             return makeGroupData(
               2,
-              5,
+              0,
             );
           case 3:
             return makeGroupData(
               3,
-              7.5,
+              0,
             );
           case 4:
             return makeGroupData(
               4,
-              9,
+              0,
             );
           case 5:
             return makeGroupData(
               5,
-              11.5,
+              10,
             );
           case 6:
             return makeGroupData(
               6,
-              6.5,
+              lastDayScore.toDouble(),
             );
           default:
             return throw Error();
@@ -143,19 +150,19 @@ class ProgressChartState extends State<ProgressChart> {
           getTitles: (double value) {
             switch (value.toInt()) {
               case 0:
-                return 'Пн';
-              case 1:
-                return 'Вт';
-              case 2:
-                return 'Ср';
-              case 3:
                 return 'Чт';
-              case 4:
+              case 1:
                 return 'Пт';
-              case 5:
+              case 2:
                 return 'Сб';
-              case 6:
+              case 3:
                 return 'Вс';
+              case 4:
+                return 'Пн';
+              case 5:
+                return 'Вт';
+              case 6:
+                return 'Ср';
               default:
                 return '';
             }
@@ -171,5 +178,12 @@ class ProgressChartState extends State<ProgressChart> {
       barGroups: showingGroups(),
       gridData: FlGridData(show: false),
     );
+  }
+
+  _loadScore() async {
+    final score = await getScore();
+    setState(() {
+      lastDayScore = score;
+    });
   }
 }

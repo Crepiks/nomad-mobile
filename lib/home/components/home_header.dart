@@ -5,9 +5,13 @@ import 'package:nomad/home/components/user_info.dart';
 
 class HomeHeader extends StatefulWidget {
   const HomeHeader(
-      {Key? key, required this.onScoreButtonClick, required this.user})
+      {Key? key,
+      required this.onScoreButtonClick,
+      required this.user,
+      required this.score})
       : super(key: key);
 
+  final int score;
   final Function onScoreButtonClick;
   final User user;
 
@@ -28,7 +32,7 @@ class _HomeHeaderState extends State<HomeHeader> {
             lastName: widget.user.lastName,
             hasSubscription: widget.user.hasSubscription,
           ),
-          ScoreButton(onClick: widget.onScoreButtonClick)
+          ScoreButton(score: widget.score, onClick: widget.onScoreButtonClick)
         ],
       ),
     );

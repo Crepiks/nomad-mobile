@@ -8,14 +8,14 @@ typedef ReviewAction = Function();
 
 class CheckResult extends StatelessWidget {
   final String title;
-  final Color color;
+  final int scoreToAdd;
   final NextLessonMoveAction? onNextLessonMove;
   final ReviewAction? onReview;
 
   const CheckResult({
     Key? key,
     required this.title,
-    required this.color,
+    required this.scoreToAdd,
     this.onNextLessonMove,
     this.onReview,
   }) : super(key: key);
@@ -28,7 +28,29 @@ class CheckResult extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildTitle(title, color),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              _buildTitle(title),
+              Row(
+                children: [
+                  Text(
+                    "+$scoreToAdd",
+                    style: const TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.primary),
+                  ),
+                  const SizedBox(width: 6),
+                  const FaIcon(
+                    FontAwesomeIcons.fire,
+                    color: AppColors.primary,
+                    size: 22,
+                  )
+                ],
+              )
+            ],
+          ),
           const SizedBox(
             height: 40,
           ),
@@ -46,10 +68,11 @@ class CheckResult extends StatelessWidget {
     );
   }
 
-  Widget _buildTitle(String text, Color color) {
+  Widget _buildTitle(String text) {
     return Text(
       text,
-      style: TextStyle(color: color, fontSize: 26, fontWeight: FontWeight.w600),
+      style: const TextStyle(
+          color: AppColors.primary, fontSize: 24, fontWeight: FontWeight.w500),
     );
   }
 

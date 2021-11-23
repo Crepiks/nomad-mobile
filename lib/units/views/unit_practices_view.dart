@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/data/models/practice.dart';
 import 'package:nomad/data/models/questions/question.dart';
+import 'package:nomad/store/score.dart';
 import 'package:nomad/units/components/check_result.dart';
 import 'package:nomad/units/components/renderers/questions/questions_renderer.dart';
 import 'package:nomad/units/components/practice_bottom_actions.dart';
@@ -11,8 +12,9 @@ import 'package:nomad/units/components/practice_task.dart';
 class Result {
   final String title;
   final Color color;
+  final int scoreToAdd;
 
-  Result({required this.title, required this.color});
+  Result({required this.title, required this.color, required this.scoreToAdd});
 }
 
 class UnitPracticesView extends StatefulWidget {
@@ -141,9 +143,10 @@ class _UnitPracticesViewState extends State<UnitPracticesView> {
 
   _showCheckResultBottomSheet(context, correctAnswers, allAnswers) {
     List<Result> resultTypes = [
-      Result(title: "Отлично", color: AppColors.success),
-      Result(title: "Неплохо", color: AppColors.warning),
-      Result(title: "Попробуйте снова", color: AppColors.error)
+      Result(title: "Великолепно 🥳", color: AppColors.success, scoreToAdd: 10),
+      Result(
+          title: "Почти идеально 😄", color: AppColors.warning, scoreToAdd: 5),
+      Result(title: "Вы можете лучше 😉", color: AppColors.error, scoreToAdd: 0)
     ];
 
     double correctAnswersPercentage = correctAnswers / allAnswers * 100;
@@ -152,6 +155,8 @@ class _UnitPracticesViewState extends State<UnitPracticesView> {
         : correctAnswersPercentage > 50
             ? resultTypes[1]
             : resultTypes[2];
+
+    _addScore(result.scoreToAdd);
 
     return showModalBottomSheet(
         context: context,
@@ -163,7 +168,7 @@ class _UnitPracticesViewState extends State<UnitPracticesView> {
             borderRadius: BorderRadius.vertical(top: Radius.circular(26))),
         builder: (BuildContext context) => CheckResult(
               title: result.title,
-              color: result.color,
+              scoreToAdd: result.scoreToAdd,
               onNextLessonMove: () {
                 _onNextLessonMove();
               },
@@ -173,6 +178,11 @@ class _UnitPracticesViewState extends State<UnitPracticesView> {
                 });
               },
             ));
+  }
+
+  _addScore(int scoreToAdd) async {
+    final score = await getScore();
+    await setScore(score + scoreToAdd);
   }
 
   _onNextLessonMove() {
