@@ -366,8 +366,23 @@ class _ProfileActionsState extends State<ProfileActions> {
                             fontSize: 18,
                             fontWeight: FontWeight.w500),
                       ),
-                      onClick: () {
+                      onClick: () async {
+                        SharedPreferences prefs =
+                            await SharedPreferences.getInstance();
+                        prefs.remove("phoneNumber");
+                        prefs.remove("password");
+                        prefs.remove("userFirstName");
+                        prefs.remove("userLastName");
+                        prefs.remove("hasSubscription");
+                        prefs.remove("isLoggedIn");
+
                         Navigator.of(context).pop();
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (BuildContext context) =>
+                                    const OnboardingView()),
+                            (route) => false);
                       })
                 ],
               ),
