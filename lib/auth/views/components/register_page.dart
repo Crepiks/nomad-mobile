@@ -69,6 +69,9 @@ class _RegisterPageState extends State<RegisterPage> {
               prefs.setString("phoneNumber", phoneNumber);
               prefs.setString("password", password);
               prefs.setBool("isLoggedIn", true);
+              prefs.setString("userFirstName", "Пользователь");
+              prefs.setString("userLastName", "");
+              prefs.setBool("hasSubscription", false);
 
               Navigator.push(
                   context,

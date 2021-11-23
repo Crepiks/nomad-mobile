@@ -1,11 +1,13 @@
 import "package:flutter/cupertino.dart";
 import 'package:flutter/material.dart';
 import 'package:nomad/analytics/views/leaderboard_view.dart';
+import 'package:nomad/data/models/user.dart';
 import 'package:nomad/layouts/components/bottom_navigation.dart';
 import 'package:nomad/home/views/home_view.dart';
 import 'package:nomad/layouts/safe_area_layout.dart';
 import 'package:nomad/chapters/views/chapters_view.dart';
 import 'package:nomad/profile/views/profile_view.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MainLayout extends StatefulWidget {
   const MainLayout({Key? key}) : super(key: key);
@@ -16,6 +18,9 @@ class MainLayout extends StatefulWidget {
 
 class _MainLayoutState extends State<MainLayout> {
   int activeScreenIndex = 0;
+  String userFirstName = "";
+  String userLastName = "";
+  bool hasSubscription = false;
 
   setScreen(index) {
     setState(() {
@@ -24,12 +29,30 @@ class _MainLayoutState extends State<MainLayout> {
   }
 
   @override
+  void initState() {
+    super.initState();
+
+    _getUserInfo();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final screens = [
-      HomeView(navigateToPage: setScreen),
+      HomeView(
+        navigateToPage: setScreen,
+        user: User(
+            firstName: userFirstName,
+            lastName: userLastName,
+            hasSubscription: hasSubscription),
+      ),
       const LeaderboardView(),
       const LessonsView(),
-      const ProfileView()
+      ProfileView(
+        user: User(
+            firstName: userFirstName,
+            lastName: userLastName,
+            hasSubscription: hasSubscription),
+      )
     ];
 
     return SafeAreaLayout(
@@ -53,5 +76,15 @@ class _MainLayoutState extends State<MainLayout> {
         ),
       ),
     );
+  }
+
+  _getUserInfo() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    setState(() {
+      userFirstName = prefs.getString("userFirstName") ?? "";
+      userLastName = prefs.getString("userLastName") ?? "";
+      hasSubscription = prefs.getBool("hasSubscription") ?? false;
+    });
   }
 }

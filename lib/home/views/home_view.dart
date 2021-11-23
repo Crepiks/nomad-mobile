@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nomad/common/components/action_button.dart';
 import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/common/renderers/score_comparison.dart';
+import 'package:nomad/data/models/user.dart';
 import 'package:nomad/data/models/user_score.dart';
 import 'package:nomad/home/components/home_header.dart';
 import 'package:nomad/home/components/progress_chart.dart';
@@ -12,9 +13,11 @@ import 'package:nomad/home/components/repeat_card.dart';
 typedef ActiveTabChange = void Function(int index);
 
 class HomeView extends StatelessWidget {
-  final Function navigateToPage;
+  const HomeView({Key? key, required this.navigateToPage, required this.user})
+      : super(key: key);
 
-  const HomeView({Key? key, required this.navigateToPage}) : super(key: key);
+  final Function navigateToPage;
+  final User user;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +27,7 @@ class HomeView extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(right: 20, left: 20),
           child: HomeHeader(
+            user: user,
             onScoreButtonClick: () {
               buildScoreSheet(context, (pageIndex) {
                 navigateToPage(pageIndex);

@@ -3,7 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:nomad/common/constants/app_colors.dart';
 
 class ProfileCard extends StatelessWidget {
-  const ProfileCard({Key? key}) : super(key: key);
+  const ProfileCard(
+      {Key? key,
+      required this.firstName,
+      required this.lastName,
+      required this.hasSubscription})
+      : super(key: key);
+
+  final String firstName;
+  final String lastName;
+  final bool hasSubscription;
 
   @override
   Widget build(BuildContext context) {
@@ -21,24 +30,25 @@ class ProfileCard extends StatelessWidget {
               decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                      image: AssetImage('assets/images/avatar.png')))),
+                      image:
+                          AssetImage('assets/images/mock-user-avatar.png')))),
           const SizedBox(width: 16),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               Text(
-                "Саяжан Онласын",
-                style: TextStyle(
+                "$firstName $lastName",
+                style: const TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.w600,
                     color: AppColors.black),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 2,
               ),
               Text(
-                "Стандартный план",
-                style: TextStyle(fontSize: 14, color: AppColors.black),
+                hasSubscription ? "Nomad Premium" : "Стандартный план",
+                style: const TextStyle(fontSize: 14, color: AppColors.black),
               )
             ],
           )
