@@ -1,8 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/common/components/action_button.dart';
+import 'package:nomad/onboarding/views/onboarding_view.dart';
 import 'package:nomad/profile/components/profile_action_link.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileActions extends StatelessWidget {
   const ProfileActions({Key? key}) : super(key: key);
@@ -141,8 +144,18 @@ class ProfileActions extends StatelessWidget {
                             fontSize: 18,
                             fontWeight: FontWeight.w500),
                       ),
-                      onClick: () {
+                      onClick: () async {
+                        SharedPreferences prefs =
+                            await SharedPreferences.getInstance();
+                        prefs.remove("phoneNumber");
+                        prefs.remove("password");
                         Navigator.of(context).pop();
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (BuildContext context) =>
+                                    const OnboardingView()),
+                            (route) => false);
                       })
                 ],
               ),

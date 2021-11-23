@@ -3,9 +3,17 @@ import "package:flutter/material.dart";
 import 'package:nomad/common/components/common_input.dart';
 import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/layouts/main_layout.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  bool loginButtonLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +57,11 @@ class LoginPage extends StatelessWidget {
         const SizedBox(height: 30),
         Padding(
           padding: const EdgeInsets.fromLTRB(30, 0, 10, 0),
-          child: _buildLoginButton(onClick: () {
+          child: _buildLoginButton(onClick: () async {
+            SharedPreferences prefs = await SharedPreferences.getInstance();
+            prefs.setString("phoneNumber", "87072050716");
+            prefs.setString("password", "bigDaddy");
+
             Navigator.pushAndRemoveUntil(
                 context,
                 CupertinoPageRoute(
