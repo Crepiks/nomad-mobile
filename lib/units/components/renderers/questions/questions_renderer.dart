@@ -29,6 +29,7 @@ class QuestionsRenderer extends StatelessWidget {
         ? InputQuestionsRenderer(
             questions: questions,
             answers: answers,
+            review: review,
             onAnswerUpdate: onAnswerUpdate,
           )
         : questions[0] is MatchQuestion

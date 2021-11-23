@@ -8,12 +8,14 @@ typedef AnswerUpdateAction = Function(int index, dynamic text);
 class InputQuestionsRenderer extends StatelessWidget {
   final List<Question> questions;
   final List<dynamic> answers;
+  final bool review;
   final AnswerUpdateAction onAnswerUpdate;
 
   const InputQuestionsRenderer(
       {Key? key,
       required this.questions,
       required this.answers,
+      required this.review,
       required this.onAnswerUpdate})
       : super(key: key);
 
@@ -39,6 +41,7 @@ class InputQuestionsRenderer extends StatelessWidget {
               child: QuestionRenderer(
                   question: question,
                   value: answer ?? "",
+                  review: review,
                   onTextChange: (String text) {
                     onAnswerUpdate(index, text);
                   }));
@@ -52,12 +55,14 @@ class InputQuestionsRenderer extends StatelessWidget {
 class QuestionRenderer extends StatelessWidget {
   final Question question;
   final String value;
+  final bool review;
   final TextChangeAction onTextChange;
 
   const QuestionRenderer({
     Key? key,
     required this.question,
     required this.value,
+    required this.review,
     required this.onTextChange,
   }) : super(key: key);
 
@@ -75,7 +80,7 @@ class QuestionRenderer extends StatelessWidget {
           SizedBox(
               width: double.infinity,
               child: AnswerInput(
-                success: null,
+                success: review ? question.answer == value : null,
                 onTextChange: onTextChange,
               ))
         ],
