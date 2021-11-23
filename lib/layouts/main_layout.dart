@@ -52,6 +52,9 @@ class _MainLayoutState extends State<MainLayout> {
             firstName: userFirstName,
             lastName: userLastName,
             hasSubscription: hasSubscription),
+        onUpdateUser: () {
+          _getUserInfo();
+        },
       )
     ];
 

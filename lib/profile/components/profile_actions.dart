@@ -1,14 +1,33 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:nomad/common/components/common_input.dart';
 import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/common/components/action_button.dart';
 import 'package:nomad/onboarding/views/onboarding_view.dart';
 import 'package:nomad/profile/components/profile_action_link.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class ProfileActions extends StatelessWidget {
-  const ProfileActions({Key? key}) : super(key: key);
+class ProfileActions extends StatefulWidget {
+  const ProfileActions({Key? key, required this.onUpdateUser})
+      : super(key: key);
+
+  final Function onUpdateUser;
+
+  @override
+  State<ProfileActions> createState() => _ProfileActionsState();
+}
+
+class _ProfileActionsState extends State<ProfileActions> {
+  String editedFirstName = "";
+  String editedLastName = "";
+
+  @override
+  void initState() {
+    super.initState();
+
+    _getName();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +46,9 @@ class ProfileActions extends StatelessWidget {
             child: ActionsTitle(text: "Действия"),
           ),
           ProfileActionLink(
-              onClick: () {},
+              onClick: () {
+                _buildEditAccountSheet(context);
+              },
               text: "Редактировать",
               icon: const FaIconTemplate(faIcon: FontAwesomeIcons.userEdit)),
           ProfileActionLink(
@@ -43,13 +64,13 @@ class ProfileActions extends StatelessWidget {
           ),
           ProfileActionLink(
               onClick: () {
-                buildDeleteAccountSheet(context);
+                _buildDeleteAccountSheet(context);
               },
               text: "Удалить аккаунт",
               icon: const FaIconTemplate(faIcon: FontAwesomeIcons.trashAlt)),
           ProfileActionLink(
               onClick: () {
-                buildLogoutBottomSheet(context);
+                _buildLogoutBottomSheet(context);
               },
               text: "Выйти",
               icon: const FaIconTemplate(faIcon: FontAwesomeIcons.signOutAlt)),
@@ -58,7 +79,110 @@ class ProfileActions extends StatelessWidget {
     );
   }
 
-  buildDeleteAccountSheet(context) {
+  _buildEditAccountSheet(BuildContext context) {
+    return showModalBottomSheet(
+        context: context,
+        backgroundColor: AppColors.white,
+        isScrollControlled: true,
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(26))),
+        builder: (BuildContext context) => Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 25),
+            child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "Редактирование профиля",
+                    style: TextStyle(
+                        color: AppColors.black,
+                        fontSize: 22,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  CommonInput(
+                      title: "Имя",
+                      hasTitle: true,
+                      startFieldValue: editedFirstName,
+                      updateValue: (text) {
+                        _setFirstName(text);
+                      }),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CommonInput(
+                      title: "Фамилия",
+                      hasTitle: true,
+                      startFieldValue: editedLastName,
+                      updateValue: (text) {
+                        _setLastName(text);
+                      }),
+                  const SizedBox(
+                    height: 60,
+                  ),
+                  Column(
+                    children: [
+                      ActionButton(
+                          reverseColor: true,
+                          child: const Text(
+                            "Закрыть",
+                            style: TextStyle(
+                                color: AppColors.black,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          onClick: () {
+                            Navigator.of(context).pop();
+                          }),
+                      const SizedBox(height: 10),
+                      ActionButton(
+                          child: const Text(
+                            "Сохранить",
+                            style: TextStyle(
+                                color: AppColors.black,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          onClick: () async {
+                            SharedPreferences prefs =
+                                await SharedPreferences.getInstance();
+                            prefs.setString(
+                                "userFirstName", editedFirstName.trim());
+                            prefs.setString(
+                                "userLastName", editedLastName.trim());
+                                
+                            widget.onUpdateUser();
+                            Navigator.of(context).pop();
+                          }),
+                    ],
+                  )
+                ])));
+  }
+
+  _getName() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    setState(() {
+      editedFirstName = prefs.getString("userFirstName") ?? "";
+      editedLastName = prefs.getString("userLastName") ?? "";
+    });
+  }
+
+  _setFirstName(value) {
+    setState(() {
+      editedFirstName = value;
+    });
+  }
+
+  _setLastName(value) {
+    setState(() {
+      editedLastName = value;
+    });
+  }
+
+  _buildDeleteAccountSheet(BuildContext context) {
     return showModalBottomSheet(
         context: context,
         backgroundColor: AppColors.white,
@@ -105,7 +229,7 @@ class ProfileActions extends StatelessWidget {
             ));
   }
 
-  buildLogoutBottomSheet(context) {
+  _buildLogoutBottomSheet(BuildContext context) {
     return showModalBottomSheet(
         context: context,
         backgroundColor: AppColors.white,
@@ -148,7 +272,7 @@ class ProfileActions extends StatelessWidget {
                         SharedPreferences prefs =
                             await SharedPreferences.getInstance();
                         prefs.setBool("isLoggedIn", false);
-                        
+
                         Navigator.of(context).pop();
                         Navigator.pushAndRemoveUntil(
                             context,
