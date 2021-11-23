@@ -43,7 +43,7 @@ class _HomeViewState extends State<LessonsView> {
   List<Widget> _buildChapters(List<Chapter> chapters) {
     return chapters
         .map((Chapter chapter) => Container(
-            height: 200,
+            height: 170,
             padding: const EdgeInsets.only(bottom: 16),
             child: ChapterCard(
               title: chapter.title,
