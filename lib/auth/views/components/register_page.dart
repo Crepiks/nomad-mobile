@@ -1,11 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
+import 'package:get/get.dart';
 import 'package:nomad/common/components/common_input.dart';
 import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/layouts/main_layout.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
+
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  String phoneNumber = "";
+  String password = "";
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +43,9 @@ class RegisterPage extends StatelessWidget {
                   hintText: "+7 (XXX) XXX XX XX",
                   phoneInput: true,
                   hasTitle: true,
-                  updateValue: (text) {}),
+                  updateValue: (text) {
+                    _setPhoneNumber(text);
+                  }),
               const SizedBox(
                 height: 20,
               ),
@@ -42,22 +54,64 @@ class RegisterPage extends StatelessWidget {
                   hintText: "Введите пароль",
                   passwordInput: true,
                   hasTitle: true,
-                  updateValue: (text) {}),
+                  updateValue: (text) {
+                    _setPassword(text);
+                  }),
             ],
           ),
         ),
         const SizedBox(height: 30),
         Padding(
           padding: const EdgeInsets.fromLTRB(30, 0, 10, 0),
-          child: _buildLoginButton(onClick: () {
-            Navigator.push(
-                context,
-                CupertinoPageRoute(
-                    builder: (BuildContext context) => const MainLayout()));
+          child: _buildLoginButton(onClick: () async {
+            if (phoneNumber.trim() != "" && password.trim() != "") {
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              prefs.setString("phoneNumber", phoneNumber);
+              prefs.setString("password", password);
+              prefs.setBool("isLoggedIn", true);
+
+              Navigator.push(
+                  context,
+                  CupertinoPageRoute(
+                      builder: (BuildContext context) => const MainLayout()));
+            } else {
+              _showErrorSnackBar(
+                  title: "Заполните все поля",
+                  message:
+                      "Для регистрации нам нужен ваш номер телефона и пароль");
+            }
           }),
         )
       ],
     );
+  }
+
+  _setPhoneNumber(value) {
+    setState(() {
+      phoneNumber = value;
+    });
+  }
+
+  _setPassword(value) {
+    setState(() {
+      password = value;
+    });
+  }
+
+  _showErrorSnackBar({required String title, required String message}) {
+    Get.snackbar("", "",
+        margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+        titleText: Text(title,
+            style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+                color: AppColors.white)),
+        messageText: Text(
+          message,
+          style: const TextStyle(color: AppColors.white),
+        ),
+        backgroundColor: AppColors.error,
+        animationDuration: const Duration(milliseconds: 200));
   }
 
   Widget _buildLoginButton({required Function onClick}) {
