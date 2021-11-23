@@ -117,7 +117,7 @@ buildScoreSheet(BuildContext context, Function navigateToPage) {
     UserScore(
         "Айтбеков Сапабек", "assets/images/user-score-avatar-2.png", 80, false),
     UserScore(
-        "Кажимухан Азат", "assets/images/user-score-avatar-1.png", 60, true),
+        "Онласын Саяжан", "assets/images/mock-user-avatar.png", 60, true),
     UserScore(
         "Каримов Санжар", "assets/images/user-score-avatar-3.png", 50, false),
   ];
