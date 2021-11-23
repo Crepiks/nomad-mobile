@@ -5,12 +5,19 @@ import 'package:nomad/common/constants/app_colors.dart';
 import 'package:nomad/common/components/action_button.dart';
 
 typedef CheckAction = Function();
+typedef NextAction = Function();
 
 class UnitBottomActions extends StatelessWidget {
-  const UnitBottomActions({Key? key, required this.onCheckTap})
-      : super(key: key);
-
+  final bool review;
   final CheckAction onCheckTap;
+  final NextAction onNextTap;
+
+  const UnitBottomActions({
+    Key? key,
+    required this.review,
+    required this.onCheckTap,
+    required this.onNextTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +36,7 @@ class UnitBottomActions extends StatelessWidget {
               size: 16,
             ),
             onPressed: () {
-              buildRestartBottomSheet(context);
+              _buildRestartBottomSheet(context);
             },
           ),
         ),
@@ -37,37 +44,13 @@ class UnitBottomActions extends StatelessWidget {
           width: 10,
         ),
         Expanded(
-          child: ActionButton(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  Text(
-                    "Проверить",
-                    style: TextStyle(
-                        color: AppColors.black,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  FaIcon(
-                    FontAwesomeIcons.check,
-                    size: 16,
-                    color: AppColors.black,
-                  )
-                ],
-              ),
-              onClick: () {
-                onCheckTap();
-              }),
-        )
+            child:
+                review ? _buildNextActionButton() : _buildCheckActionButton())
       ],
     );
   }
 
-  buildRestartBottomSheet(context) {
+  _buildRestartBottomSheet(context) {
     return showModalBottomSheet(
         context: context,
         backgroundColor: AppColors.white,
@@ -112,5 +95,61 @@ class UnitBottomActions extends StatelessWidget {
                 ],
               ),
             ));
+  }
+
+  Widget _buildNextActionButton() {
+    return ActionButton(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: const [
+            Text(
+              "Следующий урок",
+              style: TextStyle(
+                  color: AppColors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            FaIcon(
+              FontAwesomeIcons.arrowRight,
+              size: 16,
+              color: AppColors.black,
+            )
+          ],
+        ),
+        onClick: () {
+          onNextTap();
+        });
+  }
+
+  Widget _buildCheckActionButton() {
+    return ActionButton(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: const [
+            Text(
+              "Проверить",
+              style: TextStyle(
+                  color: AppColors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            FaIcon(
+              FontAwesomeIcons.check,
+              size: 16,
+              color: AppColors.black,
+            )
+          ],
+        ),
+        onClick: () {
+          onCheckTap();
+        });
   }
 }

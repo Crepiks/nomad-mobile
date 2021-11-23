@@ -50,6 +50,7 @@ class _UnitPracticesViewState extends State<UnitPracticesView> {
       Padding(
         padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
         child: UnitBottomActions(
+          review: review,
           onCheckTap: () {
             if (_hasNotAnsweredQuestions()) {
               return _showEmptyFieldsErrorSnackBar();
@@ -59,6 +60,9 @@ class _UnitPracticesViewState extends State<UnitPracticesView> {
                 _getCorrectAnswersCount(practice.questions);
             _showCheckResultBottomSheet(
                 context, correctAnswersCount, practice.questions.length);
+          },
+          onNextTap: () {
+            _onNextLessonMove();
           },
         ),
       ),
@@ -156,11 +160,17 @@ class _UnitPracticesViewState extends State<UnitPracticesView> {
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(26))),
         builder: (BuildContext context) => CheckResult(
-            title: result.title,
-            color: result.color,
-            onNextLessonMove: () {
-              _onNextLessonMove();
-            }));
+              title: result.title,
+              color: result.color,
+              onNextLessonMove: () {
+                _onNextLessonMove();
+              },
+              onReview: () {
+                setState(() {
+                  review = true;
+                });
+              },
+            ));
   }
 
   _onNextLessonMove() {
@@ -171,6 +181,8 @@ class _UnitPracticesViewState extends State<UnitPracticesView> {
       } else {
         activePracticeIndex++;
       }
+
+      review = false;
 
       answers = List.filled(
           widget.practices[activePracticeIndex].questions.length, null);
