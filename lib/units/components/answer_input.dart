@@ -5,9 +5,9 @@ typedef TextChangeAction = Function(String text);
 
 class AnswerInput extends StatefulWidget {
   final TextChangeAction? onTextChange;
-  final String value;
+  final bool? success;
 
-  const AnswerInput({Key? key, this.onTextChange, required this.value})
+  const AnswerInput({Key? key, this.onTextChange, this.success})
       : super(key: key);
 
   @override
@@ -15,18 +15,9 @@ class AnswerInput extends StatefulWidget {
 }
 
 class _AnswerInputState extends State<AnswerInput> {
-  TextEditingController _controller = TextEditingController();
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = TextEditingController(text: widget.value);
-  }
-
   @override
   Widget build(BuildContext context) {
     return TextField(
-      controller: _controller,
       onChanged: (String text) {
         if (widget.onTextChange != null) {
           widget.onTextChange!(text);
@@ -37,6 +28,14 @@ class _AnswerInputState extends State<AnswerInput> {
           fillColor: AppColors.background,
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          enabled: widget.success == null,
+          disabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                  width: 2,
+                  color: widget.success == true
+                      ? AppColors.success
+                      : AppColors.error),
+              borderRadius: BorderRadius.circular(20)),
           enabledBorder: OutlineInputBorder(
               borderSide:
                   BorderSide(width: 2, color: AppColors.black.withOpacity(0.2)),

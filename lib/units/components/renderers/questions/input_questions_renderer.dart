@@ -32,12 +32,13 @@ class InputQuestionsRenderer extends StatelessWidget {
         ...questions.asMap().entries.map((element) {
           final Question question = element.value;
           final index = element.key;
+          final answer = answers[index];
 
           return Padding(
               padding: const EdgeInsets.symmetric(vertical: 8),
               child: QuestionRenderer(
-                  text: question.text,
-                  answer: "",
+                  question: question,
+                  value: answer ?? "",
                   onTextChange: (String text) {
                     onAnswerUpdate(index, text);
                   }));
@@ -49,16 +50,16 @@ class InputQuestionsRenderer extends StatelessWidget {
 }
 
 class QuestionRenderer extends StatelessWidget {
-  final String text;
-  final String answer;
+  final Question question;
+  final String value;
   final TextChangeAction onTextChange;
 
-  const QuestionRenderer(
-      {Key? key,
-      required this.text,
-      required this.onTextChange,
-      required this.answer})
-      : super(key: key);
+  const QuestionRenderer({
+    Key? key,
+    required this.question,
+    required this.value,
+    required this.onTextChange,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -67,14 +68,14 @@ class QuestionRenderer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(text,
+          Text(question.text,
               style: const TextStyle(
                   color: AppColors.black, fontSize: 16, height: 1.2)),
           const SizedBox(height: 10),
           SizedBox(
               width: double.infinity,
               child: AnswerInput(
-                value: answer,
+                success: null,
                 onTextChange: onTextChange,
               ))
         ],
