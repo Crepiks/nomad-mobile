@@ -10,12 +10,14 @@ typedef AnswerUpdateAction = Function(int index, bool value);
 class TrueFalseQuestionsRenderer extends StatelessWidget {
   final List<Question> questions;
   final List<dynamic> answers;
+  final bool review;
   final AnswerUpdateAction onAnswerUpdate;
 
   const TrueFalseQuestionsRenderer(
       {Key? key,
       required this.questions,
       required this.answers,
+      required this.review,
       required this.onAnswerUpdate})
       : super(key: key);
 
@@ -31,6 +33,8 @@ class TrueFalseQuestionsRenderer extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 14),
           child: TrueFalseQuestionRenderer(
               text: question.text,
+              answer: question.answer,
+              review: review,
               value: answers[index],
               onTap: (bool value) {
                 onAnswerUpdate(index, value);
@@ -43,11 +47,18 @@ class TrueFalseQuestionsRenderer extends StatelessWidget {
 
 class TrueFalseQuestionRenderer extends StatelessWidget {
   final String text;
-  final bool? value;
+  final bool? answer;
+  final bool review;
   final TapAction onTap;
+  final bool? value;
 
   const TrueFalseQuestionRenderer(
-      {Key? key, required this.text, required this.onTap, this.value})
+      {Key? key,
+      required this.text,
+      required this.answer,
+      required this.review,
+      required this.onTap,
+      this.value})
       : super(key: key);
 
   @override
@@ -67,6 +78,7 @@ class TrueFalseQuestionRenderer extends StatelessWidget {
                   child: TrueFalseButton(
                 text: "Дұрыс",
                 active: value == true,
+                success: review && value == true ? true == answer : null,
                 onTap: () {
                   onTap(true);
                 },
@@ -76,6 +88,7 @@ class TrueFalseQuestionRenderer extends StatelessWidget {
                   child: TrueFalseButton(
                 text: "Бұрыс",
                 active: value == false,
+                success: review && value == false ? false == answer : null,
                 onTap: () {
                   onTap(false);
                 },

@@ -42,6 +42,7 @@ class QuestionsRenderer extends StatelessWidget {
                 ? TrueFalseQuestionsRenderer(
                     questions: questions,
                     answers: answers,
+                    review: review,
                     onAnswerUpdate: onAnswerUpdate,
                   )
                 : Container();
