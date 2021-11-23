@@ -5,7 +5,7 @@ import 'package:nomad/data/models/practice.dart';
 import 'package:nomad/data/models/questions/question.dart';
 import 'package:nomad/units/components/check_result.dart';
 import 'package:nomad/units/components/renderers/questions/questions_renderer.dart';
-import 'package:nomad/units/components/unit_practice_bottom_actions.dart';
+import 'package:nomad/units/components/practice_bottom_actions.dart';
 import 'package:nomad/units/components/practice_task.dart';
 
 class Result {
@@ -49,22 +49,24 @@ class _UnitPracticesViewState extends State<UnitPracticesView> {
           child: _buildPracticeBody(activePracticeIndex, practice)),
       Padding(
         padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
-        child: UnitBottomActions(
-          review: review,
-          onCheckTap: () {
-            if (_hasNotAnsweredQuestions()) {
-              return _showEmptyFieldsErrorSnackBar();
-            }
+        child: PracticeBottomActions(
+            review: review,
+            onCheckTap: () {
+              if (_hasNotAnsweredQuestions()) {
+                return _showEmptyFieldsErrorSnackBar();
+              }
 
-            final correctAnswersCount =
-                _getCorrectAnswersCount(practice.questions);
-            _showCheckResultBottomSheet(
-                context, correctAnswersCount, practice.questions.length);
-          },
-          onNextTap: () {
-            _onNextLessonMove();
-          },
-        ),
+              final correctAnswersCount =
+                  _getCorrectAnswersCount(practice.questions);
+              _showCheckResultBottomSheet(
+                  context, correctAnswersCount, practice.questions.length);
+            },
+            onNextTap: () {
+              _onNextLessonMove();
+            },
+            onRestart: () {
+              _initializeAnswersList();
+            }),
       ),
     ]);
   }

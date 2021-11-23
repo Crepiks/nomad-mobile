@@ -80,6 +80,7 @@ class QuestionRenderer extends StatelessWidget {
           SizedBox(
               width: double.infinity,
               child: AnswerInput(
+                value: value,
                 success: review ? question.answer == value : null,
                 onTextChange: onTextChange,
               ))

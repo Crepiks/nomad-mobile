@@ -6,18 +6,21 @@ import 'package:nomad/common/components/action_button.dart';
 
 typedef CheckAction = Function();
 typedef NextAction = Function();
+typedef RestartAction = Function();
 
-class UnitBottomActions extends StatelessWidget {
+class PracticeBottomActions extends StatelessWidget {
   final bool review;
   final CheckAction onCheckTap;
   final NextAction onNextTap;
+  final RestartAction onRestart;
 
-  const UnitBottomActions({
-    Key? key,
-    required this.review,
-    required this.onCheckTap,
-    required this.onNextTap,
-  }) : super(key: key);
+  const PracticeBottomActions(
+      {Key? key,
+      required this.review,
+      required this.onCheckTap,
+      required this.onNextTap,
+      required this.onRestart})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -90,6 +93,7 @@ class UnitBottomActions extends StatelessWidget {
                             fontWeight: FontWeight.w500),
                       ),
                       onClick: () {
+                        onRestart();
                         Navigator.of(context).pop();
                       })
                 ],

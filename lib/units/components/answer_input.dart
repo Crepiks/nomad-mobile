@@ -4,11 +4,16 @@ import 'package:nomad/common/constants/app_colors.dart';
 typedef TextChangeAction = Function(String text);
 
 class AnswerInput extends StatefulWidget {
-  final TextChangeAction? onTextChange;
+  final String value;
   final bool? success;
+  final TextChangeAction? onTextChange;
 
-  const AnswerInput({Key? key, this.onTextChange, this.success})
-      : super(key: key);
+  const AnswerInput({
+    Key? key,
+    required this.value,
+    this.success,
+    this.onTextChange,
+  }) : super(key: key);
 
   @override
   State<AnswerInput> createState() => _AnswerInputState();
@@ -17,7 +22,12 @@ class AnswerInput extends StatefulWidget {
 class _AnswerInputState extends State<AnswerInput> {
   @override
   Widget build(BuildContext context) {
+    final controller = TextEditingController(text: widget.value);
+    controller.selection = TextSelection.fromPosition(
+        TextPosition(offset: controller.text.length));
+
     return TextField(
+      controller: controller,
       onChanged: (String text) {
         if (widget.onTextChange != null) {
           widget.onTextChange!(text);
