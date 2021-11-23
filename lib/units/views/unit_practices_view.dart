@@ -72,7 +72,7 @@ class _UnitPracticesViewState extends State<UnitPracticesView> {
   }
 
   bool _hasNotAnsweredQuestions() {
-    return answers.any((element) => element == null);
+    return answers.any((element) => element == null || element == "");
   }
 
   int _getCorrectAnswersCount(List<Question> questions) {
@@ -102,7 +102,15 @@ class _UnitPracticesViewState extends State<UnitPracticesView> {
             description: practice.description ?? ""),
         const SizedBox(height: 20),
         QuestionsRenderer(
+          key: Key(index.toString()),
           questions: practice.questions,
+          answers: answers,
+          onAnswerUpdate: (int index, dynamic answer) {
+            setState(() {
+              answers[index] = answer;
+              answers = answers;
+            });
+          },
           onAnswersUpdate: (answers) {
             this.answers = answers;
           },
@@ -164,6 +172,9 @@ class _UnitPracticesViewState extends State<UnitPracticesView> {
       } else {
         activePracticeIndex++;
       }
+
+      answers = List.filled(
+          widget.practices[activePracticeIndex].questions.length, null);
     });
   }
 }
