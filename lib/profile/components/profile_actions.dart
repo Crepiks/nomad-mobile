@@ -147,8 +147,8 @@ class ProfileActions extends StatelessWidget {
                       onClick: () async {
                         SharedPreferences prefs =
                             await SharedPreferences.getInstance();
-                        prefs.remove("phoneNumber");
-                        prefs.remove("password");
+                        prefs.setBool("isLoggedIn", false);
+                        
                         Navigator.of(context).pop();
                         Navigator.pushAndRemoveUntil(
                             context,

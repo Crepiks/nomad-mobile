@@ -38,6 +38,7 @@ class App extends StatelessWidget {
 
   Future<bool> isLoggedIn() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.containsKey("phoneNumber") && prefs.containsKey("password");
+
+    return prefs.getBool("isLoggedIn") ?? false;
   }
 }
