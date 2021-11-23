@@ -6,10 +6,15 @@ typedef TapAction = Function();
 class TrueFalseButton extends StatelessWidget {
   final String text;
   final bool active;
+  final bool? success;
   final TapAction? onTap;
 
   const TrueFalseButton(
-      {Key? key, required this.text, this.active = false, this.onTap})
+      {Key? key,
+      required this.text,
+      this.active = false,
+      this.success,
+      this.onTap})
       : super(key: key);
 
   @override
@@ -23,13 +28,23 @@ class TrueFalseButton extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
         decoration: BoxDecoration(
-            color: active ? AppColors.primary : null,
+            color: success == null
+                ? active
+                    ? AppColors.primary
+                    : null
+                : success == true
+                    ? AppColors.success
+                    : AppColors.error,
             borderRadius: BorderRadius.circular(10),
-            border: Border.all(width: 1.4, color: AppColors.primary)),
+            border: success == null
+                ? Border.all(width: 1.4, color: AppColors.primary)
+                : null),
         child: Center(
           child: Text(text,
               style: TextStyle(
-                  color: active ? AppColors.white : AppColors.primary,
+                  color: active || success != null
+                      ? AppColors.white
+                      : AppColors.primary,
                   fontSize: 16)),
         ),
       ),
