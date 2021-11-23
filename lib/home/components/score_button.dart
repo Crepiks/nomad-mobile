@@ -4,9 +4,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nomad/common/constants/app_colors.dart';
 
 class ScoreButton extends StatelessWidget {
-  const ScoreButton({Key? key, required this.onClick}) : super(key: key);
-
+  final int score;
   final Function onClick;
+
+  const ScoreButton({Key? key, required this.score, required this.onClick})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,18 +21,18 @@ class ScoreButton extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
+            children: [
               Text(
-                "60",
-                style: TextStyle(
+                score.toString(),
+                style: const TextStyle(
                     color: AppColors.black,
                     fontSize: 18,
                     fontWeight: FontWeight.w500),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
-              FaIcon(
+              const FaIcon(
                 FontAwesomeIcons.fire,
                 size: 18,
                 color: AppColors.primary,
