@@ -98,6 +98,18 @@ class MockChapters {
             ])
           ]),
           practices: [
+            Practice(id: 4, title: "Дұрыс/Дұрыс емес деп жазыңыз.", questions: [
+              TrueFalseQuestion(text: "Мен Айдарбын", answer: false),
+              TrueFalseQuestion(text: "Сен Астанадасың", answer: true),
+              TrueFalseQuestion(text: "Ол Даниярмын", answer: false),
+              TrueFalseQuestion(text: "Сіз Алматыдасың", answer: true),
+              TrueFalseQuestion(text: "Мен оқушымын емеспін", answer: false),
+              TrueFalseQuestion(text: "Сен дәрігер емессің", answer: true),
+              TrueFalseQuestion(text: "Сіз мұғалімсіз емес", answer: false),
+              TrueFalseQuestion(text: "Ол спортшы емес", answer: true),
+              TrueFalseQuestion(text: "Сен үйдесің", answer: true),
+              TrueFalseQuestion(text: "Мен даладамын", answer: true),
+            ]),
             Practice(
                 id: 0,
                 title:
@@ -168,18 +180,6 @@ class MockChapters {
                   InputQuestion(
                       text: "(неге қызығады?)", answer: "", wide: true),
                 ]),
-            Practice(id: 4, title: "Дұрыс/Дұрыс емес деп жазыңыз.", questions: [
-              TrueFalseQuestion(text: "Мен Айдарбын", answer: false),
-              TrueFalseQuestion(text: "Сен Астанадасың", answer: true),
-              TrueFalseQuestion(text: "Ол Даниярмын", answer: false),
-              TrueFalseQuestion(text: "Сіз Алматыдасың", answer: true),
-              TrueFalseQuestion(text: "Мен оқушымын емеспін", answer: false),
-              TrueFalseQuestion(text: "Сен дәрігер емессің", answer: true),
-              TrueFalseQuestion(text: "Сіз мұғалімсіз емес", answer: false),
-              TrueFalseQuestion(text: "Ол спортшы емес", answer: true),
-              TrueFalseQuestion(text: "Сен үйдесің", answer: true),
-              TrueFalseQuestion(text: "Мен даладамын", answer: true),
-            ])
           ]),
       Unit(
           id: 1,

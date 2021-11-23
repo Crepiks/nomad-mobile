@@ -42,7 +42,11 @@ class QuestionsRenderer extends StatelessWidget {
                     onAnswersUpdate: onAnswersUpdate,
                   )
                 : questions[0] is TrueFalseQuestion
-                    ? TrueFalseQuestionsRenderer(questions: questions)
+                    ? TrueFalseQuestionsRenderer(
+                        questions: questions,
+                        answers: answers,
+                        onAnswerUpdate: onAnswerUpdate,
+                      )
                     : Container();
   }
 }
