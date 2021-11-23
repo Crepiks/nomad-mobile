@@ -7,20 +7,19 @@ import 'package:nomad/units/components/renderers/questions/input_questions_rende
 import 'package:nomad/units/components/renderers/questions/match_questions_renderer.dart';
 import 'package:nomad/units/components/renderers/questions/true_false_questions_renderer.dart';
 
-typedef AnswersUpdateAction = Function(List<dynamic>);
 typedef AnswerUpdateAction = Function(int index, dynamic value);
 
 class QuestionsRenderer extends StatelessWidget {
   final List<Question> questions;
-  final AnswersUpdateAction onAnswersUpdate;
   final List<dynamic> answers;
+  final bool review;
   final AnswerUpdateAction onAnswerUpdate;
 
   const QuestionsRenderer(
       {Key? key,
       required this.questions,
       required this.answers,
-      required this.onAnswersUpdate,
+      required this.review,
       required this.onAnswerUpdate})
       : super(key: key);
 
@@ -35,7 +34,9 @@ class QuestionsRenderer extends StatelessWidget {
         : questions[0] is MatchQuestion
             ? MatchQuestionsRenderer(
                 questions: questions,
-                onAnswersUpdate: onAnswersUpdate,
+                answers: answers,
+                review: review,
+                onAnswerUpdate: onAnswerUpdate,
               )
             : questions[0] is TrueFalseQuestion
                 ? TrueFalseQuestionsRenderer(

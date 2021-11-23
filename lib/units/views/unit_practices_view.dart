@@ -30,6 +30,7 @@ class UnitPracticesView extends StatefulWidget {
 class _UnitPracticesViewState extends State<UnitPracticesView> {
   int activePracticeIndex = 0;
   List<dynamic> answers = [];
+  bool review = false;
 
   @override
   void initState() {
@@ -105,14 +106,12 @@ class _UnitPracticesViewState extends State<UnitPracticesView> {
           key: Key(index.toString()),
           questions: practice.questions,
           answers: answers,
+          review: review,
           onAnswerUpdate: (int index, dynamic answer) {
             setState(() {
               answers[index] = answer;
               answers = answers;
             });
-          },
-          onAnswersUpdate: (answers) {
-            this.answers = answers;
           },
         )
       ],

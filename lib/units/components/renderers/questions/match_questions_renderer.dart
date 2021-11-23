@@ -1,17 +1,22 @@
 import "package:flutter/material.dart";
 import 'package:nomad/common/constants/app_colors.dart';
-import 'package:nomad/data/models/questions/match_question.dart';
 import 'package:nomad/data/models/questions/question.dart';
 import 'package:nomad/units/components/match_question_option.dart';
 
-typedef AnswersUpdateAction = Function(List<dynamic>);
+typedef AnswerUpdateAction = Function(int index, String? value);
 
 class MatchQuestionsRenderer extends StatefulWidget {
   final List<Question> questions;
-  final AnswersUpdateAction onAnswersUpdate;
+  final List<dynamic> answers;
+  final bool review;
+  final AnswerUpdateAction onAnswerUpdate;
 
   const MatchQuestionsRenderer(
-      {Key? key, required this.questions, required this.onAnswersUpdate})
+      {Key? key,
+      required this.questions,
+      required this.answers,
+      required this.review,
+      required this.onAnswerUpdate})
       : super(key: key);
 
   @override
@@ -20,17 +25,6 @@ class MatchQuestionsRenderer extends StatefulWidget {
 
 class _MatchQuestionsRendererState extends State<MatchQuestionsRenderer> {
   int? activeQuestionIndex;
-  List<String?> answers = [];
-
-  @override
-  void initState() {
-    setState(() {
-      answers = List.filled(widget.questions.length, null);
-      widget.onAnswersUpdate(answers);
-    });
-
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,14 +57,13 @@ class _MatchQuestionsRendererState extends State<MatchQuestionsRenderer> {
 
   List<Widget> _buildQuestions(List<Question> questions) {
     return questions.asMap().entries.map((element) {
-      final MatchQuestion question = element.value as MatchQuestion;
       final int index = element.key;
 
       return Padding(
         padding: const EdgeInsets.symmetric(vertical: 10),
         child: _buildMatchQuestion(
-            text: question.text,
             index: index,
+            review: widget.review,
             onTap: () {
               setState(() {
                 activeQuestionIndex = index;
@@ -81,14 +74,20 @@ class _MatchQuestionsRendererState extends State<MatchQuestionsRenderer> {
     }).toList();
   }
 
-  Widget _buildMatchQuestion(
-      {required int index, required String text, required onTap}) {
+  Widget _buildMatchQuestion({
+    required int index,
+    required onTap,
+    bool review = false,
+  }) {
+    final question = widget.questions[index];
+    final answer = widget.answers[index];
+
     return SizedBox(
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("${index + 1}. $text",
+          Text("${index + 1}. ${question.text}",
               style: const TextStyle(
                   color: AppColors.black, fontSize: 18, height: 1.2)),
           const SizedBox(height: 10),
@@ -96,8 +95,10 @@ class _MatchQuestionsRendererState extends State<MatchQuestionsRenderer> {
               onTap: () {
                 onTap();
               },
-              child: answers[index] != null
-                  ? _buildSelectedField(answers[index]!)
+              child: answer != null
+                  ? _buildSelectedField(
+                      answer: answer,
+                      success: review ? answer == question.answer : null)
                   : _buildEmptySelectField())
         ],
       ),
@@ -116,15 +117,21 @@ class _MatchQuestionsRendererState extends State<MatchQuestionsRenderer> {
         ));
   }
 
-  Widget _buildSelectedField(String answer) {
+  Widget _buildSelectedField({required String answer, bool? success}) {
     return Container(
         width: double.infinity,
         height: 56,
         padding: const EdgeInsets.symmetric(horizontal: 16),
         alignment: Alignment.centerLeft,
         decoration: BoxDecoration(
-            color: AppColors.primary,
-            border: Border.all(width: 2, color: AppColors.primary),
+            color: success == null
+                ? AppColors.primary
+                : success
+                    ? AppColors.success
+                    : AppColors.error,
+            border: success == null
+                ? Border.all(width: 2, color: AppColors.primary)
+                : null,
             borderRadius: BorderRadius.circular(10)),
         child: Center(
           child: Text(answer,
@@ -178,30 +185,25 @@ class _MatchQuestionsRendererState extends State<MatchQuestionsRenderer> {
   }
 
   String? _findAnwerByText(String text) {
-    return answers.firstWhere((answer) => answer == text, orElse: () => null);
+    return widget.answers
+        .firstWhere((answer) => answer == text, orElse: () => null);
   }
 
   _onOptionTap(String answer) {
     _removeAnswer(answer);
-
-    setState(() {
-      if (activeQuestionIndex != null) {
-        answers[activeQuestionIndex!] = answer;
-        answers = answers;
-        widget.onAnswersUpdate(answers);
-      }
-    });
+    if (activeQuestionIndex != null) {
+      widget.onAnswerUpdate(activeQuestionIndex!, answer);
+    }
   }
 
   _removeAnswer(String answer) {
-    setState(() {
-      answers = answers.map((element) {
-        if (element == answer) {
-          return null;
-        }
+    widget.answers.asMap().entries.forEach((element) {
+      final value = element.value;
+      final index = element.key;
 
-        return element;
-      }).toList();
+      if (value == answer) {
+        widget.onAnswerUpdate(index, null);
+      }
     });
   }
 }
