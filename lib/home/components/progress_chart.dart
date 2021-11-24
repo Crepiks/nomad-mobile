@@ -123,7 +123,7 @@ class ProgressChartState extends State<ProgressChart> {
           case 5:
             return makeGroupData(
               5,
-              10,
+              0,
             );
           case 6:
             return makeGroupData(
