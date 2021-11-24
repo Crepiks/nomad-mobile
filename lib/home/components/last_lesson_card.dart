@@ -48,7 +48,7 @@ class LastLessonCard extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.6,
                 child: const Text(
-                  "Окончания — Урок 4. Мын/Сын/Сыз",
+                  "Окончания — Урок 1. -МЫН/МІН/-СЫҢ/-СІҢ/-СЫЗ/-СІЗ",
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
