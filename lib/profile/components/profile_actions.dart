@@ -375,6 +375,7 @@ class _ProfileActionsState extends State<ProfileActions> {
                         prefs.remove("userLastName");
                         prefs.remove("hasSubscription");
                         prefs.remove("isLoggedIn");
+                        prefs.remove("score");
 
                         Navigator.of(context).pop();
                         Navigator.pushAndRemoveUntil(
