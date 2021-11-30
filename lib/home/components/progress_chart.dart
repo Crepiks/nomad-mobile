@@ -150,19 +150,19 @@ class ProgressChartState extends State<ProgressChart> {
           getTitles: (double value) {
             switch (value.toInt()) {
               case 0:
-                return 'Чт';
-              case 1:
-                return 'Пт';
-              case 2:
-                return 'Сб';
-              case 3:
-                return 'Вс';
-              case 4:
-                return 'Пн';
-              case 5:
-                return 'Вт';
-              case 6:
                 return 'Ср';
+              case 1:
+                return 'Чт';
+              case 2:
+                return 'Пт';
+              case 3:
+                return 'Сб';
+              case 4:
+                return 'Вс';
+              case 5:
+                return 'Пн';
+              case 6:
+                return 'Вт';
               default:
                 return '';
             }
